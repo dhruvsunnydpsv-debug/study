@@ -2,65 +2,104 @@ import requests
 import time
 from supabase import create_client
 
-# --- CREDENTIALS (VERIFIED WORKING) ---
+# --- CREDENTIALS (VERIFIED) ---
 SUPABASE_URL = "https://wfegooasrtbhpursgcvh.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s"
 SERPER_KEY = "08f33a092d4657bd7ef7da25237b2d40703b9698"
 
 # 1. SETUP CLIENT
-print(f"--- CONNECTING TO: {SUPABASE_URL} ---")
 try:
     supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 except Exception as e:
     print(f"❌ CRITICAL ERROR: {e}")
     exit(1)
 
-# 2. THE HUNT
+# 2. THE COMPLETE CLASS 9 SYLLABUS
 syllabus = {
-    "Maths": ["Polynomials", "Number Systems", "Circles"],
-    "Science": ["Motion", "Force and Laws of Motion", "Gravitation"]
+    "Maths": [
+        "Number Systems", "Polynomials", "Coordinate Geometry", 
+        "Linear Equations in Two Variables", "Introduction to Euclids Geometry", 
+        "Lines and Angles", "Triangles", "Quadrilaterals", "Circles", 
+        "Herons Formula", "Surface Areas and Volumes", "Statistics"
+    ],
+    "Science": [
+        "Matter in Our Surroundings", "Is Matter Around Us Pure", 
+        "Atoms and Molecules", "Structure of the Atom", 
+        "The Fundamental Unit of Life", "Tissues", "Motion", 
+        "Force and Laws of Motion", "Gravitation", "Work and Energy", 
+        "Sound", "Improvement in Food Resources"
+    ],
+    "Social Science": [
+        "The French Revolution", "Socialism in Europe and the Russian Revolution",
+        "Nazism and the Rise of Hitler", "Forest Society and Colonialism",
+        "India Size and Location", "Physical Features of India", "Drainage",
+        "Climate", "Natural Vegetation and Wildlife", "Population",
+        "What is Democracy Why Democracy", "Constitutional Design", 
+        "Electoral Politics", "Working of Institutions", "Democratic Rights",
+        "The Story of Village Palampur", "People as Resource", 
+        "Poverty as a Challenge", "Food Security in India"
+    ],
+    "English": [
+        "Beehive Prose", "Beehive Poems", "Moments Supplementary Reader", 
+        "English Reading Comprehension", "English Writing Skills", "English Grammar"
+    ],
+    "Hindi": [
+        "Kshitij", "Sparsh", "Kritika", "Sanchayan", "Hindi Vyakaran"
+    ]
 }
 
+# 3. SEARCH PARAMETERS
+years = ["2025", "2024", "2023", "2022"]
+doc_types = ["question paper", "sample paper", "worksheet"]
+
 def hunt():
-    print("--- STARTING PAPER HUNT ---")
-    
-    # TEST INSERT (Using pure insert to bypass constraint error)
-    print("Attempting test insert...")
-    try:
-        test_data = {"file_name": "FINAL_SUCCESS_TEST", "file_url": "http://final-test.com", "subject": "Debug", "chapter": "Debug"}
-        supabase.table("source_papers").insert(test_data).execute()
-        print("✅ SUCCESS! Test row saved to database.")
-    except Exception as e:
-        # If it fails, we print why but continue just in case
-        print(f"⚠️ Test insert notice: {e}")
+    print("--- STARTING ULTIMATE CLASS 9 HUNT ---")
+    total_found = 0
 
     for subject, chapters in syllabus.items():
+        print(f"📘 STARTING SUBJECT: {subject}")
+        
         for chapter in chapters:
-            query = f"filetype:pdf class 9 {subject} {chapter} question paper 2025"
-            print(f"🔍 Searching: {chapter}...")
-            
-            headers = {'X-API-KEY': SERPER_KEY, 'Content-Type': 'application/json'}
-            try:
-                response = requests.post("https://google.serper.dev/search", json={"q": query, "num": 10}, headers=headers)
-                results = response.json().get('organic', [])
-
-                for item in results:
-                    data = {
-                        "file_name": item.get('title'),
-                        "file_url": item.get('link'),
-                        "subject": subject,
-                        "chapter": chapter
-                    }
+            for year in years:
+                for doc_type in doc_types:
+                    # Specific query for maximum yield
+                    query = f"filetype:pdf class 9 {subject} {chapter} {doc_type} {year} download"
+                    
+                    print(f"🔍 Hunting: {chapter} | {doc_type} | {year}...")
+                    
+                    headers = {'X-API-KEY': SERPER_KEY, 'Content-Type': 'application/json'}
                     try:
-                        # CHANGED FROM UPSERT TO INSERT TO FIX YOUR ERROR
-                        supabase.table("source_papers").insert(data).execute()
-                        print(f"   -> Saved: {item.get('title')[:30]}...")
+                        # Requesting 100 results per search
+                        response = requests.post("https://google.serper.dev/search", json={"q": query, "num": 100}, headers=headers)
+                        results = response.json().get('organic', [])
+
+                        if not results:
+                            continue
+
+                        count = 0
+                        for item in results:
+                            data = {
+                                "file_name": item.get('title'),
+                                "file_url": item.get('link'),
+                                "subject": subject,
+                                "chapter": chapter
+                            }
+                            try:
+                                # "Dumb" insert to force data in (bypassing unique constraint errors)
+                                supabase.table("source_papers").insert(data).execute()
+                                count += 1
+                            except:
+                                pass # Skip duplicates silently
+                        
+                        total_found += count
+                        if count > 0:
+                            print(f"   ✅ +{count} papers. (Total: {total_found})")
+
                     except Exception as e:
-                        print(f"   ⚠️ Save Error: {e}")
-            except Exception as e:
-                print(f"Search Error: {e}")
-            
-            time.sleep(1)
+                        print(f"   ❌ Network/API Error: {e}")
+                    
+                    # Sleep is CRITICAL here to avoid getting banned by Google or Serper
+                    time.sleep(1.5)
 
 if __name__ == "__main__":
     hunt()
