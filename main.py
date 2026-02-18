@@ -19,7 +19,7 @@ syllabus = {
 def hunt():
     for subject, chapters in syllabus.items():
         for chapter in chapters:
-            # We search for BOTH Theory and Questions for every chapter
+            # Searching for BOTH Theory and Questions to fill the library
             for search_type in ["theory notes", "question paper"]:
                 print(f"🔍 Hunting: {subject} - {chapter} ({search_type})")
                 
@@ -30,6 +30,9 @@ def hunt():
                     response = requests.post("https://google.serper.dev/search", json={"q": query, "num": 50}, headers=headers)
                     results = response.json().get('organic', [])
 
+                    if not results:
+                        print(f"⚠️ No results found for {chapter}")
+
                     for item in results:
                         data = {
                             "file_name": item.get('title'),
@@ -37,10 +40,11 @@ def hunt():
                             "subject": subject,
                             "chapter": chapter
                         }
-                        # .upsert avoids duplicates automatically
-                        supabase.table("study_papers").upsert(data, on_conflict="file_url").execute()
+                        # Using 'source_papers' to match your Supabase table name
+                        supabase.table("source_papers").upsert(data, on_conflict="file_url").execute()
+                        
                 except Exception as e:
-                    print(f"Error skipping: {e}")
+                    print(f"❌ Error during search or insert: {e}")
                 
                 time.sleep(1) # Delay to stay under API limits
 
