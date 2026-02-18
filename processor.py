@@ -7,112 +7,87 @@ from supabase import create_client
 import google.generativeai as genai
 from pypdf import PdfReader
 
-# --- CONFIGURATION ---
+# --- CREDENTIALS ---
 SUPABASE_URL = "https://wfegooasrtbhpursgcvh.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s"
-GEMINI_KEY = "AIzaSyAMzy-rpQ3xrqLV7MJSmRFSKOETVZM2Br4" # Your provided key
+GEMINI_KEY = "AIzaSyAMzy-rpQ3xrqLV7MJSmRFSKOETVZM2Br4"
 
-# Initialize Clients
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 genai.configure(api_key=GEMINI_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 def get_unprocessed_paper():
-    # Fetch a paper that exists but hasn't been processed into questions yet
-    # (In a real scenario, we would check a 'processed' flag, but here we pick random for demo)
-    response = supabase.table("source_papers").select("*").limit(1).execute()
-    if response.data:
-        return response.data[0]
-    return None
+    # Pick a random paper from your 6,532 sources
+    res = supabase.table("source_papers").select("*").limit(1).execute()
+    return res.data[0] if res.data else None
 
-def extract_text_from_pdf(url):
-    try:
-        response = requests.get(url)
-        f = io.BytesIO(response.content)
-        reader = PdfReader(f)
-        text = ""
-        for page in reader.pages:
-            text += page.extract_text() + "\n"
-        return text
-    except Exception as e:
-        print(f"❌ PDF Error: {e}")
-        return None
-
-def analyze_with_ai(text, subject, chapter):
+def analyze_paper_expertly(text, subject, chapter):
+    # This prompt teaches Gemini the 2026 Board Marking Scheme
     prompt = f"""
-    You are a strict teacher. I will give you text from a {subject} exam paper on {chapter}.
-    Extract 5 distinct questions from it.
+    You are a CBSE Exam Expert. Analyze this {subject} paper on {chapter}.
     
-    Return ONLY valid JSON in this format:
-    [
-      {{
-        "question_text": "The actual question goes here",
-        "difficulty": "Easy", 
-        "marks": 1,
-        "type": "MCQ"
-      }},
-      {{
-        "question_text": "Another question...",
-        "difficulty": "Hard",
-        "marks": 5,
-        "type": "Theory"
-      }}
-    ]
+    LATEST 2026 PATTERN RULES:
+    - Section A: MCQs (1 Mark)
+    - Section B: Very Short (2 Marks)
+    - Section C: Short (3 Marks)
+    - Section D: Long (5 Marks)
+    - Section E: Case-Based (4 Marks)
+
+    TASK:
+    Extract 10 questions. For each, identify the correct Section and Difficulty.
+    Difficulty Scale: 
+    - Easy: Basic definitions/formulas.
+    - Medium: Direct application/problems.
+    - Hard: Complex proofs/HOTS questions.
+
+    RETURN JSON ONLY:
+    [{{
+      "question_text": "...",
+      "difficulty": "Hard",
+      "marks": 5,
+      "section": "Section D",
+      "type": "Theory"
+    }}]
     
-    Rules:
-    - Difficulty must be 'Easy', 'Medium', or 'Hard'.
-    - Type must be 'MCQ', 'Theory', or 'Numerical'.
-    - Do not include markdown formatting like ```json.
-    
-    Here is the text:
-    {text[:10000]} 
+    TEXT: {text[:10000]}
     """
-    
     try:
         response = model.generate_content(prompt)
-        # Clean the response to ensure it's pure JSON
-        clean_text = response.text.replace("```json", "").replace("```", "").strip()
-        return json.loads(clean_text)
-    except Exception as e:
-        print(f"❌ AI Error: {e}")
-        return []
+        return json.loads(response.text.replace("```json", "").replace("```", "").strip())
+    except: return []
 
 def run_processor():
-    print("--- 🧠 STARTING AI PROCESSOR ---")
-    
+    print("--- 🧠 VERIX SMART PROCESSOR STARTING ---")
     paper = get_unprocessed_paper()
-    if not paper:
-        print("No papers found to process.")
-        return
+    if not paper: return
 
-    print(f"📄 Processing: {paper['file_name']} ({paper['chapter']})")
-    
-    # 1. Extract Text
-    pdf_text = extract_text_from_pdf(paper['file_url'])
-    if not pdf_text or len(pdf_text) < 50:
-        print("⚠️ PDF was empty or unreadable (scanned image). Skipping.")
-        return
-
-    # 2. Send to AI
-    print("🤖 Analyzing with Gemini...")
-    questions = analyze_with_ai(pdf_text, paper['subject'], paper['chapter'])
-    
-    # 3. Save to Question Bank
-    if questions:
-        print(f"✅ Extracted {len(questions)} questions!")
+    try:
+        # 1. Download & OCR
+        res = requests.get(paper['file_url'], timeout=10)
+        reader = PdfReader(io.BytesIO(res.content))
+        text = "".join([p.extract_text() for p in reader.pages[:3]])
+        
+        # 2. AI Extraction
+        print(f"🤖 Analyzing: {paper['file_name']}")
+        questions = analyze_paper_expertly(text, paper['subject'], paper['chapter'])
+        
+        # 3. Smart Save
         for q in questions:
-            # Add metadata from the source paper
-            q['source_paper_id'] = paper['id'] # Needs ID from source_papers
-            q['subject'] = paper['subject']
-            q['chapter'] = paper['chapter']
+            q.update({"subject": paper['subject'], "chapter": paper['chapter']})
             
-            try:
+            # CHECK FOR DUPLICATES: If question exists, just increase its 'frequency'
+            existing = supabase.table("question_bank").select("id, appearance_count").eq("question_text", q['question_text']).execute()
+            
+            if existing.data:
+                new_count = (existing.data[0]['appearance_count'] or 1) + 1
+                supabase.table("question_bank").update({"appearance_count": new_count}).eq("id", existing.data[0]['id']).execute()
+                print("   📈 Increased frequency for repeated question.")
+            else:
                 supabase.table("question_bank").insert(q).execute()
-                print(f"   -> Saved: {q['difficulty']} question ({q['marks']} marks)")
-            except Exception as e:
-                print(f"   ❌ Save Error: {e}")
-    else:
-        print("⚠️ AI found no questions.")
+                print(f"   ✅ Saved New {q['difficulty']} question.")
+
+    except Exception as e:
+        print(f"❌ Error: {e}")
 
 if __name__ == "__main__":
     run_processor()
