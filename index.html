@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study - Dhruv Shah</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+        .paper-item { padding: 10px; border-bottom: 1px solid #eee; }
+        a { color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Class 9 Question Bank</h1>
+    <div id="papers-list">Loading papers...</div>
+</div>
+
+<script>
+    // 1. Setup Connection (Using your keys)
+    const SUPABASE_URL = "https://wfegoasrtbhpursgcvh.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s";
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    // 2. Function to Get Data
+    async function getPapers() {
+        const { data, error } = await supabase
+            .from('study_papers') // Matches the table we created
+            .select('*')
+            .limit(50); // Show first 50 results
+
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        const listDiv = document.getElementById('papers-list');
+        listDiv.innerHTML = ''; // Clear loading text
+
+        data.forEach(paper => {
+            const div = document.createElement('div');
+            div.className = 'paper-item';
+            div.innerHTML = `
+                <strong>${paper.subject} - ${paper.chapter}</strong><br>
+                <a href="${paper.file_url}" target="_blank">${paper.file_name}</a>
+            `;
+            listDiv.appendChild(div);
+        });
+    }
+
+    getPapers();
+</script>
+
+</body>
+</html>
