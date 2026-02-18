@@ -1,62 +1,62 @@
-import os
 import requests
 import time
 from supabase import create_client
 
-# 1. SETUP & DEBUG
-URL = os.environ.get("SUPABASE_URL")
-KEY = os.environ.get("SUPABASE_KEY")
-SERPER_KEY = os.environ.get("SERPER_KEY")
+# --- HARDCODED CREDENTIALS (TO FORCE IT TO WORK) ---
+SUPABASE_URL = "https://wfegoasrtbhpursgcvh.supabase.co"
+# Your Anon Key
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s"
+# Your Serper Key
+SERPER_KEY = "08f33a092d4657bd7ef7da25237b2d40703b9698"
 
-print(f"--- DEBUG INFO ---")
-print(f"URL exists: {bool(URL)}")
-print(f"KEY exists: {bool(KEY)}")
-print(f"SERPER exists: {bool(SERPER_KEY)}")
-
-if not URL or not KEY or not SERPER_KEY:
-    raise ValueError("CRITICAL ERROR: One of your Secrets is missing in GitHub Settings!")
-
-supabase = create_client(URL, KEY)
-
-# 2. TEST CONNECTION FIRST
-print("--- TESTING DATABASE CONNECTION ---")
+print("--- INITIALIZING ---")
 try:
-    test_data = {"file_name": "TEST_ENTRY", "subject": "Debug", "file_url": "http://test.com"}
-    response = supabase.table("source_papers").upsert(test_data, on_conflict="file_url").execute()
-    print("✅ Connection Successful! Test row inserted.")
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+    print("✅ Supabase Client Created")
 except Exception as e:
-    print(f"❌ DATABASE ERROR: {e}")
-    raise e # Crash the script so we know it failed
-
-# 3. THE HUNT
-syllabus = {"Maths": ["Polynomials"]} # Checking just ONE chapter first to be fast
+    print(f"❌ CRITICAL: Failed to create client: {e}")
+    exit(1)
 
 def hunt():
-    print("--- STARTING HUNT ---")
-    query = "filetype:pdf class 9 maths polynomials question paper rationalised 2025"
+    print("--- STARTING SEARCH ---")
+    # searching for just ONE thing first to prove it works
+    query = "filetype:pdf class 9 maths rationalised syllabus 2025 question paper"
     
     headers = {'X-API-KEY': SERPER_KEY, 'Content-Type': 'application/json'}
-    response = requests.post("https://google.serper.dev/search", json={"q": query, "num": 10}, headers=headers)
     
-    if response.status_code != 200:
-        print(f"❌ SERPER API ERROR: {response.text}")
-        return
+    try:
+        print(f"🔎 Sending query to Serper...")
+        response = requests.post("https://google.serper.dev/search", json={"q": query, "num": 10}, headers=headers)
+        
+        if response.status_code != 200:
+            print(f"❌ API ERROR: {response.text}")
+            return
 
-    results = response.json().get('organic', [])
-    print(f"🔎 Found {len(results)} links for Polynomials")
+        results = response.json().get('organic', [])
+        print(f"✅ Found {len(results)} links!")
 
-    for item in results:
-        print(f"   -> Saving: {item.get('title')}")
-        data = {
-            "file_name": item.get('title'),
-            "file_url": item.get('link'),
-            "subject": "Maths",
-            "chapter": "Polynomials"
-        }
-        try:
-            supabase.table("source_papers").upsert(data, on_conflict="file_url").execute()
-        except Exception as e:
-            print(f"   ❌ INSERT FAILED: {e}")
+        if len(results) == 0:
+            print("⚠️ Search worked but found 0 results. Try changing the query.")
+
+        for item in results:
+            print(f"   -> Saving: {item.get('title')}")
+            data = {
+                "file_name": item.get('title'),
+                "file_url": item.get('link'),
+                "subject": "Maths",
+                "chapter": "General"
+            }
+            
+            # ATTEMPTING SAVE
+            try:
+                # Using 'source_papers' matching your screenshot
+                result = supabase.table("source_papers").upsert(data, on_conflict="file_url").execute()
+                print("      ✅ SAVED to Database")
+            except Exception as insert_error:
+                print(f"      ❌ INSERT ERROR: {insert_error}")
+
+    except Exception as e:
+        print(f"❌ SCRIPT CRASHED: {e}")
 
 if __name__ == "__main__":
     hunt()
