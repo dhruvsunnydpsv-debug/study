@@ -3,55 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study - Dhruv Shah</title>
+    <title>Study Vault | Dhruv Shah</title>
+    <meta name="description" content="Class 9 CBSE Question Bank — AI-curated study papers, question papers, and worksheets. Updated automatically.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
-        .paper-item { padding: 10px; border-bottom: 1px solid #eee; }
-        a { color: #007bff; text-decoration: none; font-weight: bold; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --text-primary: #f0f0f5;
+            --text-secondary: rgba(240, 240, 245, 0.6);
+            --text-muted: rgba(240, 240, 245, 0.35);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --accent-1: #7c3aed;
+            --accent-2: #06b6d4;
+            --accent-3: #f43f5e;
+            --accent-4: #f59e0b;
+            --glow: 0 0 40px rgba(124, 58, 237, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Aurora Background */
+        .aurora {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+        }
+        .aurora-blob {
+            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; animation: float 20s ease-in-out infinite;
+        }
+        .aurora-blob:nth-child(1) { width: 600px; height: 600px; background: var(--accent-1); top: -10%; left: -5%; animation-delay: 0s; }
+        .aurora-blob:nth-child(2) { width: 500px; height: 500px; background: var(--accent-2); top: 30%; right: -10%; animation-delay: -7s; }
+        .aurora-blob:nth-child(3) { width: 450px; height: 450px; background: var(--accent-3); bottom: -5%; left: 30%; animation-delay: -14s; }
+        .aurora-blob:nth-child(4) { width: 350px; height: 350px; background: var(--accent-4); top: 50%; left: 10%; animation-delay: -3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -40px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(15px, 35px) scale(1.02); }
+        }
+
+        /* Layout */
+        .app { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* Header */
+        .header { text-align: center; margin-bottom: 48px; }
+        .header-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 14px; border-radius: 100px;
+            background: rgba(124, 58, 237, 0.12); border: 1px solid rgba(124, 58, 237, 0.25);
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #a78bfa; margin-bottom: 20px;
+        }
+        .header-badge .pulse {
+            width: 6px; height: 6px; border-radius: 50%; background: #22c55e;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #f0f0f5 0%, #a78bfa 50%, #06b6d4 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; line-height: 1.2; margin-bottom: 12px;
+        }
+        .header p { color: var(--text-secondary); font-size: 1rem; font-weight: 400; max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+        /* Stats Bar */
+        .stats {
+            display: flex; justify-content: center; gap: 32px; margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
+        .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+
+        /* Filter Tabs */
+        .filters {
+            display: flex; gap: 8px; margin-bottom: 28px; overflow-x: auto;
+            padding-bottom: 4px; scrollbar-width: none;
+        }
+        .filters::-webkit-scrollbar { display: none; }
+        .filter-btn {
+            padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border);
+            background: transparent; color: var(--text-secondary); font-family: inherit;
+            font-size: 0.8rem; font-weight: 500; cursor: pointer; white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .filter-btn:hover { border-color: var(--border-hover); color: var(--text-primary); background: var(--bg-card); }
+        .filter-btn.active {
+            background: rgba(124, 58, 237, 0.15); border-color: rgba(124, 58, 237, 0.4);
+            color: #c4b5fd; font-weight: 600;
+        }
+
+        /* Paper Cards */
+        .papers-grid { display: flex; flex-direction: column; gap: 8px; }
+
+        .paper-card {
+            display: flex; align-items: center; gap: 16px;
+            padding: 16px 20px; border-radius: 14px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            transition: all 0.25s ease; cursor: pointer; text-decoration: none;
+        }
+        .paper-card:hover {
+            background: var(--bg-card-hover); border-color: var(--border-hover);
+            transform: translateY(-1px); box-shadow: var(--glow);
+        }
+
+        .paper-icon {
+            width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; font-weight: 700;
+        }
+        .paper-icon.maths { background: rgba(124, 58, 237, 0.15); color: #a78bfa; }
+        .paper-icon.science { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+        .paper-icon.social { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+        .paper-icon.english { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .paper-icon.hindi { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+        .paper-icon.default { background: rgba(255,255,255,0.08); color: var(--text-secondary); }
+
+        .paper-info { flex: 1; min-width: 0; }
+        .paper-title {
+            font-size: 0.9rem; font-weight: 500; color: var(--text-primary);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px;
+        }
+        .paper-meta {
+            display: flex; gap: 12px; align-items: center;
+        }
+        .paper-meta span {
+            font-size: 0.72rem; color: var(--text-muted); font-weight: 400;
+        }
+        .paper-meta .tag {
+            padding: 2px 8px; border-radius: 100px; font-size: 0.65rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .tag.maths { background: rgba(124,58,237,0.1); color: #a78bfa; }
+        .tag.science { background: rgba(6,182,212,0.1); color: #22d3ee; }
+        .tag.social { background: rgba(244,63,94,0.1); color: #fb7185; }
+        .tag.english { background: rgba(245,158,11,0.1); color: #fbbf24; }
+        .tag.hindi { background: rgba(34,197,94,0.1); color: #4ade80; }
+        .tag.default { background: rgba(255,255,255,0.06); color: var(--text-muted); }
+
+        .paper-arrow { color: var(--text-muted); font-size: 1rem; transition: transform 0.2s; flex-shrink: 0; }
+        .paper-card:hover .paper-arrow { transform: translateX(3px); color: var(--text-secondary); }
+
+        /* Loading & Empty States */
+        .loading-state {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 60px 0; gap: 16px;
+        }
+        .spinner {
+            width: 36px; height: 36px; border: 3px solid var(--border);
+            border-top-color: var(--accent-1); border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { color: var(--text-muted); font-size: 0.85rem; }
+
+        .empty-state {
+            text-align: center; padding: 60px 20px; color: var(--text-muted);
+        }
+        .empty-state .emoji { font-size: 2.5rem; margin-bottom: 12px; }
+        .empty-state p { font-size: 0.9rem; line-height: 1.6; }
+
+        .error-state {
+            text-align: center; padding: 40px 20px;
+            background: rgba(244, 63, 94, 0.06); border: 1px solid rgba(244, 63, 94, 0.15);
+            border-radius: 14px;
+        }
+        .error-state p { color: #fb7185; font-size: 0.85rem; }
+
+        /* Fade-in animation */
+        .fade-in { animation: fadeIn 0.4s ease forwards; opacity: 0; }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .app { padding: 24px 16px 60px; }
+            .paper-card { padding: 14px 16px; }
+            .stats { gap: 20px; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Class 9 Question Bank</h1>
-    <div id="papers-list">Loading papers...</div>
+<div class="aurora">
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+</div>
+
+<div class="app">
+    <header class="header">
+        <div class="header-badge"><span class="pulse"></span> Auto-Updated Hourly</div>
+        <h1>Study Vault</h1>
+        <p>AI-curated Class 9 CBSE question papers, sample papers, and worksheets — growing every hour.</p>
+    </header>
+
+    <div class="stats" id="stats-bar">
+        <div class="stat-item"><span class="stat-value" id="stat-total">—</span><span class="stat-label">Papers</span></div>
+        <div class="stat-item"><span class="stat-value" id="stat-subjects">—</span><span class="stat-label">Subjects</span></div>
+        <div class="stat-item"><span class="stat-value" id="stat-chapters">—</span><span class="stat-label">Chapters</span></div>
+    </div>
+
+    <div class="filters" id="filters"></div>
+    <div id="papers-list">
+        <div class="loading-state"><div class="spinner"></div><span class="loading-text">Loading papers...</span></div>
+    </div>
 </div>
 
 <script>
-    // 1. Setup Connection (Using your keys)
-    const SUPABASE_URL = "https://wfegoasrtbhpursgcvh.supabase.co";
+    // --- Supabase Setup (FIXED: renamed variable to avoid collision with library) ---
+    const SUPABASE_URL = "https://wfegooasrtbhpursgcvh.supabase.co";
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s";
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // 2. Function to Get Data
-    async function getPapers() {
-        const { data, error } = await supabase
-            .from('study_papers') // Matches the table we created
-            .select('*')
-            .limit(50); // Show first 50 results
+    let allPapers = [];
+    let activeFilter = 'All';
 
-        if (error) {
-            console.error(error);
-            return;
-        }
-
-        const listDiv = document.getElementById('papers-list');
-        listDiv.innerHTML = ''; // Clear loading text
-
-        data.forEach(paper => {
-            const div = document.createElement('div');
-            div.className = 'paper-item';
-            div.innerHTML = `
-                <strong>${paper.subject} - ${paper.chapter}</strong><br>
-                <a href="${paper.file_url}" target="_blank">${paper.file_name}</a>
-            `;
-            listDiv.appendChild(div);
-        });
+    function getSubjectClass(subject) {
+        if (!subject) return 'default';
+        const s = subject.toLowerCase();
+        if (s.includes('math')) return 'maths';
+        if (s.includes('science') && !s.includes('social')) return 'science';
+        if (s.includes('social')) return 'social';
+        if (s.includes('english')) return 'english';
+        if (s.includes('hindi')) return 'hindi';
+        return 'default';
     }
 
-    getPapers();
+    function getSubjectIcon(subject) {
+        const icons = { maths: 'π', science: '⚛', social: '🌍', english: 'Aa', hindi: 'अ', default: '📄' };
+        return icons[getSubjectClass(subject)] || '📄';
+    }
+
+    function renderPapers(papers) {
+        const listDiv = document.getElementById('papers-list');
+        if (!papers || papers.length === 0) {
+            listDiv.innerHTML = '<div class="empty-state"><div class="emoji">📚</div><p>No papers found yet.<br>The AI hunter is working — check back soon!</p></div>';
+            return;
+        }
+        listDiv.innerHTML = papers.map((paper, i) => {
+            const cls = getSubjectClass(paper.subject);
+            const icon = getSubjectIcon(paper.subject);
+            const title = paper.file_name || paper.title || 'Untitled Paper';
+            const url = paper.file_url || paper.url || '#';
+            const subject = paper.subject || 'General';
+            const chapter = paper.chapter || '';
+            return `
+                <a href="${url}" target="_blank" rel="noopener" class="paper-card fade-in" style="animation-delay:${i * 0.03}s">
+                    <div class="paper-icon ${cls}">${icon}</div>
+                    <div class="paper-info">
+                        <div class="paper-title">${title}</div>
+                        <div class="paper-meta">
+                            <span class="tag ${cls}">${subject}</span>
+                            ${chapter ? `<span>${chapter}</span>` : ''}
+                        </div>
+                    </div>
+                    <span class="paper-arrow">→</span>
+                </a>`;
+        }).join('');
+    }
+
+    function renderFilters(papers) {
+        const subjects = ['All', ...new Set(papers.map(p => p.subject).filter(Boolean))];
+        const filtersDiv = document.getElementById('filters');
+        filtersDiv.innerHTML = subjects.map(s =>
+            `<button class="filter-btn ${s === activeFilter ? 'active' : ''}" onclick="filterBy('${s}')">${s}</button>`
+        ).join('');
+    }
+
+    function updateStats(papers) {
+        document.getElementById('stat-total').textContent = papers.length;
+        document.getElementById('stat-subjects').textContent = new Set(papers.map(p => p.subject).filter(Boolean)).size;
+        document.getElementById('stat-chapters').textContent = new Set(papers.map(p => p.chapter).filter(Boolean)).size;
+    }
+
+    function filterBy(subject) {
+        activeFilter = subject;
+        const filtered = subject === 'All' ? allPapers : allPapers.filter(p => p.subject === subject);
+        renderPapers(filtered);
+        renderFilters(allPapers);
+    }
+
+    async function init() {
+        try {
+            // Try source_papers table first (used by main.py hunter)
+            let { data, error } = await db.from('source_papers').select('*').limit(200);
+
+            // If that table doesn't exist or is empty, try the pdfs table (used by scraper.py)
+            if (error || !data || data.length === 0) {
+                const res2 = await db.from('pdfs').select('*').limit(200);
+                if (!res2.error && res2.data && res2.data.length > 0) {
+                    // Normalize pdfs table format to match
+                    data = res2.data.map(p => ({
+                        file_name: p.title || p.file_name,
+                        file_url: p.url || p.file_url,
+                        subject: p.subject || 'General',
+                        chapter: p.chapter || ''
+                    }));
+                    error = null;
+                }
+            }
+
+            // Also try study_papers
+            if (error || !data || data.length === 0) {
+                const res3 = await db.from('study_papers').select('*').limit(200);
+                if (!res3.error && res3.data) { data = res3.data; error = null; }
+            }
+
+            if (error) throw error;
+
+            allPapers = data || [];
+            updateStats(allPapers);
+            renderFilters(allPapers);
+            renderPapers(allPapers);
+        } catch (err) {
+            console.error('Load error:', err);
+            document.getElementById('papers-list').innerHTML =
+                '<div class="error-state"><p>⚠️ Could not load papers. Check the console for details.</p></div>';
+        }
+    }
+
+    init();
 </script>
 
 </body>

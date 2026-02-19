@@ -1,11 +1,16 @@
+import os
 import requests
 import time
 from supabase import create_client
 
-# --- CREDENTIALS (VERIFIED) ---
-SUPABASE_URL = "https://wfegooasrtbhpursgcvh.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s"
-SERPER_KEY = "08f33a092d4657bd7ef7da25237b2d40703b9698"
+# --- SECRETS FROM ENVIRONMENT (set via GitHub Secrets) ---
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+SERPER_KEY = os.environ.get("SERPER_KEY")
+
+if not all([SUPABASE_URL, SUPABASE_KEY, SERPER_KEY]):
+    print("❌ CRITICAL ERROR: Missing API Keys. Set SUPABASE_URL, SUPABASE_KEY, and SERPER_KEY as environment variables.")
+    exit(1)
 
 # 1. SETUP CLIENT
 try:
@@ -13,6 +18,7 @@ try:
 except Exception as e:
     print(f"❌ CRITICAL ERROR: {e}")
     exit(1)
+
 
 # 2. THE COMPLETE CLASS 9 SYLLABUS
 syllabus = {
