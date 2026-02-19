@@ -1,57 +1,57 @@
 [
     {
-        "question_text": "Observe the following diagram of a plant cell. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Onion_cells_2.jpg/640px-Onion_cells_2.jpg] (a) Identify 'X' (the outer layer). [1] (b) What is the function of the large central vacuole? [2] (c) Name the organelle responsible for photosynthesis. [1]",
+        "question_text": "Observe the provided diagram of the Human Eye. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Schematic_diagram_of_the_human_eye_en.svg/640px-Schematic_diagram_of_the_human_eye_en.svg.png] (a) Identify the part responsible for controlling light entering the eye. [1] (b) What is the function of the Retina? [1] (c) Name the fluid present in the anterior chamber. [1]",
         "subject": "Science",
-        "chapter": "The Fundamental Unit of Life",
+        "chapter": "The Human Eye and the Colourful World",
         "difficulty": "Medium",
         "is_rationalised": true
     },
     {
-        "question_text": "Look at the given circuit diagram. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Series_circuit.svg/640px-Series_circuit.svg.png] (a) Are the bulbs connected in series or parallel? [1] (b) What happens if one bulb fuses? [1] (c) If the battery is 9V and each bulb is 3Ω, find the current. [2]",
+        "question_text": "Study the diagram of the Nitrogen Cycle. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Nitrogen_Cycle_2.svg/640px-Nitrogen_Cycle_2.svg.png] (a) Name the process by which atmospheric nitrogen is converted to ammonia. [1] (b) Identify the role of Denitrifying bacteria. [1] (c) How do plants absorb nitrogen? [2]",
         "subject": "Science",
-        "chapter": "Electricity",
+        "chapter": "Natural Resources",
         "difficulty": "Hard",
         "is_rationalised": true
     },
     {
-        "question_text": "The diagram shows the structure of an atom. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Stylised_Lithium_Atom.svg/640px-Stylised_Lithium_Atom.svg.png] (a) Identify the element. [1] (b) How many protons are in the nucleus? [1] (c) Write the electronic configuration. [2]",
-        "subject": "Science",
-        "chapter": "Structure of Atom",
-        "difficulty": "Medium",
-        "is_rationalised": true
-    },
-    {
-        "question_text": "Study the experimental setup below. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Distillation_setup.svg/640px-Distillation_setup.svg.png] (a) Name the process shown. [1] (b) What is the purpose of the condenser? [1] (c) Which type of mixtures can be separated using this method? [2]",
-        "subject": "Science",
-        "chapter": "Is Matter Around Us Pure",
-        "difficulty": "Hard",
-        "is_rationalised": true
-    },
-    {
-        "question_text": "In the following triangle ABC, find the value of x. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Pythagorean.svg/640px-Pythagorean.svg.png] (a) State the theorem used. [1] (b) Calculate AC if AB = 3 and BC = 4. [2] (c) Is this a right-angled triangle? [1]",
+        "question_text": "In the given diagram, find the value of the unknown angle 'x'. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Triangle.Exterior_Angle_Theorem.svg/640px-Triangle.Exterior_Angle_Theorem.svg.png] (a) State the Exterior Angle Theorem. [1] (b) If interior opposite angles are 40° and 60°, find x. [2] (c) What is the sum of all interior angles? [1]",
         "subject": "Maths",
-        "chapter": "Triangles",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
         "is_rationalised": true
     },
     {
-        "question_text": "Find the area of the shaded region. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Circle_area_derivation.svg/640px-Circle_area_derivation.svg.png] (a) Write the formula for area of a circle. [1] (b) If radius is 7cm, find the area. [2] (c) What is the circumference? [1]",
+        "question_text": "Look at the fractional representation below. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Fraction_circles_1_4.svg/640px-Fraction_circles_1_4.svg.png] (a) What fraction of the circle is shaded? [1] (b) Convert this fraction into a percentage. [1] (c) If the total area is 100 sq units, find the shaded area. [2]",
         "subject": "Maths",
-        "chapter": "Circles",
-        "difficulty": "Medium",
+        "chapter": "Number Systems",
+        "difficulty": "Easy",
         "is_rationalised": true
     },
     {
-        "question_text": "On the given map of India, identify the marked river. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/India_rivers_map.png/640px-India_rivers_map.png] (a) Name the river marked 'A'. [1] (b) Which state does it originate from? [1] (c) Name a major tributary of this river. [1]",
+        "question_text": "The map shows the distribution of major soil types in India. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Major_soil_types_of_India.png/640px-Major_soil_types_of_India.png] (a) Identify the soil type found in the Deccan Plateau. [1] (b) Which soil is best for cotton cultivation? [1] (c) Name the soil predominant in northern plains. [1]",
         "subject": "Social Science",
-        "chapter": "Drainage",
+        "chapter": "Resources and Development",
         "difficulty": "Medium",
         "is_rationalised": true
     },
     {
-        "question_text": "The diagram represents the water cycle. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Water_Cycle_Blank.png/640px-Water_Cycle_Blank.png] (a) Identify process '1' (ocean to air). [1] (b) What is transpiration? [1] (c) How do clouds form? [2]",
+        "question_text": "Observe the structure of the Nephron. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Nephron-en.svg/640px-Nephron-en.svg.png] (a) Identify the Bowman's Capsule in the diagram. [1] (b) What is the main function of the Glomerulus? [1] (c) Where does selective reabsorption occur? [2]",
         "subject": "Science",
-        "chapter": "Natural Resources",
+        "chapter": "Life Processes",
+        "difficulty": "Hard",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "Study the bar graph below showing rainfall in a region. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Bar_chart_example.svg/640px-Bar_chart_example.svg.png] (a) Which month had the highest rainfall? [1] (b) Calculate the average rainfall over the 4 months. [2] (c) What is the range of rainfall? [1]",
+        "subject": "Maths",
+        "chapter": "Statistics",
+        "difficulty": "Medium",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "Identify the features of the Indian Parliament building. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sansad_Bhavan%2C_New_Delhi.jpg/640px-Sansad_Bhavan%2C_New_Delhi.jpg] (a) What is the other name for the Parliament? [1] (b) Who is the head of the Lok Sabha? [1] (c) Mention two houses of the Parliament. [1]",
+        "subject": "Social Science",
+        "chapter": "Working of Institutions",
         "difficulty": "Easy",
         "is_rationalised": true
     }

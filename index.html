@@ -471,7 +471,9 @@
         }
 
         function parseFig(text) {
-            const m = text.match(/\[Image:\s*([^\]]+)\]/i);
+            const imgM = text.match(/\[Image:\s*([^\]]+)\]/i);
+            const figM = text.match(/\[Figure:\s*([^\]]+)\]/i);
+            const m = imgM || figM;
             if (m) return { url: m[1].trim(), clean: text.replace(m[0], '').trim() };
             return { url: null, clean: text };
         }
@@ -484,28 +486,30 @@
 
             let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
 
+            // Render Image at the top of the body for visibility
+            if (url) {
+                html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram Content" onerror="this.parentElement.innerHTML='<div style=\'color:#888;font-size:0.7rem\'>Diagram failed to load from source</div>'"></div>`;
+            }
+
             // Check for MCQ
-            const mcq = text.match(/\([A-D]\)/);
-            if (mcq) {
-                const parts = text.split(/\([A-A]\)/); // Simplified split
-                // More robust MCQ parsing
-                const mainText = text.split('(A)')[0];
-                const options = text.substring(mainText.length).match(/\([A-D]\)[^\(]*/g);
+            const hasMCQ = text.includes('(A)') && text.includes('(B)');
+            if (hasMCQ) {
+                const parts = text.split('(A)');
+                const mainText = parts[0].trim();
+                const options = ('(A)' + (parts[1] || '')).match(/\([A-D]\)[^\(]*/g);
 
                 html += `<div>${mainText}</div>`;
-                if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
                 if (options) {
-                    html += `<div class="mcq-options${options.some(o => o.length > 30) ? ' single-col' : ''}">`;
+                    html += `<div class="mcq-options${options.some(o => o.length > 35) ? ' single-col' : ''}">`;
                     options.forEach(o => html += `<div class="mcq-opt">${o.trim()}</div>`);
                     html += `</div>`;
                 }
             } else if (text.includes('(a)') && text.includes('(b)')) {
                 // Sub-parts
-                const mainText = text.split('(a)')[0];
+                const mainText = text.split('(a)')[0].trim();
                 const subs = text.substring(mainText.length).match(/\([a-z]\)[^\(]*/g);
 
                 html += `<div>${mainText}</div>`;
-                if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
                 if (subs) {
                     html += `<div class="sub-parts">`;
                     subs.forEach(s => html += `<div class="sub-part">${s.trim()}</div>`);
@@ -513,7 +517,6 @@
                 }
             } else {
                 html += `<div>${text}</div>`;
-                if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
             }
 
             html += `</div><span class="q-marks">[${marks}]</span></div>`;
