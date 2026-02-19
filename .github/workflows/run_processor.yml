@@ -1,14 +1,15 @@
 name: AI Question Processor
+
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Keeps the manual "Run workflow" button
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '*/30 * * * *' # The new upgrade: Runs automatically every 30 minutes
 
 jobs:
   process:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Setup Python
@@ -17,11 +18,10 @@ jobs:
           python-version: '3.10'
 
       - name: Install Dependencies
-        # Make sure ALL these are here!
         run: pip install supabase requests google-generativeai pypdf
 
       - name: Run AI Processor
-        # This part connects your code to your keys
+        # Securely injects your passwords from GitHub Settings
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
