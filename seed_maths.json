@@ -882,9 +882,33 @@
         "chapter": "Quadrilaterals"
     },
     {
-        "question_text": "Prove that the sum of either pair of opposite angles of a cyclic quadrilateral is 180°. Using this result, find ∠A and ∠C of a cyclic quadrilateral if ∠A = 2x + 4° and ∠C = 2y + 10° and ∠B = y + 3° and ∠D = 4x - 5°.",
+        "question_text": "Prove that the sum of either pair of opposite angles of a cyclic quadrilateral is 180 degrees. Using this result, find angle A and angle C of a cyclic quadrilateral if angle A = 2x + 4 degrees and angle C = 2y + 10 degrees and angle B = y + 3 degrees and angle D = 4x - 5 degrees.",
         "subject": "Maths",
         "difficulty": "Hard",
         "chapter": "Circles"
+    },
+    {
+        "question_text": "Assertion (A): Every whole number is a natural number. Reason (R): 0 is a whole number but not a natural number. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Assertion (A): The degree of the polynomial x^3 + 2x + 1 is 3. Reason (R): The highest power of the variable in a polynomial is called its degree. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "Case Study: In a park, three friends are sitting at positions A(2,3), B(4,5) and C(6,7). [Figure: Cartesian Plane with points A, B, C marked] (a) What is the abscissa of point B? [1] (b) What is the ordinate of point A? [1] (c) Verify if these points are collinear by finding the area of triangle formed or by distance formula. [2]",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Coordinate Geometry"
+    },
+    {
+        "question_text": "Real-life Scenario: A farmer has a triangular field with sides 13m, 14m, and 15m. He wants to plant wheat in it. [Figure: Triangular field layout] (a) Find the semi-perimeter of the field. [1] (b) Calculate the area of the field using Heron's formula. [2] (c) If he sells the wheat at Rs 100 per sq m, find his total income. [1]",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Heron's Formula"
     }
 ]

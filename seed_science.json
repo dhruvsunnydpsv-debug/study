@@ -652,5 +652,41 @@
         "subject": "Science",
         "difficulty": "Hard",
         "chapter": "Natural Resources"
+    },
+    {
+        "question_text": "Assertion (A): The process of evaporation causes cooling. Reason (R): The particles of liquid absorb energy from the surroundings to regain the energy lost during evaporation. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Matter in Our Surroundings"
+    },
+    {
+        "question_text": "Assertion (A): Lysosomes are known as the suicide bags of the cell. Reason (R): If the cell gets damaged, lysosomes may burst and the enzymes digest their own cell. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "The Fundamental Unit of Life"
+    },
+    {
+        "question_text": "Assertion (A): Mitochondria is the powerhouse of the cell. Reason (R): Energy required for various chemical activities is released by mitochondria in the form of ATP. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "The Fundamental Unit of Life"
+    },
+    {
+        "question_text": "Assertion (A): When a car takes a sharp turn at high speed, the passengers tend to get thrown to one side. Reason (R): It is due to the property of inertia of direction. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Force and Laws of Motion"
+    },
+    {
+        "question_text": "Read the following and answer: Atoms are the building blocks of matter. According to Dalton, atoms were indivisible, but later experiments showed they consist of electrons, protons, and neutrons. [Figure: Structure of Atom with orbits] (a) Who discovered electrons? [1] (b) What is the central part of the atom called? [1] (c) Explain why atoms are electrically neutral. [2]",
+        "subject": "Science",
+        "difficulty": "Hard",
+        "chapter": "Structure of the Atom"
+    },
+    {
+        "question_text": "Case Study: A group of students observed slides of plant and animal tissues. They saw cells with thick walls and others with thin walls. [Figure: Plant Tissue Slides] (a) Name the tissue with lignified walls that provides mechanical strength. [1] (b) Which tissue is responsible for photosynthesis? [1] (c) Differentiate between xylem and phloem on the basis of their function. [2]",
+        "subject": "Science",
+        "difficulty": "Hard",
+        "chapter": "Tissues"
     }
 ]

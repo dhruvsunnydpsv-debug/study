@@ -424,5 +424,35 @@
         "subject": "Social Science",
         "difficulty": "Hard",
         "chapter": "Constitutional Design"
+    },
+    {
+        "question_text": "Assertion (A): The Third Estate was the most disadvantaged group in French society. Reason (R): They paid all the taxes while the first two estates enjoyed privileges by birth. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "The French Revolution"
+    },
+    {
+        "question_text": "Assertion (A): India is a secular state. Reason (R): The Constitution gives all citizens the freedom to practice and propagate any religion. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Constitutional Design"
+    },
+    {
+        "question_text": "Map Work (History): On the given outline map of France, identify the following: (a) Bordeaux - A port city famous for slave trade. [1] (b) Paris - The capital of France. [1] [Figure: Map of France with markers]",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "The French Revolution"
+    },
+    {
+        "question_text": "Map Work (Geography): On the outline map of India, locate and label the following: (a) Kanchenjunga Peak [1] (b) Chilika Lake [1] (c) Standard Meridian of India [1] [Figure: Map of India with state boundaries]",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "Physical Features of India"
+    },
+    {
+        "question_text": "Case Study: India has a variety of physical features. To the north are the Himalayas and to the south is the Peninsular Plateau. [Figure: Physical map of India] (a) Which is the oldest landmass in India? [1] (b) Name the range that lies south of the Himadri. [1] (c) How were the Himalayas formed? [2]",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "Physical Features of India"
     }
 ]

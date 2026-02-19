@@ -545,15 +545,33 @@
         }
 
         .figure-box {
-            margin: 8px 0;
-            padding: 12px 16px;
-            border: 1.5px dashed #aaa;
-            border-radius: 4px;
-            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fcfcfc;
             text-align: center;
-            color: #555;
-            font-size: 11px;
-            font-style: italic
+            color: #666;
+            font-size: 11.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.02)
+        }
+
+        .figure-icon {
+            font-size: 18px;
+            color: #999;
+            opacity: 0.6
+        }
+
+        .figure-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #444;
+            font-size: 10px
         }
 
         .paper-footer {
@@ -813,7 +831,7 @@
             const mcq = parseMCQ(cleanText);
             if (mcq) {
                 html += `<div>${mcq.question}</div>`;
-                if (fig) html += `<div class="figure-box">📊 ${fig.figure}</div>`;
+                if (fig) html += `<div class="figure-box"><div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}</div>`;
                 const longOpts = mcq.options.some(o => o.text.length > 40);
                 html += `<div class="mcq-options${longOpts ? ' single-col' : ''}">`;
                 mcq.options.forEach(o => { html += `<div class="mcq-opt">(${o.label}) ${o.text}</div>` });
@@ -822,7 +840,7 @@
                 const sub = parseSubParts(cleanText);
                 if (sub) {
                     html += `<div>${sub.question}</div>`;
-                    if (fig) html += `<div class="figure-box">📊 ${fig.figure}</div>`;
+                    if (fig) html += `<div class="figure-box"><div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}</div>`;
                     html += '<div class="sub-parts">';
                     sub.parts.forEach(p => {
                         html += `<div class="sub-part"><span class="sub-part-label">(${p.label})</span><span class="sub-part-text">${p.text}</span>${p.marks ? `<span class="sub-part-marks">[${p.marks}]</span>` : ''}</div>`;
@@ -830,7 +848,7 @@
                     html += '</div>';
                 } else {
                     html += `<div>${cleanText}</div>`;
-                    if (fig) html += `<div class="figure-box">📊 ${fig.figure}</div>`;
+                    if (fig) html += `<div class="figure-box"><div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}</div>`;
                 }
             }
             html += `</div><span class="q-marks">[${marks}]</span></div>`;
