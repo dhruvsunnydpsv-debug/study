@@ -1,346 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Vault | Dhruv Shah</title>
-    <meta name="description" content="Class 9 CBSE Question Bank — AI-curated study papers, question papers, and worksheets. Updated automatically.">
+    <title>CBSE Paper Generator | Study Vault</title>
+    <meta name="description"
+        content="Generate randomized CBSE Class 9 question papers with proper format, marking scheme, and difficulty selection.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-card: rgba(255, 255, 255, 0.04);
-            --bg-card-hover: rgba(255, 255, 255, 0.08);
-            --text-primary: #f0f0f5;
-            --text-secondary: rgba(240, 240, 245, 0.6);
-            --text-muted: rgba(240, 240, 245, 0.35);
+            --bg: #06060b;
+            --surface: rgba(255, 255, 255, 0.03);
+            --surface-hover: rgba(255, 255, 255, 0.07);
             --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.15);
-            --accent-1: #7c3aed;
-            --accent-2: #06b6d4;
-            --accent-3: #f43f5e;
-            --accent-4: #f59e0b;
-            --glow: 0 0 40px rgba(124, 58, 237, 0.15);
+            --border-hover: rgba(255, 255, 255, 0.16);
+            --text: #eeeef2;
+            --text-dim: rgba(238, 238, 242, 0.55);
+            --text-muted: rgba(238, 238, 242, 0.3);
+            --accent: #7c3aed;
+            --accent-glow: rgba(124, 58, 237, 0.2);
+            --easy: #22c55e;
+            --medium: #f59e0b;
+            --hard: #ef4444;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Aurora Background */
+        /* ====== AURORA BG ====== */
         .aurora {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
-        }
-        .aurora-blob {
-            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; animation: float 20s ease-in-out infinite;
-        }
-        .aurora-blob:nth-child(1) { width: 600px; height: 600px; background: var(--accent-1); top: -10%; left: -5%; animation-delay: 0s; }
-        .aurora-blob:nth-child(2) { width: 500px; height: 500px; background: var(--accent-2); top: 30%; right: -10%; animation-delay: -7s; }
-        .aurora-blob:nth-child(3) { width: 450px; height: 450px; background: var(--accent-3); bottom: -5%; left: 30%; animation-delay: -14s; }
-        .aurora-blob:nth-child(4) { width: 350px; height: 350px; background: var(--accent-4); top: 50%; left: 10%; animation-delay: -3s; }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -40px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(15px, 35px) scale(1.02); }
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* Layout */
-        .app { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
-
-        /* Header */
-        .header { text-align: center; margin-bottom: 48px; }
-        .header-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 6px 14px; border-radius: 100px;
-            background: rgba(124, 58, 237, 0.12); border: 1px solid rgba(124, 58, 237, 0.25);
-            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-            color: #a78bfa; margin-bottom: 20px;
+        .aurora div {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.1;
+            animation: drift 22s ease-in-out infinite;
         }
-        .header-badge .pulse {
-            width: 6px; height: 6px; border-radius: 50%; background: #22c55e;
+
+        .aurora div:nth-child(1) {
+            width: 550px;
+            height: 550px;
+            background: #7c3aed;
+            top: -8%;
+            left: -3%;
+        }
+
+        .aurora div:nth-child(2) {
+            width: 450px;
+            height: 450px;
+            background: #06b6d4;
+            top: 35%;
+            right: -8%;
+            animation-delay: -8s;
+        }
+
+        .aurora div:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            background: #f43f5e;
+            bottom: -5%;
+            left: 25%;
+            animation-delay: -15s;
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(25px, -35px) scale(1.04);
+            }
+
+            66% {
+                transform: translate(-20px, 25px) scale(0.96);
+            }
+        }
+
+        /* ====== LAYOUT ====== */
+        .app {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* ====== SELECTION VIEW ====== */
+        #selection-view {
+            text-align: center;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.22);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a78bfa;
+            margin-bottom: 24px;
+        }
+
+        .logo-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
             animation: pulse 2s ease-in-out infinite;
         }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        .header h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #f0f0f5 0%, #a78bfa 50%, #06b6d4 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; line-height: 1.2; margin-bottom: 12px;
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
-        .header p { color: var(--text-secondary); font-size: 1rem; font-weight: 400; max-width: 500px; margin: 0 auto; line-height: 1.6; }
 
-        /* Stats Bar */
-        .stats {
-            display: flex; justify-content: center; gap: 32px; margin-bottom: 36px;
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #f0f0f5 10%, #a78bfa 55%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1rem;
+            max-width: 480px;
+            margin: 0 auto 44px;
+            line-height: 1.6;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .subject-btn {
+            padding: 14px 8px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .subject-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text);
+            background: var(--surface-hover);
+        }
+
+        .subject-btn.active {
+            background: rgba(124, 58, 237, 0.12);
+            border-color: rgba(124, 58, 237, 0.4);
+            color: #c4b5fd;
+        }
+
+        .subject-btn .icon {
+            font-size: 1.3rem;
+        }
+
+        .diff-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .diff-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .diff-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text);
+        }
+
+        .diff-btn.active.easy {
+            background: rgba(34, 197, 94, 0.12);
+            border-color: rgba(34, 197, 94, 0.4);
+            color: #4ade80;
+        }
+
+        .diff-btn.active.medium {
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.4);
+            color: #fbbf24;
+        }
+
+        .diff-btn.active.hard {
+            background: rgba(239, 68, 68, 0.12);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #f87171;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            letter-spacing: 0.01em;
+            box-shadow: 0 4px 24px rgba(124, 58, 237, 0.25);
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.35);
+        }
+
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+
+        .generate-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .generate-btn .spinner-inline {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .generate-btn.loading .spinner-inline {
+            display: inline-block;
+        }
+
+        .generate-btn.loading .btn-text {
+            display: none;
+        }
+
+        .generate-btn.loading .btn-loading {
+            display: inline;
+        }
+
+        .btn-loading {
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .error-msg {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            font-size: 0.82rem;
+            display: none;
+        }
+
+        /* ====== PAPER VIEW ====== */
+        #paper-view {
+            display: none;
+        }
+
+        .paper-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 28px;
             flex-wrap: wrap;
         }
-        .stat-item {
-            display: flex; flex-direction: column; align-items: center; gap: 4px;
-        }
-        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
-        .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
 
-        /* Filter Tabs */
-        .filters {
-            display: flex; gap: 8px; margin-bottom: 28px; overflow-x: auto;
-            padding-bottom: 4px; scrollbar-width: none;
-        }
-        .filters::-webkit-scrollbar { display: none; }
-        .filter-btn {
-            padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border);
-            background: transparent; color: var(--text-secondary); font-family: inherit;
-            font-size: 0.8rem; font-weight: 500; cursor: pointer; white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-        .filter-btn:hover { border-color: var(--border-hover); color: var(--text-primary); background: var(--bg-card); }
-        .filter-btn.active {
-            background: rgba(124, 58, 237, 0.15); border-color: rgba(124, 58, 237, 0.4);
-            color: #c4b5fd; font-weight: 600;
+        .action-btn {
+            padding: 10px 22px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-dim);
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        /* Paper Cards */
-        .papers-grid { display: flex; flex-direction: column; gap: 8px; }
-
-        .paper-card {
-            display: flex; align-items: center; gap: 16px;
-            padding: 16px 20px; border-radius: 14px;
-            background: var(--bg-card); border: 1px solid var(--border);
-            transition: all 0.25s ease; cursor: pointer; text-decoration: none;
-        }
-        .paper-card:hover {
-            background: var(--bg-card-hover); border-color: var(--border-hover);
-            transform: translateY(-1px); box-shadow: var(--glow);
+        .action-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text);
+            background: var(--surface-hover);
         }
 
-        .paper-icon {
-            width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem; font-weight: 700;
+        .action-btn.primary {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: rgba(124, 58, 237, 0.3);
+            color: #a78bfa;
         }
-        .paper-icon.maths { background: rgba(124, 58, 237, 0.15); color: #a78bfa; }
-        .paper-icon.science { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
-        .paper-icon.social { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
-        .paper-icon.english { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-        .paper-icon.hindi { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
-        .paper-icon.default { background: rgba(255,255,255,0.08); color: var(--text-secondary); }
 
-        .paper-info { flex: 1; min-width: 0; }
-        .paper-title {
-            font-size: 0.9rem; font-weight: 500; color: var(--text-primary);
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px;
+        /* The actual paper */
+        .paper {
+            background: #ffffff;
+            color: #111;
+            border-radius: 8px;
+            padding: 48px 52px;
+            font-family: 'Noto Serif', 'Times New Roman', serif;
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 8px 48px rgba(0, 0, 0, 0.35);
         }
-        .paper-meta {
-            display: flex; gap: 12px; align-items: center;
-        }
-        .paper-meta span {
-            font-size: 0.72rem; color: var(--text-muted); font-weight: 400;
-        }
-        .paper-meta .tag {
-            padding: 2px 8px; border-radius: 100px; font-size: 0.65rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.05em;
-        }
-        .tag.maths { background: rgba(124,58,237,0.1); color: #a78bfa; }
-        .tag.science { background: rgba(6,182,212,0.1); color: #22d3ee; }
-        .tag.social { background: rgba(244,63,94,0.1); color: #fb7185; }
-        .tag.english { background: rgba(245,158,11,0.1); color: #fbbf24; }
-        .tag.hindi { background: rgba(34,197,94,0.1); color: #4ade80; }
-        .tag.default { background: rgba(255,255,255,0.06); color: var(--text-muted); }
 
-        .paper-arrow { color: var(--text-muted); font-size: 1rem; transition: transform 0.2s; flex-shrink: 0; }
-        .paper-card:hover .paper-arrow { transform: translateX(3px); color: var(--text-secondary); }
-
-        /* Loading & Empty States */
-        .loading-state {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 60px 0; gap: 16px;
+        .paper-header {
+            text-align: center;
+            border-bottom: 2px solid #111;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
         }
-        .spinner {
-            width: 36px; height: 36px; border: 3px solid var(--border);
-            border-top-color: var(--accent-1); border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+
+        .paper-header .board-name {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #444;
+            margin-bottom: 2px;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loading-text { color: var(--text-muted); font-size: 0.85rem; }
 
-        .empty-state {
-            text-align: center; padding: 60px 20px; color: var(--text-muted);
+        .paper-header .school-name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
-        .empty-state .emoji { font-size: 2.5rem; margin-bottom: 12px; }
-        .empty-state p { font-size: 0.9rem; line-height: 1.6; }
 
-        .error-state {
-            text-align: center; padding: 40px 20px;
-            background: rgba(244, 63, 94, 0.06); border: 1px solid rgba(244, 63, 94, 0.15);
-            border-radius: 14px;
+        .paper-header .exam-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
-        .error-state p { color: #fb7185; font-size: 0.85rem; }
 
-        /* Fade-in animation */
-        .fade-in { animation: fadeIn 0.4s ease forwards; opacity: 0; }
-        @keyframes fadeIn { to { opacity: 1; } }
+        .paper-meta-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #333;
+        }
 
-        /* Responsive */
+        .paper-instructions {
+            margin-bottom: 20px;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+
+        .paper-instructions h4 {
+            font-size: 12px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .paper-instructions li {
+            font-size: 11.5px;
+            margin-bottom: 3px;
+            color: #333;
+        }
+
+        .section-header {
+            font-size: 13px;
+            font-weight: 700;
+            margin: 24px 0 12px;
+            padding: 6px 12px;
+            background: #f0f0f0;
+            border-left: 3px solid #111;
+        }
+
+        .section-header .section-info {
+            font-weight: 400;
+            font-size: 11px;
+            color: #555;
+            margin-left: 6px;
+        }
+
+        .question {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding-left: 4px;
+        }
+
+        .q-num {
+            font-weight: 700;
+            min-width: 28px;
+            flex-shrink: 0;
+        }
+
+        .q-body {
+            flex: 1;
+        }
+
+        .q-marks {
+            color: #555;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 8px;
+            flex-shrink: 0;
+        }
+
+        .paper-footer {
+            text-align: center;
+            margin-top: 28px;
+            padding-top: 14px;
+            border-top: 1px solid #ccc;
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Marking Scheme Section */
+        .marking-scheme {
+            page-break-before: always;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #111;
+        }
+
+        .marking-scheme h3 {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .ms-item {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 6px 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ms-num {
+            font-weight: 700;
+            min-width: 28px;
+        }
+
+        .ms-answer {
+            flex: 1;
+            color: #222;
+            font-size: 12px;
+        }
+
+        /* ====== PRINT STYLES ====== */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .aurora,
+            .paper-actions,
+            .logo-badge,
+            #selection-view,
+            .no-print {
+                display: none !important;
+            }
+
+            .app {
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .paper {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 24px 36px;
+            }
+
+            #paper-view {
+                display: block !important;
+            }
+
+            .section-header {
+                break-after: avoid;
+            }
+
+            .question {
+                break-inside: avoid;
+            }
+        }
+
+        /* ====== RESPONSIVE ====== */
         @media (max-width: 600px) {
-            .app { padding: 24px 16px 60px; }
-            .paper-card { padding: 14px 16px; }
-            .stats { gap: 20px; }
+            .app {
+                padding: 24px 14px 60px;
+            }
+
+            .form-card {
+                padding: 24px 18px;
+            }
+
+            .subject-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .paper {
+                padding: 24px 18px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="aurora">
-    <div class="aurora-blob"></div>
-    <div class="aurora-blob"></div>
-    <div class="aurora-blob"></div>
-    <div class="aurora-blob"></div>
-</div>
-
-<div class="app">
-    <header class="header">
-        <div class="header-badge"><span class="pulse"></span> Auto-Updated Hourly</div>
-        <h1>Study Vault</h1>
-        <p>AI-curated Class 9 CBSE question papers, sample papers, and worksheets — growing every hour.</p>
-    </header>
-
-    <div class="stats" id="stats-bar">
-        <div class="stat-item"><span class="stat-value" id="stat-total">—</span><span class="stat-label">Papers</span></div>
-        <div class="stat-item"><span class="stat-value" id="stat-subjects">—</span><span class="stat-label">Subjects</span></div>
-        <div class="stat-item"><span class="stat-value" id="stat-chapters">—</span><span class="stat-label">Chapters</span></div>
+    <div class="aurora">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 
-    <div class="filters" id="filters"></div>
-    <div id="papers-list">
-        <div class="loading-state"><div class="spinner"></div><span class="loading-text">Loading papers...</span></div>
+    <div class="app">
+        <!-- ====== SELECTION SCREEN ====== -->
+        <div id="selection-view">
+            <div class="logo-badge"><span class="dot"></span> AI-Powered Question Bank</div>
+            <h1 class="hero-title">CBSE Paper Generator</h1>
+            <p class="hero-sub">Select your subject and difficulty. Get a complete, randomized CBSE-format question
+                paper — different every time.</p>
+
+            <div class="form-card">
+                <label class="form-label">Choose Subject</label>
+                <div class="subject-grid" id="subject-grid">
+                    <button class="subject-btn" data-subject="Maths" onclick="selectSubject(this)">
+                        <span class="icon">π</span> Maths
+                    </button>
+                    <button class="subject-btn" data-subject="Science" onclick="selectSubject(this)">
+                        <span class="icon">⚛</span> Science
+                    </button>
+                    <button class="subject-btn" data-subject="Social Science" onclick="selectSubject(this)">
+                        <span class="icon">🌍</span> Social Sci
+                    </button>
+                    <button class="subject-btn" data-subject="English" onclick="selectSubject(this)">
+                        <span class="icon">Aa</span> English
+                    </button>
+                    <button class="subject-btn" data-subject="Hindi" onclick="selectSubject(this)">
+                        <span class="icon">अ</span> Hindi
+                    </button>
+                    <button class="subject-btn" data-subject="Computer Science" onclick="selectSubject(this)">
+                        <span class="icon">💻</span> Computer
+                    </button>
+                </div>
+
+                <label class="form-label">Select Difficulty</label>
+                <div class="diff-row">
+                    <button class="diff-btn easy" data-diff="Easy" onclick="selectDifficulty(this)">Easy</button>
+                    <button class="diff-btn medium" data-diff="Medium" onclick="selectDifficulty(this)">Medium</button>
+                    <button class="diff-btn hard" data-diff="Hard" onclick="selectDifficulty(this)">Hard</button>
+                </div>
+
+                <button class="generate-btn" id="generate-btn" onclick="generatePaper()" disabled>
+                    <span class="spinner-inline"></span>
+                    <span class="btn-text">Generate Question Paper</span>
+                    <span class="btn-loading">Generating Paper...</span>
+                </button>
+
+                <div class="error-msg" id="error-msg"></div>
+            </div>
+        </div>
+
+        <!-- ====== PAPER VIEW ====== -->
+        <div id="paper-view">
+            <div class="paper-actions no-print">
+                <button class="action-btn" onclick="goBack()">← Back</button>
+                <button class="action-btn" onclick="generatePaper()">🔄 Generate Another</button>
+                <button class="action-btn primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+                <button class="action-btn" id="scheme-toggle" onclick="toggleScheme()">📝 Show Marking Scheme</button>
+            </div>
+            <div class="paper" id="paper-content"></div>
+        </div>
     </div>
-</div>
 
-<script>
-    // --- Supabase Setup (FIXED: renamed variable to avoid collision with library) ---
-    const SUPABASE_URL = "https://wfegooasrtbhpursgcvh.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s";
-    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    <script>
+        // ---- Supabase ----
+        const SUPABASE_URL = "https://wfegooasrtbhpursgcvh.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s";
+        const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    let allPapers = [];
-    let activeFilter = 'All';
+        // ---- State ----
+        let selectedSubject = null;
+        let selectedDifficulty = null;
+        let schemeVisible = false;
 
-    function getSubjectClass(subject) {
-        if (!subject) return 'default';
-        const s = subject.toLowerCase();
-        if (s.includes('math')) return 'maths';
-        if (s.includes('science') && !s.includes('social')) return 'science';
-        if (s.includes('social')) return 'social';
-        if (s.includes('english')) return 'english';
-        if (s.includes('hindi')) return 'hindi';
-        return 'default';
-    }
+        // ---- CBSE Paper Blueprint (2025-26 Pattern) ----
+        const PAPER_BLUEPRINT = [
+            { section: "A", title: "Section A — Objective Type Questions", marksEach: 1, count: 20, desc: "All questions are compulsory. Each carries 1 mark." },
+            { section: "B", title: "Section B — Short Answer Type (I)", marksEach: 2, count: 6, desc: "Answer in 30-50 words each." },
+            { section: "C", title: "Section C — Short Answer Type (II)", marksEach: 3, count: 7, desc: "Answer in 50-80 words each." },
+            { section: "D", title: "Section D — Long Answer Type", marksEach: 5, count: 3, desc: "Answer in 100-150 words each." },
+            { section: "E", title: "Section E — Case-Based Questions", marksEach: 4, count: 3, desc: "Read the case/passage carefully and answer the questions." }
+        ];
+        const TOTAL_MARKS = PAPER_BLUEPRINT.reduce((s, b) => s + b.marksEach * b.count, 0);
 
-    function getSubjectIcon(subject) {
-        const icons = { maths: 'π', science: '⚛', social: '🌍', english: 'Aa', hindi: 'अ', default: '📄' };
-        return icons[getSubjectClass(subject)] || '📄';
-    }
-
-    function renderPapers(papers) {
-        const listDiv = document.getElementById('papers-list');
-        if (!papers || papers.length === 0) {
-            listDiv.innerHTML = '<div class="empty-state"><div class="emoji">📚</div><p>No papers found yet.<br>The AI hunter is working — check back soon!</p></div>';
-            return;
+        // ---- Selection Logic ----
+        function selectSubject(btn) {
+            document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSubject = btn.dataset.subject;
+            updateGenButton();
         }
-        listDiv.innerHTML = papers.map((paper, i) => {
-            const cls = getSubjectClass(paper.subject);
-            const icon = getSubjectIcon(paper.subject);
-            const title = paper.file_name || paper.title || 'Untitled Paper';
-            const url = paper.file_url || paper.url || '#';
-            const subject = paper.subject || 'General';
-            const chapter = paper.chapter || '';
-            return `
-                <a href="${url}" target="_blank" rel="noopener" class="paper-card fade-in" style="animation-delay:${i * 0.03}s">
-                    <div class="paper-icon ${cls}">${icon}</div>
-                    <div class="paper-info">
-                        <div class="paper-title">${title}</div>
-                        <div class="paper-meta">
-                            <span class="tag ${cls}">${subject}</span>
-                            ${chapter ? `<span>${chapter}</span>` : ''}
-                        </div>
-                    </div>
-                    <span class="paper-arrow">→</span>
-                </a>`;
-        }).join('');
-    }
 
-    function renderFilters(papers) {
-        const subjects = ['All', ...new Set(papers.map(p => p.subject).filter(Boolean))];
-        const filtersDiv = document.getElementById('filters');
-        filtersDiv.innerHTML = subjects.map(s =>
-            `<button class="filter-btn ${s === activeFilter ? 'active' : ''}" onclick="filterBy('${s}')">${s}</button>`
-        ).join('');
-    }
+        function selectDifficulty(btn) {
+            document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedDifficulty = btn.dataset.diff;
+            updateGenButton();
+        }
 
-    function updateStats(papers) {
-        document.getElementById('stat-total').textContent = papers.length;
-        document.getElementById('stat-subjects').textContent = new Set(papers.map(p => p.subject).filter(Boolean)).size;
-        document.getElementById('stat-chapters').textContent = new Set(papers.map(p => p.chapter).filter(Boolean)).size;
-    }
+        function updateGenButton() {
+            document.getElementById('generate-btn').disabled = !(selectedSubject && selectedDifficulty);
+        }
 
-    function filterBy(subject) {
-        activeFilter = subject;
-        const filtered = subject === 'All' ? allPapers : allPapers.filter(p => p.subject === subject);
-        renderPapers(filtered);
-        renderFilters(allPapers);
-    }
+        // ---- Shuffle ----
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
 
-    async function init() {
-        try {
-            // Try source_papers table first (used by main.py hunter)
-            let { data, error } = await db.from('source_papers').select('*').limit(200);
+        // ---- Generate Paper ----
+        async function generatePaper() {
+            const btn = document.getElementById('generate-btn');
+            const errDiv = document.getElementById('error-msg');
+            errDiv.style.display = 'none';
+            btn.classList.add('loading');
+            btn.disabled = true;
 
-            // If that table doesn't exist or is empty, try the pdfs table (used by scraper.py)
-            if (error || !data || data.length === 0) {
-                const res2 = await db.from('pdfs').select('*').limit(200);
-                if (!res2.error && res2.data && res2.data.length > 0) {
-                    // Normalize pdfs table format to match
-                    data = res2.data.map(p => ({
-                        file_name: p.title || p.file_name,
-                        file_url: p.url || p.file_url,
-                        subject: p.subject || 'General',
-                        chapter: p.chapter || ''
-                    }));
-                    error = null;
+            try {
+                // Fetch all questions for this subject from the question bank
+                let { data: questions, error } = await db
+                    .from('question_bank')
+                    .select('*')
+                    .eq('subject', selectedSubject)
+                    .limit(1000);
+
+                if (error) throw error;
+                if (!questions || questions.length === 0) {
+                    throw new Error(`No questions found for ${selectedSubject}. The AI processor may need to run first — check GitHub Actions.`);
                 }
+
+                // Split by difficulty — prioritize selected, fall back to others
+                const diffOrder = selectedDifficulty === 'Easy' ? ['Easy', 'Medium', 'Hard']
+                    : selectedDifficulty === 'Hard' ? ['Hard', 'Medium', 'Easy']
+                        : ['Medium', 'Easy', 'Hard'];
+
+                const byDiff = {};
+                diffOrder.forEach(d => { byDiff[d] = shuffle(questions.filter(q => (q.difficulty || '').toLowerCase() === d.toLowerCase())); });
+                const allShuffled = shuffle(questions);
+
+                // Build paper section by section
+                const usedIds = new Set();
+                const paperSections = [];
+
+                PAPER_BLUEPRINT.forEach(blueprint => {
+                    const sectionQuestions = [];
+
+                    // Try to pick questions matching marks, then fill generically
+                    function pickQuestion() {
+                        // 1. Try preferred difficulty with matching marks
+                        for (const diff of diffOrder) {
+                            const idx = byDiff[diff].findIndex(q => !usedIds.has(q.id) && q.marks === blueprint.marksEach);
+                            if (idx !== -1) { const q = byDiff[diff].splice(idx, 1)[0]; usedIds.add(q.id); return q; }
+                        }
+                        // 2. Try preferred difficulty regardless of marks
+                        for (const diff of diffOrder) {
+                            const idx = byDiff[diff].findIndex(q => !usedIds.has(q.id));
+                            if (idx !== -1) { const q = byDiff[diff].splice(idx, 1)[0]; usedIds.add(q.id); return q; }
+                        }
+                        // 3. Try any remaining question
+                        const idx = allShuffled.findIndex(q => !usedIds.has(q.id));
+                        if (idx !== -1) { const q = allShuffled.splice(idx, 1)[0]; usedIds.add(q.id); return q; }
+                        return null;
+                    }
+
+                    for (let i = 0; i < blueprint.count; i++) {
+                        const q = pickQuestion();
+                        if (q) sectionQuestions.push(q);
+                    }
+
+                    paperSections.push({ ...blueprint, questions: sectionQuestions });
+                });
+
+                // Render paper
+                renderPaper(paperSections);
+                document.getElementById('selection-view').style.display = 'none';
+                document.getElementById('paper-view').style.display = 'block';
+                schemeVisible = false;
+                document.getElementById('scheme-toggle').textContent = '📝 Show Marking Scheme';
+
+            } catch (err) {
+                console.error(err);
+                errDiv.textContent = '⚠️ ' + (err.message || 'Failed to generate paper. Please try again.');
+                errDiv.style.display = 'block';
+            } finally {
+                btn.classList.remove('loading');
+                updateGenButton();
             }
-
-            // Also try study_papers
-            if (error || !data || data.length === 0) {
-                const res3 = await db.from('study_papers').select('*').limit(200);
-                if (!res3.error && res3.data) { data = res3.data; error = null; }
-            }
-
-            if (error) throw error;
-
-            allPapers = data || [];
-            updateStats(allPapers);
-            renderFilters(allPapers);
-            renderPapers(allPapers);
-        } catch (err) {
-            console.error('Load error:', err);
-            document.getElementById('papers-list').innerHTML =
-                '<div class="error-state"><p>⚠️ Could not load papers. Check the console for details.</p></div>';
         }
-    }
 
-    init();
-</script>
+        // ---- Render Paper HTML ----
+        function renderPaper(sections) {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+            const totalQ = sections.reduce((s, sec) => s + sec.questions.length, 0);
+
+            let html = `
+            <div class="paper-header">
+                <div class="board-name">Central Board of Secondary Education</div>
+                <div class="school-name">Class IX — Annual Examination 2025-26</div>
+                <div class="exam-title">Subject: ${selectedSubject}</div>
+                <div class="paper-meta-row">
+                    <span>Time Allowed: 3 Hours</span>
+                    <span>Maximum Marks: ${TOTAL_MARKS}</span>
+                </div>
+                <div class="paper-meta-row" style="margin-top:4px;">
+                    <span>Date: ${dateStr}</span>
+                    <span>No. of Questions: ${totalQ}</span>
+                </div>
+            </div>
+
+            <div class="paper-instructions">
+                <h4>General Instructions:</h4>
+                <ol>
+                    <li>All questions are compulsory. However, internal choices have been provided in some questions.</li>
+                    <li>This question paper contains ${sections.length} sections — A, B, C, D, and E.</li>
+                    <li>Section A has ${sections[0]?.questions.length || 0} Objective-type questions carrying 1 mark each.</li>
+                    <li>Section B has ${sections[1]?.questions.length || 0} Short Answer (I) questions carrying 2 marks each.</li>
+                    <li>Section C has ${sections[2]?.questions.length || 0} Short Answer (II) questions carrying 3 marks each.</li>
+                    <li>Section D has ${sections[3]?.questions.length || 0} Long Answer questions carrying 5 marks each.</li>
+                    <li>Section E has ${sections[4]?.questions.length || 0} Case-Based questions carrying 4 marks each.</li>
+                    <li>There is no overall choice. However, internal choice has been provided where indicated.</li>
+                    <li>Use of calculators is not permitted.</li>
+                </ol>
+            </div>`;
+
+            let qNum = 1;
+            sections.forEach(sec => {
+                const sectionMarks = sec.questions.length * sec.marksEach;
+                html += `<div class="section-header">${sec.title}<span class="section-info">(${sec.questions.length} × ${sec.marksEach} = ${sectionMarks} marks) — ${sec.desc}</span></div>`;
+
+                sec.questions.forEach(q => {
+                    const text = escapeHtml(q.question_text || 'Question text unavailable.');
+                    html += `
+                    <div class="question">
+                        <span class="q-num">${qNum}.</span>
+                        <span class="q-body">${text}</span>
+                        <span class="q-marks">[${sec.marksEach}]</span>
+                    </div>`;
+                    qNum++;
+                });
+            });
+
+            // Marking Scheme (hidden by default)
+            html += `<div class="marking-scheme" id="marking-scheme" style="display:none;">
+            <h3>Marking Scheme</h3>`;
+            qNum = 1;
+            sections.forEach(sec => {
+                html += `<div class="section-header">${sec.title}</div>`;
+                sec.questions.forEach(q => {
+                    const text = escapeHtml(q.question_text || '—');
+                    html += `<div class="ms-item">
+                    <span class="ms-num">${qNum}.</span>
+                    <span class="ms-answer"><strong>[${sec.marksEach} marks]</strong> ${text} — <em>Refer to NCERT textbook / source material.</em></span>
+                </div>`;
+                    qNum++;
+                });
+            });
+            html += `</div>`;
+
+            html += `<div class="paper-footer">— End of Question Paper —<br>Generated by Study Vault • study.dhruvshah.co</div>`;
+
+            document.getElementById('paper-content').innerHTML = html;
+        }
+
+        function escapeHtml(str) {
+            const d = document.createElement('div');
+            d.textContent = str;
+            return d.innerHTML;
+        }
+
+        // ---- Navigation ----
+        function goBack() {
+            document.getElementById('paper-view').style.display = 'none';
+            document.getElementById('selection-view').style.display = 'block';
+        }
+
+        function toggleScheme() {
+            const el = document.getElementById('marking-scheme');
+            const btn = document.getElementById('scheme-toggle');
+            schemeVisible = !schemeVisible;
+            el.style.display = schemeVisible ? 'block' : 'none';
+            btn.textContent = schemeVisible ? '📝 Hide Marking Scheme' : '📝 Show Marking Scheme';
+        }
+    </script>
 
 </body>
+
 </html>
