@@ -2,913 +2,1065 @@
     {
         "question_text": "Every rational number is: (A) A natural number (B) An integer (C) A real number (D) A whole number",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Between two rational numbers there are: (A) No rational numbers (B) Exactly one rational number (C) Infinitely many rational numbers (D) Only irrational numbers",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "The decimal expansion of √2 is: (A) Terminating (B) Non-terminating repeating (C) Non-terminating non-repeating (D) None of these",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Which of the following is irrational? (A) √4 (B) √9 (C) √5 (D) √25",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "The value of 2^(1/3) × 2^(1/3) × 2^(1/3) is: (A) 2 (B) 4 (C) 8 (D) √2",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "A rational number between 3 and 4 is: (A) √10 (B) 3.5 (C) √15 (D) π",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "The decimal representation of 1/3 is: (A) 0.3 (B) 0.33 (C) 0.333... (D) 0.03",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "(64)^(1/2) equals: (A) 8 (B) 32 (C) 4 (D) 16",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "π is: (A) A rational number (B) An irrational number (C) A natural number (D) Not a real number",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "The rationalising factor of 1/(√5 + 2) is: (A) √5 + 2 (B) √5 - 2 (C) 2 - √5 (D) 5 + √2",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Which of the following is a polynomial? (A) x² + 1/x (B) √x + 2 (C) x³ - 3x + 1 (D) 1/(x+1)",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "The degree of polynomial 5x³ + 4x² + 7x is: (A) 0 (B) 1 (C) 2 (D) 3",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "The zero of p(x) = 2x - 6 is: (A) 2 (B) 3 (C) 6 (D) -3",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "A polynomial of degree 2 is called: (A) Linear (B) Quadratic (C) Cubic (D) Constant",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "If p(x) = x² - 3x + 2, then p(1) = (A) 0 (B) 1 (C) 2 (D) -1",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "x² - 25 can be factorised as: (A) (x-5)² (B) (x+5)² (C) (x+5)(x-5) (D) (x+25)(x-1)",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "The coefficient of x² in 3x³ + 2x² - x + 7 is: (A) 3 (B) 2 (C) -1 (D) 7",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "A constant polynomial has degree: (A) 0 (B) 1 (C) 2 (D) Undefined",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "By Remainder Theorem, the remainder when p(x) is divided by (x-a) is: (A) p(0) (B) p(a) (C) p(-a) (D) p(1)",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "(x+y)² = (A) x² + y² (B) x² + 2xy + y² (C) x² - 2xy + y² (D) x² + xy + y²",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "(a+b+c)² = a² + b² + c² + ___: (A) 2ab + 2bc + 2ca (B) ab + bc + ca (C) 2abc (D) a²b² + b²c²",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "The remainder when x³ + x² + x + 1 is divided by x + 1 is: (A) 0 (B) 1 (C) 2 (D) -1",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "The point (3, 0) lies on: (A) y-axis (B) x-axis (C) Origin (D) Second quadrant",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "The coordinates of the origin are: (A) (1, 0) (B) (0, 1) (C) (0, 0) (D) (1, 1)",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "The point (-2, 3) lies in: (A) First quadrant (B) Second quadrant (C) Third quadrant (D) Fourth quadrant",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "The ordinate of every point on the x-axis is: (A) 1 (B) -1 (C) 0 (D) Undefined",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "Point (4, -3) lies in: (A) Q1 (B) Q2 (C) Q3 (D) Q4",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "The mirror image of point (3, 4) in the x-axis is: (A) (-3, 4) (B) (3, -4) (C) (-3, -4) (D) (4, 3)",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "The abscissa of a point is its distance from: (A) x-axis (B) y-axis (C) Origin (D) Both axes",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "A point whose abscissa is 0 lies on: (A) x-axis (B) y-axis (C) Origin only (D) None",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Easy",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "x = 5 represents a line parallel to: (A) x-axis (B) y-axis (C) Both (D) Neither",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Easy",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "The equation y = 3x + 5 has how many solutions? (A) One (B) Two (C) Infinitely many (D) No solution",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Easy",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "2x + 3y = 12 is a: (A) Linear equation in one variable (B) Linear equation in two variables (C) Quadratic equation (D) Not an equation",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Easy",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "If x = 2, y = 1 is a solution of 2x + 3y = k, then k = (A) 5 (B) 7 (C) 8 (D) 6",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Easy",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "The graph of x = 3 is a line: (A) Passing through origin (B) Parallel to y-axis (C) Parallel to x-axis (D) Passing through (0,3)",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Easy",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "y = 0 represents: (A) y-axis (B) x-axis (C) Origin (D) A point",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Easy",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "If the supplementary angles are in ratio 1:2, the angles are: (A) 60°, 120° (B) 45°, 135° (C) 30°, 150° (D) 90°, 90°",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "The sum of all angles around a point is: (A) 180° (B) 270° (C) 360° (D) 90°",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "If two parallel lines are cut by a transversal, corresponding angles are: (A) Supplementary (B) Complementary (C) Equal (D) None",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "An angle is 30° more than its complement. The angle is: (A) 30° (B) 45° (C) 60° (D) 75°",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "Vertically opposite angles are always: (A) Supplementary (B) Complementary (C) Equal (D) Adjacent",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "If two angles of a triangle are 45° and 65°, the third angle is: (A) 60° (B) 70° (C) 80° (D) 90°",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "Co-interior angles are: (A) Equal (B) Complementary (C) Supplementary (D) None",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "An exterior angle of a triangle is 110° and one interior opposite angle is 40°. The other interior opposite angle is: (A) 70° (B) 60° (C) 80° (D) 50°",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Easy",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "In △ABC, if AB = AC, then △ABC is: (A) Scalene (B) Isosceles (C) Equilateral (D) Right-angled",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Easy",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "SSS congruence rule states that two triangles are congruent if: (A) Two sides and included angle are equal (B) All three sides are equal (C) Two angles and included side are equal (D) Right angle, hypotenuse and one side are equal",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Easy",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "In △PQR, ∠P = 60°, ∠Q = 70°. The longest side is: (A) PQ (B) QR (C) PR (D) Cannot be determined",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Easy",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "Two triangles are congruent by ASA if: (A) Two angles and the included side of one are equal to the corresponding parts of other (B) All angles are equal (C) All sides are equal (D) One angle is equal",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Easy",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "CPCT stands for: (A) Corresponding Parts of Congruent Triangles (B) Common Parts of Consecutive Triangles (C) Central Points of Congruent Triangles (D) None",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Easy",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "The angles of an equilateral triangle are: (A) 60°, 60°, 60° (B) 90°, 45°, 45° (C) 30°, 60°, 90° (D) 50°, 60°, 70°",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Easy",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "In a triangle, the side opposite to the largest angle is: (A) Shortest (B) Longest (C) Equal to other sides (D) Cannot be determined",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Easy",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "A diagonal of a parallelogram divides it into: (A) Two congruent triangles (B) Two similar triangles (C) Two unequal parts (D) Four triangles",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "In a parallelogram, opposite sides are: (A) Perpendicular (B) Equal and parallel (C) Only equal (D) Only parallel",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "The diagonals of a rectangle: (A) Are perpendicular (B) Are equal (C) Bisect each other at right angles (D) Are unequal",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "A quadrilateral whose all sides are equal and all angles are 90° is a: (A) Rhombus (B) Rectangle (C) Square (D) Trapezium",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "The sum of angles of a quadrilateral is: (A) 180° (B) 270° (C) 360° (D) 540°",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "In a rhombus, diagonals: (A) Are equal (B) Bisect each other at right angles (C) Are parallel (D) Do not bisect",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "The mid-point theorem states that the segment joining mid-points of two sides of a triangle is: (A) Equal to the third side (B) Parallel to and half of the third side (C) Perpendicular to the third side (D) None",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "A trapezium has: (A) No parallel sides (B) One pair of parallel sides (C) Two pairs of parallel sides (D) All sides equal",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Easy",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "Equal chords of a circle subtend equal angles at the: (A) Circumference (B) Centre (C) Both (D) Neither",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "The angle in a semicircle is: (A) 60° (B) 90° (C) 120° (D) 180°",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "A chord of a circle is a line segment with both endpoints on the: (A) Centre (B) Radius (C) Circumference (D) Diameter",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "If two chords are equal, their distances from the centre are: (A) Unequal (B) Equal (C) Zero (D) Cannot say",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "Angles in the same segment of a circle are: (A) Supplementary (B) Complementary (C) Equal (D) Unequal",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "The perpendicular from the centre to a chord: (A) Trisects the chord (B) Bisects the chord (C) Does not divide the chord (D) None",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "A cyclic quadrilateral has all vertices on a: (A) Line (B) Circle (C) Triangle (D) Square",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "Opposite angles of a cyclic quadrilateral are: (A) Equal (B) Complementary (C) Supplementary (D) None",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Easy",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "By Heron's formula, the area of a triangle with sides a, b, c is √[s(s-a)(s-b)(s-c)] where s = (A) a+b+c (B) (a+b+c)/2 (C) (a+b+c)/3 (D) abc",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Easy",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     },
     {
         "question_text": "The semi-perimeter of a triangle with sides 3, 4, 5 cm is: (A) 6 cm (B) 12 cm (C) 7 cm (D) 5 cm",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Easy",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     },
     {
         "question_text": "The area of a triangle with sides 5, 12, 13 cm is: (A) 30 cm² (B) 60 cm² (C) 65 cm² (D) 24 cm²",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Easy",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     },
     {
         "question_text": "The area of an equilateral triangle with side a is: (A) a²/2 (B) (√3/4)a² (C) a² (D) √3a²",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Easy",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     },
     {
         "question_text": "The area of an isosceles triangle with equal sides 5 cm and base 6 cm is: (A) 12 cm² (B) 15 cm² (C) 24 cm² (D) 10 cm²",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Easy",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     },
     {
         "question_text": "The TSA of a cube with side 4 cm is: (A) 64 cm² (B) 96 cm² (C) 48 cm² (D) 16 cm²",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "Volume of a cylinder with radius 7 cm and height 10 cm is: (A) 1540 cm³ (B) 440 cm³ (C) 770 cm³ (D) 220 cm³",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "The CSA of a cone with slant height l and radius r is: (A) πrl (B) πr²l (C) 2πrl (D) πr²h",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "Volume of a sphere of radius r is: (A) 4πr² (B) (4/3)πr³ (C) (2/3)πr³ (D) πr³",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "The TSA of a hemisphere of radius r is: (A) 2πr² (B) 3πr² (C) 4πr² (D) πr²",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "Volume of a cone = (A) πr²h (B) (1/3)πr²h (C) (2/3)πr²h (D) (1/2)πr²h",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "The CSA of a cylinder with radius r and height h is: (A) 2πrh (B) πr²h (C) 2πr(r+h) (D) πrh",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "Numbers of edges of a cube are: (A) 6 (B) 8 (C) 12 (D) 4",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Easy",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "The mean of 2, 4, 6, 8, 10 is: (A) 5 (B) 6 (C) 7 (D) 8",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Easy",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "The mode of 2, 3, 3, 4, 5, 5, 5, 6 is: (A) 3 (B) 4 (C) 5 (D) 6",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Easy",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "The median of 3, 5, 7, 9, 11 is: (A) 5 (B) 7 (C) 9 (D) 3",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Easy",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "For grouped data, the class mark equals: (A) Upper limit - Lower limit (B) (Upper limit + Lower limit)/2 (C) Upper limit + Lower limit (D) Frequency × class size",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Easy",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "Range of data 12, 15, 18, 22, 25 is: (A) 12 (B) 13 (C) 25 (D) 37",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Easy",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "A histogram is a graphical representation of: (A) Ungrouped data (B) Grouped data (C) Pie chart (D) Line graph",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Easy",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "If a coin is tossed, the probability of getting a head is: (A) 0 (B) 1/2 (C) 1 (D) 1/4",
         "subject": "Maths",
+        "chapter": "Probability",
         "difficulty": "Easy",
-        "chapter": "Probability"
+        "is_rationalised": true
     },
     {
         "question_text": "Probability of an event always lies between: (A) -1 and 1 (B) 0 and 1 (C) 0 and 2 (D) -1 and 0",
         "subject": "Maths",
+        "chapter": "Probability",
         "difficulty": "Easy",
-        "chapter": "Probability"
+        "is_rationalised": true
     },
     {
         "question_text": "If P(E) = 0.3, then P(not E) = (A) 0.3 (B) 0.7 (C) 1 (D) 0",
         "subject": "Maths",
+        "chapter": "Probability",
         "difficulty": "Easy",
-        "chapter": "Probability"
+        "is_rationalised": true
     },
     {
         "question_text": "Probability of a sure event is: (A) 0 (B) 0.5 (C) 1 (D) -1",
         "subject": "Maths",
+        "chapter": "Probability",
         "difficulty": "Easy",
-        "chapter": "Probability"
+        "is_rationalised": true
     },
     {
         "question_text": "A die is thrown. P(getting 6) = (A) 1/2 (B) 1/3 (C) 1/6 (D) 1",
         "subject": "Maths",
+        "chapter": "Probability",
         "difficulty": "Easy",
-        "chapter": "Probability"
+        "is_rationalised": true
     },
     {
         "question_text": "Probability of an impossible event is: (A) 1 (B) 0 (C) 0.5 (D) -1",
         "subject": "Maths",
+        "chapter": "Probability",
         "difficulty": "Easy",
-        "chapter": "Probability"
+        "is_rationalised": true
     },
     {
         "question_text": "Euclid defined a point as: (A) A line with no width (B) That which has no part (C) A flat surface (D) A circle",
         "subject": "Maths",
+        "chapter": "Introduction to Euclid's Geometry",
         "difficulty": "Easy",
-        "chapter": "Introduction to Euclid's Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "How many lines can pass through two distinct points? (A) 0 (B) 1 (C) 2 (D) Infinitely many",
         "subject": "Maths",
+        "chapter": "Introduction to Euclid's Geometry",
         "difficulty": "Easy",
-        "chapter": "Introduction to Euclid's Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "An axiom is: (A) A statement to be proved (B) A universally accepted assumption (C) A definition (D) A theorem",
         "subject": "Maths",
+        "chapter": "Introduction to Euclid's Geometry",
         "difficulty": "Easy",
-        "chapter": "Introduction to Euclid's Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "Euclid's fifth postulate is about: (A) Points (B) Circles (C) Parallel lines (D) Angles",
         "subject": "Maths",
+        "chapter": "Introduction to Euclid's Geometry",
         "difficulty": "Easy",
-        "chapter": "Introduction to Euclid's Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "Things equal to the same thing are equal to: (A) Nothing (B) One another (C) Half of each other (D) Double",
         "subject": "Maths",
+        "chapter": "Introduction to Euclid's Geometry",
         "difficulty": "Easy",
-        "chapter": "Introduction to Euclid's Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "Express 0.6̄ in the form p/q.",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Medium",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Simplify: (3√2 + 2√3)(3√2 - 2√3).",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Medium",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "If x = 2 - √3, find the value of x² + 1/x².",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Medium",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Represent √3 on the number line using successive construction.",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Medium",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Rationalise the denominator of 1/(√7 - √6).",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Medium",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Factorise: x³ - 23x² + 142x - 120 using Factor Theorem.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Medium",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "If p(x) = 2x³ - 11x² + 17x - 6, check if (x - 3) is a factor. If yes, factorise completely.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Medium",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Without actual division, prove that 2x⁴ - 5x³ + 2x² - x + 2 is exactly divisible by x² - 3x + 2.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Medium",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Evaluate 105 × 106 using a suitable algebraic identity.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Medium",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "If x + 1/x = 6, find the value of x² + 1/x².",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Medium",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Find the value of k if (x - 1) is a factor of 4x³ + 3x² - 4x + k.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Medium",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Expand: (2a - 3b + c)² using the appropriate identity.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Medium",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Plot the graph of the equation 2x + y = 6. Find the points where the line meets the axes.",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Medium",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "The cost of a pencil is ₹2 more than the cost of an eraser. Write a linear equation to represent this and draw its graph.",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Medium",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "Write four solutions for the equation 2x + y = 7.",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Medium",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "In △ABC, if ∠A = 50° and the external bisector of ∠B and ∠C meet at O, find ∠BOC. [Figure: Triangle ABC with external bisectors meeting at O]",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Medium",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
-        "question_text": "Prove that if a transversal intersects two parallel lines, the bisectors of co-interior angles are perpendicular. [Figure: Two parallel lines with transversal and angle bisectors]",
+        "question_text": "Prove that if a transversal intersects two parallel lines, the bisectors of co-interior angles are perpendicular. [Figure: Two parallel lines with transversal and angle bisectors] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Parallel_lines%2Btransversal.svg/512px-Parallel_lines%2Btransversal.svg.png]",
         "subject": "Maths",
+        "chapter": "Lines and Angles",
         "difficulty": "Medium",
-        "chapter": "Lines and Angles"
+        "is_rationalised": true
     },
     {
         "question_text": "AB is a line segment. P and Q are points on opposite sides of AB such that AP = BQ and ∠APB = ∠BQA. Prove that the line PQ bisects AB.",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Medium",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "In △ABC, ∠B = 35° and ∠C = 65°. Which is the longest side of the triangle? Give reason.",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Medium",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "BE and CF are two equal altitudes of △ABC. Prove that the triangle is isosceles.",
         "subject": "Maths",
+        "chapter": "Triangles",
         "difficulty": "Medium",
-        "chapter": "Triangles"
+        "is_rationalised": true
     },
     {
         "question_text": "ABCD is a rectangle. Prove that the diagonals are equal.",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Medium",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "P, Q, R and S are the mid-points of sides AB, BC, CD and DA of quadrilateral ABCD. Prove that PQRS is a parallelogram.",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Medium",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "Prove that the quadrilateral formed by joining the mid-points of a rectangle is a rhombus.",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Medium",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "Prove that the angle subtended by an arc at the centre is double the angle subtended by it at any other point on the remaining circle.",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Medium",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "If two chords of a circle are equal, prove that their corresponding arcs are congruent.",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Medium",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "A field is in the shape of a trapezium with parallel sides 25 m and 10 m, and non-parallel sides 13 m and 14 m. Find its area using Heron's formula by dividing it into a triangle and parallelogram.",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Medium",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     },
     {
         "question_text": "Find the area of a triangle whose sides are 18 cm, 10 cm and 14 cm.",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Medium",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     },
     {
         "question_text": "A tent is in the shape of a cylinder surmounted by a cone. The diameter is 4 m, height of cylinder is 2.1 m and slant height of cone is 2.8 m. Find the cost of canvas at ₹500/m². [Figure: Cylinder with cone on top]",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Medium",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "Find the volume and surface area of a sphere of diameter 14 cm. (Use π = 22/7)",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Medium",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "The mean of 5 numbers is 18.2. If one number is excluded, the mean becomes 16. Find the excluded number.",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Medium",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "Draw a histogram for the following data: Class: 0-10, 10-20, 20-30, 30-40, 40-50. Frequency: 5, 10, 8, 6, 4.",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Medium",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "1000 families with 2 children were selected randomly. The following data was recorded: 2 girls-175, 1 girl-814, no girl-211. Find the probability of a family having (a) 2 girls (b) 1 girl (c) no girl.",
         "subject": "Maths",
+        "chapter": "Probability",
         "difficulty": "Medium",
-        "chapter": "Probability"
+        "is_rationalised": true
     },
     {
         "question_text": "Construct a triangle with perimeter 10 cm and base angles 60° and 45°. Write all steps.",
         "subject": "Maths",
+        "chapter": "Constructions",
         "difficulty": "Medium",
-        "chapter": "Constructions"
+        "is_rationalised": true
     },
     {
         "question_text": "Construct an equilateral triangle with altitude 4 cm. Show the steps of construction.",
         "subject": "Maths",
+        "chapter": "Constructions",
         "difficulty": "Medium",
-        "chapter": "Constructions"
+        "is_rationalised": true
     },
     {
-        "question_text": "Visualise 3.765 on the number line, using successive magnification method. [Figure: Number line with magnified portions]",
+        "question_text": "Visualise 3.765 on the number line, using successive magnification method. [Figure: Number line with magnified portions] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Number_line.svg/512px-Number_line.svg.png]",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Hard",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Prove that √3 + √5 is irrational. [Hint: Assume the contrary and use the fact that √3 and √5 are irrational]",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Hard",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Simplify: (a) (3 + √3)(2 + √2) [1] (b) (√5 + √2)² [1] (c) (√11 - √7)(√11 + √7) [1] (d) Rationalise 1/(2 + √3) [2]",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Hard",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Using Factor Theorem, factorise the polynomial x³ - 6x² + 11x - 6 completely. Hence find its zeros. Show all steps.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Hard",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Verify: x³ + y³ + z³ - 3xyz = (x+y+z)(x² + y² + z² - xy - yz - zx). Using this identity, evaluate 28³ + (-15)³ + (-13)³.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Hard",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "If a + b + c = 9 and ab + bc + ca = 26, find a² + b² + c². Also evaluate a³ + b³ + c³ - 3abc if a + b + c = 9.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Hard",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Draw the graphs of 2x + y = 6 and 2x - y = -2 on the same graph paper. Find the point of intersection. Shade the triangular region formed with y-axis. (a) Find point of intersection [2] (b) Find the area of the shaded triangle [3] [Figure: Graph with two intersecting lines]",
         "subject": "Maths",
+        "chapter": "Linear Equations in Two Variables",
         "difficulty": "Hard",
-        "chapter": "Linear Equations in Two Variables"
+        "is_rationalised": true
     },
     {
         "question_text": "In a triangle ABC, lines are drawn through A, B and C parallel respectively to BC, CA and AB, forming triangle PQR. Prove that BC = (1/2)QR. Show detailed proof with figure. [Figure: Triangle ABC with parallel lines forming triangle PQR]",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Hard",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "Prove: The line segment joining the mid-points of any two sides of a triangle is parallel to the third side and equal to half of it. Use this theorem to prove that the quadrilateral formed by joining mid-points of a rhombus is a rectangle.",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Hard",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "Two circles intersect at A and B. AD and AE are diameters of the two circles. Prove that B lies on line segment DE. (a) Draw the figure [1] (b) State the required theorem [1] (c) Complete the proof [3] [Figure: Two intersecting circles with diameters AD and AE]",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Hard",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "A right circular cylinder just encloses a sphere of radius r. Find: (a) Surface area of sphere [1] (b) Curved surface area of cylinder [1] (c) Ratio of the areas in (a) and (b) [1] (d) Total surface area of cylinder [1] (e) Ratio of surface area of sphere to TSA of cylinder [1]",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Hard",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "A village has 2000 people. The data about their educational levels is given below: Literate: 1100, Illiterate: 900. Of the literate, 600 are males. Of illiterate, 400 are males. (a) Represent this data as a table [1] (b) Find P(a randomly chosen person is literate) [1] (c) Find P(person is illiterate female) [1] (d) Find P(person is literate male) [1] (e) What conclusion can you draw about literacy? [1]",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Hard",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "Construct a triangle ABC in which BC = 8 cm, ∠B = 45° and AB - AC = 3.5 cm. Write all steps of construction clearly. [Figure: Construction steps shown]",
         "subject": "Maths",
+        "chapter": "Constructions",
         "difficulty": "Hard",
-        "chapter": "Constructions"
+        "is_rationalised": true
     },
     {
         "question_text": "The following data gives marks of 100 students. Find mean, median and mode for this grouped data. Marks: 0-10(5), 10-20(10), 20-30(25), 30-40(30), 40-50(20), 50-60(10). (a) Find mean using direct method [2] (b) Find modal class and mode [1] (c) Find median class and median [2]",
         "subject": "Maths",
+        "chapter": "Statistics",
         "difficulty": "Hard",
-        "chapter": "Statistics"
+        "is_rationalised": true
     },
     {
         "question_text": "A hemispherical dome of a building has diameter 63 m. It needs to be painted from outside. If cost of painting is ₹2 per sq.m, find: (a) the curved surface area of dome [2] (b) the total cost of painting [1] (c) If the dome is to be filled with air, find the volume of air inside [2]",
         "subject": "Maths",
+        "chapter": "Surface Areas and Volumes",
         "difficulty": "Hard",
-        "chapter": "Surface Areas and Volumes"
+        "is_rationalised": true
     },
     {
         "question_text": "ABCD is a parallelogram. E is the mid-point of AD. BE and AC meet at F. Prove that F is the one-third point of AC, i.e., AF = (1/3)AC. [Hint: Use mid-point theorem] [Figure: Parallelogram with diagonals and mid-points]",
         "subject": "Maths",
+        "chapter": "Quadrilaterals",
         "difficulty": "Hard",
-        "chapter": "Quadrilaterals"
+        "is_rationalised": true
     },
     {
         "question_text": "Prove that the sum of either pair of opposite angles of a cyclic quadrilateral is 180 degrees. Using this result, find angle A and angle C of a cyclic quadrilateral if angle A = 2x + 4 degrees and angle C = 2y + 10 degrees and angle B = y + 3 degrees and angle D = 4x - 5 degrees.",
         "subject": "Maths",
+        "chapter": "Circles",
         "difficulty": "Hard",
-        "chapter": "Circles"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): Every whole number is a natural number. Reason (R): 0 is a whole number but not a natural number. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Maths",
+        "chapter": "Number Systems",
         "difficulty": "Easy",
-        "chapter": "Number Systems"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): The degree of the polynomial x^3 + 2x + 1 is 3. Reason (R): The highest power of the variable in a polynomial is called its degree. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Maths",
+        "chapter": "Polynomials",
         "difficulty": "Easy",
-        "chapter": "Polynomials"
+        "is_rationalised": true
     },
     {
         "question_text": "Case Study: In a park, three friends are sitting at positions A(2,3), B(4,5) and C(6,7). [Figure: Cartesian Plane with points A, B, C marked] (a) What is the abscissa of point B? [1] (b) What is the ordinate of point A? [1] (c) Verify if these points are collinear by finding the area of triangle formed or by distance formula. [2]",
         "subject": "Maths",
+        "chapter": "Coordinate Geometry",
         "difficulty": "Hard",
-        "chapter": "Coordinate Geometry"
+        "is_rationalised": true
     },
     {
         "question_text": "Real-life Scenario: A farmer has a triangular field with sides 13m, 14m, and 15m. He wants to plant wheat in it. [Figure: Triangular field layout] (a) Find the semi-perimeter of the field. [1] (b) Calculate the area of the field using Heron's formula. [2] (c) If he sells the wheat at Rs 100 per sq m, find his total income. [1]",
         "subject": "Maths",
+        "chapter": "Heron's Formula",
         "difficulty": "Hard",
-        "chapter": "Heron's Formula"
+        "is_rationalised": true
     }
 ]

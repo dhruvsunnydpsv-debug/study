@@ -2,313 +2,365 @@
     {
         "question_text": "'The Fun They Had' is set in: (A) Present day (B) The year 2157 (C) The 18th century (D) 1950s",
         "subject": "English",
+        "chapter": "The Fun They Had",
         "difficulty": "Easy",
-        "chapter": "The Fun They Had"
+        "is_rationalised": true
     },
     {
         "question_text": "What is Margie's mechanical teacher? (A) A human tutor (B) A robot (C) A computer screen (D) A large black screen with slots",
         "subject": "English",
+        "chapter": "The Fun They Had",
         "difficulty": "Easy",
-        "chapter": "The Fun They Had"
+        "is_rationalised": true
     },
     {
         "question_text": "Tommy finds a 'real book' in the story. A real book has: (A) Digital pages (B) Pages made of paper (C) Electronic ink (D) Holographic text",
         "subject": "English",
+        "chapter": "The Fun They Had",
         "difficulty": "Easy",
-        "chapter": "The Fun They Had"
+        "is_rationalised": true
     },
     {
         "question_text": "In 'The Road Not Taken', the poet stands at: (A) A crossroad (B) A fork where two roads diverge (C) A bridge (D) A dead end",
         "subject": "English",
+        "chapter": "The Road Not Taken",
         "difficulty": "Easy",
-        "chapter": "The Road Not Taken"
+        "is_rationalised": true
     },
     {
         "question_text": "'Two roads diverged in a yellow wood' — the yellow wood symbolises: (A) Spring (B) Autumn/old age (C) Summer (D) Winter",
         "subject": "English",
+        "chapter": "The Road Not Taken",
         "difficulty": "Easy",
-        "chapter": "The Road Not Taken"
+        "is_rationalised": true
     },
     {
         "question_text": "The Happy Prince statue was covered with: (A) Gold paint (B) Thin leaves of fine gold (C) Silver (D) Bronze",
         "subject": "English",
+        "chapter": "The Happy Prince",
         "difficulty": "Easy",
-        "chapter": "The Happy Prince"
+        "is_rationalised": true
     },
     {
         "question_text": "The Happy Prince's eyes were made of: (A) Diamonds (B) Rubies (C) Sapphires (D) Emeralds",
         "subject": "English",
+        "chapter": "The Happy Prince",
         "difficulty": "Easy",
-        "chapter": "The Happy Prince"
+        "is_rationalised": true
     },
     {
         "question_text": "The swallow was going to: (A) Paris (B) London (C) Egypt (D) Africa",
         "subject": "English",
+        "chapter": "The Happy Prince",
         "difficulty": "Easy",
-        "chapter": "The Happy Prince"
+        "is_rationalised": true
     },
     {
         "question_text": "Evelyn Glennie is a famous: (A) Singer (B) Percussionist (C) Violinist (D) Pianist",
         "subject": "English",
+        "chapter": "The Sound of Music",
         "difficulty": "Easy",
-        "chapter": "The Sound of Music"
+        "is_rationalised": true
     },
     {
         "question_text": "Bismillah Khan played the shehnai at: (A) Red Fort (B) Vishwanath Temple (C) Taj Mahal (D) India Gate",
         "subject": "English",
+        "chapter": "The Sound of Music",
         "difficulty": "Easy",
-        "chapter": "The Sound of Music"
+        "is_rationalised": true
     },
     {
         "question_text": "In 'The Lost Child', the child wanted a balloon of which colour? (A) Red (B) Blue (C) Yellow (D) Green",
         "subject": "English",
+        "chapter": "The Lost Child",
         "difficulty": "Easy",
-        "chapter": "The Lost Child"
+        "is_rationalised": true
     },
     {
         "question_text": "The child in 'The Lost Child' was finally rescued by: (A) His parents (B) A stranger (C) Police (D) A shopkeeper",
         "subject": "English",
+        "chapter": "The Lost Child",
         "difficulty": "Easy",
-        "chapter": "The Lost Child"
+        "is_rationalised": true
     },
     {
         "question_text": "'Rain on the Roof' is written by: (A) Robert Frost (B) Coates Kinney (C) WB Yeats (D) William Blake",
         "subject": "English",
+        "chapter": "Rain on the Roof",
         "difficulty": "Easy",
-        "chapter": "Rain on the Roof"
+        "is_rationalised": true
     },
     {
         "question_text": "In 'The Lake Isle of Innisfree', the poet wants to go to: (A) A city (B) A lake island for peace (C) The mountains (D) A desert",
         "subject": "English",
+        "chapter": "The Lake Isle of Innisfree",
         "difficulty": "Easy",
-        "chapter": "The Lake Isle of Innisfree"
+        "is_rationalised": true
     },
     {
         "question_text": "Kezia's father in 'The Little Girl' was: (A) Very loving (B) Strict and fearsome (C) Always busy playing (D) A farmer",
         "subject": "English",
+        "chapter": "The Little Girl",
         "difficulty": "Easy",
-        "chapter": "The Little Girl"
+        "is_rationalised": true
     },
     {
         "question_text": "What did Kezia make as a birthday present for her father? (A) A card (B) A pin-cushion (C) A painting (D) A cake",
         "subject": "English",
+        "chapter": "The Little Girl",
         "difficulty": "Easy",
-        "chapter": "The Little Girl"
+        "is_rationalised": true
     },
     {
         "question_text": "'Packing' is written by: (A) Jerome K. Jerome (B) Oscar Wilde (C) Isaac Asimov (D) Coates Kinney",
         "subject": "English",
+        "chapter": "Packing",
         "difficulty": "Easy",
-        "chapter": "Packing"
+        "is_rationalised": true
     },
     {
         "question_text": "The duck in 'The Adventures of Toto' was called: (A) Donald (B) Nana (C) It wasn't a duck (D) Toto",
         "subject": "English",
+        "chapter": "The Adventures of Toto",
         "difficulty": "Easy",
-        "chapter": "The Adventures of Toto"
+        "is_rationalised": true
     },
     {
         "question_text": "Identify the noun in: 'Honesty is the best policy.' (A) is (B) the (C) honesty, policy (D) best",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Choose the correct form: 'Neither of the boys ___ present.' (A) are (B) is (C) were (D) have been",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "'She writes neatly.' The underlined word is: (A) Adjective (B) Adverb (C) Noun (D) Verb",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "The past tense of 'begin' is: (A) Begun (B) Began (C) Beginned (D) Beginning",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "A sentence with two independent clauses is called: (A) Simple (B) Complex (C) Compound (D) Fragment",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "'If I were a bird, I would fly.' This is an example of: (A) Imperative sentence (B) Conditional sentence (C) Interrogative sentence (D) Exclamatory sentence",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Choose the correct spelling: (A) Ocassion (B) Occasion (C) Occassion (D) Ocasion",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "The plural of 'phenomenon' is: (A) Phenomenons (B) Phenomena (C) Phenomenas (D) Phenomenis",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "An antonym of 'ancient' is: (A) Old (B) Modern (C) Antique (D) Historic",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "'He plays cricket, ___?' — correct question tag: (A) doesn't he (B) does he (C) isn't he (D) is he",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Identify the type of sentence: 'What a beautiful sunset!' (A) Declarative (B) Interrogative (C) Imperative (D) Exclamatory",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "'The book which is on the table is mine.' The underlined clause is: (A) Noun clause (B) Adjective clause (C) Adverb clause (D) Main clause",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "'Quickly' is: (A) An adjective (B) A noun (C) An adverb (D) A preposition",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Passive voice of 'Ram reads a book': (A) A book was read by Ram (B) A book is read by Ram (C) A book is being read by Ram (D) A book has been read by Ram",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Fill in the blank: 'She has been working here ___ 2019.' (A) for (B) since (C) from (D) till",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "'Despite' is a: (A) Conjunction (B) Preposition (C) Adverb (D) Pronoun",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Easy",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "How does Margie feel about the old-fashioned schools described in the book Tommy found? What does she imagine about those schools? Answer in 60-80 words.",
         "subject": "English",
+        "chapter": "The Fun They Had",
         "difficulty": "Medium",
-        "chapter": "The Fun They Had"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain the significance of the road less travelled in Robert Frost's poem. How does it relate to life choices? (80-100 words)",
         "subject": "English",
+        "chapter": "The Road Not Taken",
         "difficulty": "Medium",
-        "chapter": "The Road Not Taken"
+        "is_rationalised": true
     },
     {
         "question_text": "Why does the Happy Prince send the ruby to the seamstress? What does this tell us about his character? (60-80 words)",
         "subject": "English",
+        "chapter": "The Happy Prince",
         "difficulty": "Medium",
-        "chapter": "The Happy Prince"
+        "is_rationalised": true
     },
     {
         "question_text": "How did Evelyn Glennie overcome her disability to become a world-famous musician? What lessons can we learn from her life? (80-100 words)",
         "subject": "English",
+        "chapter": "The Sound of Music",
         "difficulty": "Medium",
-        "chapter": "The Sound of Music"
+        "is_rationalised": true
     },
     {
         "question_text": "Describe the child's experience at the fair in 'The Lost Child'. What different things attract him? What is the turning point? (80-100 words)",
         "subject": "English",
+        "chapter": "The Lost Child",
         "difficulty": "Medium",
-        "chapter": "The Lost Child"
+        "is_rationalised": true
     },
     {
         "question_text": "Write a letter to the Principal of your school requesting improvement of the school library facilities. Include specific suggestions. (100-120 words)",
         "subject": "English",
+        "chapter": "Writing",
         "difficulty": "Medium",
-        "chapter": "Writing"
+        "is_rationalised": true
     },
     {
         "question_text": "Write a paragraph on 'The Importance of Physical Exercise' in about 100-120 words. Include benefits for health, mind, and social development.",
         "subject": "English",
+        "chapter": "Writing",
         "difficulty": "Medium",
-        "chapter": "Writing"
+        "is_rationalised": true
     },
     {
         "question_text": "Transform the following sentences as directed: (a) He is too tired to walk. (Remove 'too') (b) She said, 'I am happy.' (Change to indirect speech) (c) The cat drank the milk. (Change to passive voice)",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Medium",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Fill in the blanks with suitable modals: (a) You ___ not park here. (prohibition) (b) She ___ speak three languages. (ability) (c) It ___ rain today. (possibility) (d) We ___ respect our elders. (moral obligation)",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Medium",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Rearrange the following to form meaningful sentences: (a) morning / the / in / go / I / for / walk / a (b) difficult / English / not / grammar / is (c) won / team / our / match / the / yesterday",
         "subject": "English",
+        "chapter": "Grammar",
         "difficulty": "Medium",
-        "chapter": "Grammar"
+        "is_rationalised": true
     },
     {
         "question_text": "Write a diary entry about your first day at a new school. Express your feelings, observations, and experiences. (100-120 words)",
         "subject": "English",
+        "chapter": "Writing",
         "difficulty": "Medium",
-        "chapter": "Writing"
+        "is_rationalised": true
     },
     {
         "question_text": "Describe Kezia's relationship with her father. How does it change towards the end of the story 'The Little Girl'? (80-100 words)",
         "subject": "English",
+        "chapter": "The Little Girl",
         "difficulty": "Medium",
-        "chapter": "The Little Girl"
+        "is_rationalised": true
     },
     {
         "question_text": "What is the irony in the title 'The Happy Prince'? How does Oscar Wilde use the characters of the Prince and the Swallow to highlight the themes of sacrifice and compassion? Write in 150-200 words.",
         "subject": "English",
+        "chapter": "The Happy Prince",
         "difficulty": "Hard",
-        "chapter": "The Happy Prince"
+        "is_rationalised": true
     },
     {
         "question_text": "'The Road Not Taken is not simply about choosing a path in a forest — it is a metaphor for the choices we make in life.' Discuss in 150-200 words with reference to the poem.",
         "subject": "English",
+        "chapter": "The Road Not Taken",
         "difficulty": "Hard",
-        "chapter": "The Road Not Taken"
+        "is_rationalised": true
     },
     {
         "question_text": "Compare and contrast the educational systems described in 'The Fun They Had' with the current system. Which system do you think is more effective and why? (150-200 words)",
         "subject": "English",
+        "chapter": "The Fun They Had",
         "difficulty": "Hard",
-        "chapter": "The Fun They Had"
+        "is_rationalised": true
     },
     {
         "question_text": "Write a story in 200-250 words with the title 'A Lesson I Will Never Forget'. Your story should have a clear beginning, middle, and end.",
         "subject": "English",
+        "chapter": "Writing",
         "difficulty": "Hard",
-        "chapter": "Writing"
+        "is_rationalised": true
     },
     {
         "question_text": "Write an article for your school magazine on 'The Role of Technology in Modern Education' in 200-250 words. Include both positive and negative aspects.",
         "subject": "English",
+        "chapter": "Writing",
         "difficulty": "Hard",
-        "chapter": "Writing"
+        "is_rationalised": true
     },
     {
         "question_text": "Read the following passage and answer the questions: 'Climate change is one of the most pressing issues of our time. Rising temperatures, extreme weather events, and melting ice caps are clear signs. Scientists warn that unless greenhouse gas emissions are curtailed, the consequences will be devastating. Governments, businesses, and individuals must work together.' (a) What is the passage about? [1] (b) What are the signs of climate change? [1] (c) What do scientists warn? [1] (d) Find a word meaning 'reduced'. [1] (e) What must be done? [1]",
         "subject": "English",
+        "chapter": "Reading Comprehension",
         "difficulty": "Hard",
-        "chapter": "Reading Comprehension"
+        "is_rationalised": true
     }
 ]

@@ -545,33 +545,36 @@
         }
 
         .figure-box {
-            margin: 10px 0;
-            padding: 16px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background: #fcfcfc;
+            margin: 15px 0;
+            padding: 20px;
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
             text-align: center;
-            color: #666;
-            font-size: 11.5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.02)
+            font-size: 0.85rem;
+            color: #666
         }
 
         .figure-icon {
-            font-size: 18px;
-            color: #999;
-            opacity: 0.6
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ccc
         }
 
         .figure-label {
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.05em;
             color: #444;
-            font-size: 10px
+            margin-bottom: 5px
+        }
+
+        .q-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 10px;
+            border: 1px solid #eee
         }
 
         .paper-footer {
@@ -704,73 +707,71 @@
             'Maths': {
                 code: '041', fullName: 'Mathematics', time: '3 Hours', maxMarks: 80,
                 sections: [
-                    { id: 'A', title: 'Section A', desc: 'Objective Type Questions (MCQ)', perQ: 1, count: 20, diff: 'Easy', note: 'All questions are compulsory. Each carries 1 mark.' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer Type Questions (VSA)', perQ: 2, count: 5, diff: 'Medium', note: 'Answer in 30-50 words. Internal choice in 2 questions.', hasOR: 2 },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer Type Questions (SA)', perQ: 3, count: 6, diff: 'Medium', note: 'Answer in 50-80 words. Internal choice in 2 questions.', hasOR: 2 },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer Type Questions (LA)', perQ: 5, count: 4, diff: 'Hard', note: 'Answer in 80-120 words. Internal choice in 2 questions.', hasOR: 2 },
+                    { id: 'A', title: 'Section A', desc: 'MCQ / Objective Type', perQ: 1, count: 20, diff: 'Easy', note: 'Includes MCQs and Assertion-Reasoning.' },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer Type (VSA)', perQ: 2, count: 5, diff: 'Medium', note: 'Answer in 30-50 words.', hasOR: 2 },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer Type (SA)', perQ: 3, count: 6, diff: 'Medium', note: 'Answer in 50-80 words.', hasOR: 2 },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer Type (LA)', perQ: 5, count: 4, diff: 'Hard', note: 'Answer in 80-120 words.', hasOR: 2 },
                     { id: 'E', title: 'Section E', desc: 'Case Study Based Questions', perQ: 4, count: 3, diff: 'Hard', note: 'Each case has sub-parts.' }
                 ],
-                instructions: ['This question paper contains 38 questions divided into 5 sections — A, B, C, D and E.', 'Section A comprises 20 MCQs carrying 1 mark each.', 'Section B comprises 5 questions carrying 2 marks each.', 'Section C comprises 6 questions carrying 3 marks each.', 'Section D comprises 4 questions carrying 5 marks each.', 'Section E comprises 3 case study based questions carrying 4 marks each.', 'Internal choice has been provided in 2 questions in Section B, 2 in Section C, 2 in Section D.', 'Draw neat figures wherever required. Use of calculator is not permitted.']
+                instructions: ['This question paper contains 38 questions divided into 5 sections — A, B, C, D and E.', 'Section A comprises 20 MCQs carrying 1 mark each.', 'Section B comprises 5 questions carrying 2 marks each.', 'Section C comprises 6 questions carrying 3 marks each.', 'Section D comprises 4 questions carrying 5 marks each.', 'Section E comprises 3 case study based questions carrying 4 marks each.', 'All questions are compulsory. Internal choice is provided in Sections B, C and D.', 'Draw neat figures wherever required.']
             },
             'Science': {
                 code: '086', fullName: 'Science', time: '3 Hours', maxMarks: 80,
                 sections: [
-                    { id: 'A', title: 'Section A', desc: 'MCQ / Objective Type', perQ: 1, count: 20, diff: 'Easy', note: 'All questions are compulsory.' },
+                    { id: 'A', title: 'Section A', desc: 'MCQ / Assertion-Reasoning', perQ: 1, count: 20, diff: 'Easy', note: 'All questions are compulsory.' },
                     { id: 'B', title: 'Section B', desc: 'Very Short Answer Questions', perQ: 2, count: 6, diff: 'Medium', note: 'Answer in 30-50 words.', hasOR: 2 },
                     { id: 'C', title: 'Section C', desc: 'Short Answer Questions', perQ: 3, count: 7, diff: 'Medium', note: 'Answer in 50-80 words.', hasOR: 2 },
                     { id: 'D', title: 'Section D', desc: 'Long Answer Questions', perQ: 5, count: 3, diff: 'Hard', note: 'Answer in 80-120 words with diagrams.', hasOR: 2 },
                     { id: 'E', title: 'Section E', desc: 'Case Based Questions', perQ: 4, count: 3, diff: 'Hard', note: 'Read the passage and answer sub-questions.' }
                 ],
-                instructions: ['This question paper contains 39 questions divided into 5 sections.', 'Section A: 20 MCQs of 1 mark each.', 'Section B: 6 VSA questions of 2 marks each (30-50 words).', 'Section C: 7 SA questions of 3 marks each (50-80 words).', 'Section D: 3 LA questions of 5 marks each (80-120 words).', 'Section E: 3 case-based questions of 4 marks each.', 'Draw neat and labelled diagrams wherever necessary.', 'All questions are compulsory. Internal choice is provided in some questions.']
+                instructions: ['This question paper contains 39 questions divided into 5 sections.', 'Section A: 20 MCQs (including Assertion-Reasoning) of 1 mark each.', 'Section B: 6 VSA questions of 2 marks each.', 'Section C: 7 SA questions of 3 marks each.', 'Section D: 3 LA questions of 5 marks each.', 'Section E: 3 case-based questions of 4 marks each.', 'Draw neat and labelled diagrams wherever necessary.']
             },
             'Social Science': {
                 code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
                 sections: [
-                    { id: 'A', title: 'Section A', desc: 'MCQ / Objective Type', perQ: 1, count: 20, diff: 'Easy', note: 'All questions are compulsory.' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer Type (40 words)', perQ: 2, count: 4, diff: 'Medium', note: 'Answer in not more than 40 words each.' },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer Type (60 words)', perQ: 3, count: 5, diff: 'Medium', note: 'Answer in not more than 60 words each.', hasOR: 2 },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer Type (120 words)', perQ: 5, count: 4, diff: 'Hard', note: 'Answer in not more than 120 words each.', hasOR: 2 },
-                    { id: 'E', title: 'Section E', desc: 'Source/Case Based Questions', perQ: 4, count: 3, diff: 'Hard', note: 'Read the source and answer sub-questions.' }
+                    { id: 'A', title: 'Section A', desc: 'MCQ (1 mark each)', perQ: 1, count: 20, diff: 'Easy', note: 'MCQs and Assertion-Reasoning.' },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (2 marks)', perQ: 2, count: 4, diff: 'Medium', note: 'Answer in not more than 40 words each.' },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer (3 marks)', perQ: 3, count: 5, diff: 'Medium', note: 'Answer in not more than 60 words each.', hasOR: 2 },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer (5 marks)', perQ: 5, count: 4, diff: 'Hard', note: 'Answer in not more than 120 words each.', hasOR: 2 },
+                    { id: 'E', title: 'Section E', desc: 'Case Based Questions (4 marks)', perQ: 4, count: 3, diff: 'Hard', note: 'Source/Case based questions.' },
+                    { id: 'F', title: 'Section F', desc: 'Map Based Question (5 marks)', perQ: 5, count: 1, diff: 'Medium', note: '2 marks from History and 3 from Geography.' }
                 ],
-                instructions: ['This question paper comprises 36 questions divided into 5 sections — A, B, C, D and E.', 'Section A: 20 MCQs of 1 mark each.', 'Section B: 4 VSA questions of 2 marks each (40 words).', 'Section C: 5 SA questions of 3 marks each (60 words).', 'Section D: 4 LA questions of 5 marks each (120 words).', 'Section E: 3 case/source based questions of 4 marks each.', 'There is no overall choice. Internal choice is provided in some questions.']
+                instructions: ['This question paper comprises 37 questions divided into 6 sections — A, B, C, D, E and F.', 'Section A: 20 MCQs of 1 mark each.', 'Section B: 4 VSA questions of 2 marks each.', 'Section C: 5 SA questions of 3 marks each.', 'Section D: 4 LA questions of 5 marks each.', 'Section E: 3 case based questions of 4 marks each.', 'Section F: Map Based Question of 5 marks.', 'All questions are compulsory. Internal choice provided in some questions.']
             },
             'English': {
                 code: '184', fullName: 'English Language and Literature', time: '3 Hours', maxMarks: 80,
                 sections: [
-                    { id: 'A', title: 'Section A — Reading Skills', desc: 'Comprehension', perQ: 1, count: 20, diff: 'Easy', note: 'Read the passages and answer the questions. (20 marks)' },
-                    { id: 'B', title: 'Section B — Writing Skills & Grammar', desc: 'Writing and Grammar', perQ: 0, count: 0, diff: 'Medium', note: 'Answer all questions. (20 marks)', fixedMarks: 20 },
-                    { id: 'C', title: 'Section C — Literature', desc: 'Textbook Questions', perQ: 0, count: 0, diff: 'Hard', note: 'Based on prescribed textbooks. (40 marks)', fixedMarks: 40 }
+                    { id: 'A', title: 'Section A — Reading Skills', desc: 'Reading Comprehension', perQ: 1, count: 20, diff: 'Easy', note: 'Two unseen passages (10+10 marks).' },
+                    { id: 'B', title: 'Section B — Writing Skills & Grammar', desc: 'Writing and Grammar', perQ: 0, count: 0, diff: 'Medium', note: '10m Grammar, 10m Creative Writing.', fixedMarks: 20 },
+                    { id: 'C', title: 'Section C — Literature', desc: 'Language through Literature', perQ: 0, count: 0, diff: 'Hard', note: 'Extracts and Textbook questions.', fixedMarks: 40 }
                 ],
-                instructions: ['This question paper is divided into three sections — A, B and C.', 'Section A: Reading Skills — 20 marks', 'Section B: Writing Skills and Grammar — 20 marks', 'Section C: Literature — 40 marks', 'All questions are compulsory.', 'You may attempt any section at a time.']
+                instructions: ['This question paper is divided into three sections — A, B and C.', 'Section A: Reading Skills — 20 marks', 'Section B: Writing Skills and Grammar — 20 marks', 'Section C: Literature — 40 marks', 'Candidates must adhere to the word limit strictly.', 'All questions are compulsory.']
             },
             'Hindi': {
                 code: '002', fullName: 'हिन्दी अ', time: '3 घण्टे', maxMarks: 80, lang: 'hi',
                 sections: [
-                    { id: 'अ', title: 'खण्ड अ — अपठित बोध', desc: 'अपठित गद्यांश/पद्यांश', perQ: 1, count: 14, diff: 'Easy', note: 'अपठित गद्यांश एवं पद्यांश पर आधारित बहुविकल्पीय प्रश्न। (14 अंक)' },
-                    { id: 'ब', title: 'खण्ड ब — व्यावहारिक व्याकरण', desc: 'व्याकरण', perQ: 1, count: 16, diff: 'Easy', note: 'व्याकरण पर आधारित बहुविकल्पीय प्रश्न। (16 अंक)' },
-                    { id: 'स', title: 'खण्ड स — पाठ्यपुस्तक', desc: 'क्षितिज एवं कृतिका', perQ: 0, count: 0, diff: 'Medium', note: 'पाठ्यपुस्तक से सम्बंधित प्रश्न। (30 अंक)', fixedMarks: 30 },
-                    { id: 'द', title: 'खण्ड द — रचनात्मक लेखन', desc: 'लेखन', perQ: 0, count: 0, diff: 'Hard', note: 'अनुच्छेद, पत्र, संदेश लेखन। (20 अंक)', fixedMarks: 20 }
+                    { id: 'अ', title: 'खण्ड अ — बहुविकल्पी प्रश्न', desc: 'अपठित एवं व्याकरण', perQ: 1, count: 40, diff: 'Easy', note: 'अपठित बोध एवं व्याकरण (40 अंक)' },
+                    { id: 'ब', title: 'खण्ड ब — वर्णनात्मक प्रश्न', desc: 'पाठ्यपुस्तक एवं लेखन', perQ: 0, count: 0, diff: 'Medium', note: 'पाठ्यपुस्तक (20 अंक) एवं रचनात्मक लेखन (20 अंक)', fixedMarks: 40 }
                 ],
-                instructions: ['इस प्रश्न-पत्र में चार खण्ड हैं — अ, ब, स और द।', 'खण्ड अ — अपठित बोध (14 अंक)', 'खण्ड ब — व्यावहारिक व्याकरण (16 अंक)', 'खण्ड स — पाठ्यपुस्तक एवं पूरक पाठ्यपुस्तक (30 अंक)', 'खण्ड द — रचनात्मक लेखन (20 अंक)', 'सभी प्रश्न अनिवार्य हैं।', 'यथासंभव सभी प्रश्नों के उत्तर क्रमानुसार दीजिए।']
+                instructions: ['इस प्रश्न-पत्र में दो खण्ड हैं — खण्ड ‘अ’ और खण्ड ‘ब’।', 'खण्ड ‘अ’ में केवल बहुविकल्पीय प्रश्न हैं (40 अंक)।', 'खण्ड ‘ब’ में वर्णनात्मक प्रश्न हैं (40 अंक)।', 'प्रश्नों के उत्तर देते समय शब्द-सीमा का ध्यान रखें।', 'सभी प्रश्न अनिवार्य हैं।']
             },
             'Sanskrit': {
                 code: '122', fullName: 'संस्कृतम्', time: '3 होराः', maxMarks: 80, lang: 'sa',
                 sections: [
-                    { id: 'क', title: 'खण्डः क — अपठितबोधनम्', desc: 'अपठित अवबोधनम्', perQ: 1, count: 10, diff: 'Easy', note: 'अपठित गद्यांशम् आधृत्य प्रश्नाः। (10 अङ्काः)' },
-                    { id: 'ख', title: 'खण्डः ख — रचनात्मककार्यम्', desc: 'पत्रम्, अनुच्छेदः', perQ: 0, count: 0, diff: 'Hard', note: 'पत्रलेखनम्, अनुच्छेदलेखनम् च। (15 अङ्काः)', fixedMarks: 15 },
-                    { id: 'ग', title: 'खण्डः ग — अनुप्रयुक्तव्याकरणम्', desc: 'व्याकरणम्', perQ: 1, count: 25, diff: 'Easy', note: 'सन्धिः, उपसर्गाः, प्रत्ययाः, विभक्तिः। (25 अङ्काः)' },
-                    { id: 'घ', title: 'खण्डः घ — पठितबोधनम्', desc: 'पाठ्यपुस्तकम्', perQ: 0, count: 0, diff: 'Medium', note: 'पाठ्यपुस्तकात् सम्बद्धाः प्रश्नाः। (30 अङ्काः)', fixedMarks: 30 }
+                    { id: 'क', title: 'खण्डः क — अपठितबोधनम्', desc: 'अङ्काः १०', perQ: 1, count: 10, diff: 'Easy', note: 'एकपदेन पूर्णवाक्येन च उत्तराणि।' },
+                    { id: 'ख', title: 'खण्डः ख — रचनात्मककार्यम्', desc: 'अङ्काः १५', perQ: 0, count: 0, diff: 'Hard', note: 'पत्रलेखनम्, कथालेखनम् च।', fixedMarks: 15 },
+                    { id: 'ग', title: 'खण्डः ग — अनुप्रयुक्तव्याकरणम्', desc: 'अङ्काः २५', perQ: 1, count: 25, diff: 'Easy', note: 'सन्धि, कारक, शब्दरूप, धातुरूप।' },
+                    { id: 'घ', title: 'खण्डः घ — पठितबोधनम्', desc: 'अङ्काः ३०', perQ: 0, count: 0, diff: 'Medium', note: 'शेमुषी पाठ्यपुस्तकात् प्रश्नाः।', fixedMarks: 30 }
                 ],
                 instructions: ['इदं प्रश्नपत्रं चतुर्षु खण्डेषु विभक्तम् अस्ति — क, ख, ग, घ।', 'खण्डः क — अपठितबोधनम् (10 अङ्काः)', 'खण्डः ख — रचनात्मककार्यम् (15 अङ्काः)', 'खण्डः ग — अनुप्रयुक्तव्याकरणम् (25 अङ्काः)', 'खण्डः घ — पठितबोधनम् (30 अङ्काः)', 'सर्वे प्रश्नाः अनिवार्याः सन्ति।']
             },
             'Computer Science': {
                 code: '402', fullName: 'Information Technology', time: '2 Hours 30 Minutes', maxMarks: 50,
                 sections: [
-                    { id: 'A', title: 'Section A', desc: 'Objective Type Questions', perQ: 1, count: 15, diff: 'Easy', note: 'Employability Skills + IT Skills MCQs. (15 marks)' },
-                    { id: 'B', title: 'Section B', desc: 'Short Answer Questions', perQ: 2, count: 5, diff: 'Medium', note: 'Answer in 30-50 words. (10 marks)', hasOR: 1 },
-                    { id: 'C', title: 'Section C', desc: 'Long Answer Questions', perQ: 5, count: 5, diff: 'Hard', note: 'Answer in 80-120 words. (25 marks)', hasOR: 2 }
+                    { id: 'A', title: 'Section A', desc: 'Objective Type Questions', perQ: 1, count: 24, diff: 'Easy', note: 'MCQs on Employability Skills and IT. (24 marks)' },
+                    { id: 'B', title: 'Section B', desc: 'Subjective Type Questions', perQ: 2, count: 13, diff: 'Medium', note: 'Answer as per word limits. (26 marks)', fixedMarks: 26 }
                 ],
-                instructions: ['This question paper contains 3 sections — A, B and C.', 'Section A: 15 Objective Type Questions (15 marks).', 'Section B: 5 Short Answer Questions of 2 marks each (10 marks).', 'Section C: 5 Long Answer Questions of 5 marks each (25 marks).', 'All questions are compulsory. Internal choice is provided in some questions.']
+                instructions: ['This question paper contains two sections — Section A and Section B.', 'Section A: Objective Type Questions (24 marks).', 'Section B: Subjective Type Questions (26 marks).', 'All questions are compulsory. Internal choice provided in Section B.']
             }
         };
 
@@ -823,15 +824,26 @@
         // ====== RENDER QUESTION ======
         function renderQuestion(q, num, marks) {
             const text = q.question_text || '';
+            const imageUrl = q.image_url || '';
             let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
-            // Check for figure
+
+            // Handle Figure / Diagram
             const fig = parseFigure(text);
             const cleanText = fig ? fig.text : text;
+
             // Try MCQ
             const mcq = parseMCQ(cleanText);
             if (mcq) {
                 html += `<div>${mcq.question}</div>`;
-                if (fig) html += `<div class="figure-box"><div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}</div>`;
+                if (fig || imageUrl) {
+                    html += `<div class="figure-box">`;
+                    if (imageUrl) {
+                        html += `<img src="${imageUrl}" class="q-image" alt="Question Diagram">`;
+                    } else {
+                        html += `<div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}`;
+                    }
+                    html += `</div>`;
+                }
                 const longOpts = mcq.options.some(o => o.text.length > 40);
                 html += `<div class="mcq-options${longOpts ? ' single-col' : ''}">`;
                 mcq.options.forEach(o => { html += `<div class="mcq-opt">(${o.label}) ${o.text}</div>` });
@@ -840,7 +852,15 @@
                 const sub = parseSubParts(cleanText);
                 if (sub) {
                     html += `<div>${sub.question}</div>`;
-                    if (fig) html += `<div class="figure-box"><div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}</div>`;
+                    if (fig || imageUrl) {
+                        html += `<div class="figure-box">`;
+                        if (imageUrl) {
+                            html += `<img src="${imageUrl}" class="q-image" alt="Question Diagram">`;
+                        } else {
+                            html += `<div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}`;
+                        }
+                        html += `</div>`;
+                    }
                     html += '<div class="sub-parts">';
                     sub.parts.forEach(p => {
                         html += `<div class="sub-part"><span class="sub-part-label">(${p.label})</span><span class="sub-part-text">${p.text}</span>${p.marks ? `<span class="sub-part-marks">[${p.marks}]</span>` : ''}</div>`;
@@ -848,7 +868,15 @@
                     html += '</div>';
                 } else {
                     html += `<div>${cleanText}</div>`;
-                    if (fig) html += `<div class="figure-box"><div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}</div>`;
+                    if (fig || imageUrl) {
+                        html += `<div class="figure-box">`;
+                        if (imageUrl) {
+                            html += `<img src="${imageUrl}" class="q-image" alt="Question Diagram">`;
+                        } else {
+                            html += `<div class="figure-icon">🖼️</div><div class="figure-label">Diagram / Figure</div>${fig.figure}`;
+                        }
+                        html += `</div>`;
+                    }
                 }
             }
             html += `</div><span class="q-marks">[${marks}]</span></div>`;

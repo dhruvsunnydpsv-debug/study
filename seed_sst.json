@@ -2,457 +2,533 @@
     {
         "question_text": "Which estate of French society paid all the taxes? (A) First Estate (B) Second Estate (C) Third Estate (D) Clergy",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "The National Assembly of France was formed in: (A) 1789 (B) 1774 (C) 1799 (D) 1804",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "The slogan of the French Revolution was: (A) Liberty, Equality, Fraternity (B) Peace, Justice, Harmony (C) Freedom, Rights, Democracy (D) Bread, Peace, Land",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Louis XVI belonged to the family of: (A) Romanovs (B) Bourbons (C) Tudors (D) Mughals",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Who wrote 'The Social Contract'? (A) Montesquieu (B) Voltaire (C) Rousseau (D) John Locke",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "The Bastille was stormed on: (A) 14 July 1789 (B) 4 July 1776 (C) 26 January 1789 (D) 15 August 1789",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Declaration of Rights of Man and Citizen was adopted in: (A) 1789 (B) 1799 (C) 1776 (D) 1804",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "The Reign of Terror was led by: (A) Napoleon (B) Robespierre (C) Louis XVI (D) Marie Antoinette",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Napoleon became emperor of France in: (A) 1789 (B) 1799 (C) 1804 (D) 1815",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "The tithe was a tax collected by: (A) The king (B) The church (C) The nobles (D) The merchants",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "The Russian Revolution of 1917 was led by: (A) Lenin (B) Stalin (C) Marx (D) Trotsky",
         "subject": "Social Science",
+        "chapter": "Socialism in Europe",
         "difficulty": "Easy",
-        "chapter": "Socialism in Europe"
+        "is_rationalised": true
     },
     {
         "question_text": "The Bolsheviks were led by: (A) Kerensky (B) Lenin (C) Tsar Nicholas II (D) Marx",
         "subject": "Social Science",
+        "chapter": "Socialism in Europe",
         "difficulty": "Easy",
-        "chapter": "Socialism in Europe"
+        "is_rationalised": true
     },
     {
         "question_text": "Karl Marx wrote: (A) The Republic (B) Das Kapital (C) The Prince (D) Wealth of Nations",
         "subject": "Social Science",
+        "chapter": "Socialism in Europe",
         "difficulty": "Easy",
-        "chapter": "Socialism in Europe"
+        "is_rationalised": true
     },
     {
         "question_text": "The Nazi Party came to power in Germany in: (A) 1919 (B) 1933 (C) 1939 (D) 1945",
         "subject": "Social Science",
+        "chapter": "Nazism and the Rise of Hitler",
         "difficulty": "Easy",
-        "chapter": "Nazism and the Rise of Hitler"
+        "is_rationalised": true
     },
     {
         "question_text": "Hitler's secret police was called: (A) KGB (B) Gestapo (C) MI6 (D) CIA",
         "subject": "Social Science",
+        "chapter": "Nazism and the Rise of Hitler",
         "difficulty": "Easy",
-        "chapter": "Nazism and the Rise of Hitler"
+        "is_rationalised": true
     },
     {
         "question_text": "The Holocaust refers to the mass killing of: (A) Russians (B) Japanese (C) Jews (D) Americans",
         "subject": "Social Science",
+        "chapter": "Nazism and the Rise of Hitler",
         "difficulty": "Easy",
-        "chapter": "Nazism and the Rise of Hitler"
+        "is_rationalised": true
     },
     {
         "question_text": "India lies entirely in the: (A) Western hemisphere (B) Eastern hemisphere (C) Northern hemisphere (D) Both B and C",
         "subject": "Social Science",
+        "chapter": "India: Size and Location",
         "difficulty": "Easy",
-        "chapter": "India: Size and Location"
+        "is_rationalised": true
     },
     {
         "question_text": "The southernmost point of India is: (A) Kanyakumari (B) Indira Point (C) Lakshadweep (D) Chennai",
         "subject": "Social Science",
+        "chapter": "India: Size and Location",
         "difficulty": "Easy",
-        "chapter": "India: Size and Location"
+        "is_rationalised": true
     },
     {
         "question_text": "India shares its border with how many countries? (A) 5 (B) 6 (C) 7 (D) 8",
         "subject": "Social Science",
+        "chapter": "India: Size and Location",
         "difficulty": "Easy",
-        "chapter": "India: Size and Location"
+        "is_rationalised": true
     },
     {
         "question_text": "Standard Meridian of India is: (A) 82°30'E (B) 82°30'W (C) 68°7'E (D) 97°25'E",
         "subject": "Social Science",
+        "chapter": "India: Size and Location",
         "difficulty": "Easy",
-        "chapter": "India: Size and Location"
+        "is_rationalised": true
     },
     {
         "question_text": "The Himalayas were formed due to: (A) Volcanic activity (B) Collision of Indo-Australian and Eurasian plates (C) Erosion (D) Earthquake",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Easy",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "The largest plateau in India is: (A) Chota Nagpur (B) Deccan Plateau (C) Malwa Plateau (D) Ladakh Plateau",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Easy",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "The highest peak in India is: (A) Mt. Everest (B) K2 (C) Kanchenjunga (D) Nanda Devi",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Easy",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "The Western Ghats are also known as: (A) Sahyadri (B) Nilgiri (C) Vindhya (D) Aravalli",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Easy",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "The Ganga originates from: (A) Yamunotri (B) Gangotri (C) Kedarnath (D) Badrinath",
         "subject": "Social Science",
+        "chapter": "Drainage",
         "difficulty": "Easy",
-        "chapter": "Drainage"
+        "is_rationalised": true
     },
     {
         "question_text": "Which river is called the 'Dakshin Ganga'? (A) Krishna (B) Godavari (C) Kaveri (D) Narmada",
         "subject": "Social Science",
+        "chapter": "Drainage",
         "difficulty": "Easy",
-        "chapter": "Drainage"
+        "is_rationalised": true
     },
     {
         "question_text": "Narmada and Tapi are: (A) Himalayan rivers (B) West-flowing peninsular rivers (C) East-flowing rivers (D) North-flowing rivers",
         "subject": "Social Science",
+        "chapter": "Drainage",
         "difficulty": "Easy",
-        "chapter": "Drainage"
+        "is_rationalised": true
     },
     {
         "question_text": "The largest lake of India is: (A) Wular Lake (B) Dal Lake (C) Chilika Lake (D) Loktak Lake",
         "subject": "Social Science",
+        "chapter": "Drainage",
         "difficulty": "Easy",
-        "chapter": "Drainage"
+        "is_rationalised": true
     },
     {
         "question_text": "The Indian monsoon is driven by: (A) Local winds (B) Pressure differences (C) Earthquakes (D) Ocean currents only",
         "subject": "Social Science",
+        "chapter": "Climate",
         "difficulty": "Easy",
-        "chapter": "Climate"
+        "is_rationalised": true
     },
     {
         "question_text": "October heat is experienced during: (A) Onset of monsoon (B) Retreating monsoon (C) Winter season (D) Summer season",
         "subject": "Science",
+        "chapter": "Climate",
         "difficulty": "Easy",
-        "chapter": "Climate"
+        "is_rationalised": true
     },
     {
         "question_text": "The western coastal strip south of Goa is called: (A) Konkan (B) Kannad (C) Malabar Coast (D) Coromandel",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Easy",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "The burst of the monsoon in India occurs in: (A) March (B) June (C) October (D) December",
         "subject": "Social Science",
+        "chapter": "Climate",
         "difficulty": "Easy",
-        "chapter": "Climate"
+        "is_rationalised": true
     },
     {
         "question_text": "Mango showers are experienced in: (A) Punjab (B) Kerala and Karnataka (C) Rajasthan (D) West Bengal",
         "subject": "Social Science",
+        "chapter": "Climate",
         "difficulty": "Easy",
-        "chapter": "Climate"
+        "is_rationalised": true
     },
     {
         "question_text": "Jet streams influence India's: (A) Earthquake pattern (B) Monsoon pattern (C) River pattern (D) Soil pattern",
         "subject": "Social Science",
+        "chapter": "Climate",
         "difficulty": "Easy",
-        "chapter": "Climate"
+        "is_rationalised": true
     },
     {
         "question_text": "The vegetation of Rajasthan is mainly: (A) Tropical forest (B) Thorny bush type (C) Mangrove (D) Deciduous",
         "subject": "Social Science",
+        "chapter": "Natural Vegetation and Wildlife",
         "difficulty": "Easy",
-        "chapter": "Natural Vegetation and Wildlife"
+        "is_rationalised": true
     },
     {
         "question_text": "Which animal is found in the Gir forest? (A) Tiger (B) Asiatic lion (C) Elephant (D) Rhinoceros",
         "subject": "Social Science",
+        "chapter": "Natural Vegetation and Wildlife",
         "difficulty": "Easy",
-        "chapter": "Natural Vegetation and Wildlife"
+        "is_rationalised": true
     },
     {
         "question_text": "India's total population as per Census 2011 is approximately: (A) 1.21 billion (B) 1.02 billion (C) 0.8 billion (D) 1.4 billion",
         "subject": "Social Science",
+        "chapter": "Population",
         "difficulty": "Easy",
-        "chapter": "Population"
+        "is_rationalised": true
     },
     {
         "question_text": "Sex ratio is defined as: (A) Males per 1000 females (B) Females per 1000 males (C) Total population / males (D) Births per year",
         "subject": "Social Science",
+        "chapter": "Population",
         "difficulty": "Easy",
-        "chapter": "Population"
+        "is_rationalised": true
     },
     {
         "question_text": "Abraham Lincoln described democracy as: (A) Rule of the rich (B) Government of the people, by the people, for the people (C) Rule of the king (D) Military government",
         "subject": "Social Science",
+        "chapter": "What is Democracy",
         "difficulty": "Easy",
-        "chapter": "What is Democracy"
+        "is_rationalised": true
     },
     {
         "question_text": "The minimum age to vote in India is: (A) 21 years (B) 25 years (C) 18 years (D) 16 years",
         "subject": "Social Science",
+        "chapter": "Electoral Politics",
         "difficulty": "Easy",
-        "chapter": "Electoral Politics"
+        "is_rationalised": true
     },
     {
         "question_text": "The head of government in India is: (A) President (B) Prime Minister (C) Chief Justice (D) Governor",
         "subject": "Social Science",
+        "chapter": "Working of Institutions",
         "difficulty": "Easy",
-        "chapter": "Working of Institutions"
+        "is_rationalised": true
     },
     {
         "question_text": "The Constitution of India was adopted on: (A) 15 August 1947 (B) 26 January 1950 (C) 26 November 1949 (D) 2 October 1947",
         "subject": "Social Science",
+        "chapter": "Constitutional Design",
         "difficulty": "Easy",
-        "chapter": "Constitutional Design"
+        "is_rationalised": true
     },
     {
         "question_text": "Fundamental Rights are given in: (A) Part II (B) Part III (C) Part IV (D) Part V",
         "subject": "Social Science",
+        "chapter": "Democratic Rights",
         "difficulty": "Easy",
-        "chapter": "Democratic Rights"
+        "is_rationalised": true
     },
     {
         "question_text": "Right to Constitutional Remedies is described as: (A) Heart and soul of the Constitution (B) Most important right (C) Basic right (D) Fundamental duty",
         "subject": "Social Science",
+        "chapter": "Democratic Rights",
         "difficulty": "Easy",
-        "chapter": "Democratic Rights"
+        "is_rationalised": true
     },
     {
         "question_text": "Palampur is a hypothetical village discussed in: (A) History (B) Geography (C) Economics chapter (D) Civics",
         "subject": "Social Science",
+        "chapter": "The Story of Village Palampur",
         "difficulty": "Easy",
-        "chapter": "The Story of Village Palampur"
+        "is_rationalised": true
     },
     {
         "question_text": "The main production activity in Palampur is: (A) Manufacturing (B) Farming (C) Mining (D) Trade",
         "subject": "Social Science",
+        "chapter": "The Story of Village Palampur",
         "difficulty": "Easy",
-        "chapter": "The Story of Village Palampur"
+        "is_rationalised": true
     },
     {
         "question_text": "Human capital is formed through investment in: (A) Machinery (B) Education and health (C) Land (D) Buildings",
         "subject": "Social Science",
+        "chapter": "People as Resource",
         "difficulty": "Easy",
-        "chapter": "People as Resource"
+        "is_rationalised": true
     },
     {
         "question_text": "BPL stands for: (A) Below Poverty Line (B) Basic Price Level (C) Bureau of Public Loans (D) Business Profit Limit",
         "subject": "Social Science",
+        "chapter": "Poverty as a Challenge",
         "difficulty": "Easy",
-        "chapter": "Poverty as a Challenge"
+        "is_rationalised": true
     },
     {
         "question_text": "MGNREGA guarantees employment for: (A) 50 days (B) 100 days (C) 150 days (D) 365 days",
         "subject": "Social Science",
+        "chapter": "Poverty as a Challenge",
         "difficulty": "Easy",
-        "chapter": "Poverty as a Challenge"
+        "is_rationalised": true
     },
     {
         "question_text": "PDS stands for: (A) Public Distribution System (B) Private Delivery Service (C) People's Democratic Society (D) Primary Distribution Scheme",
         "subject": "Social Science",
+        "chapter": "Food Security in India",
         "difficulty": "Easy",
-        "chapter": "Food Security in India"
+        "is_rationalised": true
     },
     {
         "question_text": "Buffer stock is maintained by: (A) FCI (B) RBI (C) SEBI (D) NABARD",
         "subject": "Social Science",
+        "chapter": "Food Security in India",
         "difficulty": "Easy",
-        "chapter": "Food Security in India"
+        "is_rationalised": true
     },
     {
         "question_text": "Discuss the role of philosophers in the French Revolution. How did ideas of Rousseau, Montesquieu, and Voltaire influence the revolutionaries?",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Medium",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "What were the causes of the French Revolution? Discuss both political and economic factors.",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Medium",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain how the Nazis persecuted the Jews in Germany. What ideology drove their actions?",
         "subject": "Social Science",
+        "chapter": "Nazism and the Rise of Hitler",
         "difficulty": "Medium",
-        "chapter": "Nazism and the Rise of Hitler"
+        "is_rationalised": true
     },
     {
         "question_text": "Describe the formation of the Northern Plains of India. What makes them the most fertile region of the country?",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Medium",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "Compare east-flowing and west-flowing rivers of Peninsular India. Why do most peninsular rivers flow eastward?",
         "subject": "Social Science",
+        "chapter": "Drainage",
         "difficulty": "Medium",
-        "chapter": "Drainage"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain the monsoon mechanism in India. What role do the Himalayas play in Indian monsoon?",
         "subject": "Social Science",
+        "chapter": "Climate",
         "difficulty": "Medium",
-        "chapter": "Climate"
+        "is_rationalised": true
     },
     {
         "question_text": "What is democracy? Discuss any five features of a democratic government.",
         "subject": "Social Science",
+        "chapter": "What is Democracy",
         "difficulty": "Medium",
-        "chapter": "What is Democracy"
+        "is_rationalised": true
     },
     {
         "question_text": "Discuss the powers and functions of the Prime Minister of India.",
         "subject": "Social Science",
+        "chapter": "Working of Institutions",
         "difficulty": "Medium",
-        "chapter": "Working of Institutions"
+        "is_rationalised": true
     },
     {
         "question_text": "What are Fundamental Rights? Discuss Right to Freedom and Right against Exploitation with examples.",
         "subject": "Social Science",
+        "chapter": "Democratic Rights",
         "difficulty": "Medium",
-        "chapter": "Democratic Rights"
+        "is_rationalised": true
     },
     {
         "question_text": "What are the main causes of poverty in India? Discuss any five government programmes for poverty alleviation.",
         "subject": "Social Science",
+        "chapter": "Poverty as a Challenge",
         "difficulty": "Medium",
-        "chapter": "Poverty as a Challenge"
+        "is_rationalised": true
     },
     {
         "question_text": "What is food security? Discuss the role of PDS in ensuring food security in India.",
         "subject": "Social Science",
+        "chapter": "Food Security in India",
         "difficulty": "Medium",
-        "chapter": "Food Security in India"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain the concept of human capital formation. How does it help in the development of a country?",
         "subject": "Social Science",
+        "chapter": "People as Resource",
         "difficulty": "Medium",
-        "chapter": "People as Resource"
+        "is_rationalised": true
     },
     {
         "question_text": "Describe all the factors of production with examples from the village of Palampur as a case study.",
         "subject": "Social Science",
+        "chapter": "The Story of Village Palampur",
         "difficulty": "Medium",
-        "chapter": "The Story of Village Palampur"
+        "is_rationalised": true
     },
     {
         "question_text": "'The French Revolution gave birth to the ideas of liberty, equality and fraternity.' Explain with reference to: (a) The role of the Third Estate in overthrowing the monarchy [2] (b) The Declaration of Rights of Man and Citizen [2] (c) The impact of the Revolution on the world [1]",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Hard",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Critically analyse the rise of Nazism in Germany. (a) What conditions led to the rise of Hitler? [2] (b) How did the Nazi ideology affect the youth? [2] (c) What was the impact on minorities? [1]",
         "subject": "Social Science",
+        "chapter": "Nazism and the Rise of Hitler",
         "difficulty": "Hard",
-        "chapter": "Nazism and the Rise of Hitler"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain the three major divisions of the Himalayas in detail. (a) Greater Himalayas (Himadri) [2] (b) Lesser Himalayas (Himachal) [2] (c) Shiwaliks [1] Mention the important peaks, passes and valleys in each.",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Hard",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "Describe the drainage patterns of India in detail. (a) Compare Himalayan and Peninsular rivers [2] (b) Explain the river system of the Ganga basin [2] (c) Why are rivers important for the Indian economy? [1]",
         "subject": "Social Science",
+        "chapter": "Drainage",
         "difficulty": "Hard",
-        "chapter": "Drainage"
+        "is_rationalised": true
     },
     {
         "question_text": "Analyse the impact of monsoon on Indian agriculture and economy. (a) Describe the onset and advance of monsoon [2] (b) How does monsoon affect crop patterns? [2] (c) What happens when monsoon fails? [1]",
         "subject": "Social Science",
+        "chapter": "Climate",
         "difficulty": "Hard",
-        "chapter": "Climate"
+        "is_rationalised": true
     },
     {
         "question_text": "'Democracy is the best form of government.' Do you agree? Support your answer with arguments. (a) What are the merits of democracy? [2] (b) What are its demerits? [2] (c) How can democracy be strengthened? [1]",
         "subject": "Social Science",
+        "chapter": "What is Democracy",
         "difficulty": "Hard",
-        "chapter": "What is Democracy"
+        "is_rationalised": true
     },
     {
         "question_text": "Discuss the concept of secularism as enshrined in the Indian Constitution. (a) What does secularism mean? [1] (b) How does the Constitution ensure secularism? [2] (c) What challenges does Indian secularism face? [2]",
         "subject": "Social Science",
+        "chapter": "Constitutional Design",
         "difficulty": "Hard",
-        "chapter": "Constitutional Design"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): The Third Estate was the most disadvantaged group in French society. Reason (R): They paid all the taxes while the first two estates enjoyed privileges by birth. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Easy",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): India is a secular state. Reason (R): The Constitution gives all citizens the freedom to practice and propagate any religion. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Social Science",
+        "chapter": "Constitutional Design",
         "difficulty": "Easy",
-        "chapter": "Constitutional Design"
+        "is_rationalised": true
     },
     {
         "question_text": "Map Work (History): On the given outline map of France, identify the following: (a) Bordeaux - A port city famous for slave trade. [1] (b) Paris - The capital of France. [1] [Figure: Map of France with markers]",
         "subject": "Social Science",
+        "chapter": "The French Revolution",
         "difficulty": "Hard",
-        "chapter": "The French Revolution"
+        "is_rationalised": true
     },
     {
         "question_text": "Map Work (Geography): On the outline map of India, locate and label the following: (a) Kanchenjunga Peak [1] (b) Chilika Lake [1] (c) Standard Meridian of India [1] [Figure: Map of India with state boundaries]",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Hard",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     },
     {
         "question_text": "Case Study: India has a variety of physical features. To the north are the Himalayas and to the south is the Peninsular Plateau. [Figure: Physical map of India] (a) Which is the oldest landmass in India? [1] (b) Name the range that lies south of the Himadri. [1] (c) How were the Himalayas formed? [2]",
         "subject": "Social Science",
+        "chapter": "Physical Features of India",
         "difficulty": "Hard",
-        "chapter": "Physical Features of India"
+        "is_rationalised": true
     }
 ]

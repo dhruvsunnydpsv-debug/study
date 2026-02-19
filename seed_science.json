@@ -2,691 +2,806 @@
     {
         "question_text": "Matter is made up of: (A) Atoms only (B) Molecules only (C) Particles (D) Energy",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Which state of matter has definite shape and volume? (A) Solid (B) Liquid (C) Gas (D) Plasma",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "The boiling point of water is: (A) 100°C (B) 0°C (C) 373°C (D) 212°C",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Sublimation is the process of: (A) Solid to liquid (B) Liquid to gas (C) Solid to gas (D) Gas to liquid",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Dry ice is solid form of: (A) Nitrogen (B) Oxygen (C) Carbon dioxide (D) Hydrogen",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Latent heat of fusion is the heat needed to: (A) Boil a liquid (B) Melt a solid (C) Cool a gas (D) Freeze a liquid",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "The particles of a gas: (A) Are tightly packed (B) Have definite shape (C) Move freely in all directions (D) Have strong intermolecular forces",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Temperature at which solid melts to become liquid is called: (A) Boiling point (B) Melting point (C) Freezing point (D) Sublimation point",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Evaporation causes: (A) Heating (B) Cooling (C) No temperature change (D) Boiling",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Which of the following is a mixture? (A) Water (B) Oxygen (C) Air (D) Sodium chloride",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Easy",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "Tincture of iodine is a: (A) Suspension (B) True solution (C) Colloidal solution (D) Emulsion",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Easy",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "The Tyndall effect is observed in: (A) True solutions (B) Colloidal solutions (C) Pure water (D) Distilled water",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Easy",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "Brass is an alloy of: (A) Copper and zinc (B) Copper and tin (C) Iron and carbon (D) Gold and silver",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Easy",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "Distillation is used to separate: (A) Salt from water (B) Oil from water (C) Liquids with different boiling points (D) Solids from solids",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Easy",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "Saturated solution means: (A) No solute dissolved (B) Maximum solute dissolved at given temp (C) Solute floating on top (D) Hot solution",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Easy",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "An atom of an element has 11 protons and 12 neutrons. Its mass number is: (A) 11 (B) 12 (C) 23 (D) 1",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Easy",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "Valency of carbon is: (A) 1 (B) 2 (C) 3 (D) 4",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Easy",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
         "question_text": "One mole of any substance contains: (A) 6.022 × 10²² particles (B) 6.022 × 10²³ particles (C) 6.022 × 10²⁴ particles (D) 6.022 × 10²¹ particles",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Easy",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
         "question_text": "The chemical formula of calcium oxide is: (A) CO₂ (B) CaO (C) Ca₂O (D) Ca(OH)₂",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Easy",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
         "question_text": "Law of constant proportions was given by: (A) Dalton (B) Proust (C) Lavoisier (D) Avogadro",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Easy",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
         "question_text": "Molecular mass of CO₂ is: (A) 28 u (B) 32 u (C) 44 u (D) 18 u",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Easy",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
         "question_text": "Dalton's atomic theory stated that atoms are: (A) Divisible (B) Indivisible (C) Made of electrons only (D) Same for all elements",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Easy",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
         "question_text": "Isotopes have same: (A) Mass number (B) Number of neutrons (C) Atomic number (D) Number of neutrons and protons",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Easy",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "Electrons were discovered by: (A) Rutherford (B) Bohr (C) J.J. Thomson (D) Goldstein",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Easy",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "The maximum number of electrons in the M shell is: (A) 2 (B) 8 (C) 18 (D) 32",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Easy",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "Rutherford's model of atom is called: (A) Plum pudding model (B) Nuclear model (C) Wave model (D) Quantum model",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Easy",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "Cation is formed when an atom: (A) Gains electrons (B) Loses electrons (C) Shares electrons (D) Neither gains nor loses",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Easy",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "Atomic number of sodium is 11. Electronic configuration is: (A) 2,8,2 (B) 2,8,1 (C) 2,1,8 (D) 2,9",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Easy",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "The cell was discovered by: (A) Leeuwenhoek (B) Robert Hooke (C) Virchow (D) Schleiden",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "The brain of the cell is: (A) Mitochondria (B) Nucleus (C) Ribosome (D) Cell membrane",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Lysosomes are called: (A) Power house (B) Suicide bags (C) Kitchen of cell (D) Storage house",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Which organelle is responsible for photosynthesis? (A) Mitochondria (B) Chloroplast (C) Ribosome (D) Golgi body",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Cell wall is found in: (A) Animal cells only (B) Plant cells only (C) Both (D) Neither",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Osmosis is the movement of: (A) Solute through membrane (B) Water through semipermeable membrane (C) Gases through membrane (D) Proteins through membrane",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Prokaryotic cells lack: (A) Cell membrane (B) Well-defined nucleus (C) Ribosomes (D) DNA",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "The tissue that forms the inner lining of blood vessels is: (A) Muscular (B) Connective (C) Epithelial (D) Nervous",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Easy",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "Xylem transports: (A) Food (B) Water and minerals (C) Hormones (D) Gases",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Easy",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "Parenchyma tissue is: (A) Dead with thick walls (B) Living with thin walls (C) Dead with thin walls (D) Living with thick walls",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Easy",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "Neurons are functional units of: (A) Muscular tissue (B) Connective tissue (C) Epithelial tissue (D) Nervous tissue",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Easy",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "Blood is a type of: (A) Epithelial tissue (B) Connective tissue (C) Muscular tissue (D) Nervous tissue",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Easy",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "Bone cells are called: (A) Chondrocytes (B) Osteocytes (C) Adipocytes (D) Fibroblasts",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Easy",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "Speed is the ratio of: (A) Distance to time (B) Time to distance (C) Velocity to time (D) Acceleration to time",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Easy",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "SI unit of velocity is: (A) m/s² (B) km/h (C) m/s (D) cm/s²",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Easy",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "If a body covers equal distances in equal intervals of time, its motion is: (A) Non-uniform (B) Uniform (C) Accelerated (D) Retarded",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Easy",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "Acceleration is the rate of change of: (A) Distance (B) Speed (C) Velocity (D) Displacement",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Easy",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "The slope of a distance-time graph gives: (A) Acceleration (B) Velocity (C) Speed (D) Force",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Easy",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "When a car goes around a circular track at constant speed, its velocity: (A) Is constant (B) Changes (C) Is zero (D) Doubles",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Easy",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "Inertia depends on: (A) Speed (B) Velocity (C) Mass (D) Acceleration",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Easy",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "1 Newton = (A) 1 kg⋅m/s (B) 1 kg⋅m/s² (C) 1 kg⋅m²/s (D) 1 g⋅cm/s²",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Easy",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "When a ball is thrown up, the force of gravity acts: (A) Upward (B) Downward (C) Sideways (D) No force",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Easy",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "Momentum (p) = (A) m/v (B) m × v (C) m + v (D) m × a",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Easy",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "Action and reaction forces: (A) Act on same body (B) Act on different bodies (C) Cancel each other (D) Are unequal",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Easy",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "A rocket works on the principle of: (A) Newton's first law (B) Newton's second law (C) Newton's third law (D) Law of gravitation",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Easy",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "G (gravitational constant) = (A) 6.67 × 10⁻¹¹ Nm²/kg² (B) 9.8 m/s² (C) 6.022 × 10²³ (D) 3 × 10⁸ m/s",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Easy",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "Weight of an object on moon is: (A) Same as on earth (B) 1/6 of earth weight (C) 6 times earth weight (D) Zero",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Easy",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "Mass of a body is measured in: (A) Newton (B) Kilogram (C) Pascal (D) Joule",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Easy",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "If distance between two objects is doubled, gravitational force becomes: (A) Half (B) Double (C) One-fourth (D) Four times",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Easy",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "Free fall means: (A) Moving with friction (B) Falling under gravity only (C) Floating (D) Moving upward",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Easy",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "Work done = (A) Force / displacement (B) Force × displacement × cosθ (C) Force + displacement (D) Mass × velocity",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Easy",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
         "question_text": "SI unit of energy is: (A) Watt (B) Newton (C) Joule (D) Pascal",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Easy",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
         "question_text": "Kinetic energy = (A) mgh (B) (1/2)mv² (C) mv (D) Fs",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Easy",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
         "question_text": "When velocity is doubled, kinetic energy becomes: (A) Double (B) Half (C) Four times (D) Same",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Easy",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
         "question_text": "Power is the rate of doing: (A) Force (B) Energy (C) Work (D) Motion",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Easy",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
         "question_text": "1 kWh = (A) 3600 J (B) 36000 J (C) 360000 J (D) 3600000 J",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Easy",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
         "question_text": "Sound is produced by: (A) Vibration (B) Rotation (C) Revolution (D) Reflection",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Easy",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "Sound cannot travel through: (A) Air (B) Water (C) Steel (D) Vacuum",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Easy",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "The audible range of human ear is: (A) 20 Hz to 2000 Hz (B) 20 Hz to 20000 Hz (C) 200 Hz to 20000 Hz (D) 2 Hz to 200 Hz",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Easy",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "Ultrasound has frequency: (A) Less than 20 Hz (B) Between 20-20000 Hz (C) Greater than 20000 Hz (D) 0 Hz",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Easy",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "The speed of sound is maximum in: (A) Air (B) Water (C) Steel (D) Vacuum",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Easy",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "SONAR stands for: (A) Sound Navigation And Ranging (B) Solar Navigation And Ranging (C) Sound Natural Amplified Ranging (D) None",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Easy",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "Frequency is measured in: (A) Seconds (B) Metres (C) Hertz (D) Decibels",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Easy",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "Nitrogen fixation is done by: (A) All plants (B) Leguminous plants with Rhizobium bacteria (C) Animals (D) Fungi only",
         "subject": "Science",
+        "chapter": "Improvement in Food Resources",
         "difficulty": "Easy",
-        "chapter": "Improvement in Food Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Green revolution relates to: (A) Forest conservation (B) Increase in crop production (C) Planting trees (D) Animal husbandry",
         "subject": "Science",
+        "chapter": "Improvement in Food Resources",
         "difficulty": "Easy",
-        "chapter": "Improvement in Food Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Cross-breeding is used to develop: (A) Machines (B) New crop varieties (C) Minerals (D) Soil",
         "subject": "Science",
+        "chapter": "Improvement in Food Resources",
         "difficulty": "Easy",
-        "chapter": "Improvement in Food Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Compost is made from: (A) Chemicals (B) Organic waste (C) Plastic (D) Metals",
         "subject": "Science",
+        "chapter": "Improvement in Food Resources",
         "difficulty": "Easy",
-        "chapter": "Improvement in Food Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Biogas is produced from: (A) Coal (B) Cow dung and organic waste (C) Petrol (D) Minerals",
         "subject": "Science",
+        "chapter": "Natural Resources",
         "difficulty": "Easy",
-        "chapter": "Natural Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "The ozone layer protects us from: (A) Infrared rays (B) UV radiation (C) Radio waves (D) Sound waves",
         "subject": "Science",
+        "chapter": "Natural Resources",
         "difficulty": "Easy",
-        "chapter": "Natural Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Water cycle involves: (A) Evaporation only (B) Condensation only (C) Evaporation, condensation and precipitation (D) Freezing only",
         "subject": "Science",
+        "chapter": "Natural Resources",
         "difficulty": "Easy",
-        "chapter": "Natural Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Air pollution is mainly caused by: (A) Planting trees (B) Burning fossil fuels (C) Rainfall (D) Photosynthesis",
         "subject": "Science",
+        "chapter": "Natural Resources",
         "difficulty": "Easy",
-        "chapter": "Natural Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Differentiate between elements and compounds. Give two examples of each. State their key properties.",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Medium",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "What happens when a drop of ink is added to water? Explain the phenomenon with reference to particle motion.",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Medium",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
-        "question_text": "Describe Rutherford's alpha particle scattering experiment. What were the observations and conclusions? [Figure: Gold foil experiment with alpha particles deflecting]",
+        "question_text": "Describe Rutherford's alpha particle scattering experiment. What were the observations and conclusions? [Figure: Gold foil experiment with alpha particles deflecting] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Gold_foil_experiment_setup.svg/512px-Gold_foil_experiment_setup.svg.png]",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Medium",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
-        "question_text": "Draw a well-labelled diagram of an animal cell. Label at least 6 organelles. [Figure: Animal cell with organelles labelled]",
+        "question_text": "Draw a well-labelled diagram of an animal cell. Label at least 6 organelles. [Figure: Animal cell with organelles labelled] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Animal_cell_structure_en.svg/512px-Animal_cell_structure_en.svg.png]",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Medium",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Compare the structure and function of parenchyma, collenchyma and sclerenchyma tissue.",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Medium",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "An object travels 16 m in 4 s and then another 16 m in 2 s. Calculate: (a) Average speed for the first part [1] (b) Average speed for the second part [1]",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Medium",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "Derive F = ma from Newton's second law of motion. State clearly what each symbol represents.",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Medium",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "What would happen to the gravitational force between two objects if: (a) Mass of one object is tripled? [1] (b) Distance between them is halved? [1]",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Medium",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "A person of mass 50 kg climbs a tower of height 72 m. Calculate the work done against gravity. (g = 10 m/s²)",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Medium",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
-        "question_text": "Explain the structure of the human ear with a diagram. How does it help us to hear sounds? [Figure: Cross-section of human ear with parts labelled]",
+        "question_text": "Explain the structure of the human ear with a diagram. How does it help us to hear sounds? [Figure: Cross-section of human ear with parts labelled] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Anatomy_of_the_Human_Ear_en.svg/512px-Anatomy_of_the_Human_Ear_en.svg.png]",
         "subject": "Science",
+        "chapter": "Sound",
         "difficulty": "Medium",
-        "chapter": "Sound"
+        "is_rationalised": true
     },
     {
         "question_text": "Describe three methods of crop improvement. Give one example for each method.",
         "subject": "Science",
+        "chapter": "Improvement in Food Resources",
         "difficulty": "Medium",
-        "chapter": "Improvement in Food Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain the carbon cycle in nature with a diagram. Why is it important for life on Earth? [Figure: Carbon cycle showing processes]",
         "subject": "Science",
+        "chapter": "Natural Resources",
         "difficulty": "Medium",
-        "chapter": "Natural Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "What is an isotope? Give two examples. State two uses of isotopes in daily life.",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Medium",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain the process of distillation with a diagram. Name two mixtures that can be separated by this method. [Figure: Distillation apparatus]",
         "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
         "difficulty": "Medium",
-        "chapter": "Is Matter Around Us Pure"
+        "is_rationalised": true
     },
     {
         "question_text": "Draw a velocity-time graph for: (a) uniform velocity (b) uniform acceleration (c) uniform deceleration. What does the area under the v-t graph represent?",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Medium",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "Differentiate between mass and weight (any 5 differences). Why does a person weigh less on the moon?",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Medium",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "What is tissue? Discuss different types of simple permanent tissue in plants with diagrams. [Figure: Three types of simple tissue cells]",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Medium",
-        "chapter": "Tissues"
+        "is_rationalised": true
     },
     {
         "question_text": "Calculate the molecular mass of: (a) Ca(OH)₂ [1] (b) K₂SO₄ [1] Show all steps.",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Medium",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
         "question_text": "A bus starting from rest moves with uniform acceleration of 0.1 m/s² for 2 minutes. Find: (a) Speed acquired [1] (b) Distance travelled [1]",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Medium",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "How do substances like CO₂ and water move in and out of the cell? Explain with examples of osmosis and diffusion.",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Medium",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
-        "question_text": "Describe Bohr's model of the atom. State the postulates. Draw the atomic structure of sodium (Z=11) and chlorine (Z=17). (a) State the postulates of Bohr's model [2] (b) How are electrons distributed in shells? [1] (c) Draw atomic structures of Na and Cl [2] [Figure: Bohr model showing electron shells]",
+        "question_text": "Describe Bohr's model of the atom. State the postulates. Draw the atomic structure of sodium (Z=11) and chlorine (Z=17). (a) State the postulates of Bohr's model [2] (b) How are electrons distributed in shells? [1] (c) Draw atomic structures of Na and Cl [2] [Figure: Bohr model showing electron shells] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Bohr_model_oxygen.svg/512px-Bohr_model_oxygen.svg.png]",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Hard",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "A ball is thrown vertically upward with velocity 49 m/s. Calculate: (a) The maximum height reached [2] (b) The total time taken to return to ground [2] (c) The velocity at half the maximum height [1] (Take g = 9.8 m/s²)",
         "subject": "Science",
+        "chapter": "Motion",
         "difficulty": "Hard",
-        "chapter": "Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "State and explain Newton's three laws of motion. Give one example for each law from daily life. How is the second law a special case that includes the first law? (a) State and explain all three laws [3] (b) Give examples [1] (c) How does F=ma include the first law? [1]",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Hard",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "An object of mass 100 kg is accelerated uniformly from a velocity of 5 m/s to 8 m/s in 6 seconds. Calculate: (a) Initial and final momentum [1] (b) The rate of change of momentum [1] (c) The accelerating force [1] (d) The distance covered during this time [2]",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Hard",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
-        "question_text": "Describe the water cycle with a detailed diagram. Explain how human activities affect the water cycle. What measures can be taken to conserve water? (a) Describe the water cycle with diagram [2] (b) Effect of human activities [2] (c) Conservation measures [1] [Figure: Water cycle showing evaporation, condensation, precipitation, runoff, groundwater]",
+        "question_text": "Describe the water cycle with a detailed diagram. Explain how human activities affect the water cycle. What measures can be taken to conserve water? (a) Describe the water cycle with diagram [2] (b) Effect of human activities [2] (c) Conservation measures [1] [Figure: Water cycle showing evaporation, condensation, precipitation, runoff, groundwater] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Water_Cycle_Diagram.png/512px-Water_Cycle_Diagram.png]",
         "subject": "Science",
+        "chapter": "Natural Resources",
         "difficulty": "Hard",
-        "chapter": "Natural Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "In a reaction, 5.3 g of sodium carbonate reacted with 6 g of ethanoic acid. The products formed were 2.2 g CO₂, 0.9 g water, and 8.2 g sodium ethanoate. (a) Show that these observations verify the law of conservation of mass [2] (b) State the law clearly [1] (c) Calculate the number of moles of CO₂ formed [2]",
         "subject": "Science",
+        "chapter": "Atoms and Molecules",
         "difficulty": "Hard",
-        "chapter": "Atoms and Molecules"
+        "is_rationalised": true
     },
     {
-        "question_text": "Compare plant cells and animal cells with a well-labelled diagram of each. List at least 5 differences. Explain why plant cells are more rigid than animal cells. (a) Draw labelled diagrams [2] (b) List 5 differences [2] (c) Explain rigidity [1] [Figure: Side by side plant and animal cell diagrams]",
+        "question_text": "Compare plant cells and animal cells with a well-labelled diagram of each. List at least 5 differences. Explain why plant cells are more rigid than animal cells. (a) Draw labelled diagrams [2] (b) List 5 differences [2] (c) Explain rigidity [1] [Figure: Side by side plant and animal cell diagrams] [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cell_types.svg/512px-Cell_types.svg.png]",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Hard",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Explain the universal law of gravitation. Derive the relation between g and G. If the Earth's mass is 6 × 10²⁴ kg and radius is 6.4 × 10⁶ m, calculate the value of g. (a) State the law with formula [2] (b) Derive g from G [2] (c) Calculate g [1]",
         "subject": "Science",
+        "chapter": "Gravitation",
         "difficulty": "Hard",
-        "chapter": "Gravitation"
+        "is_rationalised": true
     },
     {
         "question_text": "A car of mass 1500 kg is moving at 25 m/s. The brakes are applied, and the car comes to rest in 5 seconds. Calculate: (a) The deceleration produced [1] (b) The braking force [1] (c) The distance covered before stopping [1] (d) The work done by the braking force [1] (e) The change in kinetic energy [1]",
         "subject": "Science",
+        "chapter": "Work and Energy",
         "difficulty": "Hard",
-        "chapter": "Work and Energy"
+        "is_rationalised": true
     },
     {
         "question_text": "Describe the nitrogen cycle in detail with a labelled diagram. Explain the roles of: (a) Nitrogen-fixing bacteria [1] (b) Nitrification [1] (c) Denitrification [1] (d) Lightning [1] (e) Why is nitrogen important for living organisms? [1] [Figure: Nitrogen cycle with arrows showing different processes]",
         "subject": "Science",
+        "chapter": "Natural Resources",
         "difficulty": "Hard",
-        "chapter": "Natural Resources"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): The process of evaporation causes cooling. Reason (R): The particles of liquid absorb energy from the surroundings to regain the energy lost during evaporation. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Science",
+        "chapter": "Matter in Our Surroundings",
         "difficulty": "Easy",
-        "chapter": "Matter in Our Surroundings"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): Lysosomes are known as the suicide bags of the cell. Reason (R): If the cell gets damaged, lysosomes may burst and the enzymes digest their own cell. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): Mitochondria is the powerhouse of the cell. Reason (R): Energy required for various chemical activities is released by mitochondria in the form of ATP. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
         "difficulty": "Easy",
-        "chapter": "The Fundamental Unit of Life"
+        "is_rationalised": true
     },
     {
         "question_text": "Assertion (A): When a car takes a sharp turn at high speed, the passengers tend to get thrown to one side. Reason (R): It is due to the property of inertia of direction. (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is not the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.",
         "subject": "Science",
+        "chapter": "Force and Laws of Motion",
         "difficulty": "Easy",
-        "chapter": "Force and Laws of Motion"
+        "is_rationalised": true
     },
     {
         "question_text": "Read the following and answer: Atoms are the building blocks of matter. According to Dalton, atoms were indivisible, but later experiments showed they consist of electrons, protons, and neutrons. [Figure: Structure of Atom with orbits] (a) Who discovered electrons? [1] (b) What is the central part of the atom called? [1] (c) Explain why atoms are electrically neutral. [2]",
         "subject": "Science",
+        "chapter": "Structure of the Atom",
         "difficulty": "Hard",
-        "chapter": "Structure of the Atom"
+        "is_rationalised": true
     },
     {
         "question_text": "Case Study: A group of students observed slides of plant and animal tissues. They saw cells with thick walls and others with thin walls. [Figure: Plant Tissue Slides] (a) Name the tissue with lignified walls that provides mechanical strength. [1] (b) Which tissue is responsible for photosynthesis? [1] (c) Differentiate between xylem and phloem on the basis of their function. [2]",
         "subject": "Science",
+        "chapter": "Tissues",
         "difficulty": "Hard",
-        "chapter": "Tissues"
+        "is_rationalised": true
     }
 ]
