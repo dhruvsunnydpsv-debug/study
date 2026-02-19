@@ -2,15 +2,9 @@
 import json
 import os
 
-FILES = [
-    "seed_maths.json",
-    "seed_science.json",
-    "seed_sst.json",
-    "seed_english.json",
-    "seed_hindi.json",
-    "seed_sanskrit.json",
-    "seed_cs.json"
-]
+# Automatically discover all seed_*.json files
+import glob
+FILES = glob.glob("seed_*.json")
 
 def transform_file(filename):
     if not os.path.exists(filename):
@@ -22,15 +16,15 @@ def transform_file(filename):
     
     new_data = []
     for q in data:
-        # Move image_url into question_text
-        img_url = q.pop('image_url', '')
-        if img_url:
-            q['question_text'] = q['question_text'] + f" [Image: {img_url}]"
+        # Move image_url into question_text if not already there
+        img_url = q.get('image_url', '')
+        q_text = q.get('question_text', '')
         
-        # Ensure only supported keys exist in the dict for batch insert
-        # Based on OpenAPI spec: id, paper_id, question_text, subject, chapter, difficulty, is_rationalised, appearance_count
+        if img_url and f"[Image: {img_url}]" not in q_text:
+            q_text = q_text + f" [Image: {img_url}]"
+        
         filtered_q = {
-            'question_text': q.get('question_text', ''),
+            'question_text': q_text,
             'subject': q.get('subject', ''),
             'chapter': q.get('chapter', ''),
             'difficulty': q.get('difficulty', ''),

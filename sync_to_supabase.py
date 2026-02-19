@@ -15,15 +15,9 @@ HEADERS = {
     "Prefer": "return=minimal"
 }
 
-FILES = [
-    "seed_maths.json",
-    "seed_science.json",
-    "seed_sst.json",
-    "seed_english.json",
-    "seed_hindi.json",
-    "seed_sanskrit.json",
-    "seed_cs.json"
-]
+# Automatically discover all seed_*.json files
+import glob
+FILES = glob.glob("seed_*.json")
 
 def sync_file(filename):
     print(f"Syncing {filename}...")
