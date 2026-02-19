@@ -1,0 +1,86 @@
+[
+    {
+        "subject": "Maths",
+        "chapter": "Number Systems",
+        "difficulty": "Hard",
+        "question_text": "Case Study 1: Rational Numbers in Real Life. In a small village, a rectangular pond is being constructed. The length of the pond is √18 meters and the width is √8 meters. The villagers want to fence the pond with a rope that costs ₹50 per meter. (a) Is the length of the pond a rational or irrational number? [1] (b) Find the perimeter of the pond in simplest radical form. [1] (c) Calculate the total cost of fencing the pond. [2]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Maths",
+        "chapter": "Polynomials",
+        "difficulty": "Hard",
+        "question_text": "Case Study 2: Garden Design. A gardener wants to plant flowers in a rectangular area where the area is given by the polynomial p(x) = x² + 7x + 10. The length and width are linear factors of this polynomial. (a) Factorize the polynomial p(x). [1] (b) If x = 2 meters, find the actual dimensions of the garden. [1] (c) If the gardener doubles the length, what will be the new area polynomial? [2]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Science",
+        "chapter": "Cells",
+        "difficulty": "Medium",
+        "question_text": "Case Study: The Building Blocks of Life. A student observed a thin slice of onion peel under a microscope. She saw rectangular cells with a distinct cell wall and a large central vacuole. She then compared this with a slide of human cheek cells. [Image: https://upload.wikimedia.org/wikipedia/commons/4/4b/Onion_cells_2.jpg] (a) Identify the type of cell shown in the image. [1] (b) List two structures present in onion cells but absent in cheek cells. [2] (c) What is the function of the vacuole in plant cells? [1]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Social Science",
+        "chapter": "French Revolution",
+        "difficulty": "Medium",
+        "question_text": "Case Study: The Fall of the Bastille. On the morning of 14 July 1789, the city of Paris was in a state of alarm. The king had commanded troops to move into the city. Rumours spread that he would soon order the army to open fire upon the citizens. (a) Why was the Bastille hated by all? [1] (b) What did the fall of Bastille signify for the French people? [2] (c) Who was the King of France during the Revolution? [1]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Maths",
+        "chapter": "Statistics",
+        "difficulty": "Medium",
+        "question_text": "Case Study 3: Health Survey. A health survey was conducted in a housing society to find the number of people of different age groups. The data is as follows: 0-10 (5), 10-20 (12), 20-30 (20), 30-40 (18), 40-50 (10). (a) Find the class mark of the 20-30 age group. [1] (b) Which class interval has the highest frequency? [1] (c) Calculate the mean age of the residents approximately. [2]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Science",
+        "chapter": "Motion",
+        "difficulty": "Hard",
+        "question_text": "Case Study: Speed and Velocity. A car starts from point A and travels 100km North to point B in 2 hours. It then turns around and travels 40km South to point C in 1 hour. (a) What is the total distance travelled by the car? [1] (b) What is the displacement of the car from point A? [1] (c) Calculate the average speed and average velocity of the car for the entire journey. [2]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Social Science",
+        "chapter": "Geography",
+        "difficulty": "Medium",
+        "question_text": "Case Study: Monsoon in India. The word monsoon is derived from the Arabic word 'mausim'. It refers to the seasonal reversal in the wind direction during a year. (a) What causes the reversal of wind direction in India? [1] (b) Name the two branches of the South-West Monsoon. [2] (c) Why does Rajasthan receive low rainfall? [1]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "English",
+        "chapter": "Beehive - The Sound of Music",
+        "difficulty": "Medium",
+        "question_text": "Case Study: Evelyn Glennie. Evelyn Glennie's loss of hearing had been gradual. Her mother remembered noticing something was wrong when the eight-year-old Evelyn was waiting to play the piano. (a) At what age was Evelyn's hearing loss first noticed? [1] (b) How does Evelyn 'hear' music if she cannot listen with her ears? [2] (c) What advice did Ron Forbes give to Evelyn? [1]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Maths",
+        "chapter": "Triangles",
+        "difficulty": "Hard",
+        "question_text": "Case Study 4: Bridge Support. A decorative bridge has two supporting triangular structures on either side. In one triangle ABC, AB = AC. A point D lies on BC such that AD is perpendicular to BC. (a) Which congruence criterion can be used to prove ΔABD ≅ ΔACD? [1] (b) Is BD equal to DC? Why? [1] (c) If ∠BAD = 30°, find the value of ∠ABC. [2]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Science",
+        "chapter": "Atoms and Molecules",
+        "difficulty": "Hard",
+        "question_text": "Case Study: Law of Conservation of Mass. In a chemical reaction, the total mass of the reactants is always equal to the total mass of the products. This was demonstrated in an experiment where 5.3g of sodium carbonate reacted with 6g of ethanoic acid. (a) State the law of conservation of mass. [1] (b) If 2.2g of CO2 and 0.9g of water were formed, calculate the mass of the residue left. [2] (c) Who proposed the law of constant proportions? [1]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "English",
+        "chapter": "Moments - The Adventure of Toto",
+        "difficulty": "Easy",
+        "question_text": "Case Study: Toto the Monkey. Grandfather bought Toto from a tonga-driver for the sum of five rupees. The tonga-driver used to keep the little red monkey tied to a feeding-trough. (a) From whom did Grandfather buy Toto? [1] (b) Describe the appearance of Toto in two sentences. [2] (c) How much did Grandfather pay for Toto? [1]",
+        "is_rationalised": true
+    },
+    {
+        "subject": "Social Science",
+        "chapter": "Political Science",
+        "difficulty": "Medium",
+        "question_text": "Case Study: What is Democracy? Democracy is a form of government in which the rulers are elected by the people. This definition is simple but needs interpretation. (a) What is the main feature of a democratic government? [1] (b) Give one example of a non-democratic practice in any country. [2] (c) Who has the final decision-making power in a democracy? [1]",
+        "is_rationalised": true
+    }
+]
