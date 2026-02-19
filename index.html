@@ -22,15 +22,15 @@
         }
 
         :root {
-            --bg: #ffffff;
-            --surface: #f8fafc;
-            --surface-hover: #f1f5f9;
-            --border: #e2e8f0;
-            --border-hover: #cbd5e1;
-            --text: #1e293b;
-            --text-dim: #475569;
-            --text-muted: #94a3b8;
-            --accent: #2563eb;
+            --bg: #06060b;
+            --surface: rgba(255, 255, 255, 0.03);
+            --surface-hover: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.16);
+            --text: #eeeef2;
+            --text-dim: rgba(238, 238, 242, 0.55);
+            --text-muted: rgba(238, 238, 242, 0.3);
+            --accent: #7c3aed;
         }
 
         body {
@@ -52,35 +52,35 @@
         .aurora div {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
-            animation: drift 20s ease-in-out infinite;
+            filter: blur(130px);
+            opacity: 0.1;
+            animation: drift 22s ease-in-out infinite;
         }
 
         .aurora div:nth-child(1) {
-            width: 600px;
-            height: 600px;
-            background: #bfdbfe;
-            top: -10%;
-            left: -5%;
+            width: 550px;
+            height: 550px;
+            background: #7c3aed;
+            top: -8%;
+            left: -3%;
         }
 
         .aurora div:nth-child(2) {
-            width: 500px;
-            height: 500px;
-            background: #ddd6fe;
-            top: 40%;
-            right: -10%;
-            animation-delay: -5s;
+            width: 450px;
+            height: 450px;
+            background: #06b6d4;
+            top: 35%;
+            right: -8%;
+            animation-delay: -8s;
         }
 
         .aurora div:nth-child(3) {
-            width: 450px;
-            height: 450px;
-            background: #fee2e2;
-            bottom: -10%;
-            left: 30%;
-            animation-delay: -10s;
+            width: 400px;
+            height: 400px;
+            background: #f43f5e;
+            bottom: -5%;
+            left: 25%;
+            animation-delay: -15s;
         }
 
         @keyframes drift {
@@ -151,7 +151,7 @@
             font-size: clamp(2rem, 5vw, 3.4rem);
             font-weight: 800;
             letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #1e293b 0%, #2563eb 50%, #6366f1 100%);
+            background: linear-gradient(135deg, #f0f0f5 10%, #a78bfa 55%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -782,7 +782,7 @@
                 instructions: ['This paper is divided into three sections A, B & C.', 'Section A: Reading Skills (20m).', 'Section B: Writing Skills & Grammar (20m).', 'Section C: Literature (40m).']
             },
             'Hindi': {
-                code: '002', fullName: 'हिन्दी कोर्स \'अ\'', time: '3 घण्टे', maxMarks: 80, lang: 'hi',
+                code: '002', fullName: 'हिन्दी 'A'', time: '3 घण्टे', maxMarks: 80, lang: 'hi',
                 sections: [
                     { id: 'अ', title: 'खण्ड अ — बहुविकल्पीय प्रश्न', desc: '40 अंक', perQ: 1, count: 40, diff: 'Easy', note: 'अपठित गद्यांश एवं व्यावहारिक व्याकरण।' },
                     { id: 'ब', title: 'खण्ड ब — वर्णनात्मक प्रश्न', desc: '40 अंक', perQ: 0, count: 0, diff: 'Medium', note: 'पाठ्यपुस्तक एवं रचनात्मक लेखन।', fixedMarks: 40 }
