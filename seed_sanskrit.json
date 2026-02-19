@@ -1,0 +1,278 @@
+[
+    {
+        "question_text": "'भवति' इति क्रियापदस्य अर्थः अस्ति: (A) गच्छति (B) भवति (होता है) (C) पठति (D) लिखति",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'बालकः' इति शब्दस्य लिङ्गम्: (A) पुल्लिङ्गम् (B) स्त्रीलिङ्गम् (C) नपुंसकलिङ्गम् (D) उभयलिङ्गम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'गच्छामि' इति क्रियापदे पुरुषः अस्ति: (A) प्रथमपुरुषः (B) मध्यमपुरुषः (C) उत्तमपुरुषः (D) अव्ययम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'रामः गृहं गच्छति' — अत्र 'गृहम्' शब्दस्य विभक्तिः: (A) प्रथमा (B) द्वितीया (C) तृतीया (D) चतुर्थी",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'पठ्' धातोः लट्लकारे मध्यमपुरुषे एकवचनम्: (A) पठति (B) पठसि (C) पठामि (D) पठतः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'देव' शब्दस्य द्वितीया विभक्तिः बहुवचने: (A) देवम् (B) देवौ (C) देवान् (D) देवेन",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'फलम्' इति शब्दस्य लिङ्गम्: (A) पुल्लिङ्गम् (B) स्त्रीलिङ्गम् (C) नपुंसकलिङ्गम् (D) सर्वलिङ्गम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'कृ' धातोः अर्थः अस्ति: (A) करना (B) जाना (C) पढ़ना (D) खाना",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'सः बालकः अस्ति' — अत्र 'सः' इति: (A) संज्ञापदम् (B) सर्वनामपदम् (C) क्रियापदम् (D) विशेषणपदम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'नदी' शब्दस्य सप्तमी विभक्तिः एकवचने: (A) नद्याम् (B) नद्यै (C) नद्याः (D) नदीम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'लता' शब्दस्य प्रथमा विभक्तिः बहुवचने: (A) लता (B) लते (C) लताः (D) लताम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'गम्' धातोः लट्लकारे प्रथमपुरुषे द्विवचनम्: (A) गच्छति (B) गच्छतः (C) गच्छन्ति (D) गच्छामि",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'राम + ईश' = इत्यस्य सन्धिः: (A) रामेश (B) रामीश (C) रामीश् (D) रामेशः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "'न + इति' इत्यस्य सन्धिपदम्: (A) नेति (B) निति (C) नैति (D) नीति",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "'सत् + जनः' इत्यस्य सन्धिपदम्: (A) सज्जनः (B) सत्जनः (C) सद्जनः (D) साजनः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "'वाक् + ईशः' इत्यस्य सन्धिः: (A) वागीशः (B) वाकीशः (C) वाक्ईशः (D) वाचीशः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "'सु' उपसर्गयुक्तं पदम्: (A) सुलभ (B) दुर्लभ (C) अलभ्य (D) लाभ",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Upasargah"
+    },
+    {
+        "question_text": "'दुर्' उपसर्गयुक्तं पदम्: (A) सुगम (B) दुर्गम (C) अगम (D) निगम",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Upasargah"
+    },
+    {
+        "question_text": "'नि' उपसर्गयुक्तं पदम्: (A) निवासः (B) आवासः (C) प्रवासः (D) उपवासः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Upasargah"
+    },
+    {
+        "question_text": "'अधि' उपसर्गयुक्तं पदम्: (A) अध्ययनम् (B) उपयोगः (C) प्रयोगः (D) संयोगः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Upasargah"
+    },
+    {
+        "question_text": "'क्त्वा' प्रत्ययेन निर्मितं पदम्: (A) गत्वा (B) गतः (C) गमनम् (D) गच्छति",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Pratyayah"
+    },
+    {
+        "question_text": "'तुमुन्' प्रत्ययेन निर्मितं पदम्: (A) पठितुम् (B) पठित्वा (C) पठितः (D) पठनम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Pratyayah"
+    },
+    {
+        "question_text": "'शनैः' इत्यस्य अर्थः: (A) शीघ्रम् (B) मन्दम् (C) उच्चैः (D) बहु",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Avyayam"
+    },
+    {
+        "question_text": "'पुनः' इत्यस्य अर्थः: (A) प्रथमम् (B) फिर से (C) सदा (D) कभी नहीं",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Avyayam"
+    },
+    {
+        "question_text": "'एव' इत्यस्य अर्थः: (A) या (B) और (C) ही (D) किन्तु",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Avyayam"
+    },
+    {
+        "question_text": "'यत्र' इत्यस्य अर्थः: (A) जहाँ (B) वहाँ (C) कहाँ (D) तहाँ",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Avyayam"
+    },
+    {
+        "question_text": "'सर्वे जनाः सुखिनः भवन्तु' — अस्य वाक्यस्य अर्थः: (A) सभी लोग दुःखी हों (B) सभी लोग सुखी हों (C) कोई सुखी न हो (D) केवल कुछ लोग सुखी हों",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sahityam"
+    },
+    {
+        "question_text": "'अहं विद्यालयं गच्छामि' — अत्र 'अहम्' इति: (A) प्रथमपुरुषः (B) मध्यमपुरुषः (C) उत्तमपुरुषः (D) सर्वनामपदम् एव",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'बालिकाः क्रीडन्ति' — अत्र क्रियापदस्य वचनम्: (A) एकवचनम् (B) द्विवचनम् (C) बहुवचनम् (D) शून्यवचनम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'मधुरम्' इति विशेषणपदस्य लिङ्गम्: (A) पुल्लिङ्गम् (B) स्त्रीलिङ्गम् (C) नपुंसकलिङ्गम् (D) सर्वलिङ्गम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'श्रीमन्तः प्रधानाचार्यमहोदयस्य सेवायाम्' — एतत् किं भवति? (A) निबन्धः (B) पत्रम् (C) अनुच्छेदः (D) कथा",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Patralekhnam"
+    },
+    {
+        "question_text": "संस्कृतभाषा कीदृशी भाषा अस्ति? (A) अपभ्रंशभाषा (B) देवभाषा (C) विदेशीभाषा (D) प्राकृतभाषा",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sahityam"
+    },
+    {
+        "question_text": "अधोलिखितं गद्यांशं पठित्वा प्रश्नानाम् उत्तराणि एकपदेन लिखत — 'विद्या सर्वधनं प्रधानम्। विद्यया मानवः सर्वत्र पूज्यते। अविद्या अन्धकारम् इव भवति।' (a) किं सर्वधनं प्रधानम्? [1] (b) विद्यया कः पूज्यते? [1] (c) अविद्या कीदृशी भवति? [1]",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Apathitabodhnam"
+    },
+    {
+        "question_text": "'विद्यालयस्य वार्षिकोत्सवः' इति विषये पञ्च वाक्यानि संस्कृते लिखत।",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Nibandham"
+    },
+    {
+        "question_text": "मित्रं प्रति स्वास्थ्यविषये पृच्छन्तं पत्रं संस्कृते लिखत। (60-80 शब्दाः)",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Patralekhnam"
+    },
+    {
+        "question_text": "निम्नलिखितान् सन्धीन् कुरुत, सन्धेः नाम च वदत: (a) सत् + आनन्दः (b) उत् + हारः (c) वाक् + मयम् (d) इति + आदि",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "निम्नलिखितेषु वाक्येषु विभक्तिं, वचनं, लिङ्गं च लिखत: (a) बालकाः विद्यालयं गच्छन्ति। (b) गुरवे नमः। (c) गृहात् बालिका आगच्छति। (d) नद्यां कमलानि सन्ति।",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'पठ्' धातोः लट्लकारे, लृट्लकारे, लङ्लकारे, लोट्लकारे च सर्वेषु पुरुषेषु वचनेषु च रूपाणि लिखत।",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'बाल' शब्दस्य पुल्लिङ्गे सर्वासु विभक्तिषु सर्वेषु वचनेषु रूपाणि लिखत।",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "निम्नलिखितेषु उपसर्गान् पृथक् कुरुत, अर्थं च लिखत: (a) उपकारः (b) विनाशः (c) अनुभवः (d) परिवारः (e) अभ्यासः",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Upasargah"
+    },
+    {
+        "question_text": "निम्नलिखितेषु प्रत्ययान् पृथक् कुरुत: (a) कृत्वा (b) गन्तुम् (c) पठनीयम् (d) लिखितवान् (e) गतः",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Pratyayah"
+    },
+    {
+        "question_text": "श्लोकस्य अन्वयं भावार्थं च संस्कृते लिखत: 'सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः। सर्वे भद्राणि पश्यन्तु मा कश्चिद् दुःखभाग्भवेत्॥' (a) अन्वयः [2] (b) भावार्थः [3]",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Sahityam"
+    },
+    {
+        "question_text": "'राम' शब्दस्य सर्वासु विभक्तिषु (प्रथमात् सप्तमीपर्यन्तम्) सम्बोधनसहितम् सर्वेषु वचनेषु रूपाणि लिखत।",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'अस्माकं देशः भारतवर्षम्' इति विषये संस्कृते निबन्धं लिखत, दश वाक्यानि अवश्यं भवेयुः। (100-120 शब्दाः) (a) भारतस्य भौगोलिकं वर्णनम् [2] (b) भारतस्य सांस्कृतिकं वर्णनम् [2] (c) उपसंहारः [1]",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Nibandham"
+    },
+    {
+        "question_text": "श्लोकस्य व्याकरणात्मकं विश्लेषणं कुरुत: 'विद्या ददाति विनयं विनयाद्याति पात्रताम्। पात्रत्वाद्धनमाप्नोति धनाद्धर्मं ततः सुखम्॥' (a) सन्धिविच्छेदः (सर्वाः सन्धयः) [2] (b) शब्दरूपाणि (कर्ता-कर्म-क्रिया) [2] (c) अन्वयः [1]",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'विद्यालयवर्णनम्, शिक्षकाणां महत्त्वम्, छात्राणां कर्तव्यम्' — इति विषयेषु प्रत्येकं पञ्चवाक्यानि संस्कृते लिखत। (a) विद्यालयवर्णनम् [2] (b) शिक्षकाणां महत्त्वम् [2] (c) छात्राणां कर्तव्यम् [1]",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Nibandham"
+    }
+]

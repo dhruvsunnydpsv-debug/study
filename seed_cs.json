@@ -1,0 +1,386 @@
+[
+    {
+        "question_text": "Which generation of computers used vacuum tubes? (A) First (B) Second (C) Third (D) Fourth",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "The brain of a computer is: (A) Monitor (B) CPU (C) Keyboard (D) Hard Disk",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Which is an input device? (A) Printer (B) Monitor (C) Speaker (D) Mouse",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "ROM stands for: (A) Random Only Memory (B) Read Only Memory (C) Run On Memory (D) Right Output Memory",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "1 KB equals: (A) 1000 bytes (B) 1024 bytes (C) 512 bytes (D) 2048 bytes",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "ALU stands for: (A) Arithmetic Logic Unit (B) Automatic Logic Unit (C) Applied Logic Unit (D) Advanced Logic Unit",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Cache memory is: (A) The slowest memory (B) A type of ROM (C) Very fast temporary memory near CPU (D) External memory",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "An interpreter: (A) Translates entire program at once (B) Translates one line at a time (C) Is hardware (D) Works only with Java",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Software that manages hardware and resources is: (A) Application software (B) System software (C) Utility software (D) Firmware",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "BIOS stands for: (A) Basic Input Output System (B) Binary Input Output System (C) Basic Internal Operating System (D) Binary Internal Operating System",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "The binary number 1011 is equal to decimal: (A) 9 (B) 10 (C) 11 (D) 13",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Octal number system has base: (A) 2 (B) 8 (C) 10 (D) 16",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Hexadecimal uses digits 0-9 and: (A) A-E (B) A-F (C) A-G (D) A-Z",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "The decimal equivalent of binary 1100 is: (A) 10 (B) 11 (C) 12 (D) 14",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "The binary of decimal 7 is: (A) 111 (B) 110 (C) 101 (D) 1000",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "1 nibble = (A) 2 bits (B) 4 bits (C) 8 bits (D) 16 bits",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "HTTP stands for: (A) Hyper Text Transfer Protocol (B) High Text Transfer Protocol (C) Hyper Text Transmission Protocol (D) High Transfer Text Protocol",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "A URL is: (A) A programming language (B) A web address (C) A browser (D) A virus",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Which of the following is a search engine? (A) Microsoft Word (B) Google (C) Photoshop (D) Windows",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Wi-Fi stands for: (A) Wireless Finder (B) Wireless Fidelity (C) Wide Finder (D) Wired Fidelity",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "An IP address identifies: (A) A person (B) A computer on the internet (C) A website name (D) An email",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Which protocol is used for email? (A) FTP (B) SMTP (C) HTTP (D) TCP",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "DNS converts: (A) IP to domain name (B) Domain name to IP address (C) Protocol to address (D) None",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Python was created by: (A) James Gosling (B) Dennis Ritchie (C) Guido van Rossum (D) Bjarne Stroustrup",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Which of the following is NOT a Python keyword? (A) if (B) else (C) input (D) True",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "In Python, '#' is used for: (A) Multiplication (B) Division (C) Comments (D) Exponentiation",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "What is the output of print(2**3)? (A) 6 (B) 8 (C) 5 (D) 23",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Which data type stores True/False? (A) int (B) float (C) str (D) bool",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "In Python, input() returns: (A) int (B) float (C) str (D) bool",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "What does // do in Python? (A) Division (B) Floor division (C) Exponentiation (D) Modulus",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "The output of print(10 % 3) is: (A) 3 (B) 1 (C) 0 (D) 10",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "What is the output of print(type(3.14))? (A) int (B) float (C) str (D) bool",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Which loop is used when number of iterations is known? (A) while (B) for (C) do-while (D) repeat",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "range(5) generates: (A) 1 to 5 (B) 0 to 5 (C) 0 to 4 (D) 1 to 4",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Malware is: (A) Good software (B) Malicious software (C) Marketing software (D) Manufacturing software",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "A strong password should have: (A) Only letters (B) Only numbers (C) Mix of letters, numbers, and symbols (D) Just your name",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "Cyberbullying means: (A) Playing games online (B) Bullying or harassment online (C) Shopping online (D) Making friends online",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "A firewall: (A) Burns data (B) Protects a network from unauthorized access (C) Creates websites (D) Stores data",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "Two-factor authentication uses: (A) One password (B) Two different verification methods (C) Two passwords (D) No password",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "Copyright protects: (A) Ideas only (B) Original creative works (C) Passwords (D) Emails only",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "An algorithm is: (A) A programming language (B) A step-by-step procedure to solve a problem (C) A type of hardware (D) A website",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "In a flowchart, a diamond shape represents: (A) Start/End (B) Process (C) Decision (D) Input/Output",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "In a flowchart, a rectangle represents: (A) Decision (B) Process (C) Start (D) Data",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "A parallelogram in a flowchart represents: (A) Process (B) Decision (C) Input/Output (D) Start/End",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "Oval shape in flowchart indicates: (A) Input (B) Process (C) Decision (D) Start/End (Terminal)",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "Write a Python program to check whether a number entered by the user is positive, negative, or zero using if-elif-else.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Write a Python program to calculate the area and circumference of a circle given the radius as input.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Write a Python program to print the multiplication table of a number entered by the user using a for loop.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Explain the difference between RAM and ROM. Give at least 4 differences.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Convert the following: (a) Binary 11010 to Decimal [1] (b) Decimal 45 to Binary [1]. Show all steps.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Write an algorithm and draw a flowchart to find the sum of first N natural numbers where N is given by the user.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "What is a computer virus? How is it different from a worm? List 3 ways to protect your computer from viruses.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "Explain different types of networks: LAN, MAN, WAN. Give one example of each and their typical range.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Write a Python program to swap two numbers without using a third variable. Explain how it works.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "What are the different types of operators in Python? Explain arithmetic, comparison, and logical operators with examples.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Explain the concept of an operating system. What are its main functions? Give examples of popular operating systems.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Write a Python program to check if a year entered by the user is a leap year or not. Handle all edge cases.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Write a Python program to generate the following pattern: * ** *** **** *****. Use nested loops.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Draw a flowchart and write an algorithm to calculate the factorial of a number entered by the user.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "Write a Python program to find all prime numbers between 1 and 100. (a) Explain the logic of checking prime numbers [2] (b) Write the complete code [3]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Explain the OSI model of networking. Describe the function of each layer: Physical, Data Link, Network, Transport, Session, Presentation, Application. (a) List all 7 layers [2] (b) Explain any 3 layers in detail [3]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Write a Python program to check whether a string is a palindrome or not. (a) Explain the logic [2] (b) Write the code [2] (c) Test with examples [1]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "What are cyber crimes? Discuss different types: hacking, phishing, identity theft, cyberstalking. (a) Define cyber crime [1] (b) Explain any 3 types [3] (c) How can we protect ourselves? [1]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "Write a Python program that takes 5 subject marks from the user, calculates total, percentage, and assigns grade (A/B/C/D/F based on percentage). (a) Input handling [1] (b) Calculation logic [2] (c) Grade assignment using if-elif [2]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Introduction to Python"
+    }
+]

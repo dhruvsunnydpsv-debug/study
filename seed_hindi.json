@@ -1,0 +1,380 @@
+[
+    {
+        "question_text": "'दो बैलों की कथा' किस विधा में लिखी गई है? (A) कहानी (B) कविता (C) निबंध (D) नाटक",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "प्रेमचंद का मूल नाम क्या था? (A) धनपत राय (B) मुंशी लाल (C) रामचंद्र (D) सूर्यकांत",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "हीरा और मोती किस जानवर के पात्र हैं? (A) घोड़े (B) बैल (C) गाय (D) भैंस",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "'ल्हासा की ओर' पाठ किस यात्रा का वर्णन करता है? (A) भारत (B) तिब्बत (C) चीन (D) नेपाल",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Lhasa Ki Or"
+    },
+    {
+        "question_text": "राहुल सांकृत्यायन को किस नाम से जाना जाता है? (A) कवि शिरोमणि (B) महापंडित (C) साहित्य सम्राट (D) रस सिद्ध कवि",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Lhasa Ki Or"
+    },
+    {
+        "question_text": "'उपभोक्तावाद की संस्कृति' पाठ के लेखक हैं: (A) रामविलास शर्मा (B) श्यामाचरण दुबे (C) हरिशंकर परसाई (D) यशपाल",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Upbhoktavad Ki Sanskriti"
+    },
+    {
+        "question_text": "'साँवले सपनों की याद' पाठ किसकी स्मृति में लिखा गया? (A) जवाहरलाल नेहरू (B) सालिम अली (C) महात्मा गांधी (D) विवेकानंद",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Sanwale Sapnon Ki Yaad"
+    },
+    {
+        "question_text": "सालिम अली को किसका विशेषज्ञ माना जाता है? (A) पुस्तकों (B) पक्षियों (C) फूलों (D) मछलियों",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Sanwale Sapnon Ki Yaad"
+    },
+    {
+        "question_text": "नाना साहब की पुत्री मैना ने कहाँ बलिदान दिया? (A) झाँसी (B) बिठूर (C) कानपुर (D) लखनऊ",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Nana Sahab Ki Putri"
+    },
+    {
+        "question_text": "'क्या निराश हुआ जाए' के लेखक हैं: (A) यशपाल (B) हजारी प्रसाद द्विवेदी (C) हरिशंकर परसाई (D) प्रेमचंद",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Kya Nirash Hua Jaye"
+    },
+    {
+        "question_text": "'मेरे बचपन के दिन' पाठ की लेखिका हैं: (A) सुभद्रा कुमारी चौहान (B) महादेवी वर्मा (C) अमृता प्रीतम (D) मन्नू भंडारी",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Mere Bachpan Ke Din"
+    },
+    {
+        "question_text": "'ग्राम श्री' कविता में किसका वर्णन है? (A) शहर का (B) गाँव की प्राकृतिक सुंदरता (C) पहाड़ का (D) नदी का",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Gram Shree"
+    },
+    {
+        "question_text": "'ग्राम श्री' कविता के कवि हैं: (A) सुमित्रानंदन पंत (B) मैथिलीशरण गुप्त (C) सूर्यकांत त्रिपाठी 'निराला' (D) रामधारी सिंह 'दिनकर'",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Gram Shree"
+    },
+    {
+        "question_text": "कबीर किस काल के कवि हैं? (A) आदिकाल (B) भक्तिकाल (C) रीतिकाल (D) आधुनिक काल",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Kabir"
+    },
+    {
+        "question_text": "कबीर किस मार्ग के कवि हैं? (A) कृष्ण भक्ति (B) राम भक्ति (C) निर्गुण ज्ञानाश्रयी (D) सगुण भक्ति",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Kabir"
+    },
+    {
+        "question_text": "संज्ञा का अर्थ है: (A) जो किसी का नाम बताए (B) जो विशेषता बताए (C) जो क्रिया बताए (D) जो जोड़े",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'पुस्तक' शब्द में कौन-सी संज्ञा है? (A) व्यक्तिवाचक (B) जातिवाचक (C) भाववाचक (D) समूहवाचक",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'सुंदर' शब्द है: (A) संज्ञा (B) सर्वनाम (C) विशेषण (D) क्रिया",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "सर्वनाम के कितने भेद होते हैं? (A) तीन (B) पाँच (C) छह (D) आठ",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'राम खाना खाता है' — इस वाक्य में क्रिया है: (A) राम (B) खाना (C) खाता है (D) राम खाना",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "क्रिया विशेषण किसकी विशेषता बताता है? (A) संज्ञा (B) सर्वनाम (C) क्रिया (D) विशेषण",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'बालक' का स्त्रीलिंग है: (A) बालकी (B) बालिका (C) बाला (D) बालकन",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'आ' उपसर्ग लगाकर बना शब्द है: (A) आगमन (B) गमन (C) सुगम (D) निर्गम",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'ता' प्रत्यय लगाकर बना शब्द: (A) मानवता (B) मानव (C) मानवीय (D) मनुष्य",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'नेत्र' का तद्भव रूप है: (A) आँख (B) नयन (C) चक्षु (D) लोचन",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'अग्नि' का पर्यायवाची है: (A) जल (B) पावक (C) वायु (D) धरा",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'उन्नति' का विलोम है: (A) प्रगति (B) अवनति (C) गति (D) रफ्तार",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'दीपक के नीचे अँधेरा' का अर्थ है: (A) रोशनी (B) अपनी कमियाँ न दिखना (C) लालटेन (D) अँधेरी रात",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'आँखों का तारा' मुहावरे का अर्थ है: (A) तारा देखना (B) बहुत प्यारा (C) आँखों में तकलीफ (D) रात में देखना",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'हाथ पैर मारना' मुहावरे का अर्थ है: (A) मारपीट करना (B) बहुत प्रयास करना (C) तैरना (D) नाचना",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "अनुस्वार का चिह्न है: (A) ँ (B) ं (C) ः (D) ्",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "विसर्ग का चिह्न है: (A) ँ (B) ं (C) ः (D) ्",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "वचन के कितने भेद हैं? (A) दो (B) तीन (C) चार (D) पाँच",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "कारक के कितने भेद हैं? (A) पाँच (B) छह (C) सात (D) आठ",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'ने' किस कारक का चिह्न है? (A) कर्म (B) करण (C) कर्ता (D) संप्रदान",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'को' किस कारक का चिह्न है? (A) कर्ता (B) कर्म (C) करण (D) अपादान",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "संधि-विच्छेद करें: 'विद्यालय' = (A) विद्या + आलय (B) विद्या + लय (C) विद्या + अलय (D) विध + आलय",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'पर + उपकार' की सन्धि है: (A) परोपकार (B) परउपकार (C) पारोपकार (D) परापकार",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "समास में 'राजपुत्र' का विग्रह है: (A) राजा और पुत्र (B) राजा का पुत्र (C) राजा के लिए पुत्र (D) पुत्र का राजा",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'चतुर्भुज' में कौन-सा समास है? (A) तत्पुरुष (B) द्विगु (C) बहुव्रीहि (D) कर्मधारय",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "अलंकार का अर्थ है: (A) आभूषण (B) गुण (C) दोष (D) रस",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'कमल-सा मुख' में कौन-सा अलंकार है? (A) रूपक (B) उपमा (C) अनुप्रास (D) श्लेष",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'चरण कमल बंदउँ हरि राई' में कौन-सा अलंकार है? (A) उपमा (B) रूपक (C) अनुप्रास (D) यमक",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'खेत न छोड़ भागते भूत' में अलंकार है: (A) उपमा (B) अतिशयोक्ति (C) अनुप्रास (D) श्लेष",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "छंद के कितने प्रकार हैं? (A) दो (B) तीन (C) चार (D) पाँच",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'दो बैलों की कथा' में प्रेमचंद ने पशुओं के माध्यम से किन मानवीय मूल्यों का चित्रण किया है? विस्तृत उत्तर दीजिए। (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "'ल्हासा की ओर' पाठ में लेखक ने तिब्बत की भौगोलिक और सांस्कृतिक विशेषताओं का वर्णन किस प्रकार किया है? (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Lhasa Ki Or"
+    },
+    {
+        "question_text": "'मेरे बचपन के दिन' पाठ में महादेवी वर्मा ने अपने बचपन की किन यादों को साझा किया है? (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Mere Bachpan Ke Din"
+    },
+    {
+        "question_text": "'ग्राम श्री' कविता में गाँव की प्राकृतिक सुंदरता का वर्णन किस प्रकार किया गया है? कवि ने किन-किन प्राकृतिक तत्वों का उल्लेख किया है? (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Gram Shree"
+    },
+    {
+        "question_text": "कबीरदास के किन्हीं दो दोहों की व्याख्या कीजिए और उनकी शिक्षा स्पष्ट कीजिए। (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Kabir"
+    },
+    {
+        "question_text": "अपने विद्यालय के प्रधानाचार्य को छात्रवृत्ति प्रदान करने हेतु आवेदन पत्र लिखिए। (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Patra Lekhan"
+    },
+    {
+        "question_text": "'जल संकट' विषय पर एक अनुच्छेद लिखिए। अपने उत्तर में जल संकट के कारण, प्रभाव और समाधान बताइए। (100-120 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Nibandh"
+    },
+    {
+        "question_text": "'स्वच्छ भारत अभियान' पर एक संवाद लिखिए (दो मित्रों के बीच)। (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Lekhan"
+    },
+    {
+        "question_text": "निम्नलिखित मुहावरों का अर्थ लिखकर वाक्य में प्रयोग कीजिए: (a) आसमान से गिरे खजूर में अटके (b) नौ दो ग्यारह होना (c) अंगूठा दिखाना",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'से' विभक्ति चिह्न वाले कारक बताइए और प्रत्येक का एक-एक उदाहरण दीजिए। करण और अपादान कारक में अंतर स्पष्ट कीजिए।",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "संधि करके संधि का नाम लिखिए: (a) सत् + आचार (b) मन + अनुकूल (c) देव + आलय (d) सूर्य + उदय",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "समास-विग्रह कीजिए और समास का नाम लिखिए: (a) नीलकमल (b) चतुर्भुज (c) राजमहल (d) यथाशक्ति (e) दशानन",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "निम्नलिखित वाक्यों को कारक बताकर समझाइए: (a) राम ने श्याम को पुस्तक दी। (b) वृक्ष से पत्ते गिरते हैं। (c) बच्चों के लिए खिलौने लाओ। (d) हे ईश्वर! रक्षा करो।",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'प्रेमचंद की कहानियाँ आज भी प्रासंगिक हैं' — 'दो बैलों की कथा' के आधार पर इस कथन की पुष्टि कीजिए। प्रेमचंद ने पशुओं के चित्रण के माध्यम से किन सामाजिक समस्याओं पर प्रकाश डाला है? (150-200 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "'ग्राम श्री' और 'चंद्र गहना से लौटती बेर' — दोनों कविताओं में प्राकृतिक चित्रण की तुलना कीजिए। दोनों कवियों की शैली में क्या समानताएँ और अंतर हैं? (150-200 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Gram Shree"
+    },
+    {
+        "question_text": "कबीरदास और रसखान की काव्य-शैली की तुलना कीजिए। दोनों कवियों के काव्य में भक्ति और प्रेम की अभिव्यक्ति किस प्रकार भिन्न है? (150-200 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Kabir"
+    },
+    {
+        "question_text": "'भारत में बढ़ता प्रदूषण: कारण, प्रभाव और समाधान' विषय पर एक विस्तृत निबंध लिखिए। (250-300 शब्द) (a) प्रदूषण के मुख्य कारण [2] (b) स्वास्थ्य और पर्यावरण पर प्रभाव [2] (c) समाधान के उपाय [1]",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Nibandh"
+    },
+    {
+        "question_text": "'डिजिटल शिक्षा: वरदान या अभिशाप' — इस विषय पर एक लेख लिखिए। अपने विचारों को पक्ष और विपक्ष दोनों ओर से प्रस्तुत कीजिए। (200-250 शब्द) (a) डिजिटल शिक्षा के लाभ [2] (b) इसकी सीमाएँ और चुनौतियाँ [2] (c) आपका निष्कर्ष [1]",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Nibandh"
+    }
+]
