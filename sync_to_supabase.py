@@ -36,21 +36,23 @@ def sync_all():
         print("No questions found to sync.")
         return
 
-    # Group by subject
-    by_subject = {}
+    # Group by subject and grade (Composite Key)
+    by_composite = {}
     for q in all_questions:
         sub = q.get('subject')
+        grade = q.get('grade', 9)
         if not sub: continue
-        if sub not in by_subject: by_subject[sub] = []
-        by_subject[sub].append(q)
+        comp = f"{sub}_{grade}"
+        if comp not in by_composite: by_composite[comp] = []
+        by_composite[comp].append(q)
 
-    # Sync each subject
-    for subject, questions in by_subject.items():
-        print(f"\nSyncing {len(questions)} questions for {subject}...")
+    # Sync each composite subject
+    for comp_sub, questions in by_composite.items():
+        print(f"\nSyncing {len(questions)} questions for {comp_sub}...")
         
-        # 1. DELETE existing questions for this subject
-        print(f"  Cleaning existing questions for {subject}...")
-        params = urllib.parse.urlencode({'subject': f'eq.{subject}'})
+        # 1. DELETE existing questions for this composite subject
+        print(f"  Cleaning existing questions for {comp_sub}...")
+        params = urllib.parse.urlencode({'subject': f'eq.{comp_sub}'})
         del_url = f"{BASE_URL}?{params}"
         req_del = urllib.request.Request(del_url, method='DELETE', headers=HEADERS)
         try:
@@ -61,10 +63,16 @@ def sync_all():
             print(f"  Delete error: {e}")
 
         # 2. POST (Batch Insert) new questions
-        # Chunking to avoid large payload limits (Max 2MB usually)
         chunk_size = 100
         for i in range(0, len(questions), chunk_size):
             chunk = questions[i:i + chunk_size]
+            # Prep chunk for insertion: set subject to composite, remove grade
+            for item in chunk:
+                # Store original for log if needed, but for DB we need composite
+                orig_sub = item.get('subject')
+                item['subject'] = comp_sub
+                if 'grade' in item: del item['grade']
+            
             data = json.dumps(chunk).encode('utf-8')
             req_post = urllib.request.Request(BASE_URL, data=data, method='POST', headers=HEADERS)
             try:

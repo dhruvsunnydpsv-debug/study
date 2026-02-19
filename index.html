@@ -157,10 +157,34 @@
             background: var(--surface-hover);
         }
 
-        .subject-btn.active {
+        .subject-btn.active,
+        .class-btn.active {
             background: rgba(124, 58, 237, 0.15);
             border-color: var(--accent);
             color: white;
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .class-btn {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .class-btn:hover {
+            background: var(--surface-hover);
         }
 
         .difficulty-selector {
@@ -373,14 +397,25 @@
             <h1 class="hero-title">CBSE Paper Creator</h1>
             <p class="hero-sub">Premium 2025-26 Academic Year • Logic Fixed • Diagrams Verified</p>
             <div class="form-card">
-                <label class="form-label">1. Select Subject</label>
-                <div class="subject-grid">
-                    <button class="subject-btn" onclick="setSubject(this, 'Maths')">π Maths</button>
-                    <button class="subject-btn" onclick="setSubject(this, 'Science')">⚛ Science</button>
-                    <button class="subject-btn" onclick="setSubject(this, 'Social Science')">🌍 SST</button>
-                    <button class="subject-btn" onclick="setSubject(this, 'English')">Aa English</button>
-                    <button class="subject-btn" onclick="setSubject(this, 'Hindi')">अ हिन्दी</button>
-                    <button class="subject-btn" onclick="setSubject(this, 'Sanskrit')">🕉 संस्कृतम्</button>
+                <label class="form-label">1. Select Class</label>
+                <div class="class-grid">
+                    <button class="class-btn active" onclick="setGrade(this, 9)">Class 9</button>
+                    <button class="class-btn" onclick="setGrade(this, 10)">Class 10</button>
+                    <button class="class-btn" onclick="setGrade(this, 11)">Class 11</button>
+                    <button class="class-btn" onclick="setGrade(this, 12)">Class 12</button>
+                </div>
+                <label class="form-label">2. Select Subject</label>
+                <div class="subject-grid" id="subject-grid">
+                    <button class="subject-btn" data-sub="Maths" onclick="setSubject(this, 'Maths')">π Maths</button>
+                    <button class="subject-btn" data-sub="Science" onclick="setSubject(this, 'Science')">⚛
+                        Science</button>
+                    <button class="subject-btn" data-sub="Social Science"
+                        onclick="setSubject(this, 'Social Science')">🌍 SST</button>
+                    <button class="subject-btn" data-sub="English" onclick="setSubject(this, 'English')">Aa
+                        English</button>
+                    <button class="subject-btn" data-sub="Hindi" onclick="setSubject(this, 'Hindi')">अ हिन्दी</button>
+                    <button class="subject-btn" data-sub="Sanskrit" onclick="setSubject(this, 'Sanskrit')">🕉
+                        संस्कृतम्</button>
                 </div>
                 <label class="form-label">2. Difficulty Level</label>
                 <div class="difficulty-selector">
@@ -406,7 +441,26 @@
 
     <script>
         const db = window.supabase.createClient("https://wfegooasrtbhpursgcvh.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s");
-        let selectedSubject = null; let selectedDiff = 'Mixed';
+        let selectedGrade = 9; let selectedSubject = null; let selectedDiff = 'Mixed';
+
+        function setGrade(btn, g) {
+            document.querySelectorAll('.class-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active'); selectedGrade = g;
+            updateSubjectVisibility(g);
+            selectedSubject = null;
+            document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('create-btn').disabled = true;
+        }
+
+        function updateSubjectVisibility(grade) {
+            const btns = document.querySelectorAll('.subject-btn');
+            btns.forEach(b => {
+                const sub = b.getAttribute('data-sub');
+                if (grade === 9) b.style.display = 'flex';
+                else if (grade >= 10 && (sub === 'Maths' || sub === 'Science')) b.style.display = 'flex';
+                else b.style.display = 'none';
+            });
+        }
 
         const BLUEPRINTS = {
             'Maths': {
@@ -528,7 +582,11 @@
             btn.disabled = true; btn.textContent = 'Generating...'; err.style.display = 'none';
             try {
                 const bp = BLUEPRINTS[selectedSubject];
-                const { data: allQ, error } = await db.from('question_bank').select('*').eq('subject', selectedSubject).limit(1000);
+                const compositeSubject = `${selectedSubject}_${selectedGrade}`;
+                const { data: allQ, error } = await db.from('question_bank')
+                    .select('*')
+                    .eq('subject', compositeSubject)
+                    .limit(2000);
                 if (error) throw error;
                 const pool = allQ.sort(() => Math.random() - 0.5);
 
