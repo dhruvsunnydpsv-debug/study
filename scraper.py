@@ -2,65 +2,57 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from supabase import create_client
+from openai import OpenAI
 import time
 
-def hunt_1000_pdfs(base_url):
-    folder_name = "downloaded_pdfs"
-    os.makedirs(folder_name, exist_ok=True)
+# 1. Setup Clients using GitHub Secrets
+supabase = create_client(os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_KEY"))
+ai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+def get_ai_description(filename):
+    """Uses your new OpenAI key to generate a clean title for the PDF"""
+    response = ai_client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": f"Clean this filename into a study title: {filename}"}]
+    )
+    return response.choices[0].message.content
+
+def hunt_to_supabase(base_url):
+    headers = {'User-Agent': 'Mozilla/5.0 Chrome/91.0.4472.124 Safari/537.36'}
     
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/91.0.4472.124 Safari/537.36'}
-    pdf_count = 0
-    target_count = 1000 # It will stop at 1000, or when it runs out of PDFs on the page
-    
-    print(f"Starting the hunt for PDFs on {base_url}...")
+    print(f"Starting hourly hunt on {base_url}...")
     
     try:
         response = requests.get(base_url, headers=headers)
-        response.raise_for_status() # This is what triggered your 404 error earlier!
         soup = BeautifulSoup(response.text, 'html.parser')
-        
         links = soup.find_all('a', href=True)
         
+        count = 0
         for link in links:
-            href = link['href']
-            
-            # Check if the link ends in .pdf
-            if href.lower().endswith('.pdf'):
-                pdf_url = urljoin(base_url, href)
+            if link['href'].lower().endswith('.pdf'):
+                pdf_url = urljoin(base_url, link['href'])
+                filename = link['href'].split('/')[-1]
                 
-                try:
-                    # Create the file name
-                    file_name = os.path.join(folder_name, href.split('/')[-1])
-                    
-                    print(f"Downloading: {pdf_url}")
-                    pdf_response = requests.get(pdf_url, headers=headers, stream=True)
-                    
-                    # Save the file
-                    with open(file_name, 'wb') as f:
-                        for chunk in pdf_response.iter_content(chunk_size=1024):
-                            if chunk:
-                                f.write(chunk)
-                                
-                    pdf_count += 1
-                    print(f"Success! Got {pdf_count} PDFs so far.")
-                    
-                    if pdf_count >= target_count:
-                        print("\nTarget reached! Shutting down hunter.")
-                        return 
-                        
-                    time.sleep(1) # Pause to avoid getting IP banned
-                        
-                except Exception as e:
-                    print(f"Could not download {pdf_url}: {e}")
-                    
-    except requests.exceptions.HTTPError as err:
-        print(f"CRASH: The website URL is broken, dead, or blocking you. Error: {err}")
+                # Get AI-enhanced title
+                clean_title = get_ai_description(filename)
+                
+                # 2. Insert into Supabase Table (Make sure your table is named 'pdfs')
+                data, count_resp = supabase.table("pdfs").insert({
+                    "title": clean_title,
+                    "url": pdf_url,
+                    "subject": "General Study" 
+                }).execute()
+                
+                count += 1
+                print(f"Added to Supabase: {clean_title}")
+                if count >= 100: break # Safety cap per hour
+                time.sleep(1)
+
     except Exception as e:
-        print(f"Failed to load the main website: {e}")
+        print(f"Error: {e}")
 
 if __name__ == "__main__":
-    # --- I CHANGED THIS TO A REAL, WORKING URL FOR TESTING ---
-    # Once you see this work, change this URL to whatever actual site you want to steal PDFs from
-    TARGET_WEBSITE = "https://sedl.org/afterschool/toolkits/science/pdf/" 
-    
-    hunt_1000_pdfs(TARGET_WEBSITE)
+    # Change this to any educational directory you want to hunt
+    TARGET = "https://sedl.org/afterschool/toolkits/science/pdf/"
+    hunt_to_supabase(TARGET)
