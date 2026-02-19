@@ -1,0 +1,1406 @@
+[
+    {
+        "question_text": "The rational number between 1/2 and 1/3 is: (A) 2/5 (B) 5/12 (C) 4/3 (D) 1/6",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Which of the following is an irrational number? (A) √4 (B) √9 (C) √2 (D) √16",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "The degree of the polynomial 4x³ + 3x² + 7x + 5 is: (A) 1 (B) 2 (C) 3 (D) 4",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "Zero of the polynomial p(x) = 3x + 2 is: (A) 2/3 (B) -2/3 (C) 3/2 (D) -3/2",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "The point (0, 4) lies on the: (A) x-axis (B) y-axis (C) origin (D) first quadrant",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Coordinate Geometry"
+    },
+    {
+        "question_text": "The point (-3, -4) lies in: (A) First quadrant (B) Second quadrant (C) Third quadrant (D) Fourth quadrant",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Coordinate Geometry"
+    },
+    {
+        "question_text": "If one angle of a triangle is 90°, then the triangle is: (A) Acute (B) Right (C) Obtuse (D) Equilateral",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Triangles"
+    },
+    {
+        "question_text": "The sum of angles of a triangle is: (A) 90° (B) 180° (C) 270° (D) 360°",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Lines and Angles"
+    },
+    {
+        "question_text": "A linear equation in two variables has: (A) No solution (B) Exactly one solution (C) Exactly two solutions (D) Infinitely many solutions",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Linear Equations in Two Variables"
+    },
+    {
+        "question_text": "If two lines are parallel and cut by a transversal, then alternate interior angles are: (A) Supplementary (B) Complementary (C) Equal (D) Unequal",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Lines and Angles"
+    },
+    {
+        "question_text": "The area of an equilateral triangle with side 6 cm is: (A) 9√3 cm² (B) 6√3 cm² (C) 12√3 cm² (D) 3√3 cm²",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Heron's Formula"
+    },
+    {
+        "question_text": "The volume of a cube with edge 5 cm is: (A) 25 cm³ (B) 125 cm³ (C) 150 cm³ (D) 75 cm³",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Surface Areas and Volumes"
+    },
+    {
+        "question_text": "The median of 2, 4, 6, 8, 10 is: (A) 4 (B) 6 (C) 8 (D) 5",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Statistics"
+    },
+    {
+        "question_text": "If a die is thrown once, the probability of getting a number greater than 4 is: (A) 1/6 (B) 1/3 (C) 1/2 (D) 2/3",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Probability"
+    },
+    {
+        "question_text": "The value of (27)^(1/3) is: (A) 9 (B) 3 (C) 27 (D) √3",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Which of the following is a polynomial in one variable? (A) x + 1/x (B) √x + 1 (C) x² + 3x + 5 (D) x^(1/2) + x",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "Euclid's fifth postulate is equivalent to: (A) Parallel postulate (B) Plane postulate (C) Line postulate (D) Point postulate",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Euclid's Geometry"
+    },
+    {
+        "question_text": "The total surface area of a hemisphere of radius r is: (A) 2πr² (B) 3πr² (C) 4πr² (D) πr²",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Surface Areas and Volumes"
+    },
+    {
+        "question_text": "A coin is tossed 200 times. Head appears 112 times. The probability of getting a tail is: (A) 112/200 (B) 88/200 (C) 100/200 (D) 200/112",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Probability"
+    },
+    {
+        "question_text": "The abscissa of a point on the y-axis is: (A) 1 (B) -1 (C) 0 (D) undefined",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Coordinate Geometry"
+    },
+    {
+        "question_text": "Factorise: x² - 9. (A) (x+3)(x-3) (B) (x+9)(x-1) (C) (x+3)² (D) (x-3)²",
+        "subject": "Maths",
+        "difficulty": "Easy",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "Express 0.999... in the form p/q.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "If x = 3 + 2√2, find the value of x + 1/x.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Factorise: 12x² - 7x + 1 using splitting the middle term method.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "Find the remainder when p(x) = x³ + 3x² + 3x + 1 is divided by x + 1, using the Remainder Theorem.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "Plot the points A(1, 2), B(3, 4), C(5, 6) on a graph and verify if they are collinear.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Coordinate Geometry"
+    },
+    {
+        "question_text": "Prove that the angles opposite to equal sides of a triangle are equal. (Isosceles Triangle Theorem)",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Triangles"
+    },
+    {
+        "question_text": "A triangular park has sides 120 m, 80 m and 50 m. Find its area using Heron's formula.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Heron's Formula"
+    },
+    {
+        "question_text": "The curved surface area of a right circular cylinder of height 14 cm is 88 cm². Find the diameter of the base of the cylinder.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Surface Areas and Volumes"
+    },
+    {
+        "question_text": "If two lines intersect each other, prove that the vertically opposite angles are equal.",
+        "subject": "Maths",
+        "difficulty": "Medium",
+        "chapter": "Lines and Angles"
+    },
+    {
+        "question_text": "ABCD is a parallelogram and AP, CQ are perpendiculars from A and C on diagonal BD. Show that △APB ≅ △CQD.",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Quadrilaterals"
+    },
+    {
+        "question_text": "Show that the line segment joining the mid-points of two sides of a triangle is parallel to the third side and is half of it. (Mid-point Theorem)",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Quadrilaterals"
+    },
+    {
+        "question_text": "A dome of a building is in the form of a hemisphere. From inside, it was white-washed at a cost of ₹498.96. If the cost is ₹2/m², find (a) the inside surface area of the dome [2] (b) the volume of air inside the dome [2]",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Surface Areas and Volumes"
+    },
+    {
+        "question_text": "Prove that the angle subtended by an arc at the centre is double the angle subtended by it at any point on the remaining part of the circle.",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Circles"
+    },
+    {
+        "question_text": "If the polynomial az³ + 4z² + 3z - 4 and z³ - 4z + a leave the same remainder when divided by z - 3, find the value of a.",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Polynomials"
+    },
+    {
+        "question_text": "The following table gives daily income of 50 workers. Find mean daily income: (a) Calculate the mid-point of each class [1] (b) Find the sum of f×x [1] (c) Find the mean daily income [2] Income (₹): 100-120: 12, 120-140: 14, 140-160: 8, 160-180: 6, 180-200: 10",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Statistics"
+    },
+    {
+        "question_text": "Three coins are tossed simultaneously 200 times with results: 3 heads=23, 2 heads=72, 1 head=77, 0 heads=28. (a) Find P(2 heads) [1] (b) Find P(at least 1 head) [1] (c) Find P(no head) and verify all probabilities sum to 1 [2]",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Probability"
+    },
+    {
+        "question_text": "Prove that equal chords of a circle subtend equal angles at the centre.",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Circles"
+    },
+    {
+        "question_text": "Construct a triangle ABC in which BC = 7 cm, ∠B = 75° and AB + AC = 13 cm. Write the steps of construction.",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Constructions"
+    },
+    {
+        "question_text": "In a parallelogram ABCD, E and F are mid-points of sides AB and CD respectively. Show that the line segments AF and EC trisect the diagonal BD.",
+        "subject": "Maths",
+        "difficulty": "Hard",
+        "chapter": "Quadrilaterals"
+    },
+    {
+        "question_text": "The SI unit of force is: (A) Joule (B) Newton (C) Watt (D) Pascal",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Force and Laws of Motion"
+    },
+    {
+        "question_text": "Which cell organelle is called the powerhouse of the cell? (A) Nucleus (B) Ribosome (C) Mitochondria (D) Golgi body",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "The Fundamental Unit of Life"
+    },
+    {
+        "question_text": "The chemical formula of baking soda is: (A) NaCl (B) NaHCO₃ (C) Na₂CO₃ (D) CaCO₃",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Atoms and Molecules"
+    },
+    {
+        "question_text": "Acceleration due to gravity on the surface of earth is approximately: (A) 9.8 m/s² (B) 6.67 m/s² (C) 3.14 m/s² (D) 10.8 m/s²",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Gravitation"
+    },
+    {
+        "question_text": "Which of the following is NOT a state of matter? (A) Solid (B) Liquid (C) Gas (D) Energy",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Matter in Our Surroundings"
+    },
+    {
+        "question_text": "The tissue responsible for movement in our body is: (A) Epithelial tissue (B) Connective tissue (C) Muscular tissue (D) Nervous tissue",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Tissues"
+    },
+    {
+        "question_text": "Which of the following is an element? (A) Water (B) Air (C) Iron (D) Carbon dioxide",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Is Matter Around Us Pure"
+    },
+    {
+        "question_text": "Speed of sound in air at room temperature is approximately: (A) 340 m/s (B) 3 × 10⁸ m/s (C) 1500 m/s (D) 200 m/s",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Sound"
+    },
+    {
+        "question_text": "The process by which liquid changes to gas below its boiling point is called: (A) Boiling (B) Condensation (C) Evaporation (D) Sublimation",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Matter in Our Surroundings"
+    },
+    {
+        "question_text": "The molecular mass of H₂O is: (A) 16u (B) 17u (C) 18u (D) 20u",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Atoms and Molecules"
+    },
+    {
+        "question_text": "Newton's first law of motion is also known as: (A) Law of acceleration (B) Law of inertia (C) Law of action-reaction (D) Law of gravitation",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Force and Laws of Motion"
+    },
+    {
+        "question_text": "The gas that makes up 78% of Earth's atmosphere is: (A) Oxygen (B) Carbon dioxide (C) Nitrogen (D) Argon",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Natural Resources"
+    },
+    {
+        "question_text": "Which of the following is a Kharif crop? (A) Wheat (B) Paddy (C) Mustard (D) Peas",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Improvement in Food Resources"
+    },
+    {
+        "question_text": "The unit of work is: (A) Newton (B) Watt (C) Joule (D) Pascal",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Work and Energy"
+    },
+    {
+        "question_text": "The cell membrane is: (A) Permeable (B) Impermeable (C) Selectively permeable (D) Non-functional",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "The Fundamental Unit of Life"
+    },
+    {
+        "question_text": "Which of these is a compound? (A) Oxygen (B) Gold (C) Water (D) Nitrogen",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Is Matter Around Us Pure"
+    },
+    {
+        "question_text": "Kelvin scale temperature for 25°C is: (A) 248K (B) 273K (C) 298K (D) 373K",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Matter in Our Surroundings"
+    },
+    {
+        "question_text": "An echo is heard when the minimum distance between the source and reflecting surface is: (A) 10m (B) 17m (C) 34m (D) 5m",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Sound"
+    },
+    {
+        "question_text": "The law of conservation of mass was given by: (A) Dalton (B) Lavoisier (C) Avogadro (D) Bohr",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "Atoms and Molecules"
+    },
+    {
+        "question_text": "ATP stands for: (A) Adenosine Triphosphate (B) Adenine Triphosphate (C) Amino Triphosphate (D) Acidic Triphosphate",
+        "subject": "Science",
+        "difficulty": "Easy",
+        "chapter": "The Fundamental Unit of Life"
+    },
+    {
+        "question_text": "Derive the equation v = u + at using the velocity-time graph. Show your working clearly.",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Motion"
+    },
+    {
+        "question_text": "A car starts from rest and acquires a velocity of 54 km/h in 2 seconds. Find (a) the acceleration [1] (b) the distance travelled during this time [1]",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Motion"
+    },
+    {
+        "question_text": "Explain the structure of an animal cell with a labelled diagram. Mention the function of any three organelles.",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "The Fundamental Unit of Life"
+    },
+    {
+        "question_text": "How does the force of gravitation between two objects change when (a) the distance between them is reduced to half? [1] (b) the mass of one object is doubled? [1]",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Gravitation"
+    },
+    {
+        "question_text": "Calculate the number of moles in 52 g of Helium (atomic mass = 4u). Also find the number of atoms.",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Atoms and Molecules"
+    },
+    {
+        "question_text": "Differentiate between compound and mixture. Give three points of difference with examples.",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Is Matter Around Us Pure"
+    },
+    {
+        "question_text": "Differentiate between striated, unstriated, and cardiac muscle fibres. Give location and function of each.",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Tissues"
+    },
+    {
+        "question_text": "Explain how sound is produced. How does it travel through a medium? Why can sound not travel through vacuum?",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Sound"
+    },
+    {
+        "question_text": "A body of mass 25 kg has a momentum of 125 kg·m/s. Calculate the velocity of the body. If the same force is applied for 5 seconds, what is the change in momentum?",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Force and Laws of Motion"
+    },
+    {
+        "question_text": "What is an echo? State the conditions necessary for an echo to be heard. A person claps near a cliff and hears the echo after 4 seconds. If the speed of sound is 340 m/s, how far is the cliff?",
+        "subject": "Science",
+        "difficulty": "Medium",
+        "chapter": "Sound"
+    },
+    {
+        "question_text": "State and explain Newton's third law of motion with two examples from daily life. Is it true that action and reaction always act on different bodies? Explain.",
+        "subject": "Science",
+        "difficulty": "Hard",
+        "chapter": "Force and Laws of Motion"
+    },
+    {
+        "question_text": "The brakes applied to a car produce a deceleration of 6 m/s² in the opposite direction to motion. If the car takes 2 seconds to stop, calculate (a) the initial velocity of the car [2] (b) the distance it travels during braking [2] (c) the force applied if mass of car is 1000 kg [1]",
+        "subject": "Science",
+        "difficulty": "Hard",
+        "chapter": "Motion"
+    },
+    {
+        "question_text": "5.3 g sodium carbonate + 6 g ethanoic acid → 2.2 g CO₂ + 0.9 g water + 8.2 g sodium ethanoate. Verify the law of conservation of mass. State the law clearly.",
+        "subject": "Science",
+        "difficulty": "Hard",
+        "chapter": "Atoms and Molecules"
+    },
+    {
+        "question_text": "Describe the nitrogen cycle in nature with a neat diagram. Explain the importance of nitrogen-fixing bacteria and the role of lightning in nitrogen fixation.",
+        "subject": "Science",
+        "difficulty": "Hard",
+        "chapter": "Natural Resources"
+    },
+    {
+        "question_text": "A stone is thrown vertically upward with initial velocity 40 m/s (g=10 m/s²). Find (a) maximum height reached [2] (b) total time of journey [2] (c) velocity on returning to ground [1]",
+        "subject": "Science",
+        "difficulty": "Hard",
+        "chapter": "Gravitation"
+    },
+    {
+        "question_text": "The French Revolution began in the year: (A) 1776 (B) 1789 (C) 1799 (D) 1804",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "The French Revolution"
+    },
+    {
+        "question_text": "Which of the following is NOT a feature of democracy? (A) Elected representatives (B) Free and fair elections (C) Military rule (D) Rule of law",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "What is Democracy"
+    },
+    {
+        "question_text": "The Tropic of Cancer passes through: (A) Delhi (B) Mumbai (C) Kolkata (D) Ranchi",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "India: Size and Location"
+    },
+    {
+        "question_text": "The highest peak of the Himalayas is: (A) Kanchenjunga (B) Mount Everest (C) Nanga Parbat (D) K2",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Physical Features of India"
+    },
+    {
+        "question_text": "Apartheid means a system of: (A) Racial discrimination (B) Economic equality (C) Political freedom (D) Social harmony",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Democracy in the Contemporary World"
+    },
+    {
+        "question_text": "The poverty line in India is estimated by: (A) RBI (B) NITI Aayog (C) SEBI (D) Finance Ministry",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Poverty as a Challenge"
+    },
+    {
+        "question_text": "What is the tenure of Rajya Sabha members? (A) 5 years (B) 6 years (C) 4 years (D) 3 years",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Working of Institutions"
+    },
+    {
+        "question_text": "Which river is known as the 'Sorrow of Bengal'? (A) Ganga (B) Brahmaputra (C) Damodar (D) Hooghly",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Drainage"
+    },
+    {
+        "question_text": "Green Revolution primarily increased the production of: (A) Pulses (B) Wheat and rice (C) Oilseeds (D) Cotton",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Food Security in India"
+    },
+    {
+        "question_text": "The first President of independent India was: (A) Jawaharlal Nehru (B) Dr. Rajendra Prasad (C) Dr. S. Radhakrishnan (D) Mahatma Gandhi",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Constitutional Design"
+    },
+    {
+        "question_text": "The Election Commission of India is a: (A) Legislative body (B) Judicial body (C) Constitutional body (D) Non-governmental body",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Electoral Politics"
+    },
+    {
+        "question_text": "The retreating monsoon season in India occurs during: (A) June-September (B) October-November (C) December-February (D) March-May",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Climate"
+    },
+    {
+        "question_text": "'Ancien Regime' refers to: (A) Modern government (B) Old political and social system of France (C) British monarchy (D) American republic",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "The French Revolution"
+    },
+    {
+        "question_text": "Which of the three Himalayan ranges is the oldest? (A) Shiwaliks (B) Lesser Himalayas (C) Greater Himalayas (D) Trans Himalayas",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Physical Features of India"
+    },
+    {
+        "question_text": "Human capital formation means: (A) Building factories (B) Investment in education and health (C) Saving money (D) Building infrastructure",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "People as Resource"
+    },
+    {
+        "question_text": "Tsunami is caused by: (A) Volcanic eruption on land (B) Earthquake on the ocean floor (C) Heavy rainfall (D) Cyclone",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Physical Features of India"
+    },
+    {
+        "question_text": "The literacy rate of India as per Census 2011 is approximately: (A) 65% (B) 74% (C) 80% (D) 85%",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Population"
+    },
+    {
+        "question_text": "Which of the following is a seasonal river? (A) Ganga (B) Brahmaputra (C) Narmada (D) Luni",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Drainage"
+    },
+    {
+        "question_text": "The main food crops of India include: (A) Tea and coffee (B) Rice and wheat (C) Jute and cotton (D) Rubber and spices",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Food Security in India"
+    },
+    {
+        "question_text": "The Lok Sabha has a maximum strength of: (A) 250 members (B) 545 members (C) 552 members (D) 500 members",
+        "subject": "Social Science",
+        "difficulty": "Easy",
+        "chapter": "Working of Institutions"
+    },
+    {
+        "question_text": "Describe the role of women during the French Revolution. How did they contribute to the revolutionary movement?",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "The French Revolution"
+    },
+    {
+        "question_text": "Explain the formation of the Himalayan mountain ranges. What are the three parallel ranges of the Himalayas?",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "Physical Features of India"
+    },
+    {
+        "question_text": "What are the main features of the Indian Constitution? Discuss any five salient features.",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "Constitutional Design"
+    },
+    {
+        "question_text": "Describe the monsoon mechanism in India. What factors influence the Indian monsoon?",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "Climate"
+    },
+    {
+        "question_text": "Explain the causes and effects of poverty in India. What government programmes have been launched for poverty alleviation?",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "Poverty as a Challenge"
+    },
+    {
+        "question_text": "What are the advantages and disadvantages of democracy? Discuss with reference to India.",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "What is Democracy"
+    },
+    {
+        "question_text": "Describe the major peninsular rivers of India and their characteristics. How are they different from Himalayan rivers?",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "Drainage"
+    },
+    {
+        "question_text": "Explain the events leading to the storming of the Bastille on 14 July 1789. Why is this date significant?",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "The French Revolution"
+    },
+    {
+        "question_text": "What is the difference between Lok Sabha and Rajya Sabha? Give five differences.",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "Working of Institutions"
+    },
+    {
+        "question_text": "Explain the concept of sustainable development with examples from India.",
+        "subject": "Social Science",
+        "difficulty": "Medium",
+        "chapter": "People as Resource"
+    },
+    {
+        "question_text": "Critically examine the Reign of Terror during the French Revolution. (a) Who led the Reign of Terror? [1] (b) What policies were adopted? [2] (c) What was its impact on the Revolution? [2]",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "The French Revolution"
+    },
+    {
+        "question_text": "Discuss the challenges to democracy in India. (a) How does poverty affect democratic participation? [2] (b) What role does illiteracy play? [1] (c) Suggest measures to strengthen democracy. [2]",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "What is Democracy"
+    },
+    {
+        "question_text": "How are Himalayan rivers different from Peninsular rivers? Compare in detail with examples and a diagram.",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "Drainage"
+    },
+    {
+        "question_text": "What role did Nelson Mandela play in establishing democracy in South Africa? What lessons can India learn from his struggle?",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "Democracy in the Contemporary World"
+    },
+    {
+        "question_text": "Describe how the Indian monsoon operates. (a) Explain the onset of monsoon [2] (b) Explain the withdrawal of monsoon [2] (c) What factors influence the distribution of rainfall? [1]",
+        "subject": "Social Science",
+        "difficulty": "Hard",
+        "chapter": "Climate"
+    },
+    {
+        "question_text": "The author of 'The Fun They Had' is: (A) Robert Frost (B) Isaac Asimov (C) Oscar Wilde (D) Ruskin Bond",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Fun They Had"
+    },
+    {
+        "question_text": "In 'The Road Not Taken', the poet chose: (A) The road more travelled (B) The road less travelled (C) Both roads (D) Neither road",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Road Not Taken"
+    },
+    {
+        "question_text": "Identify the correct passive voice of 'She writes a letter': (A) A letter is written by her (B) A letter was written by her (C) A letter has been written by her (D) A letter will be written by her",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "Fill in the blank with the correct article: ___ Taj Mahal is one of the wonders of the world. (A) A (B) An (C) The (D) No article",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "The synonym of 'tranquil' is: (A) Noisy (B) Peaceful (C) Angry (D) Busy",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "What kind of school does Margie have in 'The Fun They Had'? (A) A regular school (B) A mechanical teacher at home (C) An online school (D) A boarding school",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Fun They Had"
+    },
+    {
+        "question_text": "Who wrote the poem 'The Road Not Taken'? (A) William Wordsworth (B) Robert Frost (C) John Keats (D) P.B. Shelley",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Road Not Taken"
+    },
+    {
+        "question_text": "Change to indirect speech: He said, 'I am going to school.' (A) He said that he is going to school (B) He said that he was going to school (C) He said that he had been going to school (D) He said that he will go to school",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "An adjective is a word that: (A) Describes a verb (B) Describes a noun (C) Connects two sentences (D) Shows action",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "What does Tommy find in 'The Fun They Had'? (A) A computer (B) A real book (C) A robot (D) A letter",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Fun They Had"
+    },
+    {
+        "question_text": "What did the swallow do for the Happy Prince? (A) Sang songs for him (B) Carried jewels and gold to the poor (C) Built a nest (D) Flew to Egypt",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Happy Prince"
+    },
+    {
+        "question_text": "Bismillah Khan was a famous: (A) Sitar player (B) Shehnai player (C) Tabla player (D) Flute player",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Sound of Music"
+    },
+    {
+        "question_text": "The child in 'The Lost Child' wanted: (A) Toys only (B) Sweets only (C) Many things at the fair (D) To go home",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Lost Child"
+    },
+    {
+        "question_text": "Choose the correct spelling: (A) Acheive (B) Achieve (C) Acheeve (D) Acheve",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "Identify the subject in: 'The quick brown fox jumps over the lazy dog.' (A) jumps (B) the lazy dog (C) over (D) The quick brown fox",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "The moral of 'The Lost Child' is: (A) Money is everything (B) Parents are more important than worldly pleasures (C) Fairs are dangerous (D) Children should not cry",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Lost Child"
+    },
+    {
+        "question_text": "'Although' is a: (A) Conjunction (B) Preposition (C) Adverb (D) Pronoun",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "The meaning of 'diverged' in The Road Not Taken is: (A) Merged (B) Separated into two (C) Disappeared (D) Became narrow",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "The Road Not Taken"
+    },
+    {
+        "question_text": "Correct the sentence: 'She don't know nothing about it.' (A) She doesn't know anything about it (B) She don't know anything (C) She doesn't know nothing (D) She know nothing about it",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "'Their', 'there' and 'they're' are examples of: (A) Synonyms (B) Antonyms (C) Homophones (D) Onomatopoeia",
+        "subject": "English",
+        "difficulty": "Easy",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "Write a paragraph of 100-150 words on 'The Importance of Reading in Student Life'.",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "Writing"
+    },
+    {
+        "question_text": "Write a letter to the Editor of a national newspaper highlighting the problem of increasing air pollution in your city and suggesting measures to control it.",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "Writing"
+    },
+    {
+        "question_text": "Explain the central theme of the poem 'The Road Not Taken' by Robert Frost. How does the poem relate to decision-making in life?",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "The Road Not Taken"
+    },
+    {
+        "question_text": "What role do the Happy Prince's sapphire eyes play in the story? What do they symbolize? Answer in 60-80 words.",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "The Happy Prince"
+    },
+    {
+        "question_text": "How did Evelyn Glennie's hearing impairment not come in the way of her musical career? Discuss in 80-100 words.",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "The Sound of Music"
+    },
+    {
+        "question_text": "Transform the following sentences: (a) He is too weak to walk. (Complex sentence) (b) Work hard or you will fail. (Complex sentence) (c) She is intelligent as well as hardworking. (Compound sentence)",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "Write a diary entry expressing your feelings after winning a sports competition at the inter-school level. (100-120 words)",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "Writing"
+    },
+    {
+        "question_text": "What is the irony in the title 'The Fun They Had'? Discuss in 60-80 words.",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "The Fun They Had"
+    },
+    {
+        "question_text": "Describe the physical suffering of the child as he walks through the fair in 'The Lost Child'. Answer in 60-80 words.",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "The Lost Child"
+    },
+    {
+        "question_text": "Convert to reported speech: (a) 'Will you help me with my homework?' she asked. (b) 'Don't touch the wire,' the electrician warned. (c) 'Where do you live?' the stranger asked.",
+        "subject": "English",
+        "difficulty": "Medium",
+        "chapter": "Grammar"
+    },
+    {
+        "question_text": "'The Road Not Taken' is not simply a poem about a path in the woods. It is a metaphor for making crucial life choices. Discuss in 150-200 words, supporting your answer with evidence from the poem.",
+        "subject": "English",
+        "difficulty": "Hard",
+        "chapter": "The Road Not Taken"
+    },
+    {
+        "question_text": "Write a story in 200-250 words beginning with: 'It was a dark and stormy night when the doorbell rang...'",
+        "subject": "English",
+        "difficulty": "Hard",
+        "chapter": "Writing"
+    },
+    {
+        "question_text": "What is the message of 'The Happy Prince'? How does Oscar Wilde use the characters to explore themes of sacrifice, compassion, and social inequality? (150-200 words)",
+        "subject": "English",
+        "difficulty": "Hard",
+        "chapter": "The Happy Prince"
+    },
+    {
+        "question_text": "Write an article for your school magazine on 'Technology: A Boon or a Bane' in 200-250 words. Include introduction, arguments for and against, and conclusion.",
+        "subject": "English",
+        "difficulty": "Hard",
+        "chapter": "Writing"
+    },
+    {
+        "question_text": "Compare and contrast the educational system described in 'The Fun They Had' with the current education system. Which one would you prefer and why? (150-200 words)",
+        "subject": "English",
+        "difficulty": "Hard",
+        "chapter": "The Fun They Had"
+    },
+    {
+        "question_text": "'दो बैलों की कथा' के लेखक कौन हैं? (A) जयशंकर प्रसाद (B) प्रेमचंद (C) महादेवी वर्मा (D) हजारी प्रसाद द्विवेदी",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "'ल्हासा की ओर' पाठ के लेखक हैं: (A) राहुल सांकृत्यायन (B) प्रेमचंद (C) रामविलास शर्मा (D) हरिशंकर परसाई",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Lhasa Ki Or"
+    },
+    {
+        "question_text": "संधि का अर्थ है: (A) विभाजन (B) मिलना या जोड़ (C) अलगाव (D) विस्तार",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'सुख' का विलोम शब्द है: (A) आनंद (B) दुःख (C) प्रसन्नता (D) हर्ष",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'आँखों में धूल झोंकना' मुहावरे का अर्थ है: (A) आँख में कुछ पड़ना (B) धोखा देना (C) अंधा कर देना (D) परेशान करना",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "संज्ञा के कितने भेद हैं? (A) दो (B) तीन (C) पाँच (D) सात",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'हीरा' और 'मोती' पात्र हैं: (A) गायों के (B) बैलों के (C) घोड़ों के (D) भेड़ों के",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "'पोथी पढ़ पढ़ जग मुआ, पंडित भया न कोई' — यह दोहा किसका है? (A) तुलसीदास (B) सूरदास (C) कबीरदास (D) रहीमदास",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Kabir"
+    },
+    {
+        "question_text": "रस के कितने प्रकार हैं? (A) सात (B) आठ (C) नौ (D) दस",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'उपसर्ग' शब्द के आरंभ में जुड़ता है। 'अन' उपसर्ग का उदाहरण है: (A) अनपढ़ (B) पढ़ाई (C) लिखाई (D) सुंदरता",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'क्या निराश हुआ जाए' पाठ का मुख्य संदेश क्या है? (A) निराश होना चाहिए (B) आशावादी रहना चाहिए (C) कुछ नहीं करना चाहिए (D) दूसरों को दोष देना चाहिए",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Kya Nirash Hua Jaye"
+    },
+    {
+        "question_text": "समास का अर्थ है: (A) विस्तार (B) संक्षिप्त करना (C) विभाजन (D) जोड़ना",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "उपमा अलंकार में किसकी तुलना की जाती है? (A) दो विपरीत वस्तुओं की (B) एक वस्तु की दूसरी समान वस्तु से (C) बिना किसी तुलना के (D) ध्वनि की",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'ग्राम श्री' कविता में किसका वर्णन है? (A) शहर की सुंदरता (B) गाँव की प्राकृतिक सुंदरता (C) समुद्र (D) पहाड़",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Gram Shree"
+    },
+    {
+        "question_text": "तत्सम शब्द का अर्थ है: (A) बदला हुआ शब्द (B) संस्कृत से ज्यों का त्यों लिया गया शब्द (C) नया शब्द (D) विदेशी शब्द",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'पानी' के पर्यायवाची शब्द हैं: (A) अग्नि, ज्वाला (B) जल, नीर, वारि (C) वायु, पवन (D) धरा, भूमि",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "नाना साहब की पुत्री का नाम था: (A) सीता (B) मैना (C) गीता (D) लक्ष्मी",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Nana Sahab Ki Putri"
+    },
+    {
+        "question_text": "सर्वनाम किसे कहते हैं? (A) संज्ञा के स्थान पर प्रयोग होने वाले शब्द (B) क्रिया को विशेषित करने वाले शब्द (C) विशेषण के भेद (D) जोड़ने वाले शब्द",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "वाच्य के कितने भेद हैं? (A) दो (B) तीन (C) चार (D) पाँच",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'साँवले सपनों की याद' पाठ में किसकी याद है? (A) बचपन की (B) सालिम अली की (C) माँ की (D) गाँव की",
+        "subject": "Hindi",
+        "difficulty": "Easy",
+        "chapter": "Sanwale Sapnon Ki Yaad"
+    },
+    {
+        "question_text": "'दो बैलों की कथा' में प्रेमचंद ने पशुओं के माध्यम से किन मानवीय मूल्यों को प्रस्तुत किया है? विस्तार से वर्णन कीजिए।",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "'ल्हासा की ओर' पाठ में लेखक ने तिब्बत की यात्रा का वर्णन कैसे किया है? मुख्य बिंदु लिखिए।",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Lhasa Ki Or"
+    },
+    {
+        "question_text": "अपने विद्यालय के प्रधानाचार्य को पुस्तकालय में नई पुस्तकें मंगवाने हेतु आवेदन पत्र लिखिए। (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Patra Lekhan"
+    },
+    {
+        "question_text": "'मेरे बचपन के दिन' पाठ का सारांश अपने शब्दों में लिखिए। (80-100 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Mere Bachpan Ke Din"
+    },
+    {
+        "question_text": "कर्तृवाच्य और कर्मवाच्य में अंतर बताइए। प्रत्येक का एक-एक उदाहरण दीजिए।",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'प्रदूषण: एक गंभीर समस्या' विषय पर 200-250 शब्दों में अनुच्छेद लिखिए।",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Nibandh"
+    },
+    {
+        "question_text": "'कबीरदास' के किन्हीं दो दोहों का अर्थ अपने शब्दों में लिखिए। उनकी शिक्षा क्या है?",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Kabir"
+    },
+    {
+        "question_text": "अर्थ की दृष्टि से वाक्य के भेद बताइए। प्रत्येक का उदाहरण दीजिए।",
+        "subject": "Hindi",
+        "difficulty": "Medium",
+        "chapter": "Hindi Vyakaran"
+    },
+    {
+        "question_text": "'प्रेमचंद की कहानियों में सामाजिक चेतना' विषय पर 250 शब्दों में निबंध लिखिए।",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Nibandh"
+    },
+    {
+        "question_text": "'दो बैलों की कथा' और 'ईदगाह' कहानियों की तुलना करते हुए प्रेमचंद की कथा-शिल्प पर प्रकाश डालिए। (150-200 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Do Bailon Ki Katha"
+    },
+    {
+        "question_text": "'कबीरदास और रहीम' के दोहों की तुलना करते हुए बताइए कि दोनों कवियों के काव्य में क्या समानताएँ और अंतर हैं। (150-200 शब्द)",
+        "subject": "Hindi",
+        "difficulty": "Hard",
+        "chapter": "Kabir"
+    },
+    {
+        "question_text": "'गच्छति' इति क्रियापदस्य धातुः अस्ति: (A) पठ् (B) गम् (C) लिख् (D) खाद्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'बालकः पठति' — अत्र कर्ता अस्ति: (A) पठति (B) बालकः (C) अत्र (D) अस्ति",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'रामायणम्' इति ग्रन्थस्य रचयिता कः? (A) वेदव्यासः (B) वाल्मीकिः (C) कालिदासः (D) तुलसीदासः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sahityam"
+    },
+    {
+        "question_text": "'विद्या' शब्दस्य विभक्तिः अस्ति: (A) प्रथमा (B) द्वितीया (C) तृतीया (D) प्रथमा एकवचनम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'सूर्यः पूर्वदिशायां उदेति' — अस्मिन् वाक्ये क्रियापदम् किम्? (A) सूर्यः (B) पूर्वदिशायाम् (C) उदेति (D) दिशायाम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "संस्कृते 'जलम्' इत्यस्य पर्यायशब्दः अस्ति: (A) अग्निः (B) वायुः (C) नीरम् (D) पृथिवी",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'न + अस्ति' इत्यस्य सन्धिः भवति: (A) नास्ति (B) नस्ति (C) न अस्ति (D) नैस्ति",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "'रामः वनम् गच्छति' — अत्र 'वनम्' शब्दस्य विभक्तिः अस्ति: (A) प्रथमा (B) द्वितीया (C) तृतीया (D) सप्तमी",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'प्र' उपसर्गयुक्तं पदम् अस्ति: (A) प्रगतिः (B) विगतिः (C) अगतिः (D) सुगतिः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Upasargah"
+    },
+    {
+        "question_text": "'भवति' इति क्रियापदस्य पुरुषः अस्ति: (A) प्रथमपुरुषः (B) मध्यमपुरुषः (C) उत्तमपुरुषः (D) एषां कोऽपि न",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'सुन्दरम् + अस्ति' इत्यस्य सन्धिः अस्ति: (A) सुन्दरमस्ति (B) सुन्दरास्ति (C) सुन्दरमास्ति (D) सुन्दरस्ति",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "'कवि' शब्दस्य तृतीया विभक्तिः एकवचने अस्ति: (A) कविना (B) कवेः (C) कवये (D) कवौ",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'पठ्' धातोः लट्लकारे प्रथमपुरुषः एकवचनम् अस्ति: (A) पठामि (B) पठसि (C) पठति (D) पठतः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'वृक्षात् पत्रं पतति' — अत्र 'वृक्षात्' शब्दस्य विभक्तिः अस्ति: (A) तृतीया (B) चतुर्थी (C) पञ्चमी (D) षष्ठी",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'एकः' इत्यस्य संस्कृते संख्यावाचकं शब्दः अस्ति: (A) प्रथमम् (B) एकम् (C) द्वयम् (D) त्रयम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'विद्या + आलयः' इत्यस्य सन्धिपदम् अस्ति: (A) विद्यालयः (B) विद्यआलयः (C) विद्यालय (D) विद्यैलयः",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "'गम्' धातोः अर्थः अस्ति: (A) पठनम् (B) गमनम् (C) लेखनम् (D) खादनम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'बालिका गायति' — अत्र 'बालिका' शब्दस्य लिङ्गम् अस्ति: (A) पुल्लिङ्गम् (B) स्त्रीलिङ्गम् (C) नपुंसकलिङ्गम् (D) उभयलिङ्गम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'अहम्' सर्वनामपदस्य बहुवचनम् अस्ति: (A) आवाम् (B) वयम् (C) त्वम् (D) यूयम्",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'सह' इत्यस्मिन् शब्दे विभक्तिः प्रयुज्यते: (A) द्वितीया (B) तृतीया (C) चतुर्थी (D) पञ्चमी",
+        "subject": "Sanskrit",
+        "difficulty": "Easy",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "अधोलिखितं गद्यांशं पठित्वा प्रश्नानाम् उत्तराणि लिखत — 'भारतं विश्वस्य प्राचीनतमा सभ्यता अस्ति। अत्र अनेके महापुरुषाः जाताः। (a) भारतं कीदृशी सभ्यता अस्ति? [1] (b) भारते के जाताः? [1] (c) उचितं शीर्षकं लिखत। [1]",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Apathitabodhnam"
+    },
+    {
+        "question_text": "मित्रं प्रति पत्रं लिखत यत्र विद्यालयस्य वार्षिकोत्सवस्य वर्णनम् अस्ति। (60-80 शब्दाः)",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Patralekhnam"
+    },
+    {
+        "question_text": "'हिम + आलयः' इत्यस्य सन्धिं कुरुत। सन्धेः नाम वदत। नियमं च लिखत।",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Sandhih"
+    },
+    {
+        "question_text": "निम्नलिखितेषु वाक्येषु रेखाङ्कितपदानां विभक्तिं वचनं च लिखत: (a) रामः वनं गच्छति। (b) बालकाः क्रीडन्ति। (c) गुरवे नमः।",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "'भ्रम्' धातोः लट्लकारे, लृट्लकारे, लङ्लकारे च रूपाणि लिखत (प्रथमपुरुषे, त्रिषु वचनेषु)।",
+        "subject": "Sanskrit",
+        "difficulty": "Medium",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "श्लोकस्य अन्वयं भावार्थं च लिखत: 'विद्या ददाति विनयं विनयाद्याति पात्रताम्। पात्रत्वाद्धनमाप्नोति धनाद्धर्मं ततः सुखम्॥'",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Sahityam"
+    },
+    {
+        "question_text": "'देव' शब्दस्य सर्वासु विभक्तिषु रूपाणि लिखत (एकवचनम्, द्विवचनम्, बहुवचनम्)।",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Vyakaranam"
+    },
+    {
+        "question_text": "संस्कृतभाषायाः महत्त्वं विषये दश वाक्यानि संस्कृते लिखत। (100-120 शब्दाः)",
+        "subject": "Sanskrit",
+        "difficulty": "Hard",
+        "chapter": "Nibandham"
+    },
+    {
+        "question_text": "An operating system is: (A) A hardware component (B) System software that manages hardware and software (C) An input device (D) A programming language",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "CPU stands for: (A) Central Processing Unit (B) Central Program Unit (C) Computer Processing Unit (D) Central Power Unit",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Which of the following is an output device? (A) Keyboard (B) Mouse (C) Monitor (D) Scanner",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "How many bits make one byte? (A) 4 (B) 8 (C) 16 (D) 32",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "The binary equivalent of decimal 10 is: (A) 1000 (B) 1010 (C) 1100 (D) 1001",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "RAM stands for: (A) Read Access Memory (B) Random Access Memory (C) Read And Modify (D) Run All Memory",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Which of the following is a web browser? (A) Python (B) Microsoft Word (C) Google Chrome (D) Photoshop",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "HTML stands for: (A) Hyper Text Markup Language (B) High Text Machine Language (C) Hyper Transfer Markup Language (D) Hyper Text Making Language",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "What is the output of: print(3 + 4 * 2)? (A) 14 (B) 11 (C) 10 (D) 9",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Phishing is: (A) A fish species (B) A fraudulent attempt to steal personal information (C) A type of software (D) A computer game",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "A compiler: (A) Translates one line at a time (B) Translates the entire program at once (C) Is an input device (D) Is a type of memory",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Which of these is volatile memory? (A) ROM (B) Hard Disk (C) RAM (D) SSD",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Computer Systems"
+    },
+    {
+        "question_text": "Python is a: (A) Compiled language (B) Interpreted language (C) Machine language (D) Assembly language",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Which of the following is NOT a cyber threat? (A) Virus (B) Firewall (C) Phishing (D) Malware",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "What does the 'len()' function do in Python? (A) Adds elements (B) Returns length of an object (C) Removes elements (D) Sorts a list",
+        "subject": "Computer Science",
+        "difficulty": "Easy",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Write a Python program to find the largest of three numbers entered by the user using if-elif-else.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Explain the difference between LAN, MAN, and WAN. Give one example of each.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Convert the binary number 11011 to decimal. Show all steps of conversion.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Number Systems"
+    },
+    {
+        "question_text": "Write an algorithm to check whether a given number is even or odd. Also draw its flowchart.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "What are the different data types in Python? Explain int, float, string, and boolean with examples.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Write a Python program to print the Fibonacci series up to n terms. Use a while loop.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Explain the concept of digital footprint. How can you protect your digital identity online? Give 5 tips.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "What is the difference between a virus, a worm, and a trojan horse? Give one characteristic of each.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "Write a Python program that takes marks of 5 subjects as input and calculates the total and percentage. Display appropriate output.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Draw a flowchart to calculate the area and perimeter of a rectangle. Take length and breadth as input.",
+        "subject": "Computer Science",
+        "difficulty": "Medium",
+        "chapter": "Algorithms and Flowcharts"
+    },
+    {
+        "question_text": "Write a Python program to check whether a number entered by the user is a palindrome or not. (a) Explain the logic [2] (b) Write the code [3]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Explain the OSI model of networking. Describe the function of each of the 7 layers.",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Internet and Web"
+    },
+    {
+        "question_text": "Write a Python program to print all prime numbers between 1 and 100 using nested loops. Explain the logic of checking prime numbers.",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Introduction to Python"
+    },
+    {
+        "question_text": "Discuss ethical issues in computing: (a) What is software piracy? [2] (b) What is plagiarism in the digital world? [2] (c) How can we protect data privacy? [1]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Cyber Safety"
+    },
+    {
+        "question_text": "Compare cloud computing and edge computing. (a) Define each [2] (b) Give 2 advantages and 2 disadvantages of each [3]",
+        "subject": "Computer Science",
+        "difficulty": "Hard",
+        "chapter": "Internet and Web"
+    }
+]

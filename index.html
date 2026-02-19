@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CBSE Paper Generator | Study Vault</title>
     <meta name="description"
-        content="Generate randomized CBSE Class 9 question papers with proper format, marking scheme, and difficulty selection.">
+        content="Generate authentic CBSE Class 9 question papers with proper format, marking scheme, and subject-specific patterns.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
@@ -32,9 +32,6 @@
             --text-muted: rgba(238, 238, 242, 0.3);
             --accent: #7c3aed;
             --accent-glow: rgba(124, 58, 237, 0.2);
-            --easy: #22c55e;
-            --medium: #f59e0b;
-            --hard: #ef4444;
         }
 
         body {
@@ -45,7 +42,7 @@
             overflow-x: hidden;
         }
 
-        /* ====== AURORA BG ====== */
+        /* ====== AURORA ====== */
         .aurora {
             position: fixed;
             inset: 0;
@@ -91,15 +88,15 @@
 
             0%,
             100% {
-                transform: translate(0, 0) scale(1);
+                transform: translate(0, 0) scale(1)
             }
 
             33% {
-                transform: translate(25px, -35px) scale(1.04);
+                transform: translate(25px, -35px) scale(1.04)
             }
 
             66% {
-                transform: translate(-20px, 25px) scale(0.96);
+                transform: translate(-20px, 25px) scale(0.96)
             }
         }
 
@@ -107,12 +104,11 @@
         .app {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             padding: 48px 24px 80px;
         }
 
-        /* ====== SELECTION VIEW ====== */
         #selection-view {
             text-align: center;
         }
@@ -145,11 +141,11 @@
 
             0%,
             100% {
-                opacity: 1;
+                opacity: 1
             }
 
             50% {
-                opacity: 0.3;
+                opacity: 0.3
             }
         }
 
@@ -168,9 +164,16 @@
         .hero-sub {
             color: var(--text-dim);
             font-size: 1rem;
-            max-width: 480px;
-            margin: 0 auto 44px;
+            max-width: 520px;
+            margin: 0 auto 12px;
             line-height: 1.6;
+        }
+
+        .hero-badge {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-bottom: 44px;
+            font-weight: 500;
         }
 
         /* Form Card */
@@ -179,7 +182,7 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 36px 32px;
-            max-width: 520px;
+            max-width: 620px;
             margin: 0 auto;
             text-align: left;
         }
@@ -196,19 +199,19 @@
 
         .subject-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 8px;
             margin-bottom: 28px;
         }
 
         .subject-btn {
-            padding: 14px 8px;
+            padding: 16px 8px;
             border-radius: 12px;
             border: 1px solid var(--border);
             background: transparent;
             color: var(--text-dim);
             font-family: inherit;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
@@ -231,50 +234,13 @@
         }
 
         .subject-btn .icon {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
-        .diff-row {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 32px;
-        }
-
-        .diff-btn {
-            flex: 1;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text-dim);
-            font-family: inherit;
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .diff-btn:hover {
-            border-color: var(--border-hover);
-            color: var(--text);
-        }
-
-        .diff-btn.active.easy {
-            background: rgba(34, 197, 94, 0.12);
-            border-color: rgba(34, 197, 94, 0.4);
-            color: #4ade80;
-        }
-
-        .diff-btn.active.medium {
-            background: rgba(245, 158, 11, 0.12);
-            border-color: rgba(245, 158, 11, 0.4);
-            color: #fbbf24;
-        }
-
-        .diff-btn.active.hard {
-            background: rgba(239, 68, 68, 0.12);
-            border-color: rgba(239, 68, 68, 0.4);
-            color: #f87171;
+        .subject-btn .sub-code {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 2px;
         }
 
         .generate-btn {
@@ -392,25 +358,30 @@
             color: #a78bfa;
         }
 
-        /* The actual paper */
+        /* ====== THE PAPER ====== */
         .paper {
             background: #ffffff;
             color: #111;
             border-radius: 8px;
-            padding: 48px 52px;
+            padding: 44px 48px;
             font-family: 'Noto Serif', 'Times New Roman', serif;
             font-size: 13px;
-            line-height: 1.7;
-            max-width: 800px;
+            line-height: 1.75;
+            max-width: 820px;
             margin: 0 auto;
             box-shadow: 0 8px 48px rgba(0, 0, 0, 0.35);
         }
 
+        .paper.hindi-paper,
+        .paper.sanskrit-paper {
+            font-family: 'Noto Sans Devanagari', 'Noto Serif', serif;
+        }
+
         .paper-header {
             text-align: center;
-            border-bottom: 2px solid #111;
+            border-bottom: 2.5px solid #111;
             padding-bottom: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 6px;
         }
 
         .paper-header .board-name {
@@ -423,7 +394,7 @@
         }
 
         .paper-header .school-name {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 4px;
         }
@@ -432,6 +403,12 @@
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .paper-header .exam-session {
+            font-size: 11px;
+            color: #555;
             margin-bottom: 8px;
         }
 
@@ -440,55 +417,70 @@
             justify-content: space-between;
             font-size: 12px;
             color: #333;
+            padding: 4px 0;
+        }
+
+        .paper-meta-row.bordered {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 6px 0;
+            margin-bottom: 6px;
         }
 
         .paper-instructions {
-            margin-bottom: 20px;
-            padding: 10px 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            margin: 12px 0 20px;
+            padding: 12px 16px;
+            border: 1.5px solid #999;
+            border-radius: 0;
             background: #fafafa;
         }
 
         .paper-instructions h4 {
             font-size: 12px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .paper-instructions ol {
+            padding-left: 18px;
         }
 
         .paper-instructions li {
             font-size: 11.5px;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
             color: #333;
         }
 
         .section-header {
             font-size: 13px;
             font-weight: 700;
-            margin: 24px 0 12px;
-            padding: 6px 12px;
+            margin: 28px 0 14px;
+            padding: 7px 14px;
             background: #f0f0f0;
-            border-left: 3px solid #111;
+            border-left: 3.5px solid #111;
         }
 
         .section-header .section-info {
             font-weight: 400;
             font-size: 11px;
             color: #555;
-            margin-left: 6px;
+            display: block;
+            margin-top: 2px;
         }
 
         .question {
             display: flex;
             gap: 8px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             padding-left: 4px;
         }
 
         .q-num {
             font-weight: 700;
-            min-width: 28px;
+            min-width: 30px;
             flex-shrink: 0;
         }
 
@@ -499,57 +491,78 @@
         .q-marks {
             color: #555;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             white-space: nowrap;
             margin-left: 8px;
             flex-shrink: 0;
+        }
+
+        /* MCQ Options */
+        .mcq-options {
+            margin-top: 6px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 24px;
+        }
+
+        .mcq-options.single-col {
+            grid-template-columns: 1fr;
+        }
+
+        .mcq-opt {
+            font-size: 12.5px;
+            padding: 2px 0;
+        }
+
+        /* Sub-parts */
+        .sub-parts {
+            margin-top: 6px;
+            padding-left: 8px;
+        }
+
+        .sub-part {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .sub-part-label {
+            font-weight: 600;
+            min-width: 22px;
+            flex-shrink: 0;
+        }
+
+        .sub-part-text {
+            flex: 1;
+        }
+
+        .sub-part-marks {
+            color: #555;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* OR divider */
+        .or-divider {
+            text-align: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: #888;
+            margin: 8px 0;
+            font-style: italic;
         }
 
         .paper-footer {
             text-align: center;
             margin-top: 28px;
             padding-top: 14px;
-            border-top: 1px solid #ccc;
+            border-top: 1.5px solid #999;
             font-size: 11px;
             color: #888;
         }
 
-        /* Marking Scheme Section */
-        .marking-scheme {
-            page-break-before: always;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #111;
-        }
-
-        .marking-scheme h3 {
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .ms-item {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 8px;
-            padding: 6px 8px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .ms-num {
-            font-weight: 700;
-            min-width: 28px;
-        }
-
-        .ms-answer {
-            flex: 1;
-            color: #222;
-            font-size: 12px;
-        }
-
-        /* ====== PRINT STYLES ====== */
+        /* ====== PRINT ====== */
         @media print {
             body {
                 background: white;
@@ -571,7 +584,7 @@
             .paper {
                 box-shadow: none;
                 border-radius: 0;
-                padding: 24px 36px;
+                padding: 20px 32px;
             }
 
             #paper-view {
@@ -587,8 +600,7 @@
             }
         }
 
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .app {
                 padding: 24px 14px 60px;
             }
@@ -602,65 +614,70 @@
             }
 
             .paper {
-                padding: 24px 18px;
+                padding: 20px 16px;
                 font-size: 12px;
+            }
+
+            .mcq-options {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
-
     <div class="aurora">
         <div></div>
         <div></div>
         <div></div>
     </div>
-
     <div class="app">
-        <!-- ====== SELECTION SCREEN ====== -->
+        <!-- ====== SELECTION ====== -->
         <div id="selection-view">
-            <div class="logo-badge"><span class="dot"></span> AI-Powered Question Bank</div>
+            <div class="logo-badge"><span class="dot"></span> CBSE Question Bank</div>
             <h1 class="hero-title">CBSE Paper Generator</h1>
-            <p class="hero-sub">Select your subject and difficulty. Get a complete, randomized CBSE-format question
-                paper — different every time.</p>
+            <p class="hero-sub">Generate authentic CBSE Class IX final exam papers following the 2024-25 rationalised
+                syllabus — with proper sections, marks distribution, and formatting.</p>
+            <p class="hero-badge">Based on CBSE Official Sample Papers • Rationalised Syllabus 2024-25</p>
 
             <div class="form-card">
                 <label class="form-label">Choose Subject</label>
                 <div class="subject-grid" id="subject-grid">
                     <button class="subject-btn" data-subject="Maths" onclick="selectSubject(this)">
-                        <span class="icon">π</span> Maths
+                        <span class="icon">π</span> Mathematics
+                        <span class="sub-code">041</span>
                     </button>
                     <button class="subject-btn" data-subject="Science" onclick="selectSubject(this)">
                         <span class="icon">⚛</span> Science
+                        <span class="sub-code">086</span>
                     </button>
                     <button class="subject-btn" data-subject="Social Science" onclick="selectSubject(this)">
                         <span class="icon">🌍</span> Social Sci
+                        <span class="sub-code">087</span>
                     </button>
                     <button class="subject-btn" data-subject="English" onclick="selectSubject(this)">
                         <span class="icon">Aa</span> English
+                        <span class="sub-code">184</span>
                     </button>
                     <button class="subject-btn" data-subject="Hindi" onclick="selectSubject(this)">
-                        <span class="icon">अ</span> Hindi
+                        <span class="icon">अ</span> हिन्दी 'अ'
+                        <span class="sub-code">002</span>
+                    </button>
+                    <button class="subject-btn" data-subject="Sanskrit" onclick="selectSubject(this)">
+                        <span class="icon">🕉️</span> संस्कृतम्
+                        <span class="sub-code">122</span>
                     </button>
                     <button class="subject-btn" data-subject="Computer Science" onclick="selectSubject(this)">
-                        <span class="icon">💻</span> Computer
+                        <span class="icon">💻</span> IT
+                        <span class="sub-code">402</span>
                     </button>
-                </div>
-
-                <label class="form-label">Select Difficulty</label>
-                <div class="diff-row">
-                    <button class="diff-btn easy" data-diff="Easy" onclick="selectDifficulty(this)">Easy</button>
-                    <button class="diff-btn medium" data-diff="Medium" onclick="selectDifficulty(this)">Medium</button>
-                    <button class="diff-btn hard" data-diff="Hard" onclick="selectDifficulty(this)">Hard</button>
                 </div>
 
                 <button class="generate-btn" id="generate-btn" onclick="generatePaper()" disabled>
                     <span class="spinner-inline"></span>
-                    <span class="btn-text">Generate Question Paper</span>
+                    <span class="btn-text">📄 Generate Question Paper</span>
                     <span class="btn-loading">Generating Paper...</span>
                 </button>
-
                 <div class="error-msg" id="error-msg"></div>
             </div>
         </div>
@@ -669,9 +686,8 @@
         <div id="paper-view">
             <div class="paper-actions no-print">
                 <button class="action-btn" onclick="goBack()">← Back</button>
-                <button class="action-btn" onclick="generatePaper()">🔄 Generate Another</button>
+                <button class="action-btn" onclick="generatePaper()">🔄 New Paper</button>
                 <button class="action-btn primary" onclick="window.print()">🖨️ Print / Save PDF</button>
-                <button class="action-btn" id="scheme-toggle" onclick="toggleScheme()">📝 Show Marking Scheme</button>
             </div>
             <div class="paper" id="paper-content"></div>
         </div>
@@ -683,41 +699,146 @@
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s";
         const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // ---- State ----
         let selectedSubject = null;
-        let selectedDifficulty = null;
-        let schemeVisible = false;
 
-        // ---- CBSE Paper Blueprint (2025-26 Pattern) ----
-        const PAPER_BLUEPRINT = [
-            { section: "A", title: "Section A — Objective Type Questions", marksEach: 1, count: 20, desc: "All questions are compulsory. Each carries 1 mark." },
-            { section: "B", title: "Section B — Short Answer Type (I)", marksEach: 2, count: 6, desc: "Answer in 30-50 words each." },
-            { section: "C", title: "Section C — Short Answer Type (II)", marksEach: 3, count: 7, desc: "Answer in 50-80 words each." },
-            { section: "D", title: "Section D — Long Answer Type", marksEach: 5, count: 3, desc: "Answer in 100-150 words each." },
-            { section: "E", title: "Section E — Case-Based Questions", marksEach: 4, count: 3, desc: "Read the case/passage carefully and answer the questions." }
-        ];
-        const TOTAL_MARKS = PAPER_BLUEPRINT.reduce((s, b) => s + b.marksEach * b.count, 0);
+        // ====== SUBJECT-SPECIFIC CBSE BLUEPRINTS ======
+        const BLUEPRINTS = {
+            'Maths': {
+                code: '041', fullName: 'Mathematics', time: '3 Hours', maxMarks: 80,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, type: 'mcq', note: 'All questions are compulsory. Each carries 1 mark.' },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer Type Questions', perQ: 2, count: 5, type: 'vsa', note: 'Answer in 30-50 words. Internal choice in 2 questions.' },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer Type Questions', perQ: 3, count: 6, type: 'sa', note: 'Answer in 50-80 words. Internal choice in 2 questions.' },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer Type Questions', perQ: 5, count: 4, type: 'la', note: 'Answer in 80-120 words. Internal choice in 2 questions.' },
+                    { id: 'E', title: 'Section E', desc: 'Case Study Based Questions', perQ: 4, count: 3, type: 'case', note: 'Each case has sub-parts of 1, 1, and 2 marks.' }
+                ],
+                instructions: [
+                    'This question paper contains 38 questions divided into 5 sections A, B, C, D and E.',
+                    'Section A comprises 20 MCQs carrying 1 mark each.',
+                    'Section B comprises 5 questions carrying 2 marks each.',
+                    'Section C comprises 6 questions carrying 3 marks each.',
+                    'Section D comprises 4 questions carrying 5 marks each.',
+                    'Section E comprises 3 case study based questions carrying 4 marks each.',
+                    'There is no overall choice. However, internal choice has been provided in 2 questions in Section B, 2 questions in Section C, 2 questions in Section D.',
+                    'Draw neat figures wherever required.',
+                    'Use of calculator is not permitted.'
+                ]
+            },
+            'Science': {
+                code: '086', fullName: 'Science', time: '3 Hours', maxMarks: 80,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, type: 'mcq', note: 'All questions are compulsory.' },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer Type Questions', perQ: 2, count: 6, type: 'vsa', note: 'Answer in 30-50 words.' },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer Type Questions', perQ: 3, count: 7, type: 'sa', note: 'Answer in 50-80 words.' },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer Type Questions', perQ: 5, count: 3, type: 'la', note: 'Answer in 80-120 words with diagrams wherever applicable.' },
+                    { id: 'E', title: 'Section E', desc: 'Case Study Based Questions', perQ: 4, count: 3, type: 'case', note: 'Read the passage carefully and answer the sub-questions.' }
+                ],
+                instructions: [
+                    'This question paper contains 39 questions divided into 5 sections.',
+                    'Section A: 20 MCQs of 1 mark each.',
+                    'Section B: 6 Very Short Answer questions of 2 marks each.',
+                    'Section C: 7 Short Answer questions of 3 marks each.',
+                    'Section D: 3 Long Answer questions of 5 marks each.',
+                    'Section E: 3 Case Based questions of 4 marks each.',
+                    'All questions are compulsory. Internal choice is provided in some questions.',
+                    'Draw neat and labelled diagrams wherever necessary.'
+                ]
+            },
+            'Social Science': {
+                code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, type: 'mcq', note: 'All questions are compulsory.' },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer Type Questions', perQ: 2, count: 4, type: 'vsa', note: 'Answer should not exceed 40 words each.' },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer Type Questions', perQ: 3, count: 5, type: 'sa', note: 'Answer should not exceed 60 words each.' },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer Type Questions', perQ: 5, count: 4, type: 'la', note: 'Answer should not exceed 120 words each.' },
+                    { id: 'E', title: 'Section E', desc: 'Case Based Questions', perQ: 4, count: 3, type: 'case', note: 'Read the given passage/source and answer the questions.' }
+                ],
+                instructions: [
+                    'This question paper comprises 36 questions divided into 5 sections — A, B, C, D and E.',
+                    'Section A: 20 MCQs carrying 1 mark each. Attempt all.',
+                    'Section B: Questions 21-24 are VSA type of 2 marks each. Answer in 40 words.',
+                    'Section C: Questions 25-29 are SA type of 3 marks each. Answer in 60 words.',
+                    'Section D: Questions 30-33 are LA type of 5 marks each. Answer in 120 words.',
+                    'Section E: Questions 34-36 are case based of 4 marks each with sub-parts.',
+                    'There is no overall choice. Internal choice has been provided in some questions.'
+                ]
+            },
+            'English': {
+                code: '184', fullName: 'English Language and Literature', time: '3 Hours', maxMarks: 80,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'Reading Skills', perQ: 0, count: 0, type: 'reading', note: 'Attempt all questions.', fixedMarks: 20 },
+                    { id: 'B', title: 'Section B', desc: 'Writing Skills and Grammar', perQ: 0, count: 0, type: 'writing', note: 'Attempt all questions.', fixedMarks: 20 },
+                    { id: 'C', title: 'Section C', desc: 'Literature', perQ: 0, count: 0, type: 'literature', note: 'Attempt all questions.', fixedMarks: 40 }
+                ],
+                instructions: [
+                    'This question paper is divided into three sections — Section A, B and C.',
+                    'Section A — Reading Skills (20 marks)',
+                    'Section B — Writing Skills and Grammar (20 marks)',
+                    'Section C — Literature (40 marks)',
+                    'All questions are compulsory.',
+                    'You may attempt any section at a time. All questions of that particular section must be attempted in the correct order.'
+                ]
+            },
+            'Hindi': {
+                code: '002', fullName: 'हिन्दी अ', time: '3 घण्टे', maxMarks: 80, lang: 'hi',
+                sections: [
+                    { id: 'अ', title: 'खण्ड अ', desc: 'अपठित बोध', perQ: 0, count: 0, type: 'reading', note: 'सभी प्रश्न अनिवार्य हैं।', fixedMarks: 14 },
+                    { id: 'ब', title: 'खण्ड ब', desc: 'व्यावहारिक व्याकरण', perQ: 1, count: 16, type: 'mcq', note: 'सभी प्रश्न अनिवार्य हैं।' },
+                    { id: 'स', title: 'खण्ड स', desc: 'पाठ्यपुस्तक एवं पूरक पाठ्यपुस्तक', perQ: 0, count: 0, type: 'literature', note: 'क्षितिज एवं कृतिका से सम्बंधित प्रश्न।', fixedMarks: 30 },
+                    { id: 'द', title: 'खण्ड द', desc: 'रचनात्मक लेखन', perQ: 0, count: 0, type: 'writing', note: 'अनुच्छेद लेखन, पत्र लेखन आदि।', fixedMarks: 20 }
+                ],
+                instructions: [
+                    'इस प्रश्न-पत्र में चार खण्ड हैं — अ, ब, स और द।',
+                    'खण्ड अ — अपठित बोध (14 अंक)',
+                    'खण्ड ब — व्यावहारिक व्याकरण (16 अंक)',
+                    'खण्ड स — पाठ्यपुस्तक एवं पूरक पाठ्यपुस्तक (30 अंक)',
+                    'खण्ड द — रचनात्मक लेखन (20 अंक)',
+                    'सभी प्रश्न अनिवार्य हैं।',
+                    'यथासंभव सभी प्रश्नों के उत्तर क्रमानुसार दीजिए।'
+                ]
+            },
+            'Sanskrit': {
+                code: '122', fullName: 'संस्कृतम्', time: '3 होराः', maxMarks: 80, lang: 'sa',
+                sections: [
+                    { id: 'क', title: 'खण्डः क', desc: 'अपठितबोधनम्', perQ: 0, count: 0, type: 'reading', note: 'अपठित गद्यांशं पठित्वा प्रश्नानाम् उत्तराणि लिखत।', fixedMarks: 10 },
+                    { id: 'ख', title: 'खण्डः ख', desc: 'रचनात्मककार्यम्', perQ: 0, count: 0, type: 'writing', note: 'पत्रलेखनम्, अनुच्छेदलेखनम् च।', fixedMarks: 15 },
+                    { id: 'ग', title: 'खण्डः ग', desc: 'अनुप्रयुक्तव्याकरणम्', perQ: 1, count: 25, type: 'mcq', note: 'सन्धिः, उपसर्गाः, प्रत्ययाः, रिक्तस्थानपूर्तिः।' },
+                    { id: 'घ', title: 'खण्डः घ', desc: 'पठितबोधनम्', perQ: 0, count: 0, type: 'literature', note: 'पाठ्यपुस्तकात् सम्बद्धाः प्रश्नाः।', fixedMarks: 30 }
+                ],
+                instructions: [
+                    'इदं प्रश्नपत्रं चतुर्षु खण्डेषु विभक्तम् अस्ति — क, ख, ग, घ।',
+                    'खण्डः क — अपठितबोधनम् (10 अङ्काः)',
+                    'खण्डः ख — रचनात्मककार्यम् (15 अङ्काः)',
+                    'खण्डः ग — अनुप्रयुक्तव्याकरणम् (25 अङ्काः)',
+                    'खण्डः घ — पठितबोधनम् (30 अङ्काः)',
+                    'सर्वे प्रश्नाः अनिवार्याः सन्ति।'
+                ]
+            },
+            'Computer Science': {
+                code: '402', fullName: 'Information Technology', time: '2.5 Hours', maxMarks: 50,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'Objective Type Questions', perQ: 1, count: 15, type: 'mcq', note: 'Employability Skills (5 Qs) + IT Skills (10 Qs).' },
+                    { id: 'B', title: 'Section B', desc: 'Subjective Type Questions', perQ: 0, count: 0, type: 'subjective', note: 'Very Short (2m), Short (3m), Long (5m) answer questions.', fixedMarks: 26 }
+                ],
+                instructions: [
+                    'This question paper contains 2 sections — A and B.',
+                    'Section A has Objective Type Questions (24 marks).',
+                    'Section B has Subjective Type Questions (26 marks).',
+                    'All questions are compulsory.',
+                    'Internal choice is provided in some questions.'
+                ]
+            }
+        };
 
-        // ---- Selection Logic ----
+        // ====== SELECTION ======
         function selectSubject(btn) {
             document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             selectedSubject = btn.dataset.subject;
-            updateGenButton();
+            document.getElementById('generate-btn').disabled = false;
         }
 
-        function selectDifficulty(btn) {
-            document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selectedDifficulty = btn.dataset.diff;
-            updateGenButton();
-        }
-
-        function updateGenButton() {
-            document.getElementById('generate-btn').disabled = !(selectedSubject && selectedDifficulty);
-        }
-
-        // ---- Shuffle ----
+        // ====== SHUFFLE ======
         function shuffle(arr) {
             const a = [...arr];
             for (let i = a.length - 1; i > 0; i--) {
@@ -727,7 +848,84 @@
             return a;
         }
 
-        // ---- Generate Paper ----
+        // ====== DETECT MCQ OPTIONS ======
+        function parseMCQ(text) {
+            // Match patterns like (A) ... (B) ... (C) ... (D) ...
+            const optRegex = /\(([A-Da-d])\)\s*([^\(]*?)(?=\([A-Da-d]\)|$)/g;
+            const opts = [];
+            let mainQ = text;
+            let m;
+            const firstOpt = text.search(/\([A-Da-d]\)\s/);
+            if (firstOpt > 0) {
+                mainQ = text.substring(0, firstOpt).trim();
+                const optPart = text.substring(firstOpt);
+                while ((m = optRegex.exec(optPart)) !== null) {
+                    opts.push({ label: m[1].toUpperCase(), text: m[2].trim() });
+                }
+            }
+            return opts.length >= 3 ? { question: mainQ, options: opts } : null;
+        }
+
+        // ====== DETECT SUB-PARTS ======
+        function parseSubParts(text) {
+            const subRegex = /\(([a-z]|[i]+)\)\s*([^\(]*?)(?=\([a-z]\)|\([i]+\)|$)/g;
+            const parts = [];
+            let mainQ = text;
+            const firstSub = text.search(/\([a-z]\)\s/);
+            if (firstSub > 0) {
+                mainQ = text.substring(0, firstSub).trim();
+                const subPart = text.substring(firstSub);
+                let sm;
+                while ((sm = subRegex.exec(subPart)) !== null) {
+                    // Check for marks annotation like [1] or [2]
+                    let partText = sm[2].trim();
+                    let partMarks = '';
+                    const mMatch = partText.match(/\[(\d+)\]\s*$/);
+                    if (mMatch) {
+                        partMarks = mMatch[1];
+                        partText = partText.replace(/\[\d+\]\s*$/, '').trim();
+                    }
+                    parts.push({ label: sm[1], text: partText, marks: partMarks });
+                }
+            }
+            return parts.length >= 2 ? { question: mainQ, parts: parts } : null;
+        }
+
+        // ====== RENDER QUESTION HTML ======
+        function renderQuestion(q, num, marks) {
+            const text = q.question_text || '';
+            let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
+
+            // Try MCQ parse
+            const mcq = parseMCQ(text);
+            if (mcq) {
+                html += `<div>${mcq.question}</div>`;
+                const longOpts = mcq.options.some(o => o.text.length > 40);
+                html += `<div class="mcq-options${longOpts ? ' single-col' : ''}">`;
+                mcq.options.forEach(o => {
+                    html += `<div class="mcq-opt">(${o.label}) ${o.text}</div>`;
+                });
+                html += '</div>';
+            } else {
+                // Try sub-parts parse
+                const sub = parseSubParts(text);
+                if (sub) {
+                    html += `<div>${sub.question}</div>`;
+                    html += '<div class="sub-parts">';
+                    sub.parts.forEach(p => {
+                        html += `<div class="sub-part"><span class="sub-part-label">(${p.label})</span><span class="sub-part-text">${p.text}</span>${p.marks ? `<span class="sub-part-marks">[${p.marks}]</span>` : ''}</div>`;
+                    });
+                    html += '</div>';
+                } else {
+                    html += `<div>${text}</div>`;
+                }
+            }
+
+            html += `</div><span class="q-marks">[${marks}]</span></div>`;
+            return html;
+        }
+
+        // ====== GENERATE PAPER ======
         async function generatePaper() {
             const btn = document.getElementById('generate-btn');
             const errDiv = document.getElementById('error-msg');
@@ -736,7 +934,10 @@
             btn.disabled = true;
 
             try {
-                // Fetch all questions for this subject from the question bank
+                const bp = BLUEPRINTS[selectedSubject];
+                if (!bp) throw new Error('Unknown subject');
+
+                // Fetch all questions
                 let { data: questions, error } = await db
                     .from('question_bank')
                     .select('*')
@@ -745,164 +946,143 @@
 
                 if (error) throw error;
                 if (!questions || questions.length === 0) {
-                    throw new Error(`No questions found for ${selectedSubject}. The AI processor may need to run first — check GitHub Actions.`);
+                    throw new Error(`No questions found for ${selectedSubject}. Please check the question bank.`);
                 }
 
-                // Split by difficulty — prioritize selected, fall back to others
-                const diffOrder = selectedDifficulty === 'Easy' ? ['Easy', 'Medium', 'Hard']
-                    : selectedDifficulty === 'Hard' ? ['Hard', 'Medium', 'Easy']
-                        : ['Medium', 'Easy', 'Hard'];
-
-                const byDiff = {};
-                diffOrder.forEach(d => { byDiff[d] = shuffle(questions.filter(q => (q.difficulty || '').toLowerCase() === d.toLowerCase())); });
-                const allShuffled = shuffle(questions);
-
-                // Build paper section by section
+                const shuffled = shuffle(questions);
                 const usedIds = new Set();
-                const paperSections = [];
+                let globalQ = 0;
 
-                PAPER_BLUEPRINT.forEach(blueprint => {
-                    const sectionQuestions = [];
-
-                    // Try to pick questions matching marks, then fill generically
-                    function pickQuestion() {
-                        // 1. Try preferred difficulty with matching marks
-                        for (const diff of diffOrder) {
-                            const idx = byDiff[diff].findIndex(q => !usedIds.has(q.id) && q.marks === blueprint.marksEach);
-                            if (idx !== -1) { const q = byDiff[diff].splice(idx, 1)[0]; usedIds.add(q.id); return q; }
+                function pickQuestions(n) {
+                    const picked = [];
+                    for (let i = 0; i < n; i++) {
+                        const idx = shuffled.findIndex(q => !usedIds.has(q.id));
+                        if (idx !== -1) {
+                            usedIds.add(shuffled[idx].id);
+                            picked.push(shuffled[idx]);
                         }
-                        // 2. Try preferred difficulty regardless of marks
-                        for (const diff of diffOrder) {
-                            const idx = byDiff[diff].findIndex(q => !usedIds.has(q.id));
-                            if (idx !== -1) { const q = byDiff[diff].splice(idx, 1)[0]; usedIds.add(q.id); return q; }
+                    }
+                    return picked;
+                }
+
+                // Build paper HTML
+                const paperEl = document.getElementById('paper-content');
+                const isHindi = bp.lang === 'hi';
+                const isSanskrit = bp.lang === 'sa';
+                paperEl.className = `paper${isHindi ? ' hindi-paper' : ''}${isSanskrit ? ' sanskrit-paper' : ''}`;
+
+                let html = '';
+
+                // ---- HEADER ----
+                html += `<div class="paper-header">`;
+                html += `<div class="board-name">Central Board of Secondary Education</div>`;
+                html += `<div class="school-name">ANNUAL EXAMINATION (2024-25)</div>`;
+                html += `<div class="exam-title">${bp.fullName}</div>`;
+                html += `<div class="exam-session">Class – IX | Subject Code: ${bp.code}</div>`;
+                html += `</div>`;
+
+                // ---- META ROW ----
+                html += `<div class="paper-meta-row bordered">`;
+                html += `<span>${isHindi || isSanskrit ? 'समय :' : 'Time Allowed:'} ${bp.time}</span>`;
+                html += `<span>${isHindi || isSanskrit ? 'अधिकतम अंक :' : 'Maximum Marks:'} ${bp.maxMarks}</span>`;
+                html += `</div>`;
+
+                // ---- INSTRUCTIONS ----
+                html += `<div class="paper-instructions">`;
+                html += `<h4>${isHindi ? 'सामान्य निर्देश' : isSanskrit ? 'सामान्यनिर्देशाः' : 'General Instructions'}</h4>`;
+                html += '<ol>';
+                bp.instructions.forEach(inst => { html += `<li>${inst}</li>`; });
+                html += '</ol></div>';
+
+                // ---- SECTIONS ----
+                bp.sections.forEach(sec => {
+                    html += `<div class="section-header">${sec.title} — ${sec.desc}`;
+                    html += `<span class="section-info">${sec.note}</span></div>`;
+
+                    if (sec.type === 'mcq' && sec.count > 0) {
+                        // MCQ section - pick questions
+                        const qs = pickQuestions(sec.count);
+                        qs.forEach(q => {
+                            globalQ++;
+                            html += renderQuestion(q, globalQ, sec.perQ);
+                        });
+                    } else if (sec.type === 'vsa' || sec.type === 'sa') {
+                        const qs = pickQuestions(sec.count);
+                        qs.forEach((q, i) => {
+                            globalQ++;
+                            html += renderQuestion(q, globalQ, sec.perQ);
+                            // Add OR for internal choice on some questions
+                            if (i === sec.count - 2 || i === sec.count - 1) {
+                                const altQ = pickQuestions(1)[0];
+                                if (altQ) {
+                                    html += `<div class="or-divider">OR</div>`;
+                                    html += renderQuestion(altQ, globalQ, sec.perQ);
+                                }
+                            }
+                        });
+                    } else if (sec.type === 'la') {
+                        const qs = pickQuestions(sec.count);
+                        qs.forEach((q, i) => {
+                            globalQ++;
+                            html += renderQuestion(q, globalQ, sec.perQ);
+                            // Internal choice for some LA questions
+                            if (i < 2) {
+                                const altQ = pickQuestions(1)[0];
+                                if (altQ) {
+                                    html += `<div class="or-divider">OR</div>`;
+                                    html += renderQuestion(altQ, globalQ, sec.perQ);
+                                }
+                            }
+                        });
+                    } else if (sec.type === 'case') {
+                        // Case-based questions
+                        const qs = pickQuestions(sec.count);
+                        qs.forEach(q => {
+                            globalQ++;
+                            html += renderQuestion(q, globalQ, sec.perQ);
+                        });
+                    } else if (sec.fixedMarks) {
+                        // For English Reading/Writing, Hindi, Sanskrit sections
+                        // Pick questions to fill the marks
+                        let remainingMarks = sec.fixedMarks;
+                        while (remainingMarks > 0) {
+                            const q = pickQuestions(1)[0];
+                            if (!q) break;
+                            globalQ++;
+                            const qMarks = remainingMarks >= 5 ? 5 : remainingMarks >= 3 ? 3 : remainingMarks >= 2 ? 2 : 1;
+                            html += renderQuestion(q, globalQ, qMarks);
+                            remainingMarks -= qMarks;
                         }
-                        // 3. Try any remaining question
-                        const idx = allShuffled.findIndex(q => !usedIds.has(q.id));
-                        if (idx !== -1) { const q = allShuffled.splice(idx, 1)[0]; usedIds.add(q.id); return q; }
-                        return null;
                     }
-
-                    for (let i = 0; i < blueprint.count; i++) {
-                        const q = pickQuestion();
-                        if (q) sectionQuestions.push(q);
-                    }
-
-                    paperSections.push({ ...blueprint, questions: sectionQuestions });
                 });
 
-                // Render paper
-                renderPaper(paperSections);
+                // ---- FOOTER ----
+                html += `<div class="paper-footer">`;
+                html += `✦ ✦ ✦ End of Question Paper ✦ ✦ ✦<br>`;
+                html += `<span style="font-style:italic">Generated from CBSE Question Bank — study.dhruvshah.co</span>`;
+                html += `</div>`;
+
+                paperEl.innerHTML = html;
+
+                // Show paper
                 document.getElementById('selection-view').style.display = 'none';
                 document.getElementById('paper-view').style.display = 'block';
-                schemeVisible = false;
-                document.getElementById('scheme-toggle').textContent = '📝 Show Marking Scheme';
+                window.scrollTo(0, 0);
 
             } catch (err) {
-                console.error(err);
-                errDiv.textContent = '⚠️ ' + (err.message || 'Failed to generate paper. Please try again.');
+                errDiv.textContent = err.message;
                 errDiv.style.display = 'block';
             } finally {
                 btn.classList.remove('loading');
-                updateGenButton();
+                btn.disabled = !selectedSubject;
             }
         }
 
-        // ---- Render Paper HTML ----
-        function renderPaper(sections) {
-            const now = new Date();
-            const dateStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
-            const totalQ = sections.reduce((s, sec) => s + sec.questions.length, 0);
-
-            let html = `
-            <div class="paper-header">
-                <div class="board-name">Central Board of Secondary Education</div>
-                <div class="school-name">Class IX — Annual Examination 2025-26</div>
-                <div class="exam-title">Subject: ${selectedSubject}</div>
-                <div class="paper-meta-row">
-                    <span>Time Allowed: 3 Hours</span>
-                    <span>Maximum Marks: ${TOTAL_MARKS}</span>
-                </div>
-                <div class="paper-meta-row" style="margin-top:4px;">
-                    <span>Date: ${dateStr}</span>
-                    <span>No. of Questions: ${totalQ}</span>
-                </div>
-            </div>
-
-            <div class="paper-instructions">
-                <h4>General Instructions:</h4>
-                <ol>
-                    <li>All questions are compulsory. However, internal choices have been provided in some questions.</li>
-                    <li>This question paper contains ${sections.length} sections — A, B, C, D, and E.</li>
-                    <li>Section A has ${sections[0]?.questions.length || 0} Objective-type questions carrying 1 mark each.</li>
-                    <li>Section B has ${sections[1]?.questions.length || 0} Short Answer (I) questions carrying 2 marks each.</li>
-                    <li>Section C has ${sections[2]?.questions.length || 0} Short Answer (II) questions carrying 3 marks each.</li>
-                    <li>Section D has ${sections[3]?.questions.length || 0} Long Answer questions carrying 5 marks each.</li>
-                    <li>Section E has ${sections[4]?.questions.length || 0} Case-Based questions carrying 4 marks each.</li>
-                    <li>There is no overall choice. However, internal choice has been provided where indicated.</li>
-                    <li>Use of calculators is not permitted.</li>
-                </ol>
-            </div>`;
-
-            let qNum = 1;
-            sections.forEach(sec => {
-                const sectionMarks = sec.questions.length * sec.marksEach;
-                html += `<div class="section-header">${sec.title}<span class="section-info">(${sec.questions.length} × ${sec.marksEach} = ${sectionMarks} marks) — ${sec.desc}</span></div>`;
-
-                sec.questions.forEach(q => {
-                    const text = escapeHtml(q.question_text || 'Question text unavailable.');
-                    html += `
-                    <div class="question">
-                        <span class="q-num">${qNum}.</span>
-                        <span class="q-body">${text}</span>
-                        <span class="q-marks">[${sec.marksEach}]</span>
-                    </div>`;
-                    qNum++;
-                });
-            });
-
-            // Marking Scheme (hidden by default)
-            html += `<div class="marking-scheme" id="marking-scheme" style="display:none;">
-            <h3>Marking Scheme</h3>`;
-            qNum = 1;
-            sections.forEach(sec => {
-                html += `<div class="section-header">${sec.title}</div>`;
-                sec.questions.forEach(q => {
-                    const text = escapeHtml(q.question_text || '—');
-                    html += `<div class="ms-item">
-                    <span class="ms-num">${qNum}.</span>
-                    <span class="ms-answer"><strong>[${sec.marksEach} marks]</strong> ${text} — <em>Refer to NCERT textbook / source material.</em></span>
-                </div>`;
-                    qNum++;
-                });
-            });
-            html += `</div>`;
-
-            html += `<div class="paper-footer">— End of Question Paper —<br>Generated by Study Vault • study.dhruvshah.co</div>`;
-
-            document.getElementById('paper-content').innerHTML = html;
-        }
-
-        function escapeHtml(str) {
-            const d = document.createElement('div');
-            d.textContent = str;
-            return d.innerHTML;
-        }
-
-        // ---- Navigation ----
         function goBack() {
             document.getElementById('paper-view').style.display = 'none';
             document.getElementById('selection-view').style.display = 'block';
         }
-
-        function toggleScheme() {
-            const el = document.getElementById('marking-scheme');
-            const btn = document.getElementById('scheme-toggle');
-            schemeVisible = !schemeVisible;
-            el.style.display = schemeVisible ? 'block' : 'none';
-            btn.textContent = schemeVisible ? '📝 Hide Marking Scheme' : '📝 Show Marking Scheme';
-        }
     </script>
-
 </body>
 
 </html>
