@@ -1,78 +1,68 @@
-import os
 import requests
-import json
-from supabase import create_client
+from bs4 import BeautifulSoup
+import time
 
-# --- SECRETS ---
-SUPABASE_URL = os.environ.get("SUPABASE_URL")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
-SERPER_KEY = os.environ.get("SERPER_KEY")
+def scrape_study_materials(base_url):
+    materials_scraped = []
+    page_number = 1
+    
+    # User-Agent helps ensure your own server doesn't block the request as a generic bot
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/91.0.4472.124 Safari/537.36'
+    }
 
-if not all([SUPABASE_URL, SUPABASE_KEY, SERPER_KEY]):
-    print("❌ ERROR: Missing API Keys. Check GitHub Secrets.")
-    exit(1)
-
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-# The subjects and grades we want to hunt for
-SEARCH_QUERIES = [
-    {"grade": "10", "subject": "Science"},
-    {"grade": "10", "subject": "Maths"},
-    {"grade": "12", "subject": "Physics"},
-    {"grade": "12", "subject": "Biology"}
-]
-
-def hunt_for_pdfs():
-    print("🕵️‍♂️ --- VERIX AUTO-HUNTER STARTING ---")
-    total_found = 0
-
-    for item in SEARCH_QUERIES:
-        grade = item["grade"]
-        subject = item["subject"]
+    # Keep looping until we hit at least 100 study items
+    while len(materials_scraped) < 100:
+        print(f"Scanning page {page_number}... (Total items so far: {len(materials_scraped)})")
         
-        # We use a special Google Search trick: "filetype:pdf"
-        query = f"CBSE Class {grade} {subject} previous year question paper filetype:pdf"
-        print(f"\n🔍 Searching Google for: {query}")
-
-        url = "https://google.serper.dev/search"
-        payload = json.dumps({"q": query, "num": 20}) # Ask for 20 results per search
-        headers = {
-            'X-API-KEY': SERPER_KEY,
-            'Content-Type': 'application/json'
-        }
-
+        # Pagination logic: adjust this based on how your site's URL structure is built
+        # Examples: ?page=1, /notes/page/1, ?subject=maths&page=1
+        url = f"{base_url}?page={page_number}" 
+        
         try:
-            response = requests.request("POST", url, headers=headers, data=payload)
-            results = response.json().get('organic', [])
-
-            for res in results:
-                link = res.get('link', '')
-                title = res.get('title', 'Unknown Paper')
+            response = requests.get(url, headers=headers)
+            response.raise_for_status() 
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # --- UPDATE THIS SELECTOR ---
+            # Replace '.exam-question' with the actual HTML class used on your website
+            # For example, it might be '.biology-note', '.flashcard', or '.syllabus-item'
+            page_items = soup.select('.exam-question') 
+            
+            # Break the loop if we run out of pages before hitting 100
+            if not page_items:
+                print("No more study materials found on this page. Exiting loop.")
+                break
                 
-                # Only grab actual direct PDF links
-                if link.endswith('.pdf'):
-                    # Check if we already have this link in our database
-                    existing = supabase.table("source_papers").select("id").eq("file_url", link).execute()
-                    
-                    if not existing.data:
-                        # Save the new finding to Supabase!
-                        new_paper = {
-                            "file_name": title[:50],
-                            "file_url": link,
-                            "subject": subject,
-                            "chapter": "Mixed Previous Year", # Default chapter for full papers
-                            "is_processed": False # Ready for processor.py to read!
-                        }
-                        supabase.table("source_papers").insert(new_paper).execute()
-                        print(f"   ✅ Found & Saved: {link[:60]}...")
-                        total_found += 1
-                    else:
-                        print("   ⏭️ Already have this one, skipping.")
+            for item in page_items:
+                # Extracting the text content of the study item
+                extracted_data = item.get_text(strip=True)
+                
+                if extracted_data:
+                    materials_scraped.append(extracted_data)
+                
+                # Stop immediately once we secure 100 items
+                if len(materials_scraped) >= 100:
+                    break
+            
+            page_number += 1
+            time.sleep(2) # 2-second pause to avoid overloading your own server
+            
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching page {page_number}: {e}")
+            break
 
-        except Exception as e:
-            print(f"❌ Search Error: {e}")
-
-    print(f"\n🎉 Hunt Complete! Added {total_found} new PDFs to the database.")
+    return materials_scraped
 
 if __name__ == "__main__":
-    hunt_for_pdfs()
+    # Your new study website URL
+    TARGET_URL = "https://study.dhruvshah.co" 
+    
+    print(f"Starting scraper for {TARGET_URL}...")
+    results = scrape_study_materials(TARGET_URL)
+    
+    print(f"\nSuccessfully scraped {len(results)} items!")
+    
+    print("\nHere are the last few items scraped to verify the count:")
+    for i, res in enumerate(results[-5:], start=len(results)-4):
+        print(f"{i}: {res}")
