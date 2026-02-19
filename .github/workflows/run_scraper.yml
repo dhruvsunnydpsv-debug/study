@@ -1,27 +1,30 @@
-name: AI PDF Hunter
+name: Run AI PDF Hunter
+
+# This allows you to click a button in GitHub Actions to run the script manually
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *' # Runs once every day at midnight
+  workflow_dispatch: 
 
 jobs:
-  hunt:
+  run-hunter:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      # Step 1: Get the code from your repository
+      - name: Checkout repository code
         uses: actions/checkout@v3
 
-      - name: Setup Python
+      # Step 2: Set up a fresh Python environment
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
+      # Step 3: INSTALL THE MISSING TOOLS (This fixes your bs4 error)
       - name: Install Dependencies
-        run: pip install supabase requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 requests
 
+      # Step 4: Run your Python script
       - name: Run Auto-Hunter
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          SERPER_KEY: ${{ secrets.SERPER_KEY }}
         run: python scraper.py
