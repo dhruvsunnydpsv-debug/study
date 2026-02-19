@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CBSE Paper Creator | Study Vault</title>
-    <meta name="description"
-        content="Create authentic CBSE Class 9 question papers with proper format, marking scheme, and subject-specific patterns.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -26,10 +23,8 @@
             --surface: rgba(255, 255, 255, 0.03);
             --surface-hover: rgba(255, 255, 255, 0.07);
             --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.16);
             --text: #eeeef2;
             --text-dim: rgba(238, 238, 242, 0.55);
-            --text-muted: rgba(238, 238, 242, 0.3);
             --accent: #7c3aed;
         }
 
@@ -41,7 +36,6 @@
             overflow-x: hidden;
         }
 
-        /* Aurora Background */
         .aurora {
             position: fixed;
             inset: 0;
@@ -74,15 +68,6 @@
             animation-delay: -8s;
         }
 
-        .aurora div:nth-child(3) {
-            width: 400px;
-            height: 400px;
-            background: #f43f5e;
-            bottom: -5%;
-            left: 25%;
-            animation-delay: -15s;
-        }
-
         @keyframes drift {
 
             0%,
@@ -107,71 +92,23 @@
             padding: 48px 24px 80px;
         }
 
-        #selection-view {
-            text-align: center;
-        }
-
-        .logo-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            border-radius: 100px;
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.22);
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #a78bfa;
-            margin-bottom: 24px;
-        }
-
-        .logo-badge .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #22c55e;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
-        }
-
         .hero-title {
             font-size: clamp(2rem, 5vw, 3.4rem);
             font-weight: 800;
-            letter-spacing: -0.03em;
             background: linear-gradient(135deg, #f0f0f5 10%, #a78bfa 55%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             line-height: 1.15;
             margin-bottom: 10px;
+            text-align: center;
         }
 
         .hero-sub {
             color: var(--text-dim);
-            font-size: 1rem;
+            text-align: center;
             max-width: 520px;
-            margin: 0 auto 12px;
-            line-height: 1.6;
-        }
-
-        .hero-badge {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            margin-bottom: 44px;
-            font-weight: 500;
+            margin: 0 auto 44px;
+            font-size: 1rem;
         }
 
         .form-card {
@@ -181,63 +118,48 @@
             padding: 36px 32px;
             max-width: 620px;
             margin: 0 auto;
-            text-align: left;
         }
 
         .form-label {
             font-size: 0.72rem;
             font-weight: 600;
-            letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--text-dim);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: block;
         }
 
         .subject-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 28px;
         }
 
         .subject-btn {
-            padding: 16px 8px;
+            padding: 15px 5px;
             border-radius: 12px;
             border: 1px solid var(--border);
             background: transparent;
             color: var(--text-dim);
-            font-family: inherit;
-            font-size: 0.78rem;
-            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
+            font-size: 0.75rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .subject-btn:hover {
-            border-color: var(--border-hover);
-            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.2);
             background: var(--surface-hover);
         }
 
         .subject-btn.active {
-            background: rgba(124, 58, 237, 0.12);
-            border-color: rgba(124, 58, 237, 0.4);
-            color: #c4b5fd;
-        }
-
-        .subject-btn .icon {
-            font-size: 1.4rem;
-        }
-
-        .subject-btn .sub-code {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            margin-top: 2px;
+            background: rgba(124, 58, 237, 0.15);
+            border-color: var(--accent);
+            color: white;
         }
 
         .difficulty-selector {
@@ -249,24 +171,19 @@
 
         .diff-btn {
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 8px;
             border: 1px solid var(--border);
             background: transparent;
             color: var(--text-dim);
-            font-size: 0.75rem;
-            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .diff-btn:hover {
-            background: var(--surface-hover);
+            transition: 0.2s;
+            font-size: 0.7rem;
         }
 
         .diff-btn.active {
-            border-color: #38bdf8;
-            background: rgba(56, 189, 248, 0.1);
-            color: #7dd3fc;
+            background: rgba(6, 182, 212, 0.1);
+            border-color: #06b6d4;
+            color: #67e8f9;
         }
 
         .create-btn {
@@ -274,68 +191,15 @@
             padding: 16px;
             border-radius: 14px;
             border: none;
-            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            background: var(--accent);
             color: white;
-            font-family: inherit;
-            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.25s;
-            letter-spacing: 0.01em;
-            box-shadow: 0 4px 24px rgba(124, 58, 237, 0.25);
-        }
-
-        .create-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.35);
-        }
-
-        .create-btn:active {
-            transform: translateY(0);
         }
 
         .create-btn:disabled {
-            opacity: 0.4;
+            opacity: 0.3;
             cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .create-btn .spinner-inline {
-            display: none;
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-
-        .create-btn.loading .spinner-inline {
-            display: inline-block;
-        }
-
-        .create-btn.loading .btn-text {
-            display: none;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .error-msg {
-            margin-top: 16px;
-            padding: 12px 16px;
-            border-radius: 10px;
-            background: rgba(239, 68, 68, 0.08);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            color: #f87171;
-            font-size: 0.82rem;
-            display: none;
         }
 
         #paper-view {
@@ -346,157 +210,80 @@
             display: flex;
             gap: 10px;
             justify-content: center;
-            margin-bottom: 28px;
-            flex-wrap: wrap;
+            margin-bottom: 24px;
         }
 
         .action-btn {
-            padding: 10px 22px;
-            border-radius: 10px;
+            padding: 8px 20px;
+            border-radius: 8px;
             border: 1px solid var(--border);
             background: var(--surface);
             color: var(--text-dim);
-            font-family: inherit;
-            font-size: 0.8rem;
-            font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
+            font-size: 0.8rem;
         }
 
-        .action-btn:hover {
-            border-color: var(--border-hover);
-            color: var(--text);
-            background: var(--surface-hover);
-        }
-
-        .action-btn.primary {
-            background: rgba(124, 58, 237, 0.1);
-            border-color: rgba(124, 58, 237, 0.3);
-            color: #a78bfa;
-        }
-
-        /* PAPER */
         .paper {
-            background: #fff;
+            background: white;
             color: #111;
-            border-radius: 8px;
-            padding: 44px 48px;
-            font-family: 'Noto Serif', 'Times New Roman', serif;
-            font-size: 13px;
-            line-height: 1.75;
-            max-width: 820px;
+            padding: 40px 60px;
+            border-radius: 5px;
+            font-family: 'Noto Serif', serif;
+            line-height: 1.6;
+            max-width: 800px;
             margin: 0 auto;
-            box-shadow: 0 8px 48px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .paper.hindi-paper,
-        .paper.sanskrit-paper {
-            font-family: 'Noto Sans Devanagari', 'Noto Serif', serif;
+        .paper.hi,
+        .paper.sa {
+            font-family: 'Noto Sans Devanagari', serif;
         }
 
         .paper-header {
             text-align: center;
-            border-bottom: 2.5px solid #111;
-            padding-bottom: 14px;
-            margin-bottom: 6px;
+            border-bottom: 2px solid #111;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
 
-        .paper-header .board-name {
-            font-size: 11px;
+        .exam-title {
             font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #444;
-            margin-bottom: 2px;
+            font-size: 1.2rem;
         }
 
-        .paper-header .school-name {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .paper-header .exam-title {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .paper-header .exam-session {
-            font-size: 11px;
-            color: #555;
-            margin-bottom: 8px;
-        }
-
-        .paper-meta-row {
+        .paper-meta {
             display: flex;
             justify-content: space-between;
-            font-size: 12px;
-            color: #333;
-            padding: 4px 0;
-        }
-
-        .paper-meta-row.bordered {
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            padding: 6px 0;
-            margin-bottom: 6px;
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+            font-size: 0.85rem;
         }
 
         .paper-instructions {
-            margin: 12px 0 20px;
-            padding: 12px 16px;
-            border: 1.5px solid #999;
-            background: #fafafa;
-        }
-
-        .paper-instructions h4 {
-            font-size: 12px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            text-align: center;
-            text-decoration: underline;
-        }
-
-        .paper-instructions ol {
-            padding-left: 18px;
-        }
-
-        .paper-instructions li {
-            font-size: 11.5px;
-            margin-bottom: 4px;
-            color: #333;
+            border: 1px solid #111;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 0.8rem;
+            background: #f9f9f9;
         }
 
         .section-header {
-            font-size: 13px;
             font-weight: 700;
-            margin: 28px 0 14px;
-            padding: 7px 14px;
-            background: #f0f0f0;
-            border-left: 3.5px solid #111;
-        }
-
-        .section-header .section-info {
-            font-weight: 400;
-            font-size: 11px;
-            color: #555;
-            display: block;
-            margin-top: 2px;
+            background: #eee;
+            padding: 5px 10px;
+            margin: 20px 0 10px;
+            border-left: 4px solid #111;
         }
 
         .question {
             display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-            padding-left: 4px;
+            margin-bottom: 15px;
         }
 
         .q-num {
             font-weight: 700;
-            min-width: 30px;
+            width: 30px;
             flex-shrink: 0;
         }
 
@@ -505,166 +292,70 @@
         }
 
         .q-marks {
-            color: #555;
-            font-size: 11px;
             font-weight: 700;
-            white-space: nowrap;
-            margin-left: 8px;
-            flex-shrink: 0;
+            font-size: 0.8rem;
+            margin-left: 10px;
         }
 
         .mcq-options {
-            margin-top: 6px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2px 24px;
+            gap: 5px;
+            margin-top: 5px;
         }
 
         .mcq-options.single-col {
             grid-template-columns: 1fr;
         }
 
-        .mcq-opt {
-            font-size: 12.5px;
-            padding: 2px 0;
-        }
-
-        .sub-parts {
-            margin-top: 6px;
-            padding-left: 8px;
-        }
-
-        .sub-part {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 6px;
-        }
-
-        .sub-part-label {
-            font-weight: 600;
-            min-width: 22px;
-            flex-shrink: 0;
-        }
-
-        .sub-part-text {
-            flex: 1;
-        }
-
-        .sub-part-marks {
-            color: #555;
-            font-size: 11px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .or-divider {
-            text-align: center;
-            font-weight: 700;
-            font-size: 12px;
-            color: #888;
-            margin: 8px 0;
-            font-style: italic;
-        }
-
         .figure-box {
-            margin: 15px 0;
-            padding: 20px;
-            background: #fdfdfd;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            margin: 10px 0;
             text-align: center;
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .figure-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-
-        .figure-label {
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #444;
-            margin-bottom: 5px;
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 5px;
+            background: #fff;
         }
 
         .q-image {
             max-width: 100%;
-            height: auto;
+            max-height: 250px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            margin-top: 10px;
-            border: 1px solid #eee;
         }
 
-        .paper-footer {
+        .sub-parts {
+            margin-top: 5px;
+            padding-left: 15px;
+        }
+
+        .sub-part {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 3px;
+        }
+
+        .or-divider {
             text-align: center;
-            margin-top: 28px;
-            padding-top: 14px;
-            border-top: 1.5px solid #999;
-            font-size: 11px;
-            color: #888;
+            font-style: italic;
+            font-weight: 700;
+            margin: 10px 0;
+            color: #555;
         }
 
         @media print {
-            body {
-                background: white;
-            }
 
             .aurora,
             .paper-actions,
-            .logo-badge,
-            #selection-view,
-            .no-print {
+            .hero-title,
+            .hero-sub,
+            .form-card {
                 display: none !important;
-            }
-
-            .app {
-                padding: 0;
-                max-width: 100%;
             }
 
             .paper {
                 box-shadow: none;
-                border-radius: 0;
-                padding: 20px 32px;
-            }
-
-            #paper-view {
-                display: block !important;
-            }
-
-            .section-header {
-                break-after: avoid;
-            }
-
-            .question {
-                break-inside: avoid;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .app {
-                padding: 24px 14px 60px;
-            }
-
-            .form-card {
-                padding: 24px 18px;
-            }
-
-            .subject-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .paper {
-                padding: 20px 16px;
-                font-size: 12px;
-            }
-
-            .mcq-options {
-                grid-template-columns: 1fr;
+                padding: 0;
             }
         }
     </style>
@@ -678,247 +369,142 @@
     </div>
     <div class="app">
         <div id="selection-view">
-            <div class="logo-badge"><span class="dot"></span> CBSE Question Bank</div>
-            <h1 class="hero-title">CBSE Question Paper</h1>
-            <p class="hero-sub">Authentic CBSE Class IX final exam papers following the 2025-26 rationalised syllabus —
-                proper sections, marks, and official patterns.</p>
-            <p class="hero-badge">Based on CBSE Official Sample Papers • Rationalised Syllabus 2025-26</p>
-
+            <h1 class="hero-title">CBSE Paper Creator</h1>
+            <p class="hero-sub">Premium 2025-26 Academic Year • Logic Fixed • Diagrams Verified</p>
             <div class="form-card">
-                <label class="form-label">Step 1: Choose Subject</label>
-                <div class="subject-grid" id="subject-grid">
-                    <button class="subject-btn" data-subject="Maths" onclick="selectSubject(this)"><span
-                            class="icon">π</span>Mathematics<span class="sub-code">041</span></button>
-                    <button class="subject-btn" data-subject="Science" onclick="selectSubject(this)"><span
-                            class="icon">⚛</span>Science<span class="sub-code">086</span></button>
-                    <button class="subject-btn" data-subject="Social Science" onclick="selectSubject(this)"><span
-                            class="icon">🌍</span>Social Sci<span class="sub-code">087</span></button>
-                    <button class="subject-btn" data-subject="English" onclick="selectSubject(this)"><span
-                            class="icon">Aa</span>English<span class="sub-code">184</span></button>
-                    <button class="subject-btn" data-subject="Hindi" onclick="selectSubject(this)"><span
-                            class="icon">अ</span>हिन्दी 'अ'<span class="sub-code">002</span></button>
-                    <button class="subject-btn" data-subject="Sanskrit" onclick="selectSubject(this)"><span
-                            class="icon">🕉️</span>संस्कृतम्<span class="sub-code">122</span></button>
-                    <button class="subject-btn" data-subject="Computer Science" onclick="selectSubject(this)"><span
-                            class="icon">💻</span>IT<span class="sub-code">402</span></button>
+                <label class="form-label">1. Select Subject</label>
+                <div class="subject-grid">
+                    <button class="subject-btn" onclick="setSubject(this, 'Maths')">π Maths</button>
+                    <button class="subject-btn" onclick="setSubject(this, 'Science')">⚛ Science</button>
+                    <button class="subject-btn" onclick="setSubject(this, 'Social Science')">🌍 SST</button>
+                    <button class="subject-btn" onclick="setSubject(this, 'English')">Aa English</button>
+                    <button class="subject-btn" onclick="setSubject(this, 'Hindi')">अ हिन्दी</button>
+                    <button class="subject-btn" onclick="setSubject(this, 'Sanskrit')">🕉 संस्कृतम्</button>
                 </div>
-
-                <label class="form-label">Step 2: Selection Mode</label>
+                <label class="form-label">2. Difficulty Level</label>
                 <div class="difficulty-selector">
-                    <button class="diff-btn active" onclick="selectDifficulty(this, 'Mixed')">Mixed (Balanced)</button>
-                    <button class="diff-btn" onclick="selectDifficulty(this, 'Easy')">Easy Level</button>
-                    <button class="diff-btn" onclick="selectDifficulty(this, 'Medium')">Medium Level</button>
-                    <button class="diff-btn" onclick="selectDifficulty(this, 'Hard')">Hard Level</button>
+                    <button class="diff-btn active" onclick="setDiff(this, 'Mixed')">Mixed</button>
+                    <button class="diff-btn" onclick="setDiff(this, 'Easy')">Easy</button>
+                    <button class="diff-btn" onclick="setDiff(this, 'Medium')">Medium</button>
+                    <button class="diff-btn" onclick="setDiff(this, 'Hard')">Hard</button>
                 </div>
-
-                <button class="create-btn" id="create-btn" onclick="createPaper()" disabled>
-                    <span class="spinner-inline"></span>
-                    <span class="btn-text">📄 Create Question Paper</span>
-                </button>
-                <div class="error-msg" id="error-msg"></div>
+                <button class="create-btn" id="create-btn" onclick="createPaper()" disabled>Generate Question
+                    Paper</button>
+                <div id="error-msg" style="color:#f87171; margin-top:10px; font-size:0.8rem; display:none;"></div>
             </div>
         </div>
-
         <div id="paper-view">
-            <div class="paper-actions no-print">
-                <button class="action-btn" onclick="goBack()">← Back</button>
-                <button class="action-btn" onclick="createPaper()">🔄 New Paper</button>
-                <button class="action-btn primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+            <div class="paper-actions">
+                <button class="action-btn" onclick="location.reload()">← Restart</button>
+                <button class="action-btn" onclick="window.print()"
+                    style="background:var(--accent); color:white; border:none;">Print Paper</button>
             </div>
-            <div class="paper" id="paper-content"></div>
+            <div id="paper-content"></div>
         </div>
     </div>
 
     <script>
-        const SUPABASE_URL = "https://wfegooasrtbhpursgcvh.supabase.co";
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s";
-        const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-        let selectedSubject = null;
-        let selectedDifficulty = 'Mixed';
+        const db = window.supabase.createClient("https://wfegooasrtbhpursgcvh.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s");
+        let selectedSubject = null; let selectedDiff = 'Mixed';
 
         const BLUEPRINTS = {
             'Maths': {
-                code: '041', fullName: 'Mathematics', time: '3 Hours', maxMarks: 80,
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'MCQ / Assertion-Reasoning', perQ: 1, count: 20, diff: 'Easy', note: '1 mark each. Includes 18 MCQs and 2 A-R Questions.' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (VSA-I)', perQ: 2, count: 5, diff: 'Medium', note: '2 marks each. Answer in 30-50 words.', hasOR: 1 },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (SA-II)', perQ: 3, count: 6, diff: 'Medium', note: '3 marks each. Answer in 50-80 words.', hasOR: 1 },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer (LA)', perQ: 5, count: 4, diff: 'Hard', note: '5 marks each. Answer in 80-120 words.', hasOR: 1 },
-                    { id: 'E', title: 'Section E', desc: 'Case Study / Source Based', perQ: 4, count: 3, diff: 'Hard', note: '4 marks each. 3 Case studies with sub-parts.' }
-                ],
-                instructions: ['Total 38 questions in five sections A-E.', 'Section A: Q1-20 (1m each).', 'Section B: Q21-25 (2m each).', 'Section C: Q26-31 (3m each).', 'Section D: Q32-35 (5m each).', 'Section E: Q36-38 (4m each) Case Studies.']
+                code: '041', fullName: 'Mathematics', time: '3h', maxMarks: 80, sections: [
+                    { id: 'A', title: 'Section A', desc: 'MCQ (1m)', perQ: 1, count: 20 },
+                    { id: 'B', title: 'Section B', desc: 'Short Answer I (SA-I) (2m)', perQ: 2, count: 5 },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer II (SA-II) (3m)', perQ: 3, count: 6 },
+                    { id: 'D', title: 'Section D', desc: 'LA (5m)', perQ: 5, count: 4 },
+                    { id: 'E', title: 'Section E', desc: 'Case Study (4m)', perQ: 4, count: 3 }
+                ], inst: ['38 questions.', 'Sections A-E.', 'Map work not required.']
             },
             'Science': {
-                code: '086', fullName: 'Science', time: '3 Hours', maxMarks: 80,
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'MCQ (Objective Type)', perQ: 1, count: 20, diff: 'Easy', note: '1 mark each. Includes Assertion-Reasoning.' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer Questions', perQ: 2, count: 6, diff: 'Medium', note: '2 marks each. Answer in 30-50 words.', hasOR: 2 },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer Questions', perQ: 3, count: 7, diff: 'Medium', note: '3 marks each. Answer in 50-80 words.', hasOR: 2 },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer Questions', perQ: 5, count: 3, diff: 'Hard', note: '5 marks each. Answer with labelled diagrams.', hasOR: 2 },
-                    { id: 'E', title: 'Section E', desc: 'Case Study Based Questions', perQ: 4, count: 3, diff: 'Hard', note: '4 marks each. Assessment based on case scenarios.' }
-                ],
-                instructions: ['Total 39 questions in five sections.', 'Section A: 20 MCQs.', 'Section B: 6 questions (2m).', 'Section C: 7 questions (3m).', 'Section D: 3 questions (5m).', 'Section E: 3 case-based (4m).']
+                code: '086', fullName: 'Science', time: '3h', maxMarks: 80, sections: [
+                    { id: 'A', title: 'Section A', desc: 'MCQ (1m)', perQ: 1, count: 20 },
+                    { id: 'B', title: 'Section B', desc: 'VSA (2m)', perQ: 2, count: 6 },
+                    { id: 'C', title: 'Section C', desc: 'SA (3m)', perQ: 3, count: 7 },
+                    { id: 'D', title: 'Section D', desc: 'LA (5m)', perQ: 5, count: 3 },
+                    { id: 'E', title: 'Section E', desc: 'Case Based (4m)', perQ: 4, count: 3 }
+                ], inst: ['39 questions.', 'Sections A-E.', 'Label diagrams wherever necessary.']
             },
             'Social Science': {
-                code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'MCQ (1 mark each)', perQ: 1, count: 20, diff: 'Easy', note: '20 Objective type questions.' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (2 marks)', perQ: 2, count: 4, diff: 'Medium', note: 'Answer in 40 words.', hasOR: 1 },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (3 marks)', perQ: 3, count: 5, diff: 'Medium', note: 'Answer in 60 words.', hasOR: 1 },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer (5 marks)', perQ: 5, count: 4, diff: 'Hard', note: 'Answer in 120 words.', hasOR: 1 },
-                    { id: 'E', title: 'Section E', desc: 'Case Based Questions (4 marks)', perQ: 4, count: 3, diff: 'Hard', note: 'Source/Passage based questions.' },
-                    { id: 'F', title: 'Section F', desc: 'Map Based Question (5 marks)', perQ: 5, count: 1, diff: 'Medium', note: '2 marks from History, 3 from Geography.' }
-                ],
-                instructions: ['Total 37 questions across sections A-F.', 'Map work is compulsory.', 'Section A: Q1-20 (1m).', 'Section B: Q21-24 (2m).', 'Section C: Q25-29 (3m).', 'Section D: Q30-33 (5m).', 'Section E: Q34-36 (4m).', 'Section F: Q37 (Map Work).']
+                code: '087', fullName: 'Social Science', time: '3h', maxMarks: 80, sections: [
+                    { id: 'A', title: 'Section A', desc: 'MCQ (1m)', perQ: 1, count: 20 },
+                    { id: 'B', title: 'Section B', desc: 'VSA (2m)', perQ: 2, count: 4 },
+                    { id: 'C', title: 'Section C', desc: 'SA (3m)', perQ: 3, count: 5 },
+                    { id: 'D', title: 'Section D', desc: 'LA (5m)', perQ: 5, count: 4 },
+                    { id: 'E', title: 'Section E', desc: 'Case Based (4m)', perQ: 4, count: 3 },
+                    { id: 'F', title: 'Section F', desc: 'Map Based (5m)', perQ: 5, count: 1 }
+                ], inst: ['37 questions.', 'Map is compulsory.']
             },
             'English': {
-                code: '184', fullName: 'English Language & Literature', time: '3 Hours', maxMarks: 80,
-                sections: [
-                    { id: 'A', title: 'Section A — Reading Skills', desc: '20 Marks', perQ: 1, count: 20, diff: 'Easy', note: 'Two unseen passages (10 marks each).' },
-                    { id: 'B', title: 'Section B — Writing Skills & Grammar', desc: '20 Marks', perQ: 0, count: 0, diff: 'Medium', note: '10m Grammar, 10m Composition.', fixedMarks: 20 },
-                    { id: 'C', title: 'Section C — Language through Literature', desc: '40 Marks', perQ: 0, count: 0, diff: 'Hard', note: 'Extracts + Textbook Questions.', fixedMarks: 40 }
-                ],
-                instructions: ['This paper is divided into three sections A, B & C.', 'Section A: Reading Skills (20m).', 'Section B: Writing Skills & Grammar (20m).', 'Section C: Literature (40m).']
+                code: '184', fullName: 'English Literature', time: '3h', maxMarks: 80, sections: [
+                    { id: 'A', title: 'Section A', desc: 'Reading Skills (20m)', perQ: 1, count: 20 },
+                    { id: 'B', title: 'Section B', desc: 'Writing/Grammar (20m)', perQ: 0, count: 0, fixed: 20 },
+                    { id: 'C', title: 'Section C', desc: 'Literature (40m)', perQ: 0, count: 0, fixed: 40 }
+                ], inst: ['Three sections A, B, C.']
             },
             'Hindi': {
-                code: '002', fullName: 'हिन्दी कोर्स \'अ\'', time: '3 घण्टे', maxMarks: 80, lang: 'hi',
-                sections: [
-                    { id: 'अ', title: 'खण्ड अ — बहुविकल्पीय प्रश्न', desc: '40 अंक', perQ: 1, count: 40, diff: 'Easy', note: 'अपठित गद्यांश एवं व्यावहारिक व्याकरण।' },
-                    { id: 'ब', title: 'खण्ड ब — वर्णनात्मक प्रश्न', desc: '40 अंक', perQ: 0, count: 0, diff: 'Medium', note: 'पाठ्यपुस्तक एवं रचनात्मक लेखन।', fixedMarks: 40 }
-                ],
-                instructions: ['इस प्रश्न-पत्र में दो खण्ड हैं: अ और ब।', 'खण्ड अ में बहुविकल्पीय प्रश्न हैं।', 'खण्ड ब में वर्णनात्मक प्रश्न हैं।']
+                code: '002', fullName: 'हिन्दी कोर्स \'अ\'', time: '3h', maxMarks: 80, lang: 'hi', sections: [
+                    { id: 'अ', title: 'खण्ड अ — बहुविकल्पीय', perQ: 1, count: 40 },
+                    { id: 'ब', title: 'खण्ड ब — वर्णनात्मक', perQ: 0, count: 0, fixed: 40 }
+                ], inst: ['दो खण्ड अ और ब ।']
             },
             'Sanskrit': {
-                code: '122', fullName: 'संस्कृतम्', time: '3 होराः', maxMarks: 80, lang: 'sa',
-                sections: [
-                    { id: 'क', title: 'खण्डः क — अपठितबोधनम्', desc: '१० अङ्काः', perQ: 1, count: 10, diff: 'Easy', note: 'एकपदेन पूर्णवाक्येन च उत्तराणि।' },
-                    { id: 'ख', title: 'खण्डः ख — रचनात्मककार्यम्', desc: '१५ अङ्काः', perQ: 0, count: 0, diff: 'Hard', note: 'पत्रलेखनम्, कथालेखनम् च।', fixedMarks: 15 },
-                    { id: 'ग', title: 'खण्डः ग — अनुप्रयुक्तव्याकरणम्', desc: '२५ अङ्काः', perQ: 1, count: 25, diff: 'Easy', note: 'सन्धि, शब्दरूप, धातुरूप च।' },
-                    { id: 'घ', title: 'खण्डः घ — पठितबोधनम्', desc: '३० अङ्काः', perQ: 0, count: 0, diff: 'Medium', note: 'पाठ्यपुस्तकात् प्रश्नाः।', fixedMarks: 30 }
-                ],
-                instructions: ['इदं प्रश्नपत्रं चतुर्षु खण्डेषु विभक्तम् अस्ति क-घ।', 'खण्डः क: अपठितबोधनम्।', 'खण्डः ख: रचनात्मककार्यम्।', 'खण्डः ग: अनुप्रयुक्तव्याकरणम्।', 'खण्डः घ: पठितबोधनम्।']
-            },
-            'Computer Science': {
-                code: '402', fullName: 'Information Technology', time: '2:30 Hours', maxMarks: 50,
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'Employability Skills (10m)', perQ: 1, count: 10, diff: 'Easy', note: 'Objective questions.' },
-                    { id: 'B', title: 'Section B', desc: 'Subject Specific Skills (40m)', perQ: 2, count: 20, diff: 'Medium', note: 'Objective and Short Answers.', fixedMarks: 40 }
-                ],
-                instructions: ['Total marks 50.', 'Section A contains MCQ/Objective questions.', 'Section B contains Subjective and Objective questions.']
+                code: '122', fullName: 'संस्कृतम्', time: '3h', maxMarks: 80, lang: 'sa', sections: [
+                    { id: 'क', title: 'खण्डः क — अपठितबोधनम्', perQ: 1, count: 10 },
+                    { id: 'ख', title: 'खण्डः ख — रचनात्मककार्यम्', perQ: 0, count: 0, fixed: 15 },
+                    { id: 'ग', title: 'खण्डः ग — अनुप्रयुक्तव्याकरणम्', perQ: 1, count: 25 },
+                    { id: 'घ', title: 'खण्डः घ — पठितबोधनम्', perQ: 0, count: 0, fixed: 30 }
+                ], inst: ['चत्वारः खण्डाः सन्ति ।']
             }
         };
 
-        function selectSubject(btn) {
+        function setSubject(btn, s) {
             document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selectedSubject = btn.dataset.subject;
+            btn.classList.add('active'); selectedSubject = s;
             document.getElementById('create-btn').disabled = false;
         }
-
-        function selectDifficulty(btn, level) {
+        function setDiff(btn, d) {
             document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selectedDifficulty = level;
+            btn.classList.add('active'); selectedDiff = d;
         }
 
-        function shuffle(arr) {
-            const a = [...arr];
-            for (let i = a.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
+        function parseFig(text) {
+            const m = text.match(/\[Image:\s*([^\]]+)\]/i);
+            if (m) return { url: m[1].trim(), clean: text.replace(m[0], '').trim() };
+            return { url: null, clean: text };
         }
 
-        function parseMCQ(text) {
-            const optRegex = /\(([A-Da-d])\)\s*([^\(]*?)(?=\([A-Da-d]\)|$)/g;
-            const opts = []; let firstOpt = text.search(/\([A-Da-d]\)\s/);
-            if (firstOpt > 0) {
-                const mainQ = text.substring(0, firstOpt).trim();
-                const optPart = text.substring(firstOpt); let m;
-                while ((m = optRegex.exec(optPart)) !== null) opts.push({ label: m[1].toUpperCase(), text: m[2].trim() });
-                return { question: mainQ, options: opts };
-            }
-            return null;
-        }
+        function renderQ(q, num, marks) {
+            const fig = parseFig(q.question_text || '');
+            let url = fig.url || q.image_url;
+            let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body"><div>${fig.clean}</div>`;
+            if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
 
-        function parseSubParts(text) {
-            const subRegex = /\(([a-z]|[iv]+)\)\s*([^\(]*?)(?=\([a-z]\)|\([iv]+\)|$)/g;
-            const parts = []; let firstSub = text.search(/\([a-z]\)\s/);
-            if (firstSub > 0) {
-                const mainQ = text.substring(0, firstSub).trim();
-                const subPart = text.substring(firstSub); let sm;
-                while ((sm = subRegex.exec(subPart)) !== null) {
-                    let pt = sm[2].trim(), pm = '';
-                    const marksMatch = pt.match(/\[(\d+)\]\s*$/);
-                    if (marksMatch) { pm = marksMatch[1]; pt = pt.replace(/\[\d+\]\s*$/, '').trim(); }
-                    parts.push({ label: sm[1], text: pt, marks: pm });
-                }
-                return { question: mainQ, parts: parts };
-            }
-            return null;
-        }
-
-        function parseFigure(text) {
-            const imgRegex = /\[Image:\s*([^\]]+)\]/i;
-            const figRegex = /\[Figure:\s*([^\]]+)\]/i;
-            const im = text.match(imgRegex);
-            const fm = text.match(figRegex);
-            let url = null, caption = null, marker = null;
-            if (im) { url = im[1].trim(); marker = im[0]; }
-            else if (fm) { caption = fm[1].trim(); marker = fm[0]; if (caption.startsWith('http')) { url = caption; caption = "Diagram"; } }
-            if (marker) return { text: text.replace(marker, '').trim(), figure: caption, url: url };
-            return null;
-        }
-
-        function renderQuestion(q, num, marks) {
-            const raw = q.question_text || '';
-            const figData = parseFigure(raw);
-            const cleanText = figData ? figData.text : raw;
-            const url = (figData && figData.url) ? figData.url : (q.image_url || '');
-
-            let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
-
-            const mcq = parseMCQ(cleanText);
-            if (mcq) {
-                html += `<div>${mcq.question}</div>`;
-                if (url || (figData && figData.figure)) {
-                    html += `<div class="figure-box">`;
-                    if (url) html += `<img src="${url}" class="q-image" alt="Diagram">`;
-                    if (figData && figData.figure) html += `<div class="figure-label" style="font-size:10px; margin-top:5px">${figData.figure}</div>`;
-                    else if (!url) html += `<div class="figure-icon">🖼️</div><div class="figure-label">Diagram Plate</div>`;
+            // Basic MCQ parse
+            if (fig.clean.includes('(A)')) {
+                const parts = fig.clean.split('(A)');
+                const main = parts[0];
+                const optsStr = '(A)' + parts[1];
+                const opts = optsStr.match(/\([A-D]\)[^\(]*/g);
+                if (opts) {
+                    html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body"><div>${main}</div>`;
+                    if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
+                    html += `<div class="mcq-options">`;
+                    opts.forEach(o => html += `<div class="mcq-opt">${o.trim()}</div>`);
                     html += `</div>`;
                 }
-                const singleCol = mcq.options.some(o => o.text.length > 35);
-                html += `<div class="mcq-options${singleCol ? ' single-col' : ''}">`;
-                mcq.options.forEach(o => { html += `<div class="mcq-opt">(${o.label}) ${o.text}</div>`; });
-                html += '</div>';
-            } else {
-                const sub = parseSubParts(cleanText);
-                if (sub) {
-                    html += `<div>${sub.question}</div>`;
-                    if (url || (figData && figData.figure)) {
-                        html += `<div class="figure-box">`;
-                        if (url) html += `<img src="${url}" class="q-image" alt="Diagram">`;
-                        if (figData && figData.figure) html += `<div class="figure-label" style="font-size:10px; margin-top:5px">${figData.figure}</div>`;
-                        else if (!url) html += `<div class="figure-icon">🖼️</div><div class="figure-label">Diagram Plate</div>`;
-                        html += `</div>`;
-                    }
+            }
+            // Sub-parts parse
+            if (fig.clean.includes('(a)') && fig.clean.includes('(b)')) {
+                const main = fig.clean.split('(a)')[0];
+                const subs = fig.clean.substring(main.length).match(/\([a-z]\)[^\(]*/g);
+                if (subs) {
+                    html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body"><div>${main}</div>`;
+                    if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
                     html += `<div class="sub-parts">`;
-                    sub.parts.forEach(p => {
-                        html += `<div class="sub-part"><span class="sub-part-label">(${p.label})</span><span class="sub-part-text">${p.text}</span>${p.marks ? `<span class="sub-part-marks">[${p.marks}]</span>` : ''}</div>`;
-                    });
+                    subs.forEach(s => html += `<div class="sub-part">${s.trim()}</div>`);
                     html += `</div>`;
-                } else {
-                    html += `<div>${cleanText}</div>`;
-                    if (url || (figData && figData.figure)) {
-                        html += `<div class="figure-box">`;
-                        if (url) html += `<img src="${url}" class="q-image" alt="Diagram">`;
-                        if (figData && figData.figure) html += `<div class="figure-label" style="font-size:10px; margin-top:5px">${figData.figure}</div>`;
-                        else if (!url) html += `<div class="figure-icon">🖼️</div><div class="figure-label">Diagram Plate</div>`;
-                        html += `</div>`;
-                    }
                 }
             }
             html += `</div><span class="q-marks">[${marks}]</span></div>`;
@@ -926,87 +512,48 @@
         }
 
         async function createPaper() {
-            const btn = document.getElementById('create-btn');
-            const err = document.getElementById('error-msg');
-            err.style.display = 'none'; btn.classList.add('loading'); btn.disabled = true;
+            const btn = document.getElementById('create-btn'); const err = document.getElementById('error-msg');
+            btn.disabled = true; btn.textContent = 'Generating...'; err.style.display = 'none';
             try {
                 const bp = BLUEPRINTS[selectedSubject];
-                const { data: allQ, error } = await db.from('question_bank').select('*').eq('subject', selectedSubject).limit(1500);
+                const { data: allQ, error } = await db.from('question_bank').select('*').eq('subject', selectedSubject).limit(1000);
                 if (error) throw error;
-                if (!allQ || allQ.length === 0) throw new Error(`Empty question bank for ${selectedSubject}`);
+                const pool = allQ.sort(() => Math.random() - 0.5);
 
-                let easy = shuffle(allQ.filter(q => (q.difficulty || '').toLowerCase() === 'easy'));
-                let med = shuffle(allQ.filter(q => (q.difficulty || '').toLowerCase() === 'medium'));
-                let hard = shuffle(allQ.filter(q => (q.difficulty || '').toLowerCase() === 'hard'));
+                let html = `<div class="paper ${bp.lang || ''}">
+                    <div class="paper-header">
+                        <div style="font-size:0.7rem; letter-spacing:0.1em; color:#666">CENTRAL BOARD OF SECONDARY EDUCATION</div>
+                        <div class="exam-title">${bp.fullName} - Class IX</div>
+                        <div style="font-size:0.8rem">Study Vault | Academic Year 2025-26</div>
+                    </div>
+                    <div class="paper-meta"><span>Time: ${bp.time}</span><span>Marks: ${bp.maxMarks}</span></div>
+                    <div class="paper-instructions"><strong>General Instructions:</strong><ul>`;
+                bp.inst.forEach(i => html += `<li>${i}</li>`);
+                html += `</ul></div>`;
 
-                const used = new Set(); let globalNum = 0;
-
-                function get(pool, n) {
-                    const r = [];
-                    for (let i = 0; i < n; i++) {
-                        const idx = pool.findIndex(x => !used.has(x.id));
-                        if (idx !== -1) { used.add(pool[idx].id); r.push(pool.splice(idx, 1)[0]); }
-                    }
-                    return r;
-                }
-
-                function getAny(n) {
-                    let r = [];
-                    if (selectedDifficulty === 'Easy') r = get(easy, n);
-                    else if (selectedDifficulty === 'Medium') r = get(med, n);
-                    else if (selectedDifficulty === 'Hard') r = get(hard, n);
-                    else r = get(shuffle([...easy, ...med, ...hard]), n);
-
-                    if (r.length < n) r = r.concat(get(shuffle([...easy, ...med, ...hard]), n - r.length));
-                    return r;
-                }
-
-                const content = document.getElementById('paper-content');
-                const isHi = bp.lang === 'hi'; const isSa = bp.lang === 'sa';
-                content.className = `paper${isHi ? ' hindi-paper' : ''}${isSa ? ' sanskrit-paper' : ''}`;
-
-                let html = `<div class="paper-header">
-                    <div class="board-name">Central Board of Secondary Education</div>
-                    <div class="school-name">STUDY VAULT TERMINAL EXAMINATION (2025-26)</div>
-                    <div class="exam-title">${bp.fullName} [Class IX]</div>
-                    <div class="exam-session">Subject Code: ${bp.code} | Rationalised Curriculum</div>
-                </div>
-                <div class="paper-meta-row bordered">
-                    <span>Time Allowed: ${bp.time}</span>
-                    <span>Max Marks: ${bp.maxMarks}</span>
-                </div>
-                <div class="paper-instructions">
-                    <h4>${isHi ? 'निर्देश' : 'General Instructions'}</h4><ol>`;
-                bp.instructions.forEach(ins => { html += `<li>${ins}</li>`; });
-                html += `</ol></div>`;
-
+                let gNum = 0; let used = new Set();
                 bp.sections.forEach(sec => {
-                    html += `<div class="section-header">${sec.title} — ${sec.desc}<span class="section-info">${sec.note}</span></div>`;
+                    html += `<div class="section-header">${sec.title} — ${sec.desc || ''}</div>`;
                     if (sec.count > 0) {
-                        const qs = getAny(sec.count);
-                        let orCount = 0;
-                        qs.forEach((q, idx) => {
-                            globalNum++;
-                            html += renderQuestion(q, globalNum, sec.perQ);
-                            if (sec.hasOR && orCount < sec.hasOR && idx % 2 === 0 && idx < qs.length - 1) {
-                                html += `<div class="or-divider">OR</div>`; orCount++;
-                            }
-                        });
-                    } else if (sec.fixedMarks) {
-                        html += `<div style="text-align:center; padding:15px; font-style:italic">Questions for this section are evaluated based on fixed weightage of ${sec.fixedMarks} marks according to CBSE 2025-26 pattern.</div>`;
+                        let count = 0;
+                        for (let q of pool) {
+                            if (used.has(q.id)) continue;
+                            if (selectedDiff !== 'Mixed' && q.difficulty !== selectedDiff) continue;
+                            gNum++; count++; used.add(q.id);
+                            html += renderQ(q, gNum, sec.perQ);
+                            if (count >= sec.count) break;
+                        }
+                    } else if (sec.fixed) {
+                        html += `<div style="text-align:center; padding:10px; font-style:italic">Questions worth ${sec.fixed} marks from prescribed text and grammar.</div>`;
                     }
                 });
-
-                html += `<div class="paper-footer">*** End of Question Paper — © Study Vault AI 2026 ***</div>`;
-                content.innerHTML = html;
+                html += `</div>`;
+                document.getElementById('paper-content').innerHTML = html;
                 document.getElementById('selection-view').style.display = 'none';
                 document.getElementById('paper-view').style.display = 'block';
-                window.scrollTo(0, 0);
             } catch (e) { err.textContent = e.message; err.style.display = 'block'; }
-            finally { btn.classList.remove('loading'); btn.disabled = false; }
+            finally { btn.disabled = false; btn.textContent = 'Generate Question Paper'; }
         }
-
-        function goBack() { document.getElementById('paper-view').style.display = 'none'; document.getElementById('selection-view').style.display = 'block'; }
     </script>
 </body>
 

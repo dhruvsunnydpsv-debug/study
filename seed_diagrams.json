@@ -1,0 +1,58 @@
+[
+    {
+        "question_text": "Observe the following diagram of a plant cell. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Onion_cells_2.jpg/640px-Onion_cells_2.jpg] (a) Identify 'X' (the outer layer). [1] (b) What is the function of the large central vacuole? [2] (c) Name the organelle responsible for photosynthesis. [1]",
+        "subject": "Science",
+        "chapter": "The Fundamental Unit of Life",
+        "difficulty": "Medium",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "Look at the given circuit diagram. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Series_circuit.svg/640px-Series_circuit.svg.png] (a) Are the bulbs connected in series or parallel? [1] (b) What happens if one bulb fuses? [1] (c) If the battery is 9V and each bulb is 3Ω, find the current. [2]",
+        "subject": "Science",
+        "chapter": "Electricity",
+        "difficulty": "Hard",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "The diagram shows the structure of an atom. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Stylised_Lithium_Atom.svg/640px-Stylised_Lithium_Atom.svg.png] (a) Identify the element. [1] (b) How many protons are in the nucleus? [1] (c) Write the electronic configuration. [2]",
+        "subject": "Science",
+        "chapter": "Structure of Atom",
+        "difficulty": "Medium",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "Study the experimental setup below. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Distillation_setup.svg/640px-Distillation_setup.svg.png] (a) Name the process shown. [1] (b) What is the purpose of the condenser? [1] (c) Which type of mixtures can be separated using this method? [2]",
+        "subject": "Science",
+        "chapter": "Is Matter Around Us Pure",
+        "difficulty": "Hard",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "In the following triangle ABC, find the value of x. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Pythagorean.svg/640px-Pythagorean.svg.png] (a) State the theorem used. [1] (b) Calculate AC if AB = 3 and BC = 4. [2] (c) Is this a right-angled triangle? [1]",
+        "subject": "Maths",
+        "chapter": "Triangles",
+        "difficulty": "Easy",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "Find the area of the shaded region. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Circle_area_derivation.svg/640px-Circle_area_derivation.svg.png] (a) Write the formula for area of a circle. [1] (b) If radius is 7cm, find the area. [2] (c) What is the circumference? [1]",
+        "subject": "Maths",
+        "chapter": "Circles",
+        "difficulty": "Medium",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "On the given map of India, identify the marked river. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/India_rivers_map.png/640px-India_rivers_map.png] (a) Name the river marked 'A'. [1] (b) Which state does it originate from? [1] (c) Name a major tributary of this river. [1]",
+        "subject": "Social Science",
+        "chapter": "Drainage",
+        "difficulty": "Medium",
+        "is_rationalised": true
+    },
+    {
+        "question_text": "The diagram represents the water cycle. [Image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Water_Cycle_Blank.png/640px-Water_Cycle_Blank.png] (a) Identify process '1' (ocean to air). [1] (b) What is transpiration? [1] (c) How do clouds form? [2]",
+        "subject": "Science",
+        "chapter": "Natural Resources",
+        "difficulty": "Easy",
+        "is_rationalised": true
+    }
+]
