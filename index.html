@@ -97,6 +97,7 @@
             font-weight: 800;
             background: linear-gradient(135deg, #f0f0f5 10%, #a78bfa 55%, #06b6d4 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.15;
             margin-bottom: 10px;
@@ -476,37 +477,45 @@
         }
 
         function renderQ(q, num, marks) {
-            const fig = parseFig(q.question_text || '');
+            const raw = q.question_text || '';
+            const fig = parseFig(raw);
             let url = fig.url || q.image_url;
-            let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body"><div>${fig.clean}</div>`;
-            if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
+            let text = fig.clean;
 
-            // Basic MCQ parse
-            if (fig.clean.includes('(A)')) {
-                const parts = fig.clean.split('(A)');
-                const main = parts[0];
-                const optsStr = '(A)' + parts[1];
-                const opts = optsStr.match(/\([A-D]\)[^\(]*/g);
-                if (opts) {
-                    html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body"><div>${main}</div>`;
-                    if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
-                    html += `<div class="mcq-options">`;
-                    opts.forEach(o => html += `<div class="mcq-opt">${o.trim()}</div>`);
+            let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
+
+            // Check for MCQ
+            const mcq = text.match(/\([A-D]\)/);
+            if (mcq) {
+                const parts = text.split(/\([A-A]\)/); // Simplified split
+                // More robust MCQ parsing
+                const mainText = text.split('(A)')[0];
+                const options = text.substring(mainText.length).match(/\([A-D]\)[^\(]*/g);
+
+                html += `<div>${mainText}</div>`;
+                if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
+                if (options) {
+                    html += `<div class="mcq-options${options.some(o => o.length > 30) ? ' single-col' : ''}">`;
+                    options.forEach(o => html += `<div class="mcq-opt">${o.trim()}</div>`);
                     html += `</div>`;
                 }
-            }
-            // Sub-parts parse
-            if (fig.clean.includes('(a)') && fig.clean.includes('(b)')) {
-                const main = fig.clean.split('(a)')[0];
-                const subs = fig.clean.substring(main.length).match(/\([a-z]\)[^\(]*/g);
+            } else if (text.includes('(a)') && text.includes('(b)')) {
+                // Sub-parts
+                const mainText = text.split('(a)')[0];
+                const subs = text.substring(mainText.length).match(/\([a-z]\)[^\(]*/g);
+
+                html += `<div>${mainText}</div>`;
+                if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
                 if (subs) {
-                    html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body"><div>${main}</div>`;
-                    if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
                     html += `<div class="sub-parts">`;
                     subs.forEach(s => html += `<div class="sub-part">${s.trim()}</div>`);
                     html += `</div>`;
                 }
+            } else {
+                html += `<div>${text}</div>`;
+                if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram"></div>`;
             }
+
             html += `</div><span class="q-marks">[${marks}]</span></div>`;
             return html;
         }
@@ -535,9 +544,16 @@
                 bp.sections.forEach(sec => {
                     html += `<div class="section-header">${sec.title} — ${sec.desc || ''}</div>`;
                     if (sec.count > 0) {
+                        // DIAGRAM BIAS: Prioritize questions with [Image: for Case Studies and Science D
+                        let sectionPool = pool.filter(q => !used.has(q.id));
+                        if (sec.id === 'E' || (selectedSubject === 'Science' && sec.id === 'D')) {
+                            const diagPool = sectionPool.filter(q => q.question_text.includes('[Image:') || q.image_url);
+                            const otherPool = sectionPool.filter(q => !(q.question_text.includes('[Image:') || q.image_url));
+                            sectionPool = [...diagPool, ...otherPool];
+                        }
+
                         let count = 0;
-                        for (let q of pool) {
-                            if (used.has(q.id)) continue;
+                        for (let q of sectionPool) {
                             if (selectedDiff !== 'Mixed' && q.difficulty !== selectedDiff) continue;
                             gNum++; count++; used.add(q.id);
                             html += renderQ(q, gNum, sec.perQ);
