@@ -1,0 +1,27 @@
+name: AI PDF Hunter
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Runs once every day at midnight
+
+jobs:
+  hunt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install supabase requests
+
+      - name: Run Auto-Hunter
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SERPER_KEY: ${{ secrets.SERPER_KEY }}
+        run: python scraper.py
