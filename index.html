@@ -529,12 +529,14 @@
                 btn.disabled = true; btn.textContent = 'Generating...'; err.style.display = 'none';
                 try {
                     const bp = BLUEPRINTS[selectedSubject];
-                    const compositeSubject = `${selectedSubject}_${selectedGrade}`;
-                    const { data: allQ, error } = await db.from('question_bank')
-                        .select('*')
-                        .eq('subject', compositeSubject)
-                        .limit(2000);
-                    if (error) throw error;
+                    // Query BOTH plain subject name AND composite (Subject_9) to catch all data
+                    const [r1, r2] = await Promise.all([
+                        db.from('question_bank').select('*').eq('subject', selectedSubject).limit(1000),
+                        db.from('question_bank').select('*').eq('subject', `${selectedSubject}_${selectedGrade}`).limit(1000)
+                    ]);
+                    if (r1.error) throw r1.error;
+                    const allQ = [...(r1.data || []), ...(r2.data || [])];
+                    if (allQ.length === 0) throw new Error(`No questions found for ${selectedSubject}. The database may be empty.`);
                     const pool = allQ.sort(() => Math.random() - 0.5);
 
                     let html = `<div class="paper ${bp.lang || ''}">
