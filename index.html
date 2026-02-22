@@ -638,16 +638,94 @@
         const db = window.supabase.createClient("https://wfegooasrtbhpursgcvh.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s");
         let selectedGrade = 9, selectedSubject = null, selectedDiff = 'Mixed', paperCount = 0, currentAnswers = [];
 
-        // ============ EXACT CBSE 2025-26 BLUEPRINTS ============
+        // ============ VERIX AUDIT ENGINE — CBSE 2025-26 BLUEPRINTS ============
+        // Includes: weightage enforcement, diagram constraints, chapter→branch maps
+
+        // Chapter → Sub-branch/Weightage area maps (used for weighted selection)
+        const VERIX_MAPS = {
+            scienceBranch: {
+                'Motion': 'Physics', 'Force and Laws of Motion': 'Physics',
+                'Gravitation': 'Physics', 'Work and Energy': 'Physics', 'Sound': 'Physics',
+                'Matter in Our Surroundings': 'Chemistry', 'Is Matter Around Us Pure': 'Chemistry',
+                'Atoms and Molecules': 'Chemistry', 'Structure of the Atom': 'Chemistry',
+                'The Fundamental Unit of Life': 'Biology', 'Tissues': 'Biology',
+                'Improvement in Food Resources': 'Biology', 'Natural Resources': 'Biology'
+            },
+            mathsArea: {
+                'Number Systems': 'Number Systems', 'Polynomials': 'Algebra',
+                'Coordinate Geometry': 'Coordinate Geometry',
+                'Linear Equations in Two Variables': 'Algebra',
+                'Introduction to Euclids Geometry': 'Geometry', "Introduction to Euclid's Geometry": 'Geometry',
+                'Lines and Angles': 'Geometry', 'Triangles': 'Geometry',
+                'Quadrilaterals': 'Geometry', 'Circles': 'Geometry', 'Constructions': 'Geometry',
+                'Herons Formula': 'Mensuration', "Heron's Formula": 'Mensuration',
+                'Surface Areas and Volumes': 'Mensuration',
+                'Statistics': 'Statistics & Probability', 'Probability': 'Statistics & Probability'
+            },
+            sstArea: {
+                'The French Revolution': 'History',
+                'Socialism in Europe and the Russian Revolution': 'History',
+                'Nazism and the Rise of Hitler': 'History',
+                'Forest Society and Colonialism': 'History',
+                'India Size and Location': 'Geography', 'India: Size and Location': 'Geography',
+                'Physical Features of India': 'Geography', 'Drainage': 'Geography',
+                'Climate': 'Geography', 'Natural Vegetation and Wildlife': 'Geography',
+                'Population': 'Geography',
+                'What is Democracy Why Democracy': 'Political Science',
+                'What is Democracy': 'Political Science',
+                'Constitutional Design': 'Political Science',
+                'Electoral Politics': 'Political Science',
+                'Working of Institutions': 'Political Science',
+                'Democratic Rights': 'Political Science',
+                'Democracy in the Contemporary World': 'Political Science',
+                'The Story of Village Palampur': 'Economics',
+                'People as Resource': 'Economics',
+                'Poverty as a Challenge': 'Economics',
+                'Food Security in India': 'Economics'
+            }
+        };
+
+        // Diagram constraint definitions
+        const VERIX_DIAGRAMS = {
+            'Science': {
+                sections: ['D'],
+                types: {
+                    'Biology': 'labelled biological diagrams (cell, tissue, organ)',
+                    'Chemistry': 'atomic structure (Bohr model, electron config)',
+                    'Physics': 'force vector diagrams (free body, motion graphs)'
+                }
+            },
+            'Maths': {
+                sections: ['D'],
+                areas: ['Geometry', 'Mensuration'],
+                note: 'Structural proofs rendered visually'
+            },
+            'Social Science': {
+                sections: ['F'],
+                mapFocus: {
+                    'Geography': ['Climate', 'Drainage'],
+                    'History': ['The French Revolution', 'Socialism in Europe and the Russian Revolution']
+                }
+            },
+            'English': {
+                sections: ['B'],
+                analyticalParagraph: {
+                    visualCue: 'statistical chart or bar graph',
+                    instruction: 'Data interpretation visual prompt for Analytical Paragraph'
+                }
+            }
+        };
+
         const BLUEPRINTS = {
             'Maths': {
                 code: '041', fullName: 'Mathematics (Standard)', time: '3 Hours', maxMarks: 80,
                 totalQ: 38,
+                weightage: { 'Geometry': 27, 'Algebra': 20, 'Mensuration': 13, 'Number Systems': 10, 'Statistics & Probability': 6, 'Coordinate Geometry': 4 },
                 sections: [
                     { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
                     { id: 'B', title: 'Section B', desc: 'Very Short Answer (SA-I)', perQ: 2, count: 5, internalChoice: true },
                     { id: 'C', title: 'Section C', desc: 'Short Answer (SA-II)', perQ: 3, count: 6, internalChoice: true },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 4, internalChoice: true },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 4, internalChoice: true, diagramAreas: ['Geometry', 'Mensuration'] },
                     { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
                 ],
                 inst: [
@@ -666,11 +744,12 @@
             'Science': {
                 code: '086', fullName: 'Science', time: '3 Hours', maxMarks: 80,
                 totalQ: 39,
+                weightage: { 'Physics': 27, 'Chemistry': 27, 'Biology': 26 },
                 sections: [
                     { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer', perQ: 2, count: 6, internalChoice: true },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer', perQ: 3, count: 7, internalChoice: true },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 3, internalChoice: true },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (30–50 words)', perQ: 2, count: 6, internalChoice: true, wordLimit: '30-50' },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer (50–80 words)', perQ: 3, count: 7, internalChoice: true, wordLimit: '50-80' },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer (80–120 words)', perQ: 5, count: 3, internalChoice: true, wordLimit: '80-120', diagramRequired: true },
                     { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
                 ],
                 inst: [
@@ -689,13 +768,14 @@
             'Social Science': {
                 code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
                 totalQ: 37,
+                weightage: { 'History': 20, 'Geography': 20, 'Political Science': 20, 'Economics': 20 },
                 sections: [
                     { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true, wordLimit: '40' },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true, wordLimit: '60' },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true, wordLimit: '120' },
                     { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
-                    { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map' }
+                    { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map', diagramRequired: true, mapSplit: { History: 2, Geography: 3 }, mapFocus: { Geography: ['Climate', 'Drainage'], History: ['The French Revolution', 'Socialism in Europe and the Russian Revolution'] } }
                 ],
                 inst: [
                     'This question paper contains 37 questions. All questions are compulsory.',
@@ -713,12 +793,14 @@
             'English': {
                 code: '184', fullName: 'English Language & Literature', time: '3 Hours', maxMarks: 80,
                 totalQ: 11,
+                weightage: { 'Reading Skills': 20, 'Writing Skills & Grammar': 20, 'Literature': 40 },
                 sections: [
                     { id: 'A', title: 'Section A', desc: 'Reading Skills', perQ: 1, count: 20, qType: 'mcq' },
                     {
                         id: 'B', title: 'Section B', desc: 'Writing Skills & Grammar', perQ: 0, count: 0, fixed: 20, fixedSections: [
                             { label: 'Grammar (Gap filling, Editing, Transformation)', marks: 10, count: 10, perQ: 1, qType: 'mcq' },
-                            { label: 'Writing Skills — Descriptive Paragraph / Story / Diary Entry', marks: 10, fixedNote: 'Attempt questions as directed. Internal choice provided.' }
+                            { label: 'Analytical Paragraph (Data Interpretation)', marks: 5, fixedNote: '📊 Refer to the statistical chart/bar graph provided below and write an analytical paragraph (100-120 words).', injectVisual: true },
+                            { label: 'Descriptive Writing — Story / Diary Entry / Letter', marks: 5, fixedNote: 'Attempt questions as directed. Internal choice provided.' }
                         ]
                     },
                     {
@@ -906,6 +988,91 @@
             else { ak.style.display = 'none'; btn.textContent = 'Show Answer Key' }
         }
 
+        // ============ VERIX: Weighted Question Selection ============
+        function getQuestionBranch(q, subject) {
+            // Use the Verix field if available
+            if (q.sub_branch) return q.sub_branch;
+            if (q.weightage_area) return q.weightage_area;
+            // Fallback: look up chapter in VERIX_MAPS
+            const ch = q.chapter || '';
+            if (subject === 'Science') return VERIX_MAPS.scienceBranch[ch] || null;
+            if (subject === 'Maths') return VERIX_MAPS.mathsArea[ch] || null;
+            if (subject === 'Social Science') return VERIX_MAPS.sstArea[ch] || null;
+            return null;
+        }
+
+        function weightedSelect(pool, used, count, weightage, subject, diffFilter, opts = {}) {
+            // Selects questions proportionally by weightage areas
+            const selected = [];
+            if (!weightage || Object.keys(weightage).length === 0) {
+                // No weightage: just pick randomly
+                for (const q of pool) {
+                    if (used.has(q.id)) continue;
+                    if (diffFilter !== 'Mixed' && q.difficulty !== diffFilter) continue;
+                    selected.push(q); used.add(q.id);
+                    if (selected.length >= count) break;
+                }
+                return selected;
+            }
+
+            const totalWeight = Object.values(weightage).reduce((a, b) => a + b, 0);
+            const areaTargets = {};
+            let allocated = 0;
+            const areas = Object.keys(weightage);
+            areas.forEach((area, idx) => {
+                if (idx === areas.length - 1) {
+                    areaTargets[area] = count - allocated; // Remainder to last area
+                } else {
+                    const t = Math.round((weightage[area] / totalWeight) * count);
+                    areaTargets[area] = t;
+                    allocated += t;
+                }
+            });
+
+            // First pass: try to fill each area's quota
+            for (const [area, target] of Object.entries(areaTargets)) {
+                let filled = 0;
+                for (const q of pool) {
+                    if (used.has(q.id)) continue;
+                    if (diffFilter !== 'Mixed' && q.difficulty !== diffFilter) continue;
+                    const branch = getQuestionBranch(q, subject);
+                    if (branch === area) {
+                        // Diagram preference check
+                        if (opts.preferDiagram) {
+                            const hasDiag = q.diagram_required || (q.question_text || '').includes('[Image:');
+                            if (!hasDiag) continue; // Skip non-diagram Qs on first pass
+                        }
+                        selected.push(q); used.add(q.id); filled++;
+                        if (filled >= target) break;
+                    }
+                }
+                // Second chance: relax diagram requirement
+                if (filled < target && opts.preferDiagram) {
+                    for (const q of pool) {
+                        if (used.has(q.id)) continue;
+                        if (diffFilter !== 'Mixed' && q.difficulty !== diffFilter) continue;
+                        const branch = getQuestionBranch(q, subject);
+                        if (branch === area) {
+                            selected.push(q); used.add(q.id); filled++;
+                            if (filled >= target) break;
+                        }
+                    }
+                }
+            }
+
+            // Backfill: if not enough from area targets, fill from any area
+            if (selected.length < count) {
+                for (const q of pool) {
+                    if (used.has(q.id)) continue;
+                    if (diffFilter !== 'Mixed' && q.difficulty !== diffFilter) continue;
+                    selected.push(q); used.add(q.id);
+                    if (selected.length >= count) break;
+                }
+            }
+
+            return selected;
+        }
+
         async function createPaper() {
             const btn = document.getElementById('create-btn');
             const err = document.getElementById('error-msg');
@@ -946,6 +1113,15 @@
                 bp.inst.forEach(i => html += `<li>${i}</li>`);
                 html += `</ol></div>`;
 
+                // ===== VERIX: Weightage bar (shown on generated paper) =====
+                if (bp.weightage) {
+                    html += `<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:10px 0 4px;font-size:0.7rem">`;
+                    for (const [area, marks] of Object.entries(bp.weightage)) {
+                        html += `<span style="background:#f0f0ff;border:1px solid #ddd;padding:2px 8px;border-radius:4px"><strong>${area}</strong>: ${marks}m</span>`;
+                    }
+                    html += `</div>`;
+                }
+
                 // ===== SECTIONS =====
                 let gNum = 0, used = new Set();
                 bp.sections.forEach(sec => {
@@ -953,22 +1129,49 @@
                     let startQ = gNum + 1;
                     let endQ = gNum + (sec.count || 0);
                     let rangeStr = sec.count > 0 ? `(Q.${startQ} to Q.${endQ})` : '';
-                    html += `<div class="section-header">${sec.title} — ${sec.desc} ${sec.perQ > 0 ? '(' + sec.perQ + ' mark' + (sec.perQ > 1 ? 's' : '') + ' each)' : ''} <span class="q-range">${rangeStr}</span></div>`;
+                    let wordLimitStr = sec.wordLimit ? ` [${sec.wordLimit} words]` : '';
+                    html += `<div class="section-header">${sec.title} — ${sec.desc} ${sec.perQ > 0 ? '(' + sec.perQ + ' mark' + (sec.perQ > 1 ? 's' : '') + ' each)' : ''}${wordLimitStr} <span class="q-range">${rangeStr}</span></div>`;
 
                     if (sec.count > 0) {
-                        // Get available questions
-                        let sectionPool = pool.filter(q => !used.has(q.id));
-                        // Diagram bias for case studies and science LA
-                        if (sec.qType === 'case' || (selectedSubject === 'Science' && sec.id === 'D')) {
-                            const dP = sectionPool.filter(q => (q.question_text || '').includes('[Image:'));
-                            const oP = sectionPool.filter(q => !(q.question_text || '').includes('[Image:'));
-                            sectionPool = [...dP, ...oP];
+                        // VERIX: Use weighted selection for sections with marks
+                        const preferDiagram = sec.diagramRequired || false;
+                        let sectionQuestions;
+
+                        if (bp.weightage && sec.count >= 3) {
+                            // Weighted selection by branch/area
+                            sectionQuestions = weightedSelect(pool, used, sec.count, bp.weightage, selectedSubject, selectedDiff, { preferDiagram });
+                        } else {
+                            // Standard selection
+                            sectionQuestions = [];
+                            let sectionPool = pool.filter(q => !used.has(q.id));
+                            // Diagram bias for case studies, Science LA, and SST map
+                            if (sec.qType === 'case' || sec.diagramRequired || (selectedSubject === 'Science' && sec.id === 'D')) {
+                                const dP = sectionPool.filter(q => q.diagram_required || (q.question_text || '').includes('[Image:'));
+                                const oP = sectionPool.filter(q => !q.diagram_required && !(q.question_text || '').includes('[Image:'));
+                                sectionPool = [...dP, ...oP];
+                            }
+                            // Maths: bias Geometry/Mensuration diagrams in Sec D
+                            if (selectedSubject === 'Maths' && sec.diagramAreas) {
+                                const diagramPool = sectionPool.filter(q => {
+                                    const area = getQuestionBranch(q, 'Maths');
+                                    return sec.diagramAreas.includes(area);
+                                });
+                                const otherPool = sectionPool.filter(q => {
+                                    const area = getQuestionBranch(q, 'Maths');
+                                    return !sec.diagramAreas.includes(area);
+                                });
+                                sectionPool = [...diagramPool, ...otherPool];
+                            }
+                            for (let q of sectionPool) {
+                                if (selectedDiff !== 'Mixed' && q.difficulty !== selectedDiff) continue;
+                                sectionQuestions.push(q); used.add(q.id);
+                                if (sectionQuestions.length >= sec.count) break;
+                            }
                         }
 
                         let count = 0;
-                        for (let q of sectionPool) {
-                            if (selectedDiff !== 'Mixed' && q.difficulty !== selectedDiff) continue;
-                            gNum++; count++; used.add(q.id);
+                        for (let q of sectionQuestions) {
+                            gNum++; count++;
 
                             // Determine if this is an Assertion-Reason question
                             const isAR = sec.hasAR && gNum >= sec.arStart && gNum <= sec.arStart + 1;
@@ -980,9 +1183,8 @@
                                 let caseText = fig.clean;
                                 if (fig.url) {
                                     const topic = getImgTopic(fig.url);
-                                    html += `<div class="figure-box"><img src="${fig.url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=\\'border:2px dashed #ccc;padding:20px;text-align:center;color:#666;background:#f9f9f9;border-radius:8px;margin:8px 0\\'>📐 <strong>${topic}</strong><br><small style=\\'color:#999\\'>Refer to your textbook for this diagram</small></div>')"></div>`;
+                                    html += `<div class="figure-box"><img src="${fig.url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=\\'border:2px dashed #ccc;padding:20px;text-align:center;color:#666;background:#f9f9f9;border-radius:8px;margin:8px 0\\'> 📐 <strong>${topic}</strong><br><small style=\\'color:#999\\'>Refer to your textbook for this diagram</small></div>')"></div>`;
                                 }
-                                // Split into passage and sub-parts
                                 const subMatch = caseText.match(/\((i|a)\)/);
                                 if (subMatch) {
                                     const passage = caseText.substring(0, subMatch.index).trim();
@@ -1012,17 +1214,24 @@
                                 html += `</div><span class="q-marks">[${sec.perQ}]</span></div>`;
                             }
                             else if (sec.qType === 'map') {
+                                // VERIX: Enhanced map rendering with focus areas
                                 html += renderQ(q, gNum, sec.perQ);
-                                html += `<div style="text-align:center;padding:12px;font-style:italic;font-size:0.8rem;color:#555">Map of India attached separately — History (2 marks) + Geography (3 marks)</div>`;
+                                html += `<div style="text-align:center;padding:16px;border:2px dashed #7c3aed;border-radius:8px;margin:8px 0;background:#faf5ff">
+                                    <div style="font-weight:700;font-size:0.9rem;margin-bottom:6px">🗺️ MAP WORK — INDIA OUTLINE MAP</div>
+                                    <div style="font-size:0.8rem;color:#555">
+                                        <strong>History (2 marks):</strong> Identify locations related to ${sec.mapFocus ? sec.mapFocus.History.join(' / ') : 'French/Russian Revolutions'}<br>
+                                        <strong>Geography (3 marks):</strong> Mark features related to ${sec.mapFocus ? sec.mapFocus.Geography.join(' / ') : 'Climate / Drainage'}
+                                    </div>
+                                    <div style="margin-top:8px;font-style:italic;font-size:0.75rem;color:#888">Map of India attached separately</div>
+                                </div>`;
                             }
                             else {
                                 html += renderQ(q, gNum, sec.perQ, { isAR });
                             }
 
-                            // Internal choice (OR) — show for every other question in applicable sections
+                            // Internal choice (OR)
                             if (sec.internalChoice && count % 2 === 0 && count < sec.count) {
-                                // Find an OR alternative
-                                const altQ = sectionPool.find(aq => !used.has(aq.id) && (selectedDiff === 'Mixed' || aq.difficulty === selectedDiff));
+                                const altQ = pool.find(aq => !used.has(aq.id) && (selectedDiff === 'Mixed' || aq.difficulty === selectedDiff));
                                 if (altQ) {
                                     used.add(altQ.id);
                                     html += `<div class="or-divider">OR</div>`;
@@ -1030,16 +1239,27 @@
                                 }
                             }
 
-                            // Store answer for answer key
                             if (q.answer) currentAnswers.push({ num: gNum, ans: q.answer });
-
-                            if (count >= sec.count) break;
                         }
                     } else if (sec.fixed) {
                         // Fixed-mark sections (Literature, Writing, etc.)
                         if (sec.fixedSections) {
                             sec.fixedSections.forEach(fs => {
                                 html += `<div style="font-weight:600;font-size:0.84rem;margin:12px 0 8px;padding-left:4px;border-left:3px solid var(--accent,#7c3aed);padding:4px 8px;background:#f8f8ff">${fs.label} — ${fs.marks} Marks</div>`;
+                                // VERIX: Inject visual cue for Analytical Paragraph
+                                if (fs.injectVisual) {
+                                    html += `<div style="text-align:center;padding:16px;border:1px solid #ddd;border-radius:6px;margin:8px 0;background:#f9f9f9">
+                                        <div style="font-size:0.82rem;font-weight:600;color:#333;margin-bottom:6px">📊 Data Interpretation Prompt</div>
+                                        <div style="display:flex;justify-content:center;gap:8px;align-items:flex-end;height:80px;margin:8px 0">
+                                            <div style="width:30px;background:linear-gradient(#7c3aed,#a78bfa);height:60%;border-radius:3px 3px 0 0"></div>
+                                            <div style="width:30px;background:linear-gradient(#06b6d4,#67e8f9);height:80%;border-radius:3px 3px 0 0"></div>
+                                            <div style="width:30px;background:linear-gradient(#7c3aed,#a78bfa);height:45%;border-radius:3px 3px 0 0"></div>
+                                            <div style="width:30px;background:linear-gradient(#06b6d4,#67e8f9);height:70%;border-radius:3px 3px 0 0"></div>
+                                            <div style="width:30px;background:linear-gradient(#7c3aed,#a78bfa);height:55%;border-radius:3px 3px 0 0"></div>
+                                        </div>
+                                        <div style="font-size:0.72rem;color:#888;font-style:italic">Write an analytical paragraph based on the above data (100-120 words)</div>
+                                    </div>`;
+                                }
                                 if (fs.count > 0 && fs.perQ > 0) {
                                     let fsCount = 0;
                                     let sectionPool = pool.filter(q => !used.has(q.id));
@@ -1059,9 +1279,9 @@
                                         }
                                         if (fsCount >= fs.count) break;
                                     }
-                                } else if (fs.fixedNote) {
+                                } else if (fs.fixedNote && !fs.injectVisual) {
                                     html += `<div class="fixed-section-note">${fs.fixedNote}</div>`;
-                                } else {
+                                } else if (!fs.injectVisual) {
                                     html += `<div class="fixed-section-note">Attempt questions worth ${fs.marks} marks as per the instructions given in each question.</div>`;
                                 }
                             });
@@ -1082,17 +1302,19 @@
                 html += `</div></div>`;
 
                 // End paper
-                html += `<div style="text-align:center;margin-top:30px;font-size:0.8rem;color:#888;border-top:1px solid #ddd;padding-top:12px">— End of Question Paper —</div>`;
+                html += `<div style="text-align:center;margin-top:30px;font-size:0.8rem;color:#888;border-top:1px solid #ddd;padding-top:12px">— End of Question Paper — <br><small style="color:#bbb">Verix Audit Engine • CBSE 2025-26 Compliant</small></div>`;
                 html += `</div>`;
 
                 document.getElementById('paper-content').innerHTML = html;
                 document.getElementById('selection-view').style.display = 'none';
                 document.getElementById('paper-view').style.display = 'block';
 
-                // Stats bar
+                // Stats bar with Verix info
+                const verixQ = allQ.filter(q => q.section && q.marks).length;
                 document.getElementById('stats-bar').innerHTML = `
                     <span>📄 Paper #${paperCount}</span>
-                    <span>📊 ${allQ.length} questions in database</span>
+                    <span>📊 ${allQ.length} questions in DB</span>
+                    <span>🔍 ${verixQ} Verix-tagged</span>
                     <span>✅ ${gNum} questions generated</span>
                 `;
             }

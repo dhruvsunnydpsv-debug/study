@@ -16,14 +16,26 @@ HEADERS = {
     "Prefer": "return=minimal"
 }
 
+# ============ VERIX AUDIT FIELDS ============
+# These are the new columns that the Verix engine uses.
+# If they don't exist in Supabase yet, the sync will still work
+# (Supabase ignores unknown columns in inserts by default with anon key).
+VERIX_FIELDS = [
+    "section",          # A, B, C, D, E, F
+    "marks",            # 1, 2, 3, 4, 5
+    "word_limit",       # "30-50 words", "40 words", etc
+    "diagram_required", # true/false
+    "sub_branch",       # Physics, Chemistry, Biology (Science only)
+    "weightage_area"    # Geometry, Algebra, History, etc
+]
+
+
 def sync_all():
     files = glob.glob("seed_*.json")
     all_questions = []
     
     print(f"Loading {len(files)} seed files...")
     for filename in files:
-        # Skip seed_data.json if we have more specific files, or just include it
-        # Actually, let's include all but be careful about duplicates
         with open(filename, 'r', encoding='utf-8') as f:
             try:
                 data = json.load(f)
@@ -35,6 +47,10 @@ def sync_all():
     if not all_questions:
         print("No questions found to sync.")
         return
+
+    # Verix audit: count questions with new fields
+    verix_count = sum(1 for q in all_questions if "section" in q and "marks" in q)
+    print(f"\n📊 VERIX AUDIT: {verix_count}/{len(all_questions)} questions have Verix metadata")
 
     # Group by subject and grade (Composite Key)
     by_composite = {}
@@ -62,16 +78,22 @@ def sync_all():
         except Exception as e:
             print(f"  Delete error: {e}")
 
-        # 2. POST (Batch Insert) new questions
+        # 2. POST (Batch Insert) new questions with Verix fields
         chunk_size = 100
         for i in range(0, len(questions), chunk_size):
             chunk = questions[i:i + chunk_size]
-            # Prep chunk for insertion: set subject to composite, remove grade
+            # Prep chunk for insertion
             for item in chunk:
-                # Store original for log if needed, but for DB we need composite
-                orig_sub = item.get('subject')
                 item['subject'] = comp_sub
                 if 'grade' in item: del item['grade']
+                
+                # Ensure Verix fields have safe defaults
+                if 'section' not in item:
+                    item['section'] = 'A'
+                if 'marks' not in item:
+                    item['marks'] = 1
+                if 'diagram_required' not in item:
+                    item['diagram_required'] = False
             
             data = json.dumps(chunk).encode('utf-8')
             req_post = urllib.request.Request(BASE_URL, data=data, method='POST', headers=HEADERS)
@@ -83,6 +105,8 @@ def sync_all():
                         print(f"  Post failed: {resp.status}")
             except Exception as e:
                 print(f"  Post error: {e}")
+
+    print(f"\n✅ VERIX SYNC COMPLETE — {len(all_questions)} questions across {len(by_composite)} subjects")
 
 if __name__ == "__main__":
     sync_all()
