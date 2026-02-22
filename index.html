@@ -1076,14 +1076,16 @@
                 </div>`;
             }
             // MCQ with (a)(b)(c)(d) or (A)(B)(C)(D)
-            else if (text.match(/\([A-Da-d]\)\s/)) {
-                const upperMatch = text.match(/\(A\)/);
-                const sep = upperMatch ? /\(([A-D])\)/g : /\(([a-d])\)/g;
-                const firstOpt = upperMatch ? '(A)' : '(a)';
-                const parts = text.split(firstOpt);
-                const mainText = parts[0].trim();
-                const optStr = firstOpt + (parts[1] || '');
-                const options = optStr.match(upperMatch ? /\([A-D]\)[^(]*/g : /\([a-d]\)[^(]*/g);
+            else if (text.match(/\([a-d]\)\s/i)) {
+                // Find all matches that look like (A), (B), (C), (D) or (a), (b), (c), (d)
+                const optionsRegex = /\([A-Da-d]\)[^(]+/g;
+                const options = text.match(optionsRegex);
+                const firstOptionIndex = text.search(/\([A-Da-d]\)\s/);
+                
+                let mainText = text;
+                if (firstOptionIndex !== -1) {
+                    mainText = text.substring(0, firstOptionIndex).trim();
+                }
 
                 html += `<div>${mainText}</div>`;
                 if (options) {
