@@ -1216,8 +1216,10 @@
             try {
                 const bp = BLUEPRINTS_DATA[selectedGrade.toString()][selectedSubject];
                 // Fetch from both plain and composite subject names
+                // Note: The 'grade' column was removed during the Verix schema refactor.
+                // We rely on the subject naming convention (e.g. Maths vs Maths_10) to distinguish.
                 const [r1, r2] = await Promise.all([
-                    db.from('question_bank').select('*').eq('subject', selectedSubject).eq('grade', selectedGrade).limit(1000),
+                    db.from('question_bank').select('*').eq('subject', selectedSubject).limit(1000),
                     db.from('question_bank').select('*').eq('subject', `${selectedSubject}_${selectedGrade}`).limit(1000)
                 ]);
                 if (r1.error) throw r1.error;
