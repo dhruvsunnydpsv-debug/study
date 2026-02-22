@@ -1226,8 +1226,19 @@
                     db.from('question_bank').select('*').eq('subject', `${selectedSubject}_${selectedGrade}`).limit(1000)
                 ]);
                 if (r1.error) throw r1.error;
-                const allQ = [...(r1.data || []), ...(r2.data || [])];
-                if (allQ.length === 0) throw new Error(`No questions found for ${selectedSubject}. Database may be empty.`);
+                
+                const rawQ = [...(r1.data || []), ...(r2.data || [])];
+                const uniqueTexts = new Set();
+                const allQ = [];
+                for (const q of rawQ) {
+                    const txt = (q.question_text || '').trim();
+                    if (!uniqueTexts.has(txt)) {
+                        uniqueTexts.add(txt);
+                        allQ.push(q);
+                    }
+                }
+                
+                if (allQ.length === 0) throw new Error(`No unique questions found for ${selectedSubject}.`);
                 const pool = allQ.sort(() => Math.random() - 0.5);
                 paperCount++;
                 currentAnswers = [];
