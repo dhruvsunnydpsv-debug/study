@@ -1040,10 +1040,25 @@
 
         function getImgTopic(url) {
             try {
+                // Try parsing the text parameter if present
+                const urlObj = new URL(url);
+                if (urlObj.searchParams.has('text')) {
+                    const t = urlObj.searchParams.get('text');
+                    return t.replace(/_/g, ' ');
+                }
                 const parts = url.split('/');
                 const fname = parts[parts.length - 1].replace(/^\d+px-/, '').replace(/\.\w+$/, '').replace(/_/g, ' ').replace(/\s+/g, ' ');
                 return fname.substring(0, 40);
-            } catch (e) { return 'Diagram'; }
+            } catch (e) {
+                // Fallback parsing if URL object fails
+                try {
+                    const parts = url.split('/');
+                    const fname = parts[parts.length - 1].replace(/^\d+px-/, '').replace(/\.\w+$/, '').replace(/_/g, ' ').replace(/\s+/g, ' ');
+                    return fname.substring(0, 40);
+                } catch(e2) {
+                    return 'Diagram';
+                }
+            }
         }
 
         function renderQ(q, num, marks, opts = {}) {
