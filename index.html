@@ -814,9 +814,18 @@
         function parseFig(text) {
             const imgM = text.match(/\[Image:\s*([^\]]+)\]/i);
             const figM = text.match(/\[Figure:\s*([^\]]+)\]/i);
-            const m = imgM || figM;
+            const diagM = text.match(/\[Diagram:\s*([^\]]+)\]/i);
+            const m = imgM || figM || diagM;
             if (m) return { url: m[1].trim(), clean: text.replace(m[0], '').trim() };
             return { url: null, clean: text };
+        }
+
+        function getImgTopic(url) {
+            try {
+                const parts = url.split('/');
+                const fname = parts[parts.length - 1].replace(/^\d+px-/, '').replace(/\.\w+$/, '').replace(/_/g, ' ').replace(/\s+/g, ' ');
+                return fname.substring(0, 40);
+            } catch (e) { return 'Diagram'; }
         }
 
         function renderQ(q, num, marks, opts = {}) {
@@ -826,9 +835,10 @@
             let text = fig.clean;
             let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
 
-            // Image at top
+            // Image at top — referrerpolicy="no-referrer" bypasses Wikimedia hotlink blocking
             if (url) {
-                html += `<div class="figure-box"><img src="${url}" class="q-image" alt="Diagram" onerror="this.parentElement.innerHTML='<div style=\\'color:#888;font-size:0.7rem\\'>Diagram could not be loaded</div>'"></div>`;
+                const topic = getImgTopic(url);
+                html += `<div class="figure-box"><img src="${url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=\\'border:2px dashed #ccc;padding:20px;text-align:center;color:#666;background:#f9f9f9;border-radius:8px;margin:8px 0\\'>📐 <strong>${topic}</strong><br><small style=\\'color:#999\\'>Refer to your textbook for this diagram</small></div>')"></div>`;
             }
 
             // Assertion-Reason format
@@ -969,7 +979,8 @@
                                 const fig = parseFig(q.question_text || '');
                                 let caseText = fig.clean;
                                 if (fig.url) {
-                                    html += `<div class="figure-box"><img src="${fig.url}" class="q-image" alt="Case Study Diagram" onerror="this.parentElement.innerHTML='<div style=\\'color:#888;font-size:0.7rem\\'>Diagram could not be loaded</div>'"></div>`;
+                                    const topic = getImgTopic(fig.url);
+                                    html += `<div class="figure-box"><img src="${fig.url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=\\'border:2px dashed #ccc;padding:20px;text-align:center;color:#666;background:#f9f9f9;border-radius:8px;margin:8px 0\\'>📐 <strong>${topic}</strong><br><small style=\\'color:#999\\'>Refer to your textbook for this diagram</small></div>')"></div>`;
                                 }
                                 // Split into passage and sub-parts
                                 const subMatch = caseText.match(/\((i|a)\)/);
