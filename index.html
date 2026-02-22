@@ -1157,9 +1157,9 @@
             const areas = Object.keys(weightage);
             areas.forEach((area, idx) => {
                 if (idx === areas.length - 1) {
-                    areaTargets[area] = count - allocated; // Remainder to last area
+                    areaTargets[area] = Math.max(0, count - allocated); // Remainder to last area
                 } else {
-                    const t = Math.round((weightage[area] / totalWeight) * count);
+                    const t = Math.max(0, Math.min(count - allocated, Math.round((weightage[area] / totalWeight) * count)));
                     areaTargets[area] = t;
                     allocated += t;
                 }
@@ -1167,8 +1167,10 @@
 
             // First pass: try to fill each area's quota
             for (const [area, target] of Object.entries(areaTargets)) {
+                if (target <= 0) continue;
                 let filled = 0;
                 for (const q of pool) {
+                    if (selected.length >= count) break;
                     if (used.has(q.id)) continue;
                     if (diffFilter !== 'Mixed' && q.difficulty !== diffFilter) continue;
                     const branch = getQuestionBranch(q, subject);
@@ -1185,6 +1187,7 @@
                 // Second chance: relax diagram requirement
                 if (filled < target && opts.preferDiagram) {
                     for (const q of pool) {
+                        if (selected.length >= count) break;
                         if (used.has(q.id)) continue;
                         if (diffFilter !== 'Mixed' && q.difficulty !== diffFilter) continue;
                         const branch = getQuestionBranch(q, subject);
