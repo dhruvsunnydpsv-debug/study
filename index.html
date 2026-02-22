@@ -601,7 +601,12 @@
             <h1 class="hero-title">CBSE Paper Creator</h1>
             <p class="hero-sub">Exact 2025-26 Pattern • Official Blueprint Compliant • Diagrams & Internal Choice</p>
             <div class="form-card">
-                <label class="form-label">1. Select Subject</label>
+                <label class="form-label">1. Select Grade</label>
+                <div class="difficulty-selector" style="margin-bottom:20px">
+                    <button class="diff-btn active" id="grade-9-btn" onclick="setGrade(9)">Class IX</button>
+                    <button class="diff-btn" id="grade-10-btn" onclick="setGrade(10)">Class X</button>
+                </div>
+                <label class="form-label">2. Select Subject</label>
                 <div class="subject-grid">
                     <button class="subject-btn" onclick="setSubject(this,'Maths')">π Maths</button>
                     <button class="subject-btn" onclick="setSubject(this,'Science')">⚛ Science</button>
@@ -638,50 +643,84 @@
         const db = window.supabase.createClient("https://wfegooasrtbhpursgcvh.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s");
         let selectedGrade = 9, selectedSubject = null, selectedDiff = 'Mixed', paperCount = 0, currentAnswers = [];
 
+        function setGrade(g) {
+            selectedGrade = g;
+            document.querySelectorAll('#grade-9-btn, #grade-10-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(`grade-${g}-btn`).classList.add('active');
+        }
+
         // ============ VERIX AUDIT ENGINE — CBSE 2025-26 BLUEPRINTS ============
         // Includes: weightage enforcement, diagram constraints, chapter→branch maps
 
         // Chapter → Sub-branch/Weightage area maps (used for weighted selection)
         const VERIX_MAPS = {
-            scienceBranch: {
-                'Motion': 'Physics', 'Force and Laws of Motion': 'Physics',
-                'Gravitation': 'Physics', 'Work and Energy': 'Physics', 'Sound': 'Physics',
-                'Matter in Our Surroundings': 'Chemistry', 'Is Matter Around Us Pure': 'Chemistry',
-                'Atoms and Molecules': 'Chemistry', 'Structure of the Atom': 'Chemistry',
-                'The Fundamental Unit of Life': 'Biology', 'Tissues': 'Biology',
-                'Improvement in Food Resources': 'Biology', 'Natural Resources': 'Biology'
+            "9": {
+                scienceBranch: {
+                    'Motion': 'Physics', 'Force and Laws of Motion': 'Physics',
+                    'Gravitation': 'Physics', 'Work and Energy': 'Physics', 'Sound': 'Physics',
+                    'Matter in Our Surroundings': 'Chemistry', 'Is Matter Around Us Pure': 'Chemistry',
+                    'Atoms and Molecules': 'Chemistry', 'Structure of the Atom': 'Chemistry',
+                    'The Fundamental Unit of Life': 'Biology', 'Tissues': 'Biology',
+                    'Improvement in Food Resources': 'Biology', 'Natural Resources': 'Biology'
+                },
+                mathsArea: {
+                    'Number Systems': 'Number Systems', 'Polynomials': 'Algebra',
+                    'Coordinate Geometry': 'Coordinate Geometry',
+                    'Linear Equations in Two Variables': 'Algebra',
+                    'Introduction to Euclids Geometry': 'Geometry', "Introduction to Euclid's Geometry": 'Geometry',
+                    'Lines and Angles': 'Geometry', 'Triangles': 'Geometry',
+                    'Quadrilaterals': 'Geometry', 'Circles': 'Geometry', 'Constructions': 'Geometry',
+                    'Herons Formula': 'Mensuration', "Heron's Formula": 'Mensuration',
+                    'Surface Areas and Volumes': 'Mensuration',
+                    'Statistics': 'Statistics & Probability', 'Probability': 'Statistics & Probability'
+                },
+                sstArea: {
+                    'The French Revolution': 'History',
+                    'Socialism in Europe and the Russian Revolution': 'History',
+                    'Nazism and the Rise of Hitler': 'History',
+                    'Forest Society and Colonialism': 'History',
+                    'India Size and Location': 'Geography', 'India: Size and Location': 'Geography',
+                    'Physical Features of India': 'Geography', 'Drainage': 'Geography',
+                    'Climate': 'Geography', 'Natural Vegetation and Wildlife': 'Geography',
+                    'Population': 'Geography',
+                    'What is Democracy Why Democracy': 'Political Science',
+                    'What is Democracy': 'Political Science',
+                    'Constitutional Design': 'Political Science',
+                    'Electoral Politics': 'Political Science',
+                    'Working of Institutions': 'Political Science',
+                    'Democratic Rights': 'Political Science',
+                    'Democracy in the Contemporary World': 'Political Science',
+                    'The Story of Village Palampur': 'Economics',
+                    'People as Resource': 'Economics',
+                    'Poverty as a Challenge': 'Economics',
+                    'Food Security in India': 'Economics'
+                }
             },
-            mathsArea: {
-                'Number Systems': 'Number Systems', 'Polynomials': 'Algebra',
-                'Coordinate Geometry': 'Coordinate Geometry',
-                'Linear Equations in Two Variables': 'Algebra',
-                'Introduction to Euclids Geometry': 'Geometry', "Introduction to Euclid's Geometry": 'Geometry',
-                'Lines and Angles': 'Geometry', 'Triangles': 'Geometry',
-                'Quadrilaterals': 'Geometry', 'Circles': 'Geometry', 'Constructions': 'Geometry',
-                'Herons Formula': 'Mensuration', "Heron's Formula": 'Mensuration',
-                'Surface Areas and Volumes': 'Mensuration',
-                'Statistics': 'Statistics & Probability', 'Probability': 'Statistics & Probability'
-            },
-            sstArea: {
-                'The French Revolution': 'History',
-                'Socialism in Europe and the Russian Revolution': 'History',
-                'Nazism and the Rise of Hitler': 'History',
-                'Forest Society and Colonialism': 'History',
-                'India Size and Location': 'Geography', 'India: Size and Location': 'Geography',
-                'Physical Features of India': 'Geography', 'Drainage': 'Geography',
-                'Climate': 'Geography', 'Natural Vegetation and Wildlife': 'Geography',
-                'Population': 'Geography',
-                'What is Democracy Why Democracy': 'Political Science',
-                'What is Democracy': 'Political Science',
-                'Constitutional Design': 'Political Science',
-                'Electoral Politics': 'Political Science',
-                'Working of Institutions': 'Political Science',
-                'Democratic Rights': 'Political Science',
-                'Democracy in the Contemporary World': 'Political Science',
-                'The Story of Village Palampur': 'Economics',
-                'People as Resource': 'Economics',
-                'Poverty as a Challenge': 'Economics',
-                'Food Security in India': 'Economics'
+            "10": {
+                scienceBranch: {
+                    'Light Reflection and Refraction': 'Physics', 'The Human Eye and the Colourful World': 'Physics',
+                    'Electricity': 'Physics', 'Magnetic Effects of Electric Current': 'Physics',
+                    'Chemical Reactions and Equations': 'Chemistry', 'Acids Bases and Salts': 'Chemistry',
+                    'Metals and Non-metals': 'Chemistry', 'Carbon and its Compounds': 'Chemistry',
+                    'Life Processes': 'Biology', 'Control and Coordination': 'Biology',
+                    'How do Organisms Reproduce': 'Biology', 'Heredity': 'Biology', 'Our Environment': 'Biology'
+                },
+                mathsArea: {
+                    'Real Numbers': 'Number Systems', 'Polynomials': 'Algebra', 'Pair of Linear Equations in Two Variables': 'Algebra',
+                    'Quadratic Equations': 'Algebra', 'Arithmetic Progressions': 'Algebra', 'Triangles': 'Geometry', 'Circles': 'Geometry',
+                    'Coordinate Geometry': 'Coordinate Geometry', 'Introduction to Trigonometry': 'Trigonometry',
+                    'Some Applications of Trigonometry': 'Trigonometry', 'Areas Related to Circles': 'Mensuration',
+                    'Surface Areas and Volumes': 'Mensuration', 'Statistics': 'Statistics & Probability', 'Probability': 'Statistics & Probability'
+                },
+                sstArea: {
+                    'The Rise of Nationalism in Europe': 'History', 'Nationalism in India': 'History',
+                    'The Making of a Global World': 'History', 'The Age of Industrialisation': 'History', 'Print Culture and the Modern World': 'History',
+                    'Resources and Development': 'Geography', 'Forest and Wildlife Resources': 'Geography', 'Water Resources': 'Geography',
+                    'Agriculture': 'Geography', 'Minerals and Energy Resources': 'Geography', 'Manufacturing Industries': 'Geography', 'Lifelines of National Economy': 'Geography',
+                    'Power Sharing': 'Political Science', 'Federalism': 'Political Science', 'Gender Religion and Caste': 'Political Science',
+                    'Political Parties': 'Political Science', 'Outcomes of Democracy': 'Political Science',
+                    'Development': 'Economics', 'Sectors of the Indian Economy': 'Economics', 'Money and Credit': 'Economics', 'Globalisation and the Indian Economy': 'Economics', 'Consumer Rights': 'Economics'
+                }
             }
         };
 
@@ -716,177 +755,221 @@
             }
         };
 
-        const BLUEPRINTS = {
-            'Maths': {
-                code: '041', fullName: 'Mathematics (Standard)', time: '3 Hours', maxMarks: 80,
-                totalQ: 38,
-                weightage: { 'Geometry': 27, 'Algebra': 20, 'Mensuration': 13, 'Number Systems': 10, 'Statistics & Probability': 6, 'Coordinate Geometry': 4 },
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (SA-I)', perQ: 2, count: 5, internalChoice: true },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (SA-II)', perQ: 3, count: 6, internalChoice: true },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 4, internalChoice: true, diagramAreas: ['Geometry', 'Mensuration'] },
-                    { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
-                ],
-                inst: [
-                    'This question paper contains 38 questions. All questions are compulsory.',
-                    'This question paper is divided into FIVE Sections — A, B, C, D and E.',
-                    'In Section A, Questions no. 1 to 18 are Multiple Choice Questions (MCQs) and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.',
-                    'In Section B, Questions no. 21 to 25 are Very Short Answer (SA-I) type questions, carrying 2 marks each.',
-                    'In Section C, Questions no. 26 to 31 are Short Answer (SA-II) type questions, carrying 3 marks each.',
-                    'In Section D, Questions no. 32 to 35 are Long Answer (LA) type questions, carrying 5 marks each.',
-                    'In Section E, Questions no. 36 to 38 are Case Study Based questions, carrying 4 marks each.',
-                    'There is no overall choice. However, an internal choice has been provided in 2 questions in Section B, 2 questions in Section C, 2 questions in Section D, and 3 questions in Section E.',
-                    'Draw neat figures wherever required. Take π = 22/7 wherever required, if not stated.',
-                    'Use of calculators is NOT allowed.'
-                ]
+        const BLUEPRINTS_DATA = {
+            "9": {
+                'Maths': {
+                    code: '041', fullName: 'Mathematics (Standard)', time: '3 Hours', maxMarks: 80,
+                    totalQ: 38,
+                    weightage: { 'Geometry': 27, 'Algebra': 20, 'Mensuration': 13, 'Number Systems': 10, 'Statistics & Probability': 6, 'Coordinate Geometry': 4 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
+                        { id: 'B', title: 'Section B', desc: 'Very Short Answer (SA-I)', perQ: 2, count: 5, internalChoice: true },
+                        { id: 'C', title: 'Section C', desc: 'Short Answer (SA-II)', perQ: 3, count: 6, internalChoice: true },
+                        { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 4, internalChoice: true, diagramAreas: ['Geometry', 'Mensuration'] },
+                        { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
+                    ],
+                    inst: [
+                        'This question paper contains 38 questions. All questions are compulsory.',
+                        'This question paper is divided into FIVE Sections — A, B, C, D and E.',
+                        'In Section A, Questions no. 1 to 18 are Multiple Choice Questions (MCQs) and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.',
+                        'In Section B, Questions no. 21 to 25 are Very Short Answer (SA-I) type questions, carrying 2 marks each.',
+                        'In Section C, Questions no. 26 to 31 are Short Answer (SA-II) type questions, carrying 3 marks each.',
+                        'In Section D, Questions no. 32 to 35 are Long Answer (LA) type questions, carrying 5 marks each.',
+                        'In Section E, Questions no. 36 to 38 are Case Study Based questions, carrying 4 marks each.',
+                        'There is no overall choice. However, an internal choice has been provided in 2 questions in Section B, 2 questions in Section C, 2 questions in Section D, and 3 questions in Section E.',
+                        'Draw neat figures wherever required. Take π = 22/7 wherever required, if not stated.',
+                        'Use of calculators is NOT allowed.'
+                    ]
+                },
+                'Science': {
+                    code: '086', fullName: 'Science', time: '3 Hours', maxMarks: 80,
+                    totalQ: 39,
+                    weightage: { 'Physics': 27, 'Chemistry': 27, 'Biology': 26 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
+                        { id: 'B', title: 'Section B', desc: 'Very Short Answer (30–50 words)', perQ: 2, count: 6, internalChoice: true, wordLimit: '30-50' },
+                        { id: 'C', title: 'Section C', desc: 'Short Answer (50–80 words)', perQ: 3, count: 7, internalChoice: true, wordLimit: '50-80' },
+                        { id: 'D', title: 'Section D', desc: 'Long Answer (80–120 words)', perQ: 5, count: 3, internalChoice: true, wordLimit: '80-120', diagramRequired: true },
+                        { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
+                    ],
+                    inst: [
+                        'This question paper contains 39 questions. All questions are compulsory.',
+                        'This question paper is divided into FIVE Sections — A, B, C, D and E.',
+                        'In Section A, Questions no. 1 to 18 are MCQs and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.',
+                        'In Section B, Questions no. 21 to 26 are Very Short Answer type questions, carrying 2 marks each. Answer in 30–50 words.',
+                        'In Section C, Questions no. 27 to 33 are Short Answer type questions, carrying 3 marks each. Answer in 50–80 words.',
+                        'In Section D, Questions no. 34 to 36 are Long Answer type questions, carrying 5 marks each. Answer in 80–120 words.',
+                        'In Section E, Questions no. 37 to 39 are Case Study Based questions, carrying 4 marks each.',
+                        'There is no overall choice. However, an internal choice has been provided in some questions.',
+                        'Draw neat and labelled diagrams wherever necessary.',
+                        'Use of calculators is NOT allowed.'
+                    ]
+                },
+                'Social Science': {
+                    code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
+                    totalQ: 37,
+                    weightage: { 'History': 20, 'Geography': 20, 'Political Science': 20, 'Economics': 20 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq' },
+                        { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true, wordLimit: '40' },
+                        { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true, wordLimit: '60' },
+                        { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true, wordLimit: '120' },
+                        { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
+                        { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map', diagramRequired: true, mapSplit: { History: 2, Geography: 3 } }
+                    ],
+                    inst: [
+                        'This question paper contains 37 questions. All questions are compulsory.',
+                        'This paper is divided into SIX Sections — A, B, C, D, E and F.',
+                        'Section F consists of Map work: 2 marks from History and 3 marks from Geography.'
+                    ]
+                },
+                'English': {
+                    code: '184', fullName: 'English Language & Literature', time: '3 Hours', maxMarks: 80,
+                    totalQ: 11,
+                    weightage: { 'Reading Skills': 20, 'Writing Skills & Grammar': 20, 'Literature': 40 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Reading Skills', perQ: 1, count: 20, qType: 'mcq' },
+                        {
+                            id: 'B', title: 'Section B', desc: 'Writing Skills & Grammar', perQ: 0, count: 0, fixed: 20, fixedSections: [
+                                { label: 'Grammar', marks: 10, count: 10, perQ: 1, qType: 'mcq' },
+                                { label: 'Analytical Paragraph', marks: 5, fixedNote: 'Write an analytical paragraph based on the given chart.', injectVisual: true }
+                            ]
+                        },
+                        {
+                            id: 'C', title: 'Section C', desc: 'Language Through Literature', perQ: 0, count: 0, fixed: 40, fixedSections: [
+                                { label: 'Reference to Context', marks: 10 },
+                                { label: 'Short Answer Questions', marks: 18, count: 6, perQ: 3 },
+                                { label: 'Long Answer Questions', marks: 12, count: 2, perQ: 6 }
+                            ]
+                        }
+                    ],
+                    inst: ['All questions are compulsory.']
+                }
             },
-            'Science': {
-                code: '086', fullName: 'Science', time: '3 Hours', maxMarks: 80,
-                totalQ: 39,
-                weightage: { 'Physics': 27, 'Chemistry': 27, 'Biology': 26 },
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (30–50 words)', perQ: 2, count: 6, internalChoice: true, wordLimit: '30-50' },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (50–80 words)', perQ: 3, count: 7, internalChoice: true, wordLimit: '50-80' },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer (80–120 words)', perQ: 5, count: 3, internalChoice: true, wordLimit: '80-120', diagramRequired: true },
-                    { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
-                ],
-                inst: [
-                    'This question paper contains 39 questions. All questions are compulsory.',
-                    'This question paper is divided into FIVE Sections — A, B, C, D and E.',
-                    'In Section A, Questions no. 1 to 18 are MCQs and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.',
-                    'In Section B, Questions no. 21 to 26 are Very Short Answer type questions, carrying 2 marks each. Answer in 30–50 words.',
-                    'In Section C, Questions no. 27 to 33 are Short Answer type questions, carrying 3 marks each. Answer in 50–80 words.',
-                    'In Section D, Questions no. 34 to 36 are Long Answer type questions, carrying 5 marks each. Answer in 80–120 words.',
-                    'In Section E, Questions no. 37 to 39 are Case Study Based questions, carrying 4 marks each.',
-                    'There is no overall choice. However, an internal choice has been provided in some questions.',
-                    'Draw neat and labelled diagrams wherever necessary.',
-                    'Use of calculators is NOT allowed.'
-                ]
-            },
-            'Social Science': {
-                code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
-                totalQ: 37,
-                weightage: { 'History': 20, 'Geography': 20, 'Political Science': 20, 'Economics': 20 },
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true, wordLimit: '40' },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true, wordLimit: '60' },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true, wordLimit: '120' },
-                    { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
-                    { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map', diagramRequired: true, mapSplit: { History: 2, Geography: 3 }, mapFocus: { Geography: ['Climate', 'Drainage'], History: ['The French Revolution', 'Socialism in Europe and the Russian Revolution'] } }
-                ],
-                inst: [
-                    'This question paper contains 37 questions. All questions are compulsory.',
-                    'This paper is divided into SIX Sections — A, B, C, D, E and F.',
-                    'Section A has 20 MCQs carrying 1 mark each.',
-                    'Section B has 4 questions carrying 2 marks each. Answer in about 40 words.',
-                    'Section C has 5 questions carrying 3 marks each. Answer in about 60 words.',
-                    'Section D has 4 questions carrying 5 marks each. Answer in about 120 words.',
-                    'Section E has 3 Case Based questions carrying 4 marks each.',
-                    'Section F has 1 Map Based question of 5 marks — History (2m) + Geography (3m).',
-                    'There is no overall choice. However, internal choice has been provided in some questions.',
-                    'Map of India must be attached with the answer script.'
-                ]
-            },
-            'English': {
-                code: '184', fullName: 'English Language & Literature', time: '3 Hours', maxMarks: 80,
-                totalQ: 11,
-                weightage: { 'Reading Skills': 20, 'Writing Skills & Grammar': 20, 'Literature': 40 },
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'Reading Skills', perQ: 1, count: 20, qType: 'mcq' },
-                    {
-                        id: 'B', title: 'Section B', desc: 'Writing Skills & Grammar', perQ: 0, count: 0, fixed: 20, fixedSections: [
-                            { label: 'Grammar (Gap filling, Editing, Transformation)', marks: 10, count: 10, perQ: 1, qType: 'mcq' },
-                            { label: 'Analytical Paragraph (Data Interpretation)', marks: 5, fixedNote: '📊 Refer to the statistical chart/bar graph provided below and write an analytical paragraph (100-120 words).', injectVisual: true },
-                            { label: 'Descriptive Writing — Story / Diary Entry / Letter', marks: 5, fixedNote: 'Attempt questions as directed. Internal choice provided.' }
-                        ]
-                    },
-                    {
-                        id: 'C', title: 'Section C', desc: 'Language Through Literature', perQ: 0, count: 0, fixed: 40, fixedSections: [
-                            { label: 'Reference to Context (Prose/Poetry extracts)', marks: 10 },
-                            { label: 'Short Answer Questions from Beehive (40-50 words)', marks: 12, count: 4, perQ: 3 },
-                            { label: 'Long Answer from Beehive (100-120 words)', marks: 6, count: 1, perQ: 6, internalChoice: true },
-                            { label: 'Short Answer Questions from Moments (40-50 words)', marks: 6, count: 2, perQ: 3 },
-                            { label: 'Long Answer from Moments (100-120 words)', marks: 6, count: 1, perQ: 6, internalChoice: true }
-                        ]
-                    }
-                ],
-                inst: [
-                    'This question paper is divided into THREE Sections — A, B and C.',
-                    'Section A — Reading Skills — 20 Marks.',
-                    'Section B — Writing Skills & Grammar — 20 Marks.',
-                    'Section C — Language Through Literature — 40 Marks.',
-                    'All questions are compulsory.',
-                    'Attempt questions based on specific instructions for each part.'
-                ]
-            },
-            'Hindi': {
-                code: '002', fullName: 'हिन्दी कोर्स \'अ\'', time: '3 Hours', maxMarks: 80, lang: 'hi',
-                totalQ: 17,
-                sections: [
-                    { id: 'अ', title: 'खण्ड अ — अपठित बोध', desc: 'Unseen Comprehension (गद्यांश + काव्यांश)', perQ: 1, count: 14, qType: 'mcq' },
-                    { id: 'ब', title: 'खण्ड ब — व्याकरण', desc: 'Grammar (उपसर्ग, प्रत्यय, समास, वाक्य भेद, अलंकार)', perQ: 1, count: 16, qType: 'mcq' },
-                    {
-                        id: 'स', title: 'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक', desc: 'Literature (क्षितिज + कृतिका)', perQ: 0, count: 0, fixed: 30, fixedSections: [
-                            { label: 'पाठित गद्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
-                            { label: 'पाठित काव्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
-                            { label: 'गद्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 8, count: 3, perQ: 0 },
-                            { label: 'काव्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 6, count: 2, perQ: 3 },
-                            { label: 'पूरक पुस्तक (कृतिका)', marks: 6, count: 2, perQ: 3 }
-                        ]
-                    },
-                    {
-                        id: 'द', title: 'खण्ड द — रचनात्मक लेखन', desc: 'Creative Writing (अनुच्छेद, पत्र, ईमेल/कहानी)', perQ: 0, count: 0, fixed: 20, fixedSections: [
-                            { label: 'अनुच्छेद लेखन (120 शब्द)', marks: 6, count: 1, perQ: 6 },
-                            { label: 'औपचारिक/अनौपचारिक पत्र', marks: 5, count: 1, perQ: 5 },
-                            { label: 'संवाद लेखन / ईमेल / कहानी', marks: 5, count: 1, perQ: 5 },
-                            { label: 'विज्ञापन / सूचना लेखन', marks: 4, count: 1, perQ: 4 }
-                        ]
-                    }
-                ],
-                inst: [
-                    'इस प्रश्न-पत्र में कुल चार खण्ड हैं — अ, ब, स, द।',
-                    'सभी प्रश्न अनिवार्य हैं।',
-                    'खण्ड अ — अपठित बोध — 14 अंक।',
-                    'खण्ड ब — व्याकरण — 16 अंक।',
-                    'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक — 30 अंक।',
-                    'खण्ड द — रचनात्मक लेखन — 20 अंक।',
-                    'उत्तर सुन्दर एवं स्वच्छ लिखावट में लिखें।'
-                ]
-            },
-            'Sanskrit': {
-                code: '122', fullName: 'संस्कृतम्', time: '3 Hours', maxMarks: 80, lang: 'sa',
-                totalQ: 46,
-                sections: [
-                    { id: 'क', title: 'खण्डः क — अपठित-अवबोधनम्', desc: 'Unseen Comprehension', perQ: 1, count: 10, qType: 'mcq' },
-                    {
-                        id: 'ख', title: 'खण्डः ख — रचनात्मक-कार्यम्', desc: 'Creative Writing (पत्र, चित्रवर्णन, अनुवाद)', perQ: 0, count: 0, fixed: 15, fixedSections: [
-                            { label: 'पत्र-लेखनम्', marks: 5, count: 1, perQ: 5 },
-                            { label: 'चित्र-वर्णनम् अथवा अनुच्छेद-लेखनम्', marks: 5, count: 1, perQ: 5, internalChoice: true },
-                            { label: 'हिन्दी-संस्कृत-अनुवादः', marks: 5, count: 1, perQ: 5 }
-                        ]
-                    },
-                    { id: 'ग', title: 'खण्डः ग — अनुप्रयुक्त-व्याकरणम्', desc: 'Applied Grammar (सन्धि, शब्दरूप, धातुरूप, कारक)', perQ: 1, count: 25, qType: 'mcq' },
-                    {
-                        id: 'घ', title: 'खण्डः घ — पठित-अवबोधनम्', desc: 'Literature Comprehension (शेमुषी)', perQ: 0, count: 0, fixed: 30, fixedSections: [
-                            { label: 'पठित-गद्यांशम् — MCQ', marks: 6, count: 6, perQ: 1, qType: 'mcq' },
-                            { label: 'पठित-पद्यांशम् — MCQ', marks: 4, count: 4, perQ: 1, qType: 'mcq' },
-                            { label: 'लघु-उत्तरीय प्रश्नाः (शेमुषी)', marks: 10, count: 5, perQ: 2 },
-                            { label: 'दीर्घ-उत्तरीय प्रश्नाः', marks: 10, count: 2, perQ: 5, internalChoice: true }
-                        ]
-                    }
-                ],
-                inst: [
-                    'अस्मिन् प्रश्नपत्रे चत्वारः खण्डाः सन्ति — क, ख, ग, घ।',
-                    'सर्वे प्रश्नाः अनिवार्याः।',
-                    'खण्डः क — अपठित-अवबोधनम् — 10 अंकाः।',
-                    'खण्डः ख — रचनात्मक-कार्यम् — 15 अंकाः।',
-                    'खण्डः ग — अनुप्रयुक्त-व्याकरणम् — 25 अंकाः।',
-                    'खण्डः घ — पठित-अवबोधनम् — 30 अंकाः।',
-                    'स्वच्छाक्षरैः उत्तरं लिखत।'
-                ]
+            "10": {
+                 'Maths': {
+                    code: '041', fullName: 'Mathematics (Standard)', time: '3 Hours', maxMarks: 80,
+                    totalQ: 38,
+                    weightage: { 'Algebra': 20, 'Geometry': 15, 'Trigonometry': 10, 'Mensuration': 10, 'Statistics & Probability': 10, 'Coordinate Geometry': 6, 'Number Systems': 9 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
+                        { id: 'B', title: 'Section B', desc: 'Very Short Answer (VSA)', perQ: 2, count: 5, internalChoice: true },
+                        { id: 'C', title: 'Section C', desc: 'Short Answer (SA)', perQ: 3, count: 6, internalChoice: true },
+                        { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 4, internalChoice: true, diagramRequired: true },
+                        { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
+                    ],
+                    inst: [
+                        'Section A has 20 MCQs of 1 mark each.',
+                        'Section D Questions must include relevant diagrams.'
+                    ]
+                },
+                'Science': {
+                    code: '086', fullName: 'Science', time: '3 Hours', maxMarks: 80,
+                    totalQ: 39,
+                    weightage: { 'Physics': 25, 'Chemistry': 25, 'Biology': 30 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
+                        { id: 'B', title: 'Section B', desc: 'Very Short Answer (30–50 words)', perQ: 2, count: 6, internalChoice: true, wordLimit: '30-50' },
+                        { id: 'C', title: 'Section C', desc: 'Short Answer (50–80 words)', perQ: 3, count: 7, internalChoice: true, wordLimit: '50-80' },
+                        { id: 'D', title: 'Section D', desc: 'Long Answer (100–120 words)', perQ: 5, count: 3, internalChoice: true, wordLimit: '100-120', diagramRequired: true },
+                        { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] }
+                    ],
+                    inst: [
+                        'Physics: 25, Chemistry: 25, Biology: 30',
+                        'Section D must have diagrams.'
+                    ]
+                },
+                'Social Science': {
+                    code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
+                    totalQ: 37,
+                    weightage: { 'History': 20, 'Geography': 20, 'Political Science': 20, 'Economics': 20 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq' },
+                        { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true, wordLimit: '40' },
+                        { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true, wordLimit: '60' },
+                        { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true, wordLimit: '120' },
+                        { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
+                        { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map', diagramRequired: true, mapSplit: { History: 2, Geography: 3 } }
+                    ],
+                    inst: [
+                        'Section F consists of Map work: 2 marks from History and 3 marks from Geography.'
+                    ]
+                },
+                'English': {
+                    code: '184', fullName: 'English Language & Literature', time: '3 Hours', maxMarks: 80,
+                    totalQ: 11,
+                    weightage: { 'Reading Skills': 20, 'Writing Skills & Grammar': 20, 'Literature': 40 },
+                    sections: [
+                        { id: 'A', title: 'Section A', desc: 'Reading Skills', perQ: 1, count: 20, qType: 'mcq' },
+                        {
+                            id: 'B', title: 'Section B', desc: 'Writing Skills & Grammar', perQ: 0, count: 0, fixed: 20, fixedSections: [
+                                { label: 'Grammar', marks: 10, count: 10, perQ: 1, qType: 'mcq' },
+                                { label: 'Analytical Paragraph', marks: 10, fixedNote: 'Write an analytical paragraph based on the given chart.', injectVisual: true }
+                            ]
+                        },
+                        {
+                            id: 'C', title: 'Section C', desc: 'Language Through Literature', perQ: 0, count: 0, fixed: 40, fixedSections: [
+                                { label: 'Reference to Context', marks: 10 },
+                                { label: 'Short Answer Questions', marks: 18, count: 6, perQ: 3 },
+                                { label: 'Long Answer Questions', marks: 12, count: 2, perQ: 6 }
+                            ]
+                        }
+                    ],
+                    inst: ['All questions are compulsory.']
+                },
+                'Hindi': {
+                    code: '002', fullName: 'हिन्दी कोर्स \'अ\'', time: '3 Hours', maxMarks: 80, lang: 'hi',
+                    totalQ: 17,
+                    sections: [
+                        { id: 'अ', title: 'खण्ड अ — अपठित बोध', desc: 'Unseen Comprehension (गद्यांश + काव्यांश)', perQ: 1, count: 14, qType: 'mcq' },
+                        { id: 'ब', title: 'खण्ड ब — व्याकरण', desc: 'Grammar (उपसर्ग, प्रत्यय, समास, वाक्य भेद, अलंकार)', perQ: 1, count: 16, qType: 'mcq' },
+                        {
+                            id: 'स', title: 'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक', desc: 'Literature (क्षितिज + कृतिका)', perQ: 0, count: 0, fixed: 30, fixedSections: [
+                                { label: 'पाठित गद्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+                                { label: 'पाठित काव्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+                                { label: 'गद्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 8, count: 3, perQ: 0 },
+                                { label: 'काव्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 6, count: 2, perQ: 3 },
+                                { label: 'पूरक पुस्तक (कृतिका)', marks: 6, count: 2, perQ: 3 }
+                            ]
+                        },
+                        {
+                            id: 'द', title: 'खण्ड द — रचनात्मक लेखन', desc: 'Creative Writing (अनुच्छेद, पत्र, ईमेल/कहानी)', perQ: 0, count: 0, fixed: 20, fixedSections: [
+                                { label: 'अनुच्छेद लेखन (120 शब्द)', marks: 6, count: 1, perQ: 6 },
+                                { label: 'औपचारिक/अनौपचारिक पत्र', marks: 5, count: 1, perQ: 5 },
+                                { label: 'संवाद लेखन / ईमेल / कहानी', marks: 5, count: 1, perQ: 5 },
+                                { label: 'विज्ञापन / सूचना लेखन', marks: 4, count: 1, perQ: 4 }
+                            ]
+                        }
+                    ],
+                    inst: [
+                        'इस प्रश्न-पत्र में कुल चार खण्ड हैं — अ, ब, स, द।',
+                        'सभी प्रश्न अनिवार्य हैं।'
+                    ]
+                },
+                'Sanskrit': {
+                    code: '122', fullName: 'संस्कृतम्', time: '3 Hours', maxMarks: 80, lang: 'sa',
+                    totalQ: 46,
+                    sections: [
+                        { id: 'क', title: 'खण्डः क — अपठित-अवबोधनम्', desc: 'Unseen Comprehension', perQ: 1, count: 10, qType: 'mcq' },
+                        {
+                            id: 'ख', title: 'खण्डः ख — रचनात्मक-कार्यम्', desc: 'Creative Writing (पत्र, चित्रवर्णन, अनुवाद)', perQ: 0, count: 0, fixed: 15, fixedSections: [
+                                { label: 'पत्र-लेखनम्', marks: 5, count: 1, perQ: 5 },
+                                { label: 'चित्र-वर्णनम् अथवा अनुच्छेद-लेखनम्', marks: 5, count: 1, perQ: 5, internalChoice: true },
+                                { label: 'हिन्दी-संस्कृत-अनुवादः', marks: 5, count: 1, perQ: 5 }
+                            ]
+                        },
+                        { id: 'ग', title: 'खण्डः ग — अनुप्रयुक्त-व्याकरणम्', desc: 'Applied Grammar (सन्धि, शब्दरूप, धातुरूप, कारक)', perQ: 1, count: 25, qType: 'mcq' },
+                        {
+                            id: 'घ', title: 'खण्डः घ — पठित-अवबोधनम्', desc: 'Literature Comprehension (शेमुषी)', perQ: 0, count: 0, fixed: 30, fixedSections: [
+                                { label: 'पठित-गद्यांशम् — MCQ', marks: 6, count: 6, perQ: 1, qType: 'mcq' },
+                                { label: 'पठित-पद्यांशम् — MCQ', marks: 4, count: 4, perQ: 1, qType: 'mcq' },
+                                { label: 'लघु-उत्तरीय प्रश्नाः (शेमुषी)', marks: 10, count: 5, perQ: 2 },
+                                { label: 'दीर्घ-उत्तरीय प्रश्नाः', marks: 10, count: 2, perQ: 5, internalChoice: true }
+                            ]
+                        }
+                    ],
+                    inst: ['स्वच्छाक्षरैः उत्तरं लिखत।']
+                }
             }
         };
 
@@ -990,14 +1073,14 @@
 
         // ============ VERIX: Weighted Question Selection ============
         function getQuestionBranch(q, subject) {
-            // Use the Verix field if available
             if (q.sub_branch) return q.sub_branch;
             if (q.weightage_area) return q.weightage_area;
-            // Fallback: look up chapter in VERIX_MAPS
             const ch = q.chapter || '';
-            if (subject === 'Science') return VERIX_MAPS.scienceBranch[ch] || null;
-            if (subject === 'Maths') return VERIX_MAPS.mathsArea[ch] || null;
-            if (subject === 'Social Science') return VERIX_MAPS.sstArea[ch] || null;
+            const grade = q.grade || selectedGrade;
+            const maps = VERIX_MAPS[grade.toString()];
+            if (subject === 'Science') return maps.scienceBranch[ch] || null;
+            if (subject === 'Maths') return maps.mathsArea[ch] || null;
+            if (subject === 'Social Science') return maps.sstArea[ch] || null;
             return null;
         }
 
@@ -1078,10 +1161,10 @@
             const err = document.getElementById('error-msg');
             btn.disabled = true; btn.textContent = 'Generating...'; err.style.display = 'none';
             try {
-                const bp = BLUEPRINTS[selectedSubject];
+                const bp = BLUEPRINTS_DATA[selectedGrade.toString()][selectedSubject];
                 // Fetch from both plain and composite subject names
                 const [r1, r2] = await Promise.all([
-                    db.from('question_bank').select('*').eq('subject', selectedSubject).limit(1000),
+                    db.from('question_bank').select('*').eq('subject', selectedSubject).eq('grade', selectedGrade).limit(1000),
                     db.from('question_bank').select('*').eq('subject', `${selectedSubject}_${selectedGrade}`).limit(1000)
                 ]);
                 if (r1.error) throw r1.error;
@@ -1097,7 +1180,7 @@
                         <div class="school-line">Central Board of Secondary Education</div>
                         <div class="exam-line">ANNUAL EXAMINATION (2025-26)</div>
                         <div class="subject-line">${bp.fullName}</div>
-                        <div class="code-line">Subject Code: ${bp.code} | Class: IX</div>
+                        <div class="code-line">Subject Code: ${bp.code} | Class: ${selectedGrade === 9 ? 'IX' : 'X'}</div>
                     </div>
                     <div class="paper-meta">
                         <span>Time Allowed: ${bp.time}</span>

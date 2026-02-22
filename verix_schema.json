@@ -1,425 +1,153 @@
 {
     "version": "2025-26",
-    "grade": 9,
     "board": "CBSE",
     "theory_marks": 80,
     "internal_assessment_marks": 20,
-    "subjects": {
-        "Science": {
-            "code": "086",
-            "full_name": "Science",
-            "time": "3 Hours",
-            "max_marks": 80,
-            "total_questions": 39,
-            "weightage": {
-                "Physics": 27,
-                "Chemistry": 27,
-                "Biology": 26
-            },
-            "chapter_branch_map": {
-                "Motion": "Physics",
-                "Force and Laws of Motion": "Physics",
-                "Gravitation": "Physics",
-                "Work and Energy": "Physics",
-                "Sound": "Physics",
-                "Matter in Our Surroundings": "Chemistry",
-                "Is Matter Around Us Pure": "Chemistry",
-                "Atoms and Molecules": "Chemistry",
-                "Structure of the Atom": "Chemistry",
-                "The Fundamental Unit of Life": "Biology",
-                "Tissues": "Biology",
-                "Improvement in Food Resources": "Biology",
-                "Natural Resources": "Biology"
-            },
-            "sections": [
-                {
-                    "id": "A",
-                    "title": "Section A",
-                    "desc": "Multiple Choice Questions",
-                    "type": "mcq",
-                    "count": 20,
-                    "marks_per_q": 1,
-                    "total_marks": 20,
-                    "has_assertion_reason": true,
-                    "ar_start": 19
-                },
-                {
-                    "id": "B",
-                    "title": "Section B",
-                    "desc": "Very Short Answer",
-                    "type": "vsa",
-                    "count": 6,
-                    "marks_per_q": 2,
-                    "total_marks": 12,
-                    "word_limit": "30-50 words",
-                    "internal_choice": true
-                },
-                {
-                    "id": "C",
-                    "title": "Section C",
-                    "desc": "Short Answer",
-                    "type": "sa",
-                    "count": 7,
-                    "marks_per_q": 3,
-                    "total_marks": 21,
-                    "word_limit": "50-80 words",
-                    "internal_choice": true
-                },
-                {
-                    "id": "D",
-                    "title": "Section D",
-                    "desc": "Long Answer",
-                    "type": "la",
-                    "count": 3,
-                    "marks_per_q": 5,
-                    "total_marks": 15,
-                    "word_limit": "80-120 words",
-                    "internal_choice": true,
-                    "diagram_required": true,
-                    "diagram_types": {
-                        "Biology": "labelled biological diagrams (cell structure, tissue types, organ systems)",
-                        "Chemistry": "atomic structure diagrams (electron configuration, Bohr model)",
-                        "Physics": "force vector diagrams (free body diagrams, motion graphs)"
-                    }
-                },
-                {
-                    "id": "E",
-                    "title": "Section E",
-                    "desc": "Case Study Based",
-                    "type": "case",
-                    "count": 3,
-                    "marks_per_q": 4,
-                    "total_marks": 12,
-                    "sub_parts": [1, 1, 2]
-                }
-            ],
-            "instructions": [
-                "This question paper contains 39 questions. All questions are compulsory.",
-                "This question paper is divided into FIVE Sections — A, B, C, D and E.",
-                "In Section A, Questions no. 1 to 18 are MCQs and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.",
-                "In Section B, Questions no. 21 to 26 are Very Short Answer type questions, carrying 2 marks each. Answer in 30–50 words.",
-                "In Section C, Questions no. 27 to 33 are Short Answer type questions, carrying 3 marks each. Answer in 50–80 words.",
-                "In Section D, Questions no. 34 to 36 are Long Answer type questions, carrying 5 marks each. Answer in 80–120 words.",
-                "In Section E, Questions no. 37 to 39 are Case Study Based questions, carrying 4 marks each.",
-                "There is no overall choice. However, an internal choice has been provided in some questions.",
-                "Draw neat and labelled diagrams wherever necessary.",
-                "Use of calculators is NOT allowed."
-            ]
-        },
-        "Maths": {
-            "code": "041",
-            "full_name": "Mathematics (Standard)",
-            "time": "3 Hours",
-            "max_marks": 80,
-            "total_questions": 38,
-            "weightage": {
-                "Geometry": 27,
-                "Algebra": 20,
-                "Mensuration": 13,
-                "Number Systems": 10,
-                "Statistics & Probability": 6,
-                "Coordinate Geometry": 4
-            },
-            "chapter_weightage_map": {
-                "Number Systems": "Number Systems",
-                "Polynomials": "Algebra",
-                "Coordinate Geometry": "Coordinate Geometry",
-                "Linear Equations in Two Variables": "Algebra",
-                "Introduction to Euclids Geometry": "Geometry",
-                "Lines and Angles": "Geometry",
-                "Triangles": "Geometry",
-                "Quadrilaterals": "Geometry",
-                "Circles": "Geometry",
-                "Constructions": "Geometry",
-                "Herons Formula": "Mensuration",
-                "Heron's Formula": "Mensuration",
-                "Surface Areas and Volumes": "Mensuration",
-                "Statistics": "Statistics & Probability",
-                "Probability": "Statistics & Probability"
-            },
-            "sections": [
-                {
-                    "id": "A",
-                    "title": "Section A",
-                    "desc": "Multiple Choice Questions",
-                    "type": "mcq",
-                    "count": 20,
-                    "marks_per_q": 1,
-                    "total_marks": 20,
-                    "has_assertion_reason": true,
-                    "ar_start": 19
-                },
-                {
-                    "id": "B",
-                    "title": "Section B",
-                    "desc": "Very Short Answer (SA-I)",
-                    "type": "vsa",
-                    "count": 5,
-                    "marks_per_q": 2,
-                    "total_marks": 10,
-                    "internal_choice": true
-                },
-                {
-                    "id": "C",
-                    "title": "Section C",
-                    "desc": "Short Answer (SA-II)",
-                    "type": "sa",
-                    "count": 6,
-                    "marks_per_q": 3,
-                    "total_marks": 18,
-                    "internal_choice": true
-                },
-                {
-                    "id": "D",
-                    "title": "Section D",
-                    "desc": "Long Answer",
-                    "type": "la",
-                    "count": 4,
-                    "marks_per_q": 5,
-                    "total_marks": 20,
-                    "internal_choice": true,
-                    "diagram_required_areas": ["Geometry", "Mensuration"],
-                    "diagram_note": "Hardcode diagram generation for Geometry and Mensuration. Render structural proofs visually."
-                },
-                {
-                    "id": "E",
-                    "title": "Section E",
-                    "desc": "Case Study Based",
-                    "type": "case",
-                    "count": 3,
-                    "marks_per_q": 4,
-                    "total_marks": 12,
-                    "sub_parts": [1, 1, 2]
-                }
-            ],
-            "instructions": [
-                "This question paper contains 38 questions. All questions are compulsory.",
-                "This question paper is divided into FIVE Sections — A, B, C, D and E.",
-                "In Section A, Questions no. 1 to 18 are Multiple Choice Questions (MCQs) and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.",
-                "In Section B, Questions no. 21 to 25 are Very Short Answer (SA-I) type questions, carrying 2 marks each.",
-                "In Section C, Questions no. 26 to 31 are Short Answer (SA-II) type questions, carrying 3 marks each.",
-                "In Section D, Questions no. 32 to 35 are Long Answer (LA) type questions, carrying 5 marks each.",
-                "In Section E, Questions no. 36 to 38 are Case Study Based questions, carrying 4 marks each.",
-                "There is no overall choice. However, an internal choice has been provided in 2 questions in Section B, 2 questions in Section C, 2 questions in Section D, and 3 questions in Section E.",
-                "Draw neat figures wherever required. Take π = 22/7 wherever required, if not stated.",
-                "Use of calculators is NOT allowed."
-            ]
-        },
-        "Social Science": {
-            "code": "087",
-            "full_name": "Social Science",
-            "time": "3 Hours",
-            "max_marks": 80,
-            "total_questions": 37,
-            "weightage": {
-                "History": 20,
-                "Geography": 20,
-                "Political Science": 20,
-                "Economics": 20
-            },
-            "chapter_weightage_map": {
-                "The French Revolution": "History",
-                "Socialism in Europe and the Russian Revolution": "History",
-                "Nazism and the Rise of Hitler": "History",
-                "Forest Society and Colonialism": "History",
-                "India Size and Location": "Geography",
-                "India: Size and Location": "Geography",
-                "Physical Features of India": "Geography",
-                "Drainage": "Geography",
-                "Climate": "Geography",
-                "Natural Vegetation and Wildlife": "Geography",
-                "Population": "Geography",
-                "What is Democracy Why Democracy": "Political Science",
-                "What is Democracy": "Political Science",
-                "Constitutional Design": "Political Science",
-                "Electoral Politics": "Political Science",
-                "Working of Institutions": "Political Science",
-                "Democratic Rights": "Political Science",
-                "Democracy in the Contemporary World": "Political Science",
-                "The Story of Village Palampur": "Economics",
-                "People as Resource": "Economics",
-                "Poverty as a Challenge": "Economics",
-                "Food Security in India": "Economics"
-            },
-            "sections": [
-                {
-                    "id": "A",
-                    "title": "Section A",
-                    "desc": "Multiple Choice Questions",
-                    "type": "mcq",
-                    "count": 20,
-                    "marks_per_q": 1,
-                    "total_marks": 20
-                },
-                {
-                    "id": "B",
-                    "title": "Section B",
-                    "desc": "Very Short Answer (40 words)",
-                    "type": "vsa",
-                    "count": 4,
-                    "marks_per_q": 2,
-                    "total_marks": 8,
-                    "word_limit": "40 words",
-                    "internal_choice": true
-                },
-                {
-                    "id": "C",
-                    "title": "Section C",
-                    "desc": "Short Answer (60 words)",
-                    "type": "sa",
-                    "count": 5,
-                    "marks_per_q": 3,
-                    "total_marks": 15,
-                    "word_limit": "60 words",
-                    "internal_choice": true
-                },
-                {
-                    "id": "D",
-                    "title": "Section D",
-                    "desc": "Long Answer (120 words)",
-                    "type": "la",
-                    "count": 4,
-                    "marks_per_q": 5,
-                    "total_marks": 20,
-                    "word_limit": "120 words",
-                    "internal_choice": true
-                },
-                {
-                    "id": "E",
-                    "title": "Section E",
-                    "desc": "Case Study Based",
-                    "type": "case",
-                    "count": 3,
-                    "marks_per_q": 4,
-                    "total_marks": 12,
-                    "sub_parts": [1, 1, 2]
-                },
-                {
-                    "id": "F",
-                    "title": "Section F",
-                    "desc": "Map Based (History 2m + Geography 3m)",
-                    "type": "map",
-                    "count": 1,
-                    "marks_per_q": 5,
-                    "total_marks": 5,
-                    "diagram_required": true,
-                    "map_split": {
-                        "History": 2,
-                        "Geography": 3
+    "grades": {
+        "9": {
+            "subjects": {
+                "Science": {
+                    "code": "086",
+                    "full_name": "Science",
+                    "time": "3 Hours",
+                    "max_marks": 80,
+                    "total_questions": 39,
+                    "weightage": {
+                        "Physics": 27,
+                        "Chemistry": 27,
+                        "Biology": 26
                     },
-                    "map_focus": {
-                        "Geography": ["Climate", "Drainage"],
-                        "History": ["The French Revolution", "Socialism in Europe and the Russian Revolution"]
-                    }
+                    "sections": [
+                        {"id": "A", "count": 20, "marks_per_q": 1, "type": "mcq"},
+                        {"id": "B", "count": 6, "marks_per_q": 2, "type": "vsa", "word_limit": "30-50 words"},
+                        {"id": "C", "count": 7, "marks_per_q": 3, "type": "sa", "word_limit": "50-80 words"},
+                        {"id": "D", "count": 3, "marks_per_q": 5, "type": "la", "word_limit": "80-120 words", "diagram_required": true},
+                        {"id": "E", "count": 3, "marks_per_q": 4, "type": "case"}
+                    ]
+                },
+                "Maths": {
+                    "code": "041",
+                    "full_name": "Mathematics (Standard)",
+                    "time": "3 Hours",
+                    "max_marks": 80,
+                    "total_questions": 38,
+                    "weightage": {
+                        "Geometry": 27,
+                        "Algebra": 20,
+                        "Mensuration": 13,
+                        "Number Systems": 10,
+                        "Statistics & Probability": 6,
+                        "Coordinate Geometry": 4
+                    },
+                    "sections": [
+                        {"id": "A", "count": 20, "marks_per_q": 1, "type": "mcq"},
+                        {"id": "B", "count": 5, "marks_per_q": 2, "type": "vsa"},
+                        {"id": "C", "count": 6, "marks_per_q": 3, "type": "sa"},
+                        {"id": "D", "count": 4, "marks_per_q": 5, "type": "la", "diagram_required_areas": ["Geometry", "Mensuration"]},
+                        {"id": "E", "count": 3, "marks_per_q": 4, "type": "case"}
+                    ]
+                },
+                "Social Science": {
+                    "code": "087",
+                    "full_name": "Social Science",
+                    "time": "3 Hours",
+                    "max_marks": 80,
+                    "total_questions": 37,
+                    "weightage": {
+                        "History": 20,
+                        "Geography": 20,
+                        "Political Science": 20,
+                        "Economics": 20
+                    },
+                    "sections": [
+                        {"id": "A", "count": 20, "marks_per_q": 1, "type": "mcq"},
+                        {"id": "B", "count": 4, "marks_per_q": 2, "type": "vsa", "word_limit": "40 words"},
+                        {"id": "C", "count": 5, "marks_per_q": 3, "type": "sa", "word_limit": "60 words"},
+                        {"id": "D", "count": 4, "marks_per_q": 5, "type": "la", "word_limit": "120 words"},
+                        {"id": "E", "count": 3, "marks_per_q": 4, "type": "case"},
+                        {"id": "F", "count": 1, "marks_per_q": 5, "type": "map", "map_split": {"History": 2, "Geography": 3}}
+                    ]
+                },
+                "English": {
+                    "code": "184",
+                    "full_name": "English Language & Literature",
+                    "max_marks": 80,
+                    "weightage": {"Reading": 20, "Writing": 20, "Literature": 40}
                 }
-            ],
-            "instructions": [
-                "This question paper contains 37 questions. All questions are compulsory.",
-                "This paper is divided into SIX Sections — A, B, C, D, E and F.",
-                "Section A has 20 MCQs carrying 1 mark each.",
-                "Section B has 4 questions carrying 2 marks each. Answer in about 40 words.",
-                "Section C has 5 questions carrying 3 marks each. Answer in about 60 words.",
-                "Section D has 4 questions carrying 5 marks each. Answer in about 120 words.",
-                "Section E has 3 Case Based questions carrying 4 marks each.",
-                "Section F has 1 Map Based question of 5 marks — History (2m) + Geography (3m).",
-                "There is no overall choice. However, internal choice has been provided in some questions.",
-                "Map of India must be attached with the answer script."
-            ]
+            }
         },
-        "English": {
-            "code": "184",
-            "full_name": "English Language & Literature",
-            "time": "3 Hours",
-            "max_marks": 80,
-            "total_questions": 11,
-            "weightage": {
-                "Reading Skills": 20,
-                "Writing Skills & Grammar": 20,
-                "Literature": 40
-            },
-            "sections": [
-                {
-                    "id": "A",
-                    "title": "Section A",
-                    "desc": "Reading Skills",
-                    "type": "reading",
-                    "total_marks": 20,
-                    "note": "Comprehension passages with MCQ-based sub-questions"
-                },
-                {
-                    "id": "B",
-                    "title": "Section B",
-                    "desc": "Writing Skills & Grammar",
-                    "type": "writing_grammar",
-                    "total_marks": 20,
-                    "sub_sections": [
-                        {
-                            "label": "Grammar (Gap filling, Editing, Transformation)",
-                            "marks": 10,
-                            "count": 10,
-                            "marks_per_q": 1,
-                            "type": "mcq"
-                        },
-                        {
-                            "label": "Writing Skills — Descriptive Paragraph / Story / Diary Entry",
-                            "marks": 10,
-                            "note": "Attempt questions as directed. Internal choice provided.",
-                            "diagram_constraint": {
-                                "type": "analytical_paragraph",
-                                "visual_cue": "statistical chart or bar graph",
-                                "instruction": "Inject a visual cue (chart/bar graph) as the prompt for Analytical Paragraph questions"
-                            }
-                        }
+        "10": {
+            "subjects": {
+                "Science": {
+                    "code": "086",
+                    "full_name": "Science",
+                    "time": "3 Hours",
+                    "max_marks": 80,
+                    "total_questions": 39,
+                    "weightage": {
+                        "Physics": 25,
+                        "Chemistry": 25,
+                        "Biology": 30
+                    },
+                    "sections": [
+                        {"id": "A", "count": 20, "marks_per_q": 1, "type": "mcq"},
+                        {"id": "B", "count": 6, "marks_per_q": 2, "type": "vsa", "word_limit": "30-50 words"},
+                        {"id": "C", "count": 7, "marks_per_q": 3, "type": "sa", "word_limit": "50-80 words"},
+                        {"id": "D", "count": 3, "marks_per_q": 5, "type": "la", "word_limit": "100-120 words", "diagram_required": true},
+                        {"id": "E", "count": 3, "marks_per_q": 4, "type": "case"}
                     ]
                 },
-                {
-                    "id": "C",
-                    "title": "Section C",
-                    "desc": "Language Through Literature",
-                    "type": "literature",
-                    "total_marks": 40,
-                    "sub_sections": [
-                        {
-                            "label": "Reference to Context (Prose/Poetry extracts)",
-                            "marks": 10
-                        },
-                        {
-                            "label": "Short Answer Questions from Beehive (40-50 words)",
-                            "marks": 12,
-                            "count": 4,
-                            "marks_per_q": 3
-                        },
-                        {
-                            "label": "Long Answer from Beehive (100-120 words)",
-                            "marks": 6,
-                            "count": 1,
-                            "marks_per_q": 6,
-                            "internal_choice": true
-                        },
-                        {
-                            "label": "Short Answer Questions from Moments (40-50 words)",
-                            "marks": 6,
-                            "count": 2,
-                            "marks_per_q": 3
-                        },
-                        {
-                            "label": "Long Answer from Moments (100-120 words)",
-                            "marks": 6,
-                            "count": 1,
-                            "marks_per_q": 6,
-                            "internal_choice": true
-                        }
+                "Maths": {
+                    "code": "041",
+                    "full_name": "Mathematics (Standard)",
+                    "time": "3 Hours",
+                    "max_marks": 80,
+                    "total_questions": 38,
+                    "weightage": {
+                        "Algebra": 20,
+                        "Geometry": 15,
+                        "Trigonometry": 10,
+                        "Mensuration": 10,
+                        "Statistics & Probability": 10,
+                        "Coordinate Geometry": 6,
+                        "Number Systems": 9
+                    },
+                    "sections": [
+                        {"id": "A", "count": 20, "marks_per_q": 1, "type": "mcq"},
+                        {"id": "B", "count": 5, "marks_per_q": 2, "type": "vsa"},
+                        {"id": "C", "count": 6, "marks_per_q": 3, "type": "sa"},
+                        {"id": "D", "count": 4, "marks_per_q": 5, "type": "la", "diagram_required": true},
+                        {"id": "E", "count": 3, "marks_per_q": 4, "type": "case"}
                     ]
+                },
+                "Social Science": {
+                    "code": "087",
+                    "full_name": "Social Science",
+                    "time": "3 Hours",
+                    "max_marks": 80,
+                    "total_questions": 37,
+                    "weightage": {
+                        "History": 20,
+                        "Geography": 20,
+                        "Political Science": 20,
+                        "Economics": 20
+                    },
+                    "sections": [
+                        {"id": "A", "count": 20, "marks_per_q": 1, "type": "mcq"},
+                        {"id": "B", "count": 4, "marks_per_q": 2, "type": "vsa", "word_limit": "40 words"},
+                        {"id": "C", "count": 5, "marks_per_q": 3, "type": "sa", "word_limit": "60 words"},
+                        {"id": "D", "count": 4, "marks_per_q": 5, "type": "la", "word_limit": "120 words"},
+                        {"id": "E", "count": 3, "marks_per_q": 4, "type": "case"},
+                        {"id": "F", "count": 1, "marks_per_q": 5, "type": "map", "map_split": {"History": 2, "Geography": 3}}
+                    ]
+                },
+                "English": {
+                    "code": "184",
+                    "full_name": "English Language & Literature",
+                    "max_marks": 80,
+                    "weightage": {"Reading": 20, "Writing": 20, "Literature": 40}
                 }
-            ],
-            "instructions": [
-                "This question paper is divided into THREE Sections — A, B and C.",
-                "Section A — Reading Skills — 20 Marks.",
-                "Section B — Writing Skills & Grammar — 20 Marks.",
-                "Section C — Language Through Literature — 40 Marks.",
-                "All questions are compulsory.",
-                "Attempt questions based on specific instructions for each part."
-            ]
+            }
         }
     }
 }

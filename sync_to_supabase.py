@@ -50,7 +50,7 @@ def sync_all():
 
     # Verix audit: count questions with new fields
     verix_count = sum(1 for q in all_questions if "section" in q and "marks" in q)
-    print(f"\n📊 VERIX AUDIT: {verix_count}/{len(all_questions)} questions have Verix metadata")
+    print(f"\nVERIX AUDIT: {verix_count}/{len(all_questions)} questions have Verix metadata")
 
     # Group by subject and grade (Composite Key)
     by_composite = {}
@@ -83,19 +83,17 @@ def sync_all():
         for i in range(0, len(questions), chunk_size):
             chunk = questions[i:i + chunk_size]
             # Prep chunk for insertion
+            KNOWN_COLUMNS = ['question_text', 'subject', 'chapter', 'difficulty', 'is_rationalised']
+            clean_chunk = []
             for item in chunk:
+                # Store composite subject (Subject_Grade)
                 item['subject'] = comp_sub
-                if 'grade' in item: del item['grade']
                 
-                # Ensure Verix fields have safe defaults
-                if 'section' not in item:
-                    item['section'] = 'A'
-                if 'marks' not in item:
-                    item['marks'] = 1
-                if 'diagram_required' not in item:
-                    item['diagram_required'] = False
+                # Create a cleaned version with only DB-supported columns
+                cleaned = {k: v for k, v in item.items() if k in KNOWN_COLUMNS}
+                clean_chunk.append(cleaned)
             
-            data = json.dumps(chunk).encode('utf-8')
+            data = json.dumps(clean_chunk).encode('utf-8')
             req_post = urllib.request.Request(BASE_URL, data=data, method='POST', headers=HEADERS)
             try:
                 with urllib.request.urlopen(req_post) as resp:
@@ -104,9 +102,12 @@ def sync_all():
                     else:
                         print(f"  Post failed: {resp.status}")
             except Exception as e:
-                print(f"  Post error: {e}")
+                if hasattr(e, 'read'):
+                    print(f"  Post error: {e.read().decode()}")
+                else:
+                    print(f"  Post error: {e}")
 
-    print(f"\n✅ VERIX SYNC COMPLETE — {len(all_questions)} questions across {len(by_composite)} subjects")
+    print(f"\n[OK] VERIX SYNC COMPLETE -- {len(all_questions)} questions across {len(by_composite)} subjects")
 
 if __name__ == "__main__":
     sync_all()
