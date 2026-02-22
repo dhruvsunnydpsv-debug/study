@@ -844,6 +844,59 @@
                         }
                     ],
                     inst: ['All questions are compulsory.']
+                },
+                'Hindi': {
+                    code: '002', fullName: 'हिन्दी कोर्स \'अ\'', time: '3 Hours', maxMarks: 80, lang: 'hi',
+                    totalQ: 17,
+                    sections: [
+                        { id: 'अ', title: 'खण्ड अ — अपठित बोध', desc: 'Unseen Comprehension (गद्यांश + काव्यांश)', perQ: 1, count: 14, qType: 'mcq' },
+                        { id: 'ब', title: 'खण्ड ब — व्याकरण', desc: 'Grammar (उपसर्ग, प्रत्यय, समास, वाक्य भेद, अलंकार)', perQ: 1, count: 16, qType: 'mcq' },
+                        {
+                            id: 'स', title: 'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक', desc: 'Literature (क्षितिज + कृतिका)', perQ: 0, count: 0, fixed: 30, fixedSections: [
+                                { label: 'पाठित गद्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+                                { label: 'पाठित काव्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+                                { label: 'गद्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 8, count: 3, perQ: 0 },
+                                { label: 'काव्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 6, count: 2, perQ: 3 },
+                                { label: 'पूरक पुस्तक (कृतिका)', marks: 6, count: 2, perQ: 3 }
+                            ]
+                        },
+                        {
+                            id: 'द', title: 'खण्ड द — रचनात्मक लेखन', desc: 'Creative Writing (अनुच्छेद, पत्र, ईमेल/कहानी)', perQ: 0, count: 0, fixed: 20, fixedSections: [
+                                { label: 'अनुच्छेद लेखन (120 शब्द)', marks: 6, count: 1, perQ: 6 },
+                                { label: 'औपचारिक/अनौपचारिक पत्र', marks: 5, count: 1, perQ: 5 },
+                                { label: 'संवाद लेखन / ईमेल / कहानी', marks: 5, count: 1, perQ: 5 },
+                                { label: 'विज्ञापन / सूचना लेखन', marks: 4, count: 1, perQ: 4 }
+                            ]
+                        }
+                    ],
+                    inst: [
+                        'इस प्रश्न-पत्र में कुल चार खण्ड हैं — अ, ब, स, द।',
+                        'सभी प्रश्न अनिवार्य हैं।'
+                    ]
+                },
+                'Sanskrit': {
+                    code: '122', fullName: 'संस्कृतम्', time: '3 Hours', maxMarks: 80, lang: 'sa',
+                    totalQ: 46,
+                    sections: [
+                        { id: 'क', title: 'खण्डः क — अपठित-अवबोधनम्', desc: 'Unseen Comprehension', perQ: 1, count: 10, qType: 'mcq' },
+                        {
+                            id: 'ख', title: 'खण्डः ख — रचनात्मक-कार्यम्', desc: 'Creative Writing (पत्र, चित्रवर्णन, अनुवाद)', perQ: 0, count: 0, fixed: 15, fixedSections: [
+                                { label: 'पत्र-लेखनम्', marks: 5, count: 1, perQ: 5 },
+                                { label: 'चित्र-वर्णनम् अथवा अनुच्छेद-लेखनम्', marks: 5, count: 1, perQ: 5, internalChoice: true },
+                                { label: 'हिन्दी-संस्कृत-अनुवादः', marks: 5, count: 1, perQ: 5 }
+                            ]
+                        },
+                        { id: 'ग', title: 'खण्डः ग — अनुप्रयुक्त-व्याकरणम्', desc: 'Applied Grammar (सन्धि, शब्दरूप, धातुरूप, कारक)', perQ: 1, count: 25, qType: 'mcq' },
+                        {
+                            id: 'घ', title: 'खण्डः घ — पठित-अवबोधनम्', desc: 'Literature Comprehension (शेमुषी)', perQ: 0, count: 0, fixed: 30, fixedSections: [
+                                { label: 'पठित-गद्यांशम् — MCQ', marks: 6, count: 6, perQ: 1, qType: 'mcq' },
+                                { label: 'पठित-पद्यांशम् — MCQ', marks: 4, count: 4, perQ: 1, qType: 'mcq' },
+                                { label: 'लघु-उत्तरीय प्रश्नाः (शेमुषी)', marks: 10, count: 5, perQ: 2 },
+                                { label: 'दीर्घ-उत्तरीय प्रश्नाः', marks: 10, count: 2, perQ: 5, internalChoice: true }
+                            ]
+                        }
+                    ],
+                    inst: ['स्वच्छाक्षरैः उत्तरं लिखत।']
                 }
             },
             "10": {
