@@ -822,7 +822,7 @@
         function renderQ(q, num, marks, opts = {}) {
             const raw = q.question_text || '';
             const fig = parseFig(raw);
-            let url = fig.url || q.image_url;
+            let url = fig.url;
             let text = fig.clean;
             let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
 
@@ -950,8 +950,8 @@
                         let sectionPool = pool.filter(q => !used.has(q.id));
                         // Diagram bias for case studies and science LA
                         if (sec.qType === 'case' || (selectedSubject === 'Science' && sec.id === 'D')) {
-                            const dP = sectionPool.filter(q => (q.question_text || '').includes('[Image:') || q.image_url);
-                            const oP = sectionPool.filter(q => !((q.question_text || '').includes('[Image:') || q.image_url));
+                            const dP = sectionPool.filter(q => (q.question_text || '').includes('[Image:'));
+                            const oP = sectionPool.filter(q => !(q.question_text || '').includes('[Image:'));
                             sectionPool = [...dP, ...oP];
                         }
 
@@ -968,8 +968,8 @@
                                 html += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">`;
                                 const fig = parseFig(q.question_text || '');
                                 let caseText = fig.clean;
-                                if (fig.url || q.image_url) {
-                                    html += `<div class="figure-box"><img src="${fig.url || q.image_url}" class="q-image" alt="Case Study Diagram" onerror="this.parentElement.innerHTML='<div style=\\'color:#888;font-size:0.7rem\\'>Diagram could not be loaded</div>'"></div>`;
+                                if (fig.url) {
+                                    html += `<div class="figure-box"><img src="${fig.url}" class="q-image" alt="Case Study Diagram" onerror="this.parentElement.innerHTML='<div style=\\'color:#888;font-size:0.7rem\\'>Diagram could not be loaded</div>'"></div>`;
                                 }
                                 // Split into passage and sub-parts
                                 const subMatch = caseText.match(/\((i|a)\)/);
