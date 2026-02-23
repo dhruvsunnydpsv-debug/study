@@ -298,6 +298,24 @@
             font-weight: 600
         }
 
+        /* MCQ Options Styling */
+        .mcq-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .mcq-options.single-col {
+            grid-template-columns: 1fr;
+        }
+
+        .mcq-opt {
+            font-size: 0.85rem;
+            color: #333;
+        }
+
         .paper-header .code-line {
             font-size: 0.75rem;
             color: #666;
