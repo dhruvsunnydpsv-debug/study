@@ -700,32 +700,7 @@
                     'In Section D, Questions no. 34 to 36 are Long Answer type questions, carrying 5 marks each. Answer in 80–120 words.',
                     'In Section E, Questions no. 37 to 39 are Case Study Based questions, carrying 4 marks each.',
                     'There is no overall choice. However, an internal choice has been provided in some questions.',
-                    'Draw neat and labelled diagrams wherever necessary.',
-                    'Use of calculators is NOT allowed.'
-                ]
-            },
-            'Social Science': {
-                code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
-                totalQ: 37,
-                sections: [
-                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq' },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true },
-                    { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
-                    { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map' }
-                ],
-                inst: [
-                    'This question paper contains 37 questions. All questions are compulsory.',
-                    'This paper is divided into SIX Sections — A, B, C, D, E and F.',
-                    'Section A has 20 MCQs carrying 1 mark each.',
-                    'Section B has 4 questions carrying 2 marks each. Answer in about 40 words.',
-                    'Section C has 5 questions carrying 3 marks each. Answer in about 60 words.',
-                    'Section D has 4 questions carrying 5 marks each. Answer in about 120 words.',
-                    'Section E has 3 Case Based questions carrying 4 marks each.',
-                    'Section F has 1 Map Based question of 5 marks — History (2m) + Geography (3m).',
-                    'There is no overall choice. However, internal choice has been provided in some questions.',
-                    'Map of India must be attached with the answer script.'
+                    'Draw neat and labelled diagrams wherever necessary.'
                 ]
             },
             'English': {
@@ -792,6 +767,30 @@
                     'उत्तर सुन्दर एवं स्वच्छ लिखावट में लिखें।'
                 ]
             },
+            'Social Science': {
+                code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
+                totalQ: 37,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
+                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true },
+                    { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true },
+                    { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
+                    { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map' }
+                ],
+                inst: [
+                    'This question paper contains 37 questions. All questions are compulsory.',
+                    'This paper is divided into SIX Sections — A, B, C, D, E and F.',
+                    'Section A has 20 MCQs carrying 1 mark each.',
+                    'Section B has 4 questions carrying 2 marks each. Answer in about 40 words.',
+                    'Section C has 5 questions carrying 3 marks each. Answer in about 60 words.',
+                    'Section D has 4 questions carrying 5 marks each. Answer in about 120 words.',
+                    'Section E has 3 Case Based questions carrying 4 marks each.',
+                    'Section F has 1 Map Based question of 5 marks — History (2m) + Geography (3m).',
+                    'There is no overall choice. However, internal choice has been provided in some questions.',
+                    'Map of India must be attached with the answer script.'
+                ]
+            },
             'Sanskrit': {
                 code: '122', fullName: 'संस्कृतम्', time: '3 Hours', maxMarks: 80, lang: 'sa',
                 totalQ: 46,
@@ -853,14 +852,66 @@
             let text = fig.clean;
             let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
 
+            // NEW: Handle Parent-Child Clusters (Passages/Case Studies)
+            if (q.options && q.options.passage_text) {
+                html += `<div class="passage-box" style="background:rgba(124,58,237,0.05);padding:15px;border-left:4px solid var(--accent);margin:10px 0;font-style:italic;color:#333;font-family:'Inter',sans-serif">`;
+                html += `<strong>Read the following and answer correctly:</strong><br><br>${q.options.passage_text}</div>`;
+
+                if (q.options.sub_questions) {
+                    q.options.sub_questions.forEach((sub, idx) => {
+                        html += `<div class="sub-question" style="margin-top:15px;padding-left:15px;border-left:2px solid #eee">`;
+                        html += `<div class="sub-body">`;
+                        html += `<span style="font-weight:600">(${idx + 1})</span> ${sub.text}`;
+
+                        if (sub.choices) {
+                            const isL = Object.values(sub.choices).some(v => v.length > 50);
+                            html += `<div class="mcq-options${isL ? ' single-col' : ''}" style="margin-top:5px">`;
+                            for (const [k, v] of Object.entries(sub.choices)) {
+                                html += `<div class="mcq-opt">(${k}) ${v}</div>`;
+                            }
+                            html += `</div>`;
+                        }
+                        html += `</div></div>`;
+                    });
+                }
+                html += `</div></div>`;
+                return html;
+            }
+
             // Image at top — referrerpolicy="no-referrer" bypasses Wikimedia hotlink blocking
             if (url) {
                 const topic = getImgTopic(url);
                 html += `<div class="figure-box"><img src="${url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=\\'border:2px dashed #ccc;padding:20px;text-align:center;color:#666;background:#f9f9f9;border-radius:8px;margin:8px 0\\'>📐 <strong>${topic}</strong><br><small style=\\'color:#999\\'>Refer to your textbook for this diagram</small></div>')"></div>`;
             }
 
-            // NEW: Handle JSONB options if present
-            if (q.options) {
+            // NEW: Handle Parent-Child Clusters (Passages/Case Studies)
+            if (q.options && q.options.passage_text) {
+                html += `<div class="passage-box" style="background:#f4f4f4;padding:15px;border-left:4px solid var(--accent);margin:10px 0;font-style:italic">`;
+                html += `<strong>Read the following and answer:</strong><br>${q.options.passage_text}</div>`;
+
+                if (q.options.sub_questions) {
+                    q.options.sub_questions.forEach((sub, idx) => {
+                        html += `<div class="sub-question" style="margin-top:15px;padding-left:15px;border-left:2px solid #ddd">`;
+                        html += `<span class="sub-num">${num}.${idx + 1}</span> <div class="sub-body" style="display:inline-block;width:calc(100% - 40px);vertical-align:top">`;
+                        html += `<div>${sub.text}</div>`;
+
+                        if (sub.choices) {
+                            const isL = Object.values(sub.choices).some(v => v.length > 50);
+                            html += `<div class="mcq-options${isL ? ' single-col' : ''}" style="margin-top:5px">`;
+                            for (const [k, v] of Object.entries(sub.choices)) {
+                                html += `<div class="mcq-opt">(${k}) ${v}</div>`;
+                            }
+                            html += `</div>`;
+                        }
+                        html += `</div></div>`;
+                    });
+                }
+                html += `</div></div>`;
+                return html;
+            }
+
+            // Standard JSONB options (Standalone MCQs)
+            if (q.options && !q.options.passage_text) {
                 html += `<div>${text}</div>`;
                 const isLong = Object.values(q.options).some(v => v.length > 50);
                 html += `<div class="mcq-options${isLong ? ' single-col' : ''}" style="margin-top:6px">`;

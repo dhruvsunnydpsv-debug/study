@@ -1,6 +1,6 @@
 """
-Verix Audit Engine — Production Harvester v2.0
-Class 9 CBSE ETL Ingestion Pipeline
+Verix Audit Engine — Production Harvester v2.1 (Architect Edition)
+Class 9 CBSE ETL Ingestion Pipeline with Parent-Child Cluster Support
 
 Extracts structured question data, downloads diagrams to Supabase Storage,
 and loads everything into the class9_question_bank table.
@@ -99,8 +99,88 @@ def parse_options(raw_text: str, question_type: str) -> Optional[Dict[str, str]]
 
 
 # --- 5. MASTER QUESTION BANK ---
-# Production-grade seed data with CBSE 2025-26 exact patterns
+# Production-grade seed data with V2.1 Parent-Child Cluster Architecture
 SEED_DATA = [
+    # ==================== ENGLISH (LANGUAGE & LITERATURE) ====================
+    {
+        "subject": "English", "chapter": "Reading Skills — Discursive Passage",
+        "question_type": "Comprehension", "marks": 5, "source": "CBSE Blueprint 2025-26",
+        "question_text": "Read the following passage carefully and answer the questions that follow.",
+        "options": {
+            "passage_text": "The Amazon rainforest plays a crucial part in regulating the world's carbon cycle. Spanning over 5.5 million square kilometers, it absorbs billions of tons of carbon dioxide every year. However, recent data from 2024 shows a 12% increase in deforestation rates, threatening this delicate balance...",
+            "sub_questions": [
+                {
+                    "sub_id": "1",
+                    "text": "According to the passage, what is the primary function of the Amazon in the global climate?",
+                    "type": "MCQ", "marks": 1,
+                    "choices": {"A": "Producing timber", "B": "Regulating the carbon cycle", "C": "Providing wildlife habitats", "D": "Generating rainfall"},
+                    "correct_answer": "B"
+                },
+                {
+                    "sub_id": "2",
+                    "text": "State the percentage increase in deforestation rates observed in 2024.",
+                    "type": "Very Short Answer", "marks": 1,
+                    "choices": None, "correct_answer": "12%"
+                },
+                {
+                    "sub_id": "3",
+                    "text": "What is the total area covered by the Amazon rainforest?",
+                    "type": "MCQ", "marks": 1,
+                    "choices": {"A": "2.5 million sq km", "B": "4.5 million sq km", "C": "5.5 million sq km", "D": "6.5 million sq km"},
+                    "correct_answer": "C"
+                },
+                {
+                    "sub_id": "4",
+                    "text": "The phrase 'delicate balance' suggests that the ecosystem is:",
+                    "type": "MCQ", "marks": 1,
+                    "choices": {"A": "Sturdy", "B": "Fragile", "C": "Irrelevant", "D": "Expanding"},
+                    "correct_answer": "B"
+                },
+                {
+                    "sub_id": "5",
+                    "text": "Based on the text, what is the main threat mentioned?",
+                    "type": "MCQ", "marks": 1,
+                    "choices": {"A": "Pollution", "B": "Deforestation", "C": "Global Warming", "D": "Mining"},
+                    "correct_answer": "B"
+                }
+            ]
+        },
+        "correct_answer": None
+    },
+    # ==================== SCIENCE — CASE STUDY (COMPETENCY) ====================
+    {
+        "subject": "Science", "chapter": "Matter in Our Surroundings",
+        "question_type": "Case-Based", "marks": 4, "source": "NCERT Activity",
+        "competency_flag": True,
+        "question_text": "Read the following experimental setup and answer the questions.",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Phase_change_-_en.svg/640px-Phase_change_-_en.svg.png",
+        "options": {
+            "passage_text": "A student takes 50g of ice at 0°C in a beaker and heats it slowly while stirring. They observe that the temperature remains constant at 0°C until all the ice melts completely, despite continuous heating.",
+            "sub_questions": [
+                {
+                    "sub_id": "1",
+                    "text": "Why does the temperature remain constant during the melting process?",
+                    "type": "MCQ", "marks": 1,
+                    "choices": {"A": "Heat is lost to atmosphere", "B": "Used as Latent Heat of Fusion", "C": "Beaker absorbs all heat", "D": "Thermometer is faulty"},
+                    "correct_answer": "B"
+                },
+                {
+                    "sub_id": "2",
+                    "text": "What is the state of matter at exactly 0°C during this process?",
+                    "type": "MCQ", "marks": 1,
+                    "choices": {"A": "Only Solid", "B": "Only Liquid", "C": "Both Solid and Liquid", "D": "Gaseous"},
+                    "correct_answer": "C"
+                },
+                {
+                    "sub_id": "3",
+                    "text": "Define Latent Heat of Fusion based on this experiment.",
+                    "type": "Short Answer", "marks": 2,
+                    "choices": None, "correct_answer": "The amount of heat required to change 1kg of solid into liquid at atmospheric pressure at its melting point."
+                }
+            ]
+        },
+        "correct_answer": None
+    },
     # ==================== SCIENCE — BIOLOGY ====================
     {
         "subject": "Science", "chapter": "Cell — The Fundamental Unit of Life",
@@ -539,10 +619,11 @@ def execute_harvest_pipeline():
                 "question_text": item["question_text"],
                 "options": item.get("options"),  # Already in correct JSONB format
                 "correct_answer": item.get("correct_answer"),
-                "diagram_url": permanent_diagram_url or image_url,  # Fallback to source URL
+                "diagram_url": permanent_diagram_url or image_url,
                 "marks": item.get("marks"),
                 "question_type": item.get("question_type"),
-                "source_reference": item.get("source")
+                "source_reference": item.get("source"),
+                "competency_flag": item.get("competency_flag", False)
             }
 
             # Step 3: Database Insert
