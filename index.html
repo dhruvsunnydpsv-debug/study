@@ -771,29 +771,36 @@
                     };
                 }
 
-                // V3.0: Strict Assembly Coordinator - Target Virtual Views
-                const sKey = selectedSubject.toLowerCase().replace(/\s+/g, '_');
-                const fetchView = async (vName) => {
-                    const { data, error } = await db.from(vName).select('*').limit(40);
+                // V3.4: Randomized Retrieval Engine (RPC)
+                const fetchRandom = async (sub, marks, lim = 25) => {
+                    const { data, error } = await db.rpc('get_random_questions', {
+                        sub: sub,
+                        m: marks,
+                        lim: lim
+                    });
                     if (error) {
-                        console.error(`[Supabase View Error] ${vName}:`, error);
-                        return [];
+                        console.error(`[RPC Error] ${sub} ${marks}m:`, error);
+                        // Fallback to basic fetch if RPC fails
+                        const { data: fbData } = await db.from('class9_question_bank')
+                            .select('*')
+                            .eq('subject', sub)
+                            .eq('marks', marks)
+                            .limit(lim);
+                        return (fbData || []).sort(() => Math.random() - 0.5);
                     }
-                    return (data || []).sort(() => Math.random() - 0.5);
+                    return data || [];
                 };
 
-                // Parallel bucket fetching
-                const [v1, v2, v3, v4, v5, vDiag, vAll] = await Promise.all([
-                    fetchView(`view_${sKey}_1_markers`),
-                    fetchView(`view_${sKey}_2_markers`),
-                    fetchView(`view_${sKey}_3_markers`),
-                    fetchView(`view_${sKey}_4_markers`),
-                    fetchView(`view_${sKey}_5_markers`),
-                    fetchView(`view_${sKey}_diagrams`),
-                    fetchView(`view_${sKey}_all`)
+                const [v1, v2, v3, v4, v5, vAll] = await Promise.all([
+                    fetchRandom(selectedSubject, 1, 30),
+                    fetchRandom(selectedSubject, 2, 10),
+                    fetchRandom(selectedSubject, 3, 10),
+                    fetchRandom(selectedSubject, 4, 10),
+                    fetchRandom(selectedSubject, 5, 10),
+                    fetchRandom(selectedSubject, 1, 50) // 'all' fallback
                 ]);
 
-                const POOLS = { 1: v1, 2: v2, 3: v3, 4: v4, 5: v5, 'diag': vDiag, 'all': vAll };
+                const POOLS = { 1: v1, 2: v2, 3: v3, 4: v4, 5: v5, 'all': vAll };
 
                 paperCount++; currentAnswers = [];
                 let gNum = 0, used = new Set();
@@ -806,9 +813,14 @@
                     let secCount = 0;
                     let tempHtml = '';
 
-                    // COORDINATOR: Handle Empty Pools with Weightage Substitution (V3.0)
+                    // COORDINATOR: Handle Empty Pools - NO MCQ BLEED (V3.4)
                     if (pool.length < sec.count && sec.count > 0) {
-                        const fallbackPool = [...POOLS[1], ...POOLS['all']].filter(q => !used.has(q.id));
+                        // Only fallback to 'all' if the question type matches or it's a general section
+                        const fallbackPool = [...POOLS['all']].filter(q => {
+                            if (used.has(q.id)) return false;
+                            if (marks >= 3 && q.marks < 3) return false; // Strict Subjective Shield
+                            return true;
+                        });
                         pool = [...pool, ...fallbackPool];
                     }
 

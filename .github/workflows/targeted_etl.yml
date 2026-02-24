@@ -1,15 +1,13 @@
-name: Automated 1-Hour Multi-Pipeline ETL
+name: Targeted Class 9 Asset Hunter
 
 on:
   schedule:
-    # Every hour (0 * * * *)
-    - cron: '0 * * * *'
+    - cron: '30 */3 * * *'
   workflow_dispatch:
 
 jobs:
-  harvest:
+  hunt:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -23,24 +21,15 @@ jobs:
         run: |
           pip install requests beautifulsoup4 supabase
 
-      - name: Run Harvester (HTML Scraper)
+      - name: Execute Targeted Hunter
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-        run: python harvester.py
+        run: python targeted_harvester.py
 
-      - name: Run API Interceptor (JSON Heist)
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-        run: python api_interceptor.py
-
-      - name: Upload Logs
+      - name: Upload Logging
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: dual-pipeline-logs
-          path: |
-            harvest_execution.log
-            interceptor.log
-          retention-days: 5
+          name: targeted-hunt-logs
+          path: targeted_harvest.log

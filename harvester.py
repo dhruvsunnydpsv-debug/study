@@ -38,7 +38,51 @@ if not SUPABASE_URL or not SUPABASE_KEY:
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 DIAGRAM_BUCKET = "question_diagrams"
 
-# --- 3. DIAGRAM HANDLING ---
+# --- 3. INVENTORY AUDIT & DYNAMIC BALANCING (V3.4) ---
+def get_inventory_audit() -> Dict[str, Dict[int, int]]:
+    """
+    Queries Supabase to get a count of questions grouped by subject and marks.
+    Returns: {'Science': {1: 100, 3: 5, 5: 2}, 'Mathematics': {...}}
+    """
+    try:
+        # Fetching grouped counts via a simple select (aggregating in python for reliability)
+        response = supabase.table("class9_question_bank").select("subject, marks").execute()
+        data = response.data or []
+        
+        audit = {}
+        for row in data:
+            sub = row['subject']
+            m = row['marks'] or 1 # Default to 1 if null
+            if sub not in audit: audit[sub] = {}
+            audit[sub][m] = audit[sub].get(m, 0) + 1
+        
+        logging.info(f"Inventory Audit: {audit}")
+        return audit
+    except Exception as e:
+        logging.error(f"Inventory audit failed: {e}")
+        return {}
+
+def should_skip_type(subject: str, marks: int, audit: Dict[str, Dict[int, int]]) -> bool:
+    """
+    Implements Dynamic Quota Balancing:
+    If MCQs (1-mark) are > 80% of a subject's volume and total volume > 50,
+    ignore further 1-mark questions for that subject.
+    """
+    sub_data = audit.get(subject, {})
+    total = sum(sub_data.values())
+    
+    if total < 50: return False # Not enough data to balance yet
+    
+    mcq_count = sub_data.get(1, 0)
+    ratio = mcq_count / total
+    
+    if marks == 1 and ratio > 0.8:
+        logging.warning(f"  [Balancer] Skipping {subject} 1-mark (Ratio: {ratio:.2f})")
+        return True
+        
+    return False
+
+# --- 4. DIAGRAM HANDLING ---
 def download_and_upload_diagram(image_url: str, subject: str, chapter: str) -> Optional[str]:
     """Downloads an image into memory and pipes it to Supabase Storage."""
     if not image_url:
@@ -714,7 +758,16 @@ def execute_harvest_pipeline():
     ]
     
     full_pool = SEED_DATA.copy()
+    
+    # Pre-Flight Inventory Check (Directive V3.4)
+    audit = get_inventory_audit()
+    
     for source in EXTERNAL_SOURCES:
+        # Determine weight based on URL/subject
+        # (Assuming 1-mark for general guru links, but harvester can be smarter)
+        if should_skip_type(source["subject"], 1, audit):
+            continue
+            
         scraped = DeepScraper.scrape_ncert_guru(source["url"], source["subject"], source["chapter"])
         full_pool.extend(scraped)
 
