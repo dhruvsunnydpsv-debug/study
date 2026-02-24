@@ -585,7 +585,6 @@ SEED_DATA = [
         "correct_answer": "A", "marks": 1, "question_type": "MCQ",
         "source": "व्याकरण"
     },
-    },
 ]
 
 

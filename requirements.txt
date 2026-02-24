@@ -1,7 +1,4 @@
-requests>=2.31.0
-beautifulsoup4>=4.12.2
 supabase
 httpx
 requests
 beautifulsoup4
-tpx>=0.25.0
