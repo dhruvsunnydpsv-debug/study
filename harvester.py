@@ -14,6 +14,7 @@ import logging
 import time
 from typing import Optional, Dict, List, Any
 import requests
+from bs4 import BeautifulSoup
 from supabase import create_client, Client
 
 # --- 1. CONFIGURE PRODUCTION LOGGING ---
@@ -584,15 +585,98 @@ SEED_DATA = [
         "correct_answer": "A", "marks": 1, "question_type": "MCQ",
         "source": "व्याकरण"
     },
+    },
 ]
 
 
-# --- 6. MAIN ETL PIPELINE ---
+# --- 6. DEEP SCRAPER ENGINE (V2.1) ---
+class DeepScraper:
+    """Automated scraper for educational portals (NCERTBooks.Guru / LearnCBSE)."""
+
+    @staticmethod
+    def scrape_ncert_guru(url: str, subject: str, chapter: str) -> List[Dict[str, Any]]:
+        """Scrapes MCQs from NCERTBooks.Guru structure."""
+        extracted = []
+        try:
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, 'html.parser')
+            
+            # Usually questions are in <p> tags inside .entry-content
+            content = soup.select_one('.entry-content')
+            if not content:
+                content = soup.find('article') or soup.find('body')
+
+            paragraphs = content.find_all('p')
+            current_q = None
+
+            for p in paragraphs:
+                text = p.get_text(separator=" ", strip=True)
+                
+                # Detect Question Starts (e.g. "1. Question text")
+                q_match = re.match(r'^(\d+)[\.\s]+(.*)', text)
+                if q_match:
+                    # Save previous question if it exists
+                    if current_q and current_q.get("options") and current_q.get("correct_answer"):
+                        extracted.append(current_q)
+                    
+                    q_num = q_match.group(1)
+                    q_body = q_match.group(2)
+                    
+                    # Check if options are in the same paragraph
+                    opts = parse_options(q_body, "MCQ")
+                    clean_text = re.sub(r'\(a\).*', '', q_body, flags=re.IGNORECASE).strip()
+                    
+                    current_q = {
+                        "subject": subject,
+                        "chapter": chapter,
+                        "question_text": f"Q{q_num}. {clean_text}",
+                        "options": opts,
+                        "marks": 1,
+                        "question_type": "MCQ",
+                        "source": "NCERTBooks.Guru",
+                        "correct_answer": None
+                    }
+                
+                # Detect Answer Paragraphs
+                elif current_q and not current_q["correct_answer"]:
+                    # Look for "Answer: (a)" or just "(a)"
+                    ans_match = re.search(r'Answer:?\s*\(([a-dA-D])\)', text, re.IGNORECASE)
+                    if not ans_match:
+                        ans_match = re.match(r'^\(([a-dA-D])\)', text)
+                    
+                    if ans_match:
+                        current_q["correct_answer"] = ans_match.group(1).upper()
+                        # If options weren't in the question paragraph, they might be here or in between
+            
+            if current_q:
+                extracted.append(current_q)
+                
+            logging.info(f"  [Scraper] Extracted {len(extracted)} questions from {url}")
+            return extracted
+        except Exception as e:
+            logging.error(f"  [Scraper] Failed to scrape {url}: {e}")
+            return []
+
+# --- 7. MAIN ETL PIPELINE ---
 def execute_harvest_pipeline():
     """Main ETL Pipeline: processes seed data, downloads diagrams, loads into database."""
     logging.info("=" * 60)
-    logging.info("VERIX HARVEST ENGINE v2.0 — INITIATING")
-    logging.info(f"Total items to process: {len(SEED_DATA)}")
+    logging.info("VERIX HARVEST ENGINE v2.1 — INITIATING")
+    
+    # Optional: External Sources for Option B
+    EXTERNAL_SOURCES = [
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-5-with-answers/", "subject": "Science", "chapter": "The Fundamental Unit of Life"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-1-with-answers/", "subject": "Science", "chapter": "Matter in Our Surroundings"},
+    ]
+    
+    full_pool = SEED_DATA.copy()
+    for source in EXTERNAL_SOURCES:
+        scraped = DeepScraper.scrape_ncert_guru(source["url"], source["subject"], source["chapter"])
+        full_pool.extend(scraped)
+
+    logging.info(f"Total items in pool: {len(full_pool)}")
     logging.info("=" * 60)
 
     successful_inserts = 0
@@ -600,7 +684,7 @@ def execute_harvest_pipeline():
     diagram_uploads = 0
     errors = 0
 
-    for i, item in enumerate(SEED_DATA):
+    for i, item in enumerate(full_pool):
         try:
             # Step 1: Handle Diagram
             permanent_diagram_url = None

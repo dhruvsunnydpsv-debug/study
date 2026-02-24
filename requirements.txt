@@ -1,4 +1,7 @@
 requests>=2.31.0
 beautifulsoup4>=4.12.2
-supabase>=2.4.0
-httpx>=0.25.0
+supabase
+httpx
+requests
+beautifulsoup4
+tpx>=0.25.0
