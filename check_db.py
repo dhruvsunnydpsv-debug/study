@@ -7,14 +7,16 @@ key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indm
 supabase: Client = create_client(url, key)
 
 try:
-    res = supabase.table("class9_question_bank").select("subject", count="exact").execute()
-    print(f"Total Rows: {res.count}")
+    # Test Master Table
+    res = supabase.table("class9_question_bank").select("subject", count="exact").limit(1).execute()
+    print(f"Master Table Rows (Sample): {res.data}")
     
-    subjects = {}
-    for row in res.data:
-        s = row.get("subject")
-        subjects[s] = subjects.get(s, 0) + 1
-    print(f"Subjects: {subjects}")
+    # Test a Virtual View (Directly testing Directive V3.0 logic)
+    print("\nTesting View access (Directive V3.1 Audit):")
+    view_res = supabase.table("view_science_1_markers").select("*").limit(5).execute()
+    print(f"Science View Data: {view_res.data}")
 
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"\n[!] ACCESS ERROR: {e}")
+    if "403" in str(e) or "not found" in str(e).lower():
+        print("ACTION REQUIRED: Supabase is blocking public access to Views. Run the GRANT SELECT script in SQL Editor.")

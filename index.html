@@ -775,7 +775,10 @@
                 const sKey = selectedSubject.toLowerCase().replace(/\s+/g, '_');
                 const fetchView = async (vName) => {
                     const { data, error } = await db.from(vName).select('*').limit(40);
-                    if (error) return [];
+                    if (error) {
+                        console.error(`[Supabase View Error] ${vName}:`, error);
+                        return [];
+                    }
                     return (data || []).sort(() => Math.random() - 0.5);
                 };
 
