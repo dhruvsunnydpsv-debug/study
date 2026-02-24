@@ -1067,14 +1067,31 @@
                 const bp = blueprints[selectedSubject];
                 if (!bp) throw new Error(`Blueprint not found for ${selectedSubject} in ${selectedMode} mode.`);
 
-                // 1. Fetch questions based on subject (Case-Insensitive)
+                // 1. SEGREGATED FETCHING (DIRECTIVE V2.7)
                 const qKey = (selectedSubject === 'Mathematics') ? 'Math%' : `${selectedSubject}%`;
-                const { data: allQ, error } = await db.from('class9_question_bank').select('*').ilike('subject', qKey).limit(1000);
 
-                if (error) throw error;
-                if (!allQ || allQ.length === 0) throw new Error(`No questions found for ${selectedSubject}.`);
+                const fetchPool = async (typeArr, marks, limit = 50) => {
+                    const { data, error } = await db.from('class9_question_bank')
+                        .select('*')
+                        .ilike('subject', qKey)
+                        .in('question_type', typeArr)
+                        .eq('marks', marks)
+                        .limit(limit);
+                    if (error) throw error;
+                    return (data || []).sort(() => Math.random() - 0.5);
+                };
 
-                const pool = allQ.sort(() => Math.random() - 0.5);
+                const [poolA, poolB, poolC, poolD, poolE, poolMap] = await Promise.all([
+                    fetchPool(['MCQ', 'Assertion-Reason', 'Assertion-Reasoning'], 1, 40),
+                    fetchPool(['Very Short Answer', 'VSA'], 2, 20),
+                    fetchPool(['Short Answer', 'SA'], 3, 20),
+                    fetchPool(['Long Answer', 'LA'], 5, 10),
+                    fetchPool(['Case-Based', 'Case Study', 'Case study'], 4, 10),
+                    fetchPool(['Map', 'Map Work', 'Map Pointing'], 2, 5)
+                ]);
+
+                const POOLS = { 'mcq': poolA, 'vsa': poolB, 'sa': poolC, 'la': poolD, 'case': poolE, 'map': poolMap };
+
                 paperCount++;
                 currentAnswers = [];
 
@@ -1109,9 +1126,9 @@
                     html += `<div class="section-header">${sec.title} — ${sec.desc} ${sec.perQ > 0 ? '(' + sec.perQ + ' mark' + (sec.perQ > 1 ? 's' : '') + ' each)' : ''} <span class="q-range">${rangeStr}</span></div>`;
 
                     if (sec.count > 0) {
-                        let sectionPool = pool.filter(q => !used.has(q.id));
+                        let sType = sec.qType || (sec.perQ === 2 ? 'vsa' : sec.perQ === 3 ? 'sa' : sec.perQ === 5 ? 'la' : 'mcq');
+                        let sectionPool = (POOLS[sType] || poolA).filter(q => !used.has(q.id));
 
-                        // Diagram Trigger Priority
                         if (sec.forceDiagram) {
                             sectionPool.sort((a, b) => (b.diagram_url ? 1 : 0) - (a.diagram_url ? 1 : 0));
                         }
@@ -1122,7 +1139,7 @@
                             if (selectedDiff !== 'Mixed' && qDiff !== selectedDiff) continue;
 
                             gNum++; count++; used.add(q.id);
-                            const isAR = sec.hasAR && gNum >= sec.arStart && gNum <= sec.arStart + 1;
+                            const isAR = (sec.hasAR || q.question_type.includes('Assertion')) && gNum >= (sec.arStart || 999);
 
                             if (sec.qType === 'case') {
                                 html += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">`;
@@ -1172,7 +1189,8 @@
                             html += `<div style="font-weight:600;font-size:0.84rem;margin:12px 0 8px;padding-left:4px;border-left:3px solid var(--accent);padding:4px 8px;background:#f8f8ff">${fs.label} — ${fs.marks} Marks</div>`;
                             if (fs.count > 0 && fs.perQ > 0) {
                                 let fsCount = 0;
-                                let sectionPool = pool.filter(q => !used.has(q.id));
+                                let sType = fs.qType || (fs.perQ === 2 ? 'vsa' : fs.perQ === 3 ? 'sa' : fs.perQ === 5 ? 'la' : 'mcq');
+                                let sectionPool = (POOLS[sType] || poolA).filter(q => !used.has(q.id));
                                 for (let q of sectionPool) {
                                     const qDiff = q.difficulty || 'Medium';
                                     if (selectedDiff !== 'Mixed' && qDiff !== selectedDiff) continue;
@@ -1196,9 +1214,10 @@
                 document.getElementById('selection-view').style.display = 'none';
                 document.getElementById('paper-view').style.display = 'block';
 
+                const totalInDb = poolA.length + poolB.length + poolC.length + poolD.length + poolE.length;
                 document.getElementById('stats-bar').innerHTML = `
                     <span>📄 ${selectedMode} Paper #${paperCount}</span>
-                    <span>📊 ${allQ.length} in db</span>
+                    <span>📊 ${totalInDb} relevant in db</span>
                     <span>✅ ${gNum} generated</span>
                 `;
             } catch (e) { err.textContent = e.message; err.style.display = 'block' }
