@@ -557,30 +557,28 @@
                 code: '184', fullName: 'English Language & Literature', time: '3 Hours', maxMarks: 80,
                 totalQ: 11,
                 sections: [
-                    { id: 'A', title: 'Section A', desc: 'Reading Skills', perQ: 1, count: 20, qType: 'mcq' },
+                    { id: 'A', title: 'Section A: Reading Skills', desc: 'Discursive & Case-based Passages', perQ: 1, count: 20, qType: 'mcq', passageBased: true },
                     {
-                        id: 'B', title: 'Section B', desc: 'Writing Skills & Grammar', perQ: 0, count: 0, fixed: 20, fixedSections: [
+                        id: 'B', title: 'Section B: Writing Skills & Grammar', perQ: 0, count: 0, fixed: 20, fixedSections: [
                             { label: 'Grammar (Gap filling, Editing, Transformation)', marks: 10, count: 10, perQ: 1, qType: 'mcq' },
-                            { label: 'Writing Skills — Descriptive Paragraph / Story / Diary Entry', marks: 10, fixedNote: 'Attempt questions as directed. Internal choice provided.' }
+                            { label: 'Writing Skills — Descriptive Paragraph / Story (Analytical Cue)', marks: 10, count: 1, perQ: 10, forceDataCue: true }
                         ]
                     },
                     {
-                        id: 'C', title: 'Section C', desc: 'Language Through Literature', perQ: 0, count: 0, fixed: 40, fixedSections: [
-                            { label: 'Reference to Context (Prose/Poetry extracts)', marks: 10 },
+                        id: 'C', title: 'Section C: Language Through Literature', perQ: 0, count: 0, fixed: 40, fixedSections: [
+                            { label: 'Reference to Context (Prose/Poetry extracts)', marks: 10, count: 2, perQ: 5, qType: 'mcq' },
                             { label: 'Short Answer Questions from Beehive (40-50 words)', marks: 12, count: 4, perQ: 3 },
-                            { label: 'Long Answer from Beehive (100-120 words)', marks: 6, count: 1, perQ: 6, internalChoice: true },
+                            { label: 'Long Answer from Beehive (100-120 words)', marks: 6, count: 1, perQ: 6, internalChoice: true, diagramRequired: true },
                             { label: 'Short Answer Questions from Moments (40-50 words)', marks: 6, count: 2, perQ: 3 },
                             { label: 'Long Answer from Moments (100-120 words)', marks: 6, count: 1, perQ: 6, internalChoice: true }
                         ]
                     }
                 ],
                 inst: [
-                    'This question paper is divided into THREE Sections — A, B and C.',
-                    'Section A — Reading Skills — 20 Marks.',
+                    'Section A — Reading Skills — 20 Marks (Two Passages).',
                     'Section B — Writing Skills & Grammar — 20 Marks.',
                     'Section C — Language Through Literature — 40 Marks.',
-                    'All questions are compulsory.',
-                    'Attempt questions based on specific instructions for each part.'
+                    'The Analytical Paragraph requires data interpretation from the provided visual cue.'
                 ]
             },
             'Hindi': {
@@ -621,24 +619,17 @@
                 code: '087', fullName: 'Social Science', time: '3 Hours', maxMarks: 80,
                 totalQ: 37,
                 sections: [
-                    { id: 'A', title: 'Section A', desc: 'Multiple Choice Questions', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
-                    { id: 'B', title: 'Section B', desc: 'Very Short Answer (40 words)', perQ: 2, count: 4, internalChoice: true },
-                    { id: 'C', title: 'Section C', desc: 'Short Answer (60 words)', perQ: 3, count: 5, internalChoice: true },
-                    { id: 'D', title: 'Section D', desc: 'Long Answer (120 words)', perQ: 5, count: 4, internalChoice: true },
-                    { id: 'E', title: 'Section E', desc: 'Case Study Based', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
-                    { id: 'F', title: 'Section F', desc: 'Map Based (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map' }
+                    { id: 'A', title: 'Section A: MCQs', desc: '20 MCQs (History, Geography, Civids, Economics)', perQ: 1, count: 20, qType: 'mcq', hasAR: true, arStart: 19 },
+                    { id: 'B', title: 'Section B: Very Short Answer', desc: '4 Qs x 2 Marks (40 words)', perQ: 2, count: 4, internalChoice: true },
+                    { id: 'C', title: 'Section C: Short Answer', desc: '5 Qs x 3 Marks (60 words)', perQ: 3, count: 5, internalChoice: true },
+                    { id: 'D', title: 'Section D: Long Answer', desc: '4 Qs x 5 Marks (120 words)', perQ: 5, count: 4, internalChoice: true },
+                    { id: 'E', title: 'Section E: Case Study Based', desc: '3 Qs x 4 Marks (Competency)', perQ: 4, count: 3, qType: 'case', caseSubParts: [1, 1, 2] },
+                    { id: 'F', title: 'Section F: Map Based', desc: '1 Q (History 2m + Geography 3m)', perQ: 5, count: 1, qType: 'map', forceMap: true }
                 ],
                 inst: [
-                    'This question paper contains 37 questions. All questions are compulsory.',
-                    'This paper is divided into SIX Sections — A, B, C, D, E and F.',
-                    'Section A has 20 MCQs carrying 1 mark each.',
-                    'Section B has 4 questions carrying 2 marks each. Answer in about 40 words.',
-                    'Section C has 5 questions carrying 3 marks each. Answer in about 60 words.',
-                    'Section D has 4 questions carrying 5 marks each. Answer in about 120 words.',
-                    'Section E has 3 Case Based questions carrying 4 marks each.',
-                    'Section F has 1 Map Based question of 5 marks — History (2m) + Geography (3m).',
-                    'There is no overall choice. However, internal choice has been provided in some questions.',
-                    'Map of India must be attached with the answer script.'
+                    'Paper contains 37 questions. Section A (1-20), Section B (21-24), Section C (25-29), Section D (30-33), Section E (34-36), Section F (37).',
+                    'Section F Map must be labeled exactly on the India Political Map.',
+                    'Word limits: Sec B (40 words), Sec C (60 words), Sec D (120 words).'
                 ]
             },
             'Sanskrit': {
@@ -829,7 +820,6 @@
                             let q = pool.find(p => !used.has(p.id));
 
                             if (!q) {
-                                // RENDER PLACEHOLDER: Scraper Active (Directive V3.0)
                                 gNum++; secCount++;
                                 tempHtml += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">
                                     <div style="background:#fefce8;border:1px dashed #eab308;padding:16px;border-radius:4px;color:#854d0e;font-size:0.85rem">
@@ -840,13 +830,21 @@
                             }
 
                             gNum++; secCount++; used.add(q.id);
+
+                            // V3.5 Diagram/Map/Data Cues
+                            if (sec.forceMap || (sec.qType === 'map' && selectedSubject === 'Social Science')) {
+                                q.diagram_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/India_map_political.svg/800px-India_map_political.svg.png';
+                                q.question_text = `**Map Pointing (Section F):** (a) Two Historical locations identified. (b) Three Geographical features identified. \n\n ${q.question_text}`;
+                            }
+                            if (sec.forceDataCue || (sec.id === 'B' && selectedSubject === 'English' && i === sec.count - 1)) {
+                                q.diagram_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simple_bar_graph.svg/600px-Simple_bar_graph.svg.png';
+                                q.question_text = `**Analytical Writing:** Based on the visual data provided below, write an analytical paragraph... \n\n ${q.question_text || ''}`;
+                            }
+
                             const isAR = (sec.hasAR || q.question_type?.includes('Assertion')) && gNum >= (sec.arStart || 999);
 
                             if (sec.qType === 'case' || q.question_type?.includes('Case')) {
                                 tempHtml += renderCase(q, gNum, sec);
-                            } else if (sec.qType === 'map' || q.question_type === 'Map') {
-                                tempHtml += renderQ(q, gNum, marks || q.marks);
-                                tempHtml += `<div style="text-align:center;padding:12px;border:1px dashed #ccc;margin:10px 0;font-size:0.8rem;">[Map Work Space]</div>`;
                             } else {
                                 tempHtml += renderQ(q, gNum, marks || q.marks, { isAR });
                             }
@@ -856,7 +854,7 @@
 
                     if (sec.fixed && sec.fixedSections) {
                         sec.fixedSections.forEach(fs => {
-                            tempHtml += `<div style="font-weight:700;font-size:1rem;margin:24px 0 16px;color:#000;border-bottom:1px solid #eee">${fs.label}</div>`;
+                            tempHtml += `< div style = "font-weight:700;font-size:1rem;margin:24px 0 16px;color:#000;border-bottom:1px solid #eee" > ${fs.label}</div > `;
                             if (fs.count > 0) {
                                 let fsPool = [...(POOLS[fs.perQ] || POOLS[1])].filter(q => !used.has(q.id));
                                 for (let i = 0; i < fs.count; i++) {
@@ -867,18 +865,18 @@
                                     }
                                 }
                             } else if (fs.fixedNote) {
-                                tempHtml += `<div class="passage-box">${fs.fixedNote}</div>`;
+                                tempHtml += `< div class="passage-box" > ${fs.fixedNote}</div > `;
                             }
                         });
                     }
 
                     if (tempHtml) {
-                        html += `<div class="section-header">${sec.title} — ${sec.desc} <span class="q-range">Q.${startQ} to Q.${gNum}</span></div>`;
+                        html += `< div class="section-header" > ${sec.title} — ${sec.desc} <span class="q-range">Q.${startQ} to Q.${gNum}</span></div > `;
                         html += tempHtml;
                     }
                 });
 
-                html += `<div style="text-align:center;margin-top:100px;font-size:0.8rem;color:var(--text-dim);padding-top:40px">— End of Question Paper —</div></div>`;
+                html += `< div style = "text-align:center;margin-top:100px;font-size:0.8rem;color:var(--text-dim);padding-top:40px" >— End of Question Paper —</div ></div > `;
                 document.getElementById('paper-content').innerHTML = html;
                 document.getElementById('selection-view').style.display = 'none';
                 document.getElementById('paper-view').style.display = 'block';
@@ -888,7 +886,7 @@
         }
 
         function renderPaperCore(bp, mode) {
-            return `<div class="paper ${bp.lang || ''}">
+            return `< div class="paper ${bp.lang || ''}" >
                 <div class="paper-header">
                     <div class="school-line">Central Board of Secondary Education</div>
                     <div class="exam-line">${mode === 'UT' ? 'PERIODIC TEST' : 'ANNUAL EXAMINATION'} (2025-26)</div>
@@ -914,7 +912,7 @@
             const fig = parseFig(raw);
             let url = validateUrl(q.diagram_url || fig.url) ? (q.diagram_url || fig.url) : null;
             let text = fig.clean;
-            let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
+            let html = `< div class="question" ><span class="q-num">${num}.</span><div class="q-body">`;
 
             if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" referrerpolicy="no-referrer" onerror="this.style.display='none';"></div>`;
 
@@ -941,14 +939,14 @@
                 html += `<p>${text}</p>`;
             }
 
-            html += `</div><span class="q-marks">[${marks}]</span></div>`;
+            html += `</div><span class="q-marks">[${marks}]</span></div > `;
             return html;
         }
 
         function renderCase(q, gNum, sec) {
             const fig = parseFig(q.question_text || '');
             let url = validateUrl(q.diagram_url || fig.url) ? (q.diagram_url || fig.url) : null;
-            let html = `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">`;
+            let html = `< div class="question" ><span class="q-num">${gNum}.</span><div class="q-body">`;
             if (url) html += `<div class="figure-box"><img src="${url}" class="q-image" referrerpolicy="no-referrer" onerror="this.style.display='none';"></div>`;
             const caseText = fig.clean;
             const subMatch = caseText.match(/\((i|a)\)/);
@@ -966,9 +964,9 @@
                     html += `</div>`;
                 }
             } else {
-                html += `<div class="passage-box">${caseText}</div>`;
+                html += `< div class="passage-box" > ${caseText}</div > `;
             }
-            html += `</div><span class="q-marks">[${sec.perQ}]</span></div>`;
+            html += `</div > <span class="q-marks">[${sec.perQ}]</span></div > `;
             return html;
         }
 
@@ -979,11 +977,11 @@
                 existing.remove();
                 btn.textContent = 'Show Answer Key';
             } else {
-                let html = `<div id="answer-key-section" class="answer-key"><h3>Answer Key / Marking Scheme</h3><div class="ak-grid">`;
+                let html = `< div id = "answer-key-section" class="answer-key" ><h3>Answer Key / Marking Scheme</h3><div class="ak-grid">`;
                 currentAnswers.forEach(a => {
                     html += `<div class="ak-item">Q.${a.num}: <strong>${a.ans}</strong></div>`;
                 });
-                html += `</div></div>`;
+                html += `</div></div > `;
                 document.getElementById('paper-content').insertAdjacentHTML('beforeend', html);
                 btn.textContent = 'Hide Answer Key';
                 window.scrollTo(0, document.body.scrollHeight);
@@ -992,7 +990,7 @@
 
         function updateStatsBar(gCount) {
             document.getElementById('stats-bar').innerHTML = `
-                <span>📄 ${selectedMode} • #${paperCount}</span>
+                            < span >📄 ${selectedMode} • #${paperCount}</span >
                 <span>✅ ${gCount} Questions Generated</span>
                 <span>✨ Wispr Flow Engine V2.8</span>
             `;

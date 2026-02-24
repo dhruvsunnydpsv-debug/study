@@ -45,18 +45,24 @@ def get_inventory_audit() -> Dict[str, Dict[int, int]]:
     Returns: {'Science': {1: 100, 3: 5, 5: 2}, 'Mathematics': {...}}
     """
     try:
-        # Fetching grouped counts via a simple select (aggregating in python for reliability)
-        response = supabase.table("class9_question_bank").select("subject, marks").execute()
+        # Fetching grouped counts via a simple select
+        response = supabase.table("class9_question_bank").select("subject, marks, sub_subject").execute()
         data = response.data or []
         
         audit = {}
         for row in data:
             sub = row['subject']
-            m = row['marks'] or 1 # Default to 1 if null
+            m = row['marks'] or 1
+            ss = row.get('sub_subject', 'General')
+            
             if sub not in audit: audit[sub] = {}
-            audit[sub][m] = audit[sub].get(m, 0) + 1
+            if m not in audit[sub]: audit[sub][m] = {'count': 0, 'sub_subjects': {}}
+            
+            audit[sub][m]['count'] += 1
+            if ss not in audit[sub][m]['sub_subjects']: audit[sub][m]['sub_subjects'][ss] = 0
+            audit[sub][m]['sub_subjects'][ss] += 1
         
-        logging.info(f"Inventory Audit: {audit}")
+        logging.info("Inventory Audit complete.")
         return audit
     except Exception as e:
         logging.error(f"Inventory audit failed: {e}")
@@ -69,12 +75,13 @@ def should_skip_type(subject: str, marks: int, audit: Dict[str, Dict[int, int]])
     ignore further 1-mark questions for that subject.
     """
     sub_data = audit.get(subject, {})
-    total = sum(sub_data.values())
+    # Flatten counts for ratio check
+    total_count = sum(m_data['count'] for m_data in sub_data.values())
     
-    if total < 50: return False # Not enough data to balance yet
+    if total_count < 50: return False
     
-    mcq_count = sub_data.get(1, 0)
-    ratio = mcq_count / total
+    mcq_count = sub_data.get(1, {}).get('count', 0)
+    ratio = mcq_count / total_count
     
     if marks == 1 and ratio > 0.8:
         logging.warning(f"  [Balancer] Skipping {subject} 1-mark (Ratio: {ratio:.2f})")
@@ -779,8 +786,29 @@ def execute_harvest_pipeline():
     diagram_uploads = 0
     errors = 0
 
+    def detect_sub_subject(text: str, subject: str) -> str:
+        text = text.lower()
+        if subject == 'Science':
+            if any(k in text for k in ['force', 'motion', 'gravity', 'sound', 'energy', 'light', 'current', 'work']): return 'Physics'
+            if any(k in text for k in ['atom', 'matter', 'chemical', 'element', 'acid', 'base', 'metal']): return 'Chemistry'
+            if any(k in text for k in ['cell', 'tissue', 'organism', 'disease', 'crop', 'environment']): return 'Biology'
+        if subject == 'Social Science':
+            if any(k in text for k in ['french', 'russian', 'hitler', 'forest', 'pastoral']): return 'History'
+            if any(k in text for k in ['drainage', 'climate', 'population', 'boundary']): return 'Geography'
+            if any(k in text for k in ['constitution', 'democracy', 'election']): return 'Political Science'
+            if any(k in text for k in ['poverty', 'food', 'market', 'resource']): return 'Economics'
+        return 'General'
+
     for i, item in enumerate(full_pool):
         try:
+            # Pre-flight for quota check
+            # The `should_skip_type` function needs `subject`, `marks`, and `audit`.
+            # `item` contains `subject` and `marks`.
+            if should_skip_type(item["subject"], item.get("marks", 1), audit):
+                logging.info(f"  [{i+1}/{len(full_pool)}] SKIPPED (Quota): [{item['subject']}] {item['chapter']}")
+                duplicate_skips += 1 # Counting as skipped, not necessarily duplicate
+                continue
+
             # Step 1: Handle Diagram
             permanent_diagram_url = None
             image_url = item.get("image_url")
@@ -791,6 +819,22 @@ def execute_harvest_pipeline():
                 if permanent_diagram_url:
                     diagram_uploads += 1
 
+            # V3.5 Enrichment
+            # Combine question text and chapter for better sub-subject detection
+            combined_text = item.get("question_text", "") + " " + item.get("chapter", "")
+            sub_subject = detect_sub_subject(combined_text, item["subject"])
+            
+            marks = item.get("marks", 1) # Default to 1 if marks not specified
+            if item.get("question_type") == "Subjective":
+                if marks >= 5:
+                    word_limit = "80-120 words"
+                elif marks >= 3:
+                    word_limit = "50-80 words"
+                else:
+                    word_limit = "30-50 words"
+            else:
+                word_limit = None # Not applicable for MCQ
+
             # Step 2: Build Payload (minimal required fields first)
             payload = {
                 "subject": item["subject"],
@@ -799,10 +843,13 @@ def execute_harvest_pipeline():
                 "options": item.get("options"),
                 "correct_answer": item.get("correct_answer"),
                 "diagram_url": permanent_diagram_url or image_url,
-                "marks": item.get("marks"),
+                "marks": marks,
                 "question_type": item.get("question_type"),
                 "source_reference": item.get("source"),
-                "difficulty": item.get("difficulty", "Medium")
+                "difficulty": item.get("difficulty", "Medium"),
+                "sub_subject": sub_subject, # Add sub_subject
+                "word_limit": word_limit,   # Add word_limit
+                "diagram_required": (marks >= 5 and item["subject"] in ['Science', 'Mathematics']) # Add diagram_required
             }
             
             # Optional fields (if column exists)
