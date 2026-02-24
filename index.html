@@ -825,7 +825,12 @@
             }
         };
 
-        function setSubject(btn, s) { document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); selectedSubject = s; document.getElementById('create-btn').disabled = false }
+        function setSubject(btn, s) {
+            document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSubject = (s === 'Maths') ? 'Mathematics' : s; // Fix mismatch
+            document.getElementById('create-btn').disabled = false
+        }
         function setDiff(btn, d) { document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); selectedDiff = d }
 
         function parseFig(text) {

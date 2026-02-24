@@ -710,7 +710,8 @@ def execute_harvest_pipeline():
                 "diagram_url": permanent_diagram_url or image_url,
                 "marks": item.get("marks"),
                 "question_type": item.get("question_type"),
-                "source_reference": item.get("source")
+                "source_reference": item.get("source"),
+                "difficulty": item.get("difficulty", "Medium")
             }
             
             # Optional fields (if column exists)
@@ -721,9 +722,11 @@ def execute_harvest_pipeline():
             try:
                 supabase.table("class9_question_bank").insert(payload).execute()
             except Exception as sql_e:
-                if "competency_flag" in str(sql_e):
-                    logging.warning("  [!] competency_flag column missing. Falling back to base payload.")
+                err_str = str(sql_e)
+                if "competency_flag" in err_str or "difficulty" in err_str:
+                    logging.warning(f"  [!] Missing column in schema. Retrying without drifted fields.")
                     if "competency_flag" in payload: del payload["competency_flag"]
+                    if "difficulty" in payload: del payload["difficulty"]
                     supabase.table("class9_question_bank").insert(payload).execute()
                 else:
                     raise sql_e

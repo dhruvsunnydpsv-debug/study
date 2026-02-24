@@ -18,6 +18,7 @@ CREATE TABLE class9_question_bank (
   marks INTEGER,
   question_type TEXT,
   source_reference TEXT,
+  difficulty TEXT DEFAULT 'Medium',
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
   
