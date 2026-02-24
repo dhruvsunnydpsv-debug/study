@@ -45,8 +45,12 @@ def download_and_upload_diagram(image_url: str, subject: str, chapter: str) -> O
         return None
 
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        response = requests.get(image_url, headers=headers, stream=True, timeout=10)
+        # Use a more specific User-Agent to avoid Wikimedia blocks
+        headers = {
+            'User-Agent': 'VerixAuditEngine/2.1 (https://personalvault.dhruvshah.co; mailto:noc@dhruvshah.co) python-requests/2.31.0',
+            'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8'
+        }
+        response = requests.get(image_url, headers=headers, stream=True, timeout=15)
         response.raise_for_status()
 
         # Use a more robust split for extension
@@ -664,8 +668,9 @@ def execute_harvest_pipeline():
     logging.info("=" * 60)
     logging.info("VERIX HARVEST ENGINE v2.1 — INITIATING")
     
-    # Optional: External Sources for Option B
+    # Comprehensive Production Source Pool (Directive V3.2)
     EXTERNAL_SOURCES = [
+        # --- SCIENCE ---
         {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-1-with-answers/", "subject": "Science", "chapter": "Matter in Our Surroundings"},
         {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-2-with-answers/", "subject": "Science", "chapter": "Is Matter Around Us Pure"},
         {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-3-with-answers/", "subject": "Science", "chapter": "Atoms and Molecules"},
@@ -673,6 +678,39 @@ def execute_harvest_pipeline():
         {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-5-with-answers/", "subject": "Science", "chapter": "The Fundamental Unit of Life"},
         {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-6-with-answers/", "subject": "Science", "chapter": "Tissues"},
         {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-8-with-answers/", "subject": "Science", "chapter": "Motion"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-9-with-answers/", "subject": "Science", "chapter": "Force and Laws of Motion"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-10-with-answers/", "subject": "Science", "chapter": "Gravitation"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-11-with-answers/", "subject": "Science", "chapter": "Work and Energy"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-12-with-answers/", "subject": "Science", "chapter": "Sound"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-15-with-answers/", "subject": "Science", "chapter": "Improvement in Food Resources"},
+
+        # --- MATHEMATICS ---
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-1-with-answers/", "subject": "Mathematics", "chapter": "Number Systems"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-2-with-answers/", "subject": "Mathematics", "chapter": "Polynomials"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-3-with-answers/", "subject": "Mathematics", "chapter": "Coordinate Geometry"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-4-with-answers/", "subject": "Mathematics", "chapter": "Linear Equations in Two Variables"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-5-with-answers/", "subject": "Mathematics", "chapter": "Introduction to Euclid's Geometry"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-6-with-answers/", "subject": "Mathematics", "chapter": "Lines and Angles"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-7-with-answers/", "subject": "Mathematics", "chapter": "Triangles"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-8-with-answers/", "subject": "Mathematics", "chapter": "Quadrilaterals"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-10-with-answers/", "subject": "Mathematics", "chapter": "Circles"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-12-with-answers/", "subject": "Mathematics", "chapter": "Heron's Formula"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-13-with-answers/", "subject": "Mathematics", "chapter": "Surface Areas and Volumes"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-14-with-answers/", "subject": "Mathematics", "chapter": "Statistics"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-maths-chapter-15-with-answers/", "subject": "Mathematics", "chapter": "Probability"},
+
+        # --- SOCIAL SCIENCE ---
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-social-science-history-chapter-1-with-answers/", "subject": "Social Science", "chapter": "The French Revolution"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-social-science-history-chapter-2-with-answers/", "subject": "Social Science", "chapter": "Socialism in Europe and the Russian Revolution"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-social-science-geography-chapter-1-with-answers/", "subject": "Social Science", "chapter": "India — Size and Location"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-social-science-geography-chapter-2-with-answers/", "subject": "Social Science", "chapter": "Physical Features of India"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-social-science-civics-chapter-1-with-answers/", "subject": "Social Science", "chapter": "What is Democracy? Why Democracy?"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-social-science-economics-chapter-1-with-answers/", "subject": "Social Science", "chapter": "The Story of Village Palampur"},
+
+        # --- ENGLISH ---
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-english-beehive-chapter-1-with-answers/", "subject": "English", "chapter": "The Fun They Had"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-english-beehive-chapter-2-with-answers/", "subject": "English", "chapter": "The Sound of Music"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-english-moments-chapter-1-with-answers/", "subject": "English", "chapter": "The Lost Child"}
     ]
     
     full_pool = SEED_DATA.copy()

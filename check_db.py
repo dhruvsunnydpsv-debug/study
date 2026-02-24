@@ -8,15 +8,16 @@ supabase: Client = create_client(url, key)
 
 try:
     # Test Master Table
-    res = supabase.table("class9_question_bank").select("subject", count="exact").limit(1).execute()
-    print(f"Master Table Rows (Sample): {res.data}")
+    res = supabase.table("class9_question_bank").select("*", count="exact").execute()
+    print(f"Total Rows in Bank: {res.count}")
     
-    # Test a Virtual View (Directly testing Directive V3.0 logic)
-    print("\nTesting View access (Directive V3.1 Audit):")
-    view_res = supabase.table("view_science_1_markers").select("*").limit(5).execute()
-    print(f"Science View Data: {view_res.data}")
+    # Subject breakdown
+    res_sub = supabase.table("class9_question_bank").select("subject").execute()
+    subjects = {}
+    for row in res_sub.data:
+        s = row.get("subject")
+        subjects[s] = subjects.get(s, 0) + 1
+    print(f"Subject Breakdown: {subjects}")
 
 except Exception as e:
-    print(f"\n[!] ACCESS ERROR: {e}")
-    if "403" in str(e) or "not found" in str(e).lower():
-        print("ACTION REQUIRED: Supabase is blocking public access to Views. Run the GRANT SELECT script in SQL Editor.")
+    print(f"\n[!] ERROR: {e}")

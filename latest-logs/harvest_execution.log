@@ -1,0 +1,334 @@
+2026-02-24 10:33:54,177 - INFO - ============================================================
+2026-02-24 10:33:54,177 - INFO - VERIX HARVEST ENGINE v2.1 — INITIATING
+2026-02-24 10:33:54,299 - INFO -   [Scraper] Extracted 12 questions from https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-1-with-answers/
+2026-02-24 10:33:54,395 - INFO -   [Scraper] Extracted 15 questions from https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-2-with-answers/
+2026-02-24 10:33:54,501 - INFO -   [Scraper] Extracted 15 questions from https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-3-with-answers/
+2026-02-24 10:33:54,606 - INFO -   [Scraper] Extracted 14 questions from https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-4-with-answers/
+2026-02-24 10:33:54,713 - INFO -   [Scraper] Extracted 13 questions from https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-5-with-answers/
+2026-02-24 10:33:54,809 - INFO -   [Scraper] Extracted 13 questions from https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-6-with-answers/
+2026-02-24 10:33:54,907 - INFO -   [Scraper] Extracted 12 questions from https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-8-with-answers/
+2026-02-24 10:33:54,908 - INFO - Total items in pool: 148
+2026-02-24 10:33:54,908 - INFO - ============================================================
+2026-02-24 10:33:56,086 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:56,086 - WARNING -   [1/54] DUPLICATE: [English] Skipped.
+2026-02-24 10:33:56,135 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Phase_change_-_en.svg/640px-Phase_change_-_en.svg.png: 429 Client Error: Use thumbnail steps listed on https://w.wiki/GHai. Please contact noc@wikimedia.org for further information (a765913) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Phase_change_-_en.svg/640px-Phase_change_-_en.svg.png
+2026-02-24 10:33:56,888 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:56,889 - WARNING -   [2/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:56,929 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Animal_cell_structure_en.svg/800px-Animal_cell_structure_en.svg.png: 429 Client Error: Use thumbnail steps listed on https://w.wiki/GHai. Please contact noc@wikimedia.org for further information (a765913) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Animal_cell_structure_en.svg/800px-Animal_cell_structure_en.svg.png
+2026-02-24 10:33:57,225 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:57,225 - WARNING -   [3/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:57,266 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Plant_cell_structure_svg_labels.svg/800px-Plant_cell_structure_svg_labels.svg.png: 429 Client Error: Use thumbnail steps listed on https://w.wiki/GHai. Please contact noc@wikimedia.org for further information (a765913) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Plant_cell_structure_svg_labels.svg/800px-Plant_cell_structure_svg_labels.svg.png
+2026-02-24 10:33:57,558 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:57,559 - WARNING -   [4/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:57,843 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:57,844 - WARNING -   [5/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:57,885 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Animal_cell_structure_en.svg/800px-Animal_cell_structure_en.svg.png: 429 Client Error: Use thumbnail steps listed on https://w.wiki/GHai. Please contact noc@wikimedia.org for further information (a765913) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Animal_cell_structure_en.svg/800px-Animal_cell_structure_en.svg.png
+2026-02-24 10:33:58,175 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:58,176 - WARNING -   [6/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:58,334 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/4/4b/Onion_cells_2.jpg: 404 Client Error: Not Found for url: https://upload.wikimedia.org/wikipedia/commons/4/4b/Onion_cells_2.jpg
+2026-02-24 10:33:58,623 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:58,623 - WARNING -   [7/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:58,892 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:58,892 - WARNING -   [8/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:59,162 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:59,163 - WARNING -   [9/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:59,203 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Phase_change_-_en.svg/640px-Phase_change_-_en.svg.png: 429 Client Error: Use thumbnail steps listed on https://w.wiki/GHai. Please contact noc@wikimedia.org for further information (a765913) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Phase_change_-_en.svg/640px-Phase_change_-_en.svg.png
+2026-02-24 10:33:59,470 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:59,470 - WARNING -   [10/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:33:59,746 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:33:59,747 - WARNING -   [11/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:00,009 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:00,010 - WARNING -   [12/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:00,339 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Hydrogen_Atom.svg/600px-Hydrogen_Atom.svg.png: 404 Client Error: Not Found for url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Hydrogen_Atom.svg/600px-Hydrogen_Atom.svg.png
+2026-02-24 10:34:00,601 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:00,602 - WARNING -   [13/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:00,862 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:00,863 - WARNING -   [14/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:01,124 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:01,125 - WARNING -   [15/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:01,165 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Velocity_vs_time_graph.svg/600px-Velocity_vs_time_graph.svg.png: 429 Client Error: Too many requests (f061ab2) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Velocity_vs_time_graph.svg/600px-Velocity_vs_time_graph.svg.png
+2026-02-24 10:34:01,440 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:01,440 - WARNING -   [16/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:01,712 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:01,712 - WARNING -   [17/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:01,753 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Free_body_diagram2.svg/400px-Free_body_diagram2.svg.png: 429 Client Error: Too many requests (f061ab2) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Free_body_diagram2.svg/400px-Free_body_diagram2.svg.png
+2026-02-24 10:34:02,056 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:02,057 - WARNING -   [18/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:02,354 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:02,355 - WARNING -   [19/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:02,625 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:02,625 - WARNING -   [20/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:02,665 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Sine_wave_amplitude.svg/600px-Sine_wave_amplitude.svg.png: 429 Client Error: Too many requests (f061ab2) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Sine_wave_amplitude.svg/600px-Sine_wave_amplitude.svg.png
+2026-02-24 10:34:02,996 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:02,996 - WARNING -   [21/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:03,266 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:03,267 - WARNING -   [22/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:03,534 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:03,535 - WARNING -   [23/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:03,805 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:03,805 - WARNING -   [24/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:04,066 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:04,066 - WARNING -   [25/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:04,971 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/storage/v1/object/question_diagrams/mathematics/coordinate_geometry/1e5a4ee6d3f941e099f63998648bd31f.png "HTTP/2 400 Bad Request"
+2026-02-24 10:34:04,972 - ERROR - Supabase upload failed for https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Cartesian-coordinate-system.svg/500px-Cartesian-coordinate-system.svg.png: {'statusCode': 403, 'error': Unauthorized, 'message': new row violates row-level security policy}
+2026-02-24 10:34:05,235 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:05,236 - WARNING -   [26/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:05,499 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:05,499 - WARNING -   [27/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:05,540 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Triangle_with_notations_2.svg/400px-Triangle_with_notations_2.svg.png: 429 Client Error: Your request does not comply with our robot policy, https://w.wiki/4wJS. Please contact noc@wikimedia.org for further information (0fa5166) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Triangle_with_notations_2.svg/400px-Triangle_with_notations_2.svg.png
+2026-02-24 10:34:05,800 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:05,801 - WARNING -   [28/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:06,060 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:06,061 - WARNING -   [29/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:06,102 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Circle-withsegments.svg/400px-Circle-withsegments.svg.png: 429 Client Error: Too many requests. Please contact noc@wikimedia.org for further information (0068e25) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Circle-withsegments.svg/400px-Circle-withsegments.svg.png
+2026-02-24 10:34:06,371 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:06,371 - WARNING -   [30/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:06,635 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:06,636 - WARNING -   [31/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:06,676 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Parallelogram_area.svg/400px-Parallelogram_area.svg.png: 429 Client Error: Too many requests. Please contact noc@wikimedia.org for further information (0068e25) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Parallelogram_area.svg/400px-Parallelogram_area.svg.png
+2026-02-24 10:34:06,978 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:06,979 - WARNING -   [32/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:07,264 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:07,265 - WARNING -   [33/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:07,529 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:07,530 - WARNING -   [34/54] DUPLICATE: [Mathematics] Skipped.
+2026-02-24 10:34:07,571 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Serment_du_Jeu_de_paume.jpg/800px-Serment_du_Jeu_de_paume.jpg: 429 Client Error: Too many requests. Please contact noc@wikimedia.org for further information (0068e25) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Serment_du_Jeu_de_paume.jpg/800px-Serment_du_Jeu_de_paume.jpg
+2026-02-24 10:34:07,837 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:07,837 - WARNING -   [35/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:08,101 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:08,102 - WARNING -   [36/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:08,368 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:08,369 - WARNING -   [37/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:08,409 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/India-map-en.svg/600px-India-map-en.svg.png: 429 Client Error: Too many requests. Please contact noc@wikimedia.org for further information (0068e25) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/India-map-en.svg/600px-India-map-en.svg.png
+2026-02-24 10:34:08,678 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:08,679 - WARNING -   [38/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:08,719 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/India_rivers_and_lakes_map.svg/500px-India_rivers_and_lakes_map.svg.png: 429 Client Error: Too many requests. Please contact noc@wikimedia.org for further information (0068e25) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/India_rivers_and_lakes_map.svg/500px-India_rivers_and_lakes_map.svg.png
+2026-02-24 10:34:08,981 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:08,981 - WARNING -   [39/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:09,243 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:09,244 - WARNING -   [40/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:09,284 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/India_climatic_zone_map_en.svg/500px-India_climatic_zone_map_en.svg.png: 429 Client Error: Too many requests. Please contact noc@wikimedia.org for further information (0068e25) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/India_climatic_zone_map_en.svg/500px-India_climatic_zone_map_en.svg.png
+2026-02-24 10:34:09,545 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:09,546 - WARNING -   [41/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:09,816 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:09,817 - WARNING -   [42/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:10,086 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:10,087 - WARNING -   [43/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:10,350 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:10,351 - WARNING -   [44/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:10,623 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:10,623 - WARNING -   [45/54] DUPLICATE: [Social Science] Skipped.
+2026-02-24 10:34:10,664 - ERROR - Network error downloading diagram https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simple_bar_graph.svg/600px-Simple_bar_graph.svg.png: 429 Client Error: Too many requests. Please contact noc@wikimedia.org for further information (0068e25) for url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simple_bar_graph.svg/600px-Simple_bar_graph.svg.png
+2026-02-24 10:34:10,930 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:10,931 - WARNING -   [46/54] DUPLICATE: [English] Skipped.
+2026-02-24 10:34:11,201 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:11,202 - WARNING -   [47/54] DUPLICATE: [English] Skipped.
+2026-02-24 10:34:11,469 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:11,469 - WARNING -   [48/54] DUPLICATE: [English] Skipped.
+2026-02-24 10:34:11,736 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:11,736 - WARNING -   [49/54] DUPLICATE: [English] Skipped.
+2026-02-24 10:34:11,994 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:11,995 - WARNING -   [50/54] DUPLICATE: [Hindi] Skipped.
+2026-02-24 10:34:12,260 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:12,261 - WARNING -   [51/54] DUPLICATE: [Hindi] Skipped.
+2026-02-24 10:34:12,523 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:12,523 - WARNING -   [52/54] DUPLICATE: [Hindi] Skipped.
+2026-02-24 10:34:12,790 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:12,791 - WARNING -   [53/54] DUPLICATE: [Sanskrit] Skipped.
+2026-02-24 10:34:13,055 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:13,056 - WARNING -   [54/54] DUPLICATE: [Sanskrit] Skipped.
+2026-02-24 10:34:13,322 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:13,322 - WARNING -   [55/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:13,597 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:13,598 - WARNING -   [56/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:13,907 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:13,908 - WARNING -   [57/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:14,169 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:14,169 - WARNING -   [58/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:14,444 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:14,445 - WARNING -   [59/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:14,709 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:14,709 - WARNING -   [60/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:14,972 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:14,973 - WARNING -   [61/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:15,239 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:15,239 - WARNING -   [62/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:15,498 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:15,499 - WARNING -   [63/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:15,761 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:15,762 - WARNING -   [64/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:16,025 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:16,025 - WARNING -   [65/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:16,304 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:16,305 - WARNING -   [66/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:16,566 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:16,567 - WARNING -   [67/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:16,835 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:16,835 - WARNING -   [68/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:17,101 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:17,102 - WARNING -   [69/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:17,364 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:17,365 - WARNING -   [70/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:17,627 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:17,627 - WARNING -   [71/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:17,894 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:17,895 - WARNING -   [72/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:18,154 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:18,155 - WARNING -   [73/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:18,422 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:18,422 - WARNING -   [74/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:18,686 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:18,687 - WARNING -   [75/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:18,951 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:18,952 - WARNING -   [76/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:19,211 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:19,212 - WARNING -   [77/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:19,477 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:19,478 - WARNING -   [78/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:19,739 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:19,740 - WARNING -   [79/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:20,001 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:20,001 - WARNING -   [80/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:20,263 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:20,264 - WARNING -   [81/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:20,537 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:20,537 - WARNING -   [82/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:20,813 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:20,814 - WARNING -   [83/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:21,082 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:21,082 - WARNING -   [84/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:21,355 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:21,355 - WARNING -   [85/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:21,620 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:21,621 - WARNING -   [86/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:21,886 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:21,887 - WARNING -   [87/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:22,151 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:22,152 - WARNING -   [88/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:22,416 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:22,416 - WARNING -   [89/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:22,681 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:22,681 - WARNING -   [90/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:22,948 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:22,949 - WARNING -   [91/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:23,212 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:23,213 - WARNING -   [92/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:23,497 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:23,498 - WARNING -   [93/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:23,769 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:23,770 - WARNING -   [94/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:24,032 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:24,032 - WARNING -   [95/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:24,312 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:24,312 - WARNING -   [96/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:24,573 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:24,574 - WARNING -   [97/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:24,832 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:24,833 - WARNING -   [98/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:25,094 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:25,095 - WARNING -   [99/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:25,362 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:25,362 - WARNING -   [100/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:25,620 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:25,621 - WARNING -   [101/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:25,882 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:25,882 - WARNING -   [102/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:26,146 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:26,147 - WARNING -   [103/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:26,407 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:26,407 - WARNING -   [104/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:26,669 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:26,670 - WARNING -   [105/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:26,933 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:26,933 - WARNING -   [106/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:27,192 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:27,193 - WARNING -   [107/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:27,453 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:27,453 - WARNING -   [108/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:27,716 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:27,717 - WARNING -   [109/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:27,976 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:27,977 - WARNING -   [110/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:28,352 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:28,352 - WARNING -   [111/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:28,620 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:28,621 - WARNING -   [112/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:28,885 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:28,886 - WARNING -   [113/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:29,156 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:29,157 - WARNING -   [114/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:29,418 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:29,419 - WARNING -   [115/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:29,682 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:29,683 - WARNING -   [116/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:29,967 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:29,968 - WARNING -   [117/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:30,231 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:30,231 - WARNING -   [118/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:30,498 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:30,498 - WARNING -   [119/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:30,760 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:30,761 - WARNING -   [120/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:31,023 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:31,024 - WARNING -   [121/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:31,287 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:31,288 - WARNING -   [122/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:31,546 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:31,547 - WARNING -   [123/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:31,806 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:31,807 - WARNING -   [124/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:32,067 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:32,067 - WARNING -   [125/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:32,453 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:32,454 - WARNING -   [126/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:32,720 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:32,721 - WARNING -   [127/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:32,982 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:32,982 - WARNING -   [128/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:33,251 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:33,252 - WARNING -   [129/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:33,512 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:33,513 - WARNING -   [130/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:33,775 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:33,776 - WARNING -   [131/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:34,040 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:34,041 - WARNING -   [132/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:34,309 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:34,309 - WARNING -   [133/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:34,573 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:34,573 - WARNING -   [134/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:34,838 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:34,839 - WARNING -   [135/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:35,103 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:35,103 - WARNING -   [136/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:35,362 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:35,363 - WARNING -   [137/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:35,637 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:35,638 - WARNING -   [138/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:35,895 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:35,896 - WARNING -   [139/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:36,156 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:36,156 - WARNING -   [140/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:36,420 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:36,421 - WARNING -   [141/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:36,686 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:36,687 - WARNING -   [142/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:36,946 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:36,947 - WARNING -   [143/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:37,208 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:37,208 - WARNING -   [144/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:37,468 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:37,469 - WARNING -   [145/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:37,733 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:37,733 - WARNING -   [146/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:37,995 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:37,996 - WARNING -   [147/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:38,256 - INFO - HTTP Request: POST https://wfegooasrtbhpursgcvh.supabase.co/rest/v1/class9_question_bank "HTTP/2 409 Conflict"
+2026-02-24 10:34:38,256 - WARNING -   [148/54] DUPLICATE: [Science] Skipped.
+2026-02-24 10:34:38,256 - INFO - ============================================================
+2026-02-24 10:34:38,257 - INFO - PIPELINE EXECUTION COMPLETE
+2026-02-24 10:34:38,257 - INFO -   Inserted:   0
+2026-02-24 10:34:38,257 - INFO -   Duplicates: 148
+2026-02-24 10:34:38,257 - INFO -   Diagrams:   0
+2026-02-24 10:34:38,257 - INFO -   Errors:     0
+2026-02-24 10:34:38,257 - INFO - ============================================================
