@@ -995,190 +995,52 @@
             const err = document.getElementById('error-msg');
             btn.disabled = true; btn.textContent = 'Generating...'; err.style.display = 'none';
             try {
-                const bp = BLUEPRINTS[selectedSubject];
-                // Fetch from both plain and composite subject names
-                const qKey = (selectedSubject === 'Mathematics') ? 'Math%' : `${selectedSubject}%`;
-                const [r1, r2] = await Promise.all([
-                    db.from('class9_question_bank').select('*').ilike('subject', qKey).limit(1000),
-                    db.from('class9_question_bank').select('*').ilike('subject', `${selectedSubject}_%`).limit(1000)
-                ]);
-                if (r1.error) throw r1.error;
-                const allQ = [...(r1.data || []), ...(r2.data || [])];
-                if (allQ.length === 0) throw new Error(`No questions found for ${selectedSubject}. Database may be empty.`);
-                const pool = allQ.sort(() => Math.random() - 0.5);
+                // EMERGENCY BYPASS (DIRECTIVE V2.4): Kill Blueprint logic, force raw 20-question fetch
+                const { data: allQ, error } = await db.from('class9_question_bank').select('*').limit(20);
+
+                if (error) throw error;
+                if (!allQ || allQ.length === 0) throw new Error("Database query returned 0 rows. Connectivity confirmed, but table is empty or inaccessible.");
+
                 paperCount++;
                 currentAnswers = [];
+                let gNum = 0;
 
-                // ===== PAPER HEADER (Exact CBSE Format) =====
-                let html = `<div class="paper ${bp.lang || ''}">
-                    <div class="paper-header">
-                        <div class="school-line">Central Board of Secondary Education</div>
-                        <div class="exam-line">ANNUAL EXAMINATION (2025-26)</div>
-                        <div class="subject-line">${bp.fullName}</div>
-                        <div class="code-line">Subject Code: ${bp.code} | Class: IX</div>
-                    </div>
-                    <div class="paper-meta">
-                        <span>Time Allowed: ${bp.time}</span>
-                        <span>Maximum Marks: ${bp.maxMarks}</span>
-                    </div>
-                    <div class="paper-meta" style="border-bottom:none;font-size:0.78rem;color:#666">
-                        <span>Date: ___________</span>
-                        <span>Roll No: ___________</span>
-                    </div>
-                    <div class="paper-instructions">
-                        <strong>General Instructions:</strong>
-                        <ol>`;
-                bp.inst.forEach(i => html += `<li>${i}</li>`);
-                html += `</ol></div>`;
+                let html = `<div class="paper">
+                    <div class="section-header" style="background:#ef4444;color:white;border-color:#b91c1c;padding:15px;margin-bottom:0">🚨 DEBUG OVERRIDE MODE (V2.4)</div>
+                    <div style="padding:15px;background:#fee2e2;color:#991b1b;margin-bottom:25px;border-bottom-left-radius:8px;border-bottom-right-radius:8px;font-size:0.9rem;border:1px solid #fecaca;border-top:none">
+                        <strong>Architect Override Active:</strong> Strict blueprint logic is temporarily DISABLED. 
+                        Showing up to 20 raw questions found in the database for visual verification of text and diagrams.
+                    </div>`;
 
-                // ===== SECTIONS (Strict Blueprint or Fallback) =====
-                let gNum = 0, used = new Set();
-                let sectionsHtml = "";
-                let failureCount = 0;
+                allQ.forEach((q, i) => {
+                    gNum++;
+                    html += renderQ(q, gNum, q.marks || 1);
+                    if (q.correct_answer) currentAnswers.push({ num: gNum, ans: q.correct_answer });
+                });
 
-                try {
-                    bp.sections.forEach(sec => {
-                        let startQ = gNum + 1;
-                        let endQ = gNum + (sec.count || 0);
-                        let rangeStr = sec.count > 0 ? `(Q.${startQ} to Q.${endQ})` : '';
-                        sectionsHtml += `<div class="section-header">${sec.title} — ${sec.desc} ${sec.perQ > 0 ? '(' + sec.perQ + ' mark' + (sec.perQ > 1 ? 's' : '') + ' each)' : ''} <span class="q-range">${rangeStr}</span></div>`;
-
-                        if (sec.count > 0) {
-                            let sectionPool = pool.filter(q => !used.has(q.id));
-                            if (sec.qType === 'case' || (selectedSubject === 'Science' && sec.id === 'D')) {
-                                const dP = sectionPool.filter(q => (q.question_text || '').includes('[Image:'));
-                                const oP = sectionPool.filter(q => !(q.question_text || '').includes('[Image:'));
-                                sectionPool = [...dP, ...oP];
-                            }
-
-                            let count = 0;
-                            for (let q of sectionPool) {
-                                // Difficulty Bypass logic
-                                const qDiff = q.difficulty || 'Medium'; // Assume Medium if NULL
-                                if (selectedDiff !== 'Mixed' && qDiff !== selectedDiff) continue;
-
-                                gNum++; count++; used.add(q.id);
-                                const isAR = sec.hasAR && gNum >= sec.arStart && gNum <= sec.arStart + 1;
-
-                                if (sec.qType === 'case') {
-                                    sectionsHtml += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">`;
-                                    const fig = parseFig(q.question_text || '');
-                                    let caseText = fig.clean;
-                                    if (fig.url) {
-                                        const topic = getImgTopic(fig.url);
-                                        sectionsHtml += `<div class="figure-box"><img src="${fig.url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=\\'border:2px dashed #ccc;padding:20px;text-align:center;color:#666;background:#f9f9f9;border-radius:8px;margin:8px 0\\'>📐 <strong>${topic}</strong><br><small style=\\'color:#999\\'>Refer to your textbook for this diagram</small></div>')"></div>`;
-                                    }
-                                    const subMatch = caseText.match(/\((i|a)\)/);
-                                    if (subMatch) {
-                                        const passage = caseText.substring(0, subMatch.index).trim();
-                                        const subText = caseText.substring(subMatch.index);
-                                        sectionsHtml += `<div class="case-study-intro">${passage}</div>`;
-                                        const subs = subText.match(/\((?:i|ii|iii|iv|a|b|c|d)\)[^(]*/g);
-                                        if (subs && sec.caseSubParts) {
-                                            sectionsHtml += `<div class="sub-parts">`;
-                                            subs.forEach((s, idx) => {
-                                                const m = sec.caseSubParts[idx] || 1;
-                                                sectionsHtml += `<div class="sub-part">${s.trim()} <span class="q-marks">[${m}]</span></div>`;
-                                            });
-                                            sectionsHtml += `</div>`;
-                                        } else { sectionsHtml += `<div>${subText}</div>`; }
-                                    } else {
-                                        sectionsHtml += `<div class="case-study-intro">${caseText}</div>`;
-                                        if (sec.caseSubParts) {
-                                            sectionsHtml += `<div class="sub-parts">`;
-                                            sec.caseSubParts.forEach((m, i) => {
-                                                sectionsHtml += `<div class="sub-part">(${String.fromCharCode(105 + i)}) [Answer based on the above passage] <span class="q-marks">[${m}]</span></div>`;
-                                            });
-                                            sectionsHtml += `</div>`;
-                                        }
-                                    }
-                                    sectionsHtml += `</div><span class="q-marks">[${sec.perQ}]</span></div>`;
-                                } else if (sec.qType === 'map') {
-                                    sectionsHtml += renderQ(q, gNum, sec.perQ);
-                                    sectionsHtml += `<div style="text-align:center;padding:12px;font-style:italic;font-size:0.8rem;color:#555">Map of India attached separately — History (2 marks) + Geography (3 marks)</div>`;
-                                } else {
-                                    sectionsHtml += renderQ(q, gNum, sec.perQ, { isAR });
-                                }
-
-                                if (sec.internalChoice && count % 2 === 0 && count < sec.count) {
-                                    const altQ = sectionPool.find(aq => !used.has(aq.id) && (selectedDiff === 'Mixed' || (aq.difficulty || 'Medium') === selectedDiff));
-                                    if (altQ) {
-                                        used.add(altQ.id);
-                                        sectionsHtml += `<div class="or-divider">OR</div>`;
-                                        sectionsHtml += renderQ(altQ, gNum, sec.perQ);
-                                    }
-                                }
-                                if (q.correct_answer) currentAnswers.push({ num: gNum, ans: q.correct_answer });
-                                if (count >= sec.count) break;
-                            }
-                            if (count < sec.count) failureCount++;
-                        } else if (sec.fixed && sec.fixedSections) {
-                            sec.fixedSections.forEach(fs => {
-                                sectionsHtml += `<div style="font-weight:600;font-size:0.84rem;margin:12px 0 8px;padding-left:4px;border-left:3px solid var(--accent,#7c3aed);padding:4px 8px;background:#f8f8ff">${fs.label} — ${fs.marks} Marks</div>`;
-                                if (fs.count > 0 && fs.perQ > 0) {
-                                    let fsCount = 0;
-                                    let sectionPool = pool.filter(q => !used.has(q.id));
-                                    for (let q of sectionPool) {
-                                        if (selectedDiff !== 'Mixed' && (q.difficulty || 'Medium') !== selectedDiff) continue;
-                                        gNum++; fsCount++; used.add(q.id);
-                                        sectionsHtml += renderQ(q, gNum, fs.perQ);
-                                        if (q.correct_answer) currentAnswers.push({ num: gNum, ans: q.correct_answer });
-                                        if (fsCount >= fs.count) break;
-                                    }
-                                    if (fsCount < fs.count) failureCount++;
-                                } else if (fs.fixedNote) {
-                                    sectionsHtml += `<div class="fixed-section-note">${fs.fixedNote}</div>`;
-                                }
-                            });
-                        }
-                    });
-                } catch (e) {
-                    console.error("Blueprint assembly error:", e);
-                    failureCount = 99;
-                }
-
-                // TRIGGER FALLBACK IF DATA EXHAUSTED
-                if (failureCount > 0 || gNum < 5) {
-                    console.warn(`Fallback Mode Triggered: Found ${gNum} questions, required strict blueprint.`);
-                    sectionsHtml = `<div class="section-header" style="background:#fff7ed;color:#9a3412;border-color:#fdba74">⚠️ Test Mode Triggered (Insufficient Data for Strict Blueprint)</div>`;
-                    sectionsHtml += `<div style="padding:10px;font-size:0.8rem;color:#c2410c;background:#fffaf0;margin-bottom:15px;border-radius:6px">Showing 20 random available questions for verification.</div>`;
-
-                    gNum = 0; used.clear(); currentAnswers = [];
-                    const fallbackPool = pool.slice(0, 20);
-                    fallbackPool.forEach(q => {
-                        gNum++;
-                        sectionsHtml += renderQ(q, gNum, q.marks || 1);
-                        if (q.correct_answer) currentAnswers.push({ num: gNum, ans: q.correct_answer });
-                    });
-                }
-                html += sectionsHtml;
-
-                // ===== ANSWER KEY (hidden by default) =====
+                // Answer Key logic
                 html += `<div class="answer-key" id="answer-key-section" style="display:none">
-                    <h3>📋 Answer Key</h3><div>`;
-                if (currentAnswers.length > 0) {
-                    currentAnswers.forEach(a => html += `<span class="ak-item"><strong>Q.${a.num}:</strong> ${a.ans}</span>`);
-                } else {
-                    html += `<div style="color:#888;font-style:italic">Answer key not available for this paper.</div>`;
-                }
+                    <h3>📋 Answer Key (Debug Mode)</h3><div>`;
+                currentAnswers.forEach(a => html += `<span class="ak-item"><strong>Q.${a.num}:</strong> ${a.ans}</span>`);
                 html += `</div></div>`;
 
-                // End paper
-                html += `<div style="text-align:center;margin-top:30px;font-size:0.8rem;color:#888;border-top:1px solid #ddd;padding-top:12px">— End of Question Paper —</div>`;
+                html += `<div style="text-align:center;margin-top:30px;font-size:0.8rem;color:#888;border-top:1px solid #ddd;padding-top:12px">— End of Debug Paper —</div>`;
                 html += `</div>`;
 
                 document.getElementById('paper-content').innerHTML = html;
                 document.getElementById('selection-view').style.display = 'none';
                 document.getElementById('paper-view').style.display = 'block';
 
-                // Stats bar
                 document.getElementById('stats-bar').innerHTML = `
-                    <span>📄 Paper #${paperCount}</span>
-                    <span>📊 ${allQ.length} questions in database</span>
-                    <span>✅ ${gNum} questions generated</span>
+                    <span>📄 Debug Paper #${paperCount}</span>
+                    <span>📊 ${allQ.length} questions fetched</span>
+                    <span>✅ Rendering Forced</span>
                 `;
+            } catch (e) {
+                console.error("Debug Override Failure:", e);
+                err.textContent = `FATAL ERROR: ${e.message}`;
+                err.style.display = 'block'
             }
-            catch (e) { err.textContent = e.message; err.style.display = 'block' }
             finally { btn.disabled = false; btn.textContent = 'Generate Question Paper' }
         }
     </script>
