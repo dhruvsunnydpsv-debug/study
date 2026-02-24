@@ -3,7 +3,7 @@ name: Automated Class 9 ETL Pipeline
 on:
   workflow_dispatch: 
   schedule:
-    - cron: '*/30 * * * *' # Runs every 30 minutes
+    - cron: '0 */2 * * *' # Runs every 2 hours
 
 jobs:
   execute-pipeline:
