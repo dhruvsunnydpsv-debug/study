@@ -666,8 +666,13 @@ def execute_harvest_pipeline():
     
     # Optional: External Sources for Option B
     EXTERNAL_SOURCES = [
-        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-5-with-answers/", "subject": "Science", "chapter": "The Fundamental Unit of Life"},
         {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-1-with-answers/", "subject": "Science", "chapter": "Matter in Our Surroundings"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-2-with-answers/", "subject": "Science", "chapter": "Is Matter Around Us Pure"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-3-with-answers/", "subject": "Science", "chapter": "Atoms and Molecules"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-4-with-answers/", "subject": "Science", "chapter": "Structure of the Atom"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-5-with-answers/", "subject": "Science", "chapter": "The Fundamental Unit of Life"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-6-with-answers/", "subject": "Science", "chapter": "Tissues"},
+        {"url": "https://www.ncertbooks.guru/mcq-questions-for-class-9-science-chapter-8-with-answers/", "subject": "Science", "chapter": "Motion"},
     ]
     
     full_pool = SEED_DATA.copy()
@@ -695,22 +700,33 @@ def execute_harvest_pipeline():
                 if permanent_diagram_url:
                     diagram_uploads += 1
 
-            # Step 2: Build Payload (strict JSONB format)
+            # Step 2: Build Payload (minimal required fields first)
             payload = {
                 "subject": item["subject"],
                 "chapter": item["chapter"],
                 "question_text": item["question_text"],
-                "options": item.get("options"),  # Already in correct JSONB format
+                "options": item.get("options"),
                 "correct_answer": item.get("correct_answer"),
                 "diagram_url": permanent_diagram_url or image_url,
                 "marks": item.get("marks"),
                 "question_type": item.get("question_type"),
-                "source_reference": item.get("source"),
-                "competency_flag": item.get("competency_flag", False)
+                "source_reference": item.get("source")
             }
+            
+            # Optional fields (if column exists)
+            if item.get("competency_flag"):
+                payload["competency_flag"] = item.get("competency_flag")
 
-            # Step 3: Database Insert
-            supabase.table("class9_question_bank").insert(payload).execute()
+            # Step 3: Database Insert (Double Attempt for Column Drift)
+            try:
+                supabase.table("class9_question_bank").insert(payload).execute()
+            except Exception as sql_e:
+                if "competency_flag" in str(sql_e):
+                    logging.warning("  [!] competency_flag column missing. Falling back to base payload.")
+                    if "competency_flag" in payload: del payload["competency_flag"]
+                    supabase.table("class9_question_bank").insert(payload).execute()
+                else:
+                    raise sql_e
             successful_inserts += 1
             logging.info(f"  [{i+1}/{len(SEED_DATA)}] SECURED: [{item['subject']}] {item['chapter']} ({item['question_type']}, {item['marks']}m) — Diagram: {'YES' if permanent_diagram_url else 'NO'}")
 
