@@ -628,7 +628,13 @@
                     <button class="subject-btn" onclick="setSubject(this,'Hindi')">अ हिन्दी</button>
                     <button class="subject-btn" onclick="setSubject(this,'Sanskrit')">🕉 संस्कृतम्</button>
                 </div>
-                <label class="form-label">2. Difficulty Level</label>
+                <label class="form-label">2. Exam Type</label>
+                <div class="difficulty-selector">
+                    <button class="diff-btn active" id="mode-annual" onclick="setMode(this,'Annual')">Annual
+                        (80m)</button>
+                    <button class="diff-btn" id="mode-ut" onclick="setMode(this,'UT')">Unit Test (40m)</button>
+                </div>
+                <label class="form-label">3. Difficulty Level</label>
                 <div class="difficulty-selector">
                     <button class="diff-btn active" onclick="setDiff(this,'Mixed')">Mixed</button>
                     <button class="diff-btn" onclick="setDiff(this,'Easy')">Easy</button>
@@ -654,7 +660,7 @@
 
     <script>
         const db = window.supabase.createClient("https://wfegooasrtbhpursgcvh.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s");
-        let selectedGrade = 9, selectedSubject = null, selectedDiff = 'Mixed', paperCount = 0, currentAnswers = [];
+        let selectedGrade = 9, selectedSubject = null, selectedDiff = 'Mixed', selectedMode = 'Annual', paperCount = 0, currentAnswers = [];
 
         // ============ EXACT CBSE 2025-26 BLUEPRINTS ============
         const BLUEPRINTS = {
@@ -825,6 +831,63 @@
             }
         };
 
+        const BLUEPRINTS_UT = {
+            'Science': {
+                code: '086', fullName: 'Science (Periodic Test)', time: '1.5 Hours', maxMarks: 40,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'MCQs', perQ: 1, count: 10, qType: 'mcq', hasAR: true, arStart: 9 },
+                    { id: 'B', title: 'Section B', desc: 'VSA', perQ: 2, count: 4 },
+                    { id: 'C', title: 'Section C', desc: 'SA', perQ: 3, count: 3 },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 1, forceDiagram: true },
+                    { id: 'E', title: 'Section E', desc: 'Case Study', perQ: 4, count: 2, qType: 'case', caseSubParts: [1, 1, 2] }
+                ],
+                inst: ['Paper contains 20 questions.', 'Section A has 10 MCQs (2 A-R).', 'Section D requires diagram.']
+            },
+            'Mathematics': {
+                code: '041', fullName: 'Mathematics (Periodic Test)', time: '1.5 Hours', maxMarks: 40,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'MCQs', perQ: 1, count: 10, qType: 'mcq' },
+                    { id: 'B', title: 'Section B', desc: 'VSA', perQ: 2, count: 4 },
+                    { id: 'C', title: 'Section C', desc: 'SA', perQ: 3, count: 3 },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 1, forceDiagram: true },
+                    { id: 'E', title: 'Section E', desc: 'Case Study', perQ: 4, count: 2, qType: 'case' }
+                ],
+                inst: ['Paper contains 20 questions.', 'Section D focuses on Geometry/Graphs.']
+            },
+            'Social Science': {
+                code: '087', fullName: 'Social Science (Periodic Test)', time: '1.5 Hours', maxMarks: 40,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'MCQs', perQ: 1, count: 10, qType: 'mcq' },
+                    { id: 'B', title: 'Section B', desc: 'VSA', perQ: 2, count: 3 },
+                    { id: 'C', title: 'Section C', desc: 'SA', perQ: 3, count: 3 },
+                    { id: 'D', title: 'Section D', desc: 'Long Answer', perQ: 5, count: 1 },
+                    { id: 'E', title: 'Section E', desc: 'Case Study', perQ: 4, count: 2, qType: 'case' },
+                    { id: 'F', title: 'Section F', desc: 'Map Pointing', perQ: 2, count: 1, qType: 'map' }
+                ],
+                inst: ['Paper contains 20 questions.']
+            },
+            'English': {
+                code: '184', fullName: 'English (Periodic Test)', time: '1.5 Hours', maxMarks: 40,
+                sections: [
+                    { id: 'A', title: 'Section A', desc: 'Reading Skills', perQ: 1, count: 10, qType: 'mcq' },
+                    {
+                        id: 'B', title: 'Section B', desc: 'Writing Skills & Grammar', fixed: 10, fixedSections: [
+                            { label: 'Grammar', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+                            { label: 'Writing', marks: 5, fixedNote: 'Descriptive Paragraph or Diary Entry' }
+                        ]
+                    },
+                    {
+                        id: 'C', title: 'Section C', desc: 'Literature', fixed: 20, fixedSections: [
+                            { label: 'Extract (RTC)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+                            { label: 'Short Answer', marks: 9, count: 3, perQ: 3 },
+                            { label: 'Long Answer', marks: 6, count: 1, perQ: 6 }
+                        ]
+                    }
+                ],
+                inst: ['Section A: 10 Marks', 'Section B: 10 Marks', 'Section C: 20 Marks']
+            }
+        };
+
         function setSubject(btn, s) {
             document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -832,6 +895,11 @@
             document.getElementById('create-btn').disabled = false
         }
         function setDiff(btn, d) { document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); selectedDiff = d }
+        function setMode(btn, m) {
+            document.querySelectorAll('#mode-annual, #mode-ut').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedMode = m;
+        }
 
         function parseFig(text) {
             const imgM = text.match(/\[Image:\s*([^\]]+)\]/i);
@@ -883,10 +951,10 @@
                 return html;
             }
 
-            // Image at top — referrerpolicy="no-referrer" bypasses Wikimedia hotlink blocking
+            // Image at top
             if (url) {
                 const topic = getImgTopic(url);
-                html += `<div class="figure-box"><img src="${url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=\\'border:2px dashed #ccc;padding:20px;text-align:center;color:#666;background:#f9f9f9;border-radius:8px;margin:8px 0\\'>📐 <strong>${topic}</strong><br><small style=\\'color:#999\\'>Refer to your textbook for this diagram</small></div>')"></div>`;
+                html += `<div class="figure-box"><img src="${url}" class="q-image" alt="${topic}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';"></div>`;
             }
 
             // NEW: Handle Parent-Child Clusters (Passages/Case Studies)
@@ -995,36 +1063,133 @@
             const err = document.getElementById('error-msg');
             btn.disabled = true; btn.textContent = 'Generating...'; err.style.display = 'none';
             try {
-                // EMERGENCY BYPASS (DIRECTIVE V2.4): Kill Blueprint logic, force raw 20-question fetch
-                const { data: allQ, error } = await db.from('class9_question_bank').select('*').limit(20);
+                const blueprints = (selectedMode === 'UT') ? BLUEPRINTS_UT : BLUEPRINTS;
+                const bp = blueprints[selectedSubject];
+                if (!bp) throw new Error(`Blueprint not found for ${selectedSubject} in ${selectedMode} mode.`);
+
+                // 1. Fetch questions based on subject (Case-Insensitive)
+                const qKey = (selectedSubject === 'Mathematics') ? 'Math%' : `${selectedSubject}%`;
+                const { data: allQ, error } = await db.from('class9_question_bank').select('*').ilike('subject', qKey).limit(1000);
 
                 if (error) throw error;
-                if (!allQ || allQ.length === 0) throw new Error("Database query returned 0 rows. Connectivity confirmed, but table is empty or inaccessible.");
+                if (!allQ || allQ.length === 0) throw new Error(`No questions found for ${selectedSubject}.`);
 
+                const pool = allQ.sort(() => Math.random() - 0.5);
                 paperCount++;
                 currentAnswers = [];
-                let gNum = 0;
 
-                let html = `<div class="paper">
-                    <div class="section-header" style="background:#ef4444;color:white;border-color:#b91c1c;padding:15px;margin-bottom:0">🚨 DEBUG OVERRIDE MODE (V2.4)</div>
-                    <div style="padding:15px;background:#fee2e2;color:#991b1b;margin-bottom:25px;border-bottom-left-radius:8px;border-bottom-right-radius:8px;font-size:0.9rem;border:1px solid #fecaca;border-top:none">
-                        <strong>Architect Override Active:</strong> Strict blueprint logic is temporarily DISABLED. 
-                        Showing up to 20 raw questions found in the database for visual verification of text and diagrams.
-                    </div>`;
+                // ===== PAPER HEADER =====
+                let html = `<div class="paper ${bp.lang || ''}">
+                    <div class="paper-header">
+                        <div class="school-line">Central Board of Secondary Education</div>
+                        <div class="exam-line">${selectedMode === 'UT' ? 'PERIODIC TEST / UNIT TEST' : 'ANNUAL EXAMINATION'} (2025-26)</div>
+                        <div class="subject-line">${bp.fullName}</div>
+                        <div class="code-line">Subject Code: ${bp.code} | Class: IX</div>
+                    </div>
+                    <div class="paper-meta">
+                        <span>Time Allowed: ${bp.time}</span>
+                        <span>Maximum Marks: ${bp.maxMarks}</span>
+                    </div>
+                    <div class="paper-meta" style="border-bottom:none;font-size:0.78rem;color:#666">
+                        <span>Date: ___________</span>
+                        <span>Roll No: ___________</span>
+                    </div>
+                    <div class="paper-instructions">
+                        <strong>General Instructions:</strong>
+                        <ol>`;
+                bp.inst.forEach(i => html += `<li>${i}</li>`);
+                html += `</ol></div>`;
 
-                allQ.forEach((q, i) => {
-                    gNum++;
-                    html += renderQ(q, gNum, q.marks || 1);
-                    if (q.correct_answer) currentAnswers.push({ num: gNum, ans: q.correct_answer });
+                // ===== SECTIONS (Strict Blueprint) =====
+                let gNum = 0, used = new Set();
+                bp.sections.forEach(sec => {
+                    let startQ = gNum + 1;
+                    let endQ = gNum + (sec.count || 0);
+                    let rangeStr = sec.count > 0 ? `(Q.${startQ} to Q.${endQ})` : '';
+                    html += `<div class="section-header">${sec.title} — ${sec.desc} ${sec.perQ > 0 ? '(' + sec.perQ + ' mark' + (sec.perQ > 1 ? 's' : '') + ' each)' : ''} <span class="q-range">${rangeStr}</span></div>`;
+
+                    if (sec.count > 0) {
+                        let sectionPool = pool.filter(q => !used.has(q.id));
+
+                        // Diagram Trigger Priority
+                        if (sec.forceDiagram) {
+                            sectionPool.sort((a, b) => (b.diagram_url ? 1 : 0) - (a.diagram_url ? 1 : 0));
+                        }
+
+                        let count = 0;
+                        for (let q of sectionPool) {
+                            const qDiff = q.difficulty || 'Medium';
+                            if (selectedDiff !== 'Mixed' && qDiff !== selectedDiff) continue;
+
+                            gNum++; count++; used.add(q.id);
+                            const isAR = sec.hasAR && gNum >= sec.arStart && gNum <= sec.arStart + 1;
+
+                            if (sec.qType === 'case') {
+                                html += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">`;
+                                const fig = parseFig(q.question_text || '');
+                                let caseText = fig.clean;
+                                let url = q.diagram_url || fig.url;
+                                if (url) {
+                                    html += `<div class="figure-box"><img src="${url}" class="q-image" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display='none';"></div>`;
+                                }
+                                const subMatch = caseText.match(/\((i|a)\)/);
+                                if (subMatch) {
+                                    const passage = caseText.substring(0, subMatch.index).trim();
+                                    const subText = caseText.substring(subMatch.index);
+                                    html += `<div class="case-study-intro">${passage}</div>`;
+                                    const subs = subText.match(/\((?:i|ii|iii|iv|a|b|c|d)\)[^(]*/g);
+                                    if (subs && sec.caseSubParts) {
+                                        html += `<div class="sub-parts">`;
+                                        subs.forEach((s, idx) => {
+                                            const m = sec.caseSubParts[idx] || 1;
+                                            html += `<div class="sub-part">${s.trim()} <span class="q-marks">[${m}]</span></div>`;
+                                        });
+                                        html += `</div>`;
+                                    } else { html += `<div>${subText}</div>`; }
+                                } else {
+                                    html += `<div class="case-study-intro">${caseText}</div>`;
+                                    if (sec.caseSubParts) {
+                                        html += `<div class="sub-parts">`;
+                                        sec.caseSubParts.forEach((m, i) => {
+                                            html += `<div class="sub-part">(${String.fromCharCode(105 + i)}) [Answer Based on Passage] <span class="q-marks">[${m}]</span></div>`;
+                                        });
+                                        html += `</div>`;
+                                    }
+                                }
+                                html += `</div><span class="q-marks">[${sec.perQ}]</span></div>`;
+                            } else if (sec.qType === 'map') {
+                                html += renderQ(q, gNum, sec.perQ);
+                                html += `<div style="text-align:center;padding:12px;font-style:italic;font-size:0.8rem;color:#555">Map of India attached separately</div>`;
+                            } else {
+                                html += renderQ(q, gNum, sec.perQ, { isAR });
+                            }
+
+                            if (q.correct_answer) currentAnswers.push({ num: gNum, ans: q.correct_answer });
+                            if (count >= sec.count) break;
+                        }
+                    } else if (sec.fixed && sec.fixedSections) {
+                        sec.fixedSections.forEach(fs => {
+                            html += `<div style="font-weight:600;font-size:0.84rem;margin:12px 0 8px;padding-left:4px;border-left:3px solid var(--accent);padding:4px 8px;background:#f8f8ff">${fs.label} — ${fs.marks} Marks</div>`;
+                            if (fs.count > 0 && fs.perQ > 0) {
+                                let fsCount = 0;
+                                let sectionPool = pool.filter(q => !used.has(q.id));
+                                for (let q of sectionPool) {
+                                    const qDiff = q.difficulty || 'Medium';
+                                    if (selectedDiff !== 'Mixed' && qDiff !== selectedDiff) continue;
+                                    gNum++; fsCount++; used.add(q.id);
+                                    html += renderQ(q, gNum, fs.perQ);
+                                    if (q.correct_answer) currentAnswers.push({ num: gNum, ans: q.correct_answer });
+                                    if (fsCount >= fs.count) break;
+                                }
+                            } else if (fs.fixedNote) {
+                                html += `<div class="fixed-section-note">${fs.fixedNote}</div>`;
+                            }
+                        });
+                    }
                 });
 
-                // Answer Key logic
-                html += `<div class="answer-key" id="answer-key-section" style="display:none">
-                    <h3>📋 Answer Key (Debug Mode)</h3><div>`;
-                currentAnswers.forEach(a => html += `<span class="ak-item"><strong>Q.${a.num}:</strong> ${a.ans}</span>`);
-                html += `</div></div>`;
-
-                html += `<div style="text-align:center;margin-top:30px;font-size:0.8rem;color:#888;border-top:1px solid #ddd;padding-top:12px">— End of Debug Paper —</div>`;
+                // End paper
+                html += `<div style="text-align:center;margin-top:30px;font-size:0.8rem;color:#888;border-top:1px solid #ddd;padding-top:12px">— End of Question Paper —</div>`;
                 html += `</div>`;
 
                 document.getElementById('paper-content').innerHTML = html;
@@ -1032,15 +1197,11 @@
                 document.getElementById('paper-view').style.display = 'block';
 
                 document.getElementById('stats-bar').innerHTML = `
-                    <span>📄 Debug Paper #${paperCount}</span>
-                    <span>📊 ${allQ.length} questions fetched</span>
-                    <span>✅ Rendering Forced</span>
+                    <span>📄 ${selectedMode} Paper #${paperCount}</span>
+                    <span>📊 ${allQ.length} in db</span>
+                    <span>✅ ${gNum} generated</span>
                 `;
-            } catch (e) {
-                console.error("Debug Override Failure:", e);
-                err.textContent = `FATAL ERROR: ${e.message}`;
-                err.style.display = 'block'
-            }
+            } catch (e) { err.textContent = e.message; err.style.display = 'block' }
             finally { btn.disabled = false; btn.textContent = 'Generate Question Paper' }
         }
     </script>
