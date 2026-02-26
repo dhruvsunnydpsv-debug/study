@@ -1,1820 +1,1813 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CBSE question paper creator with step-by-step subject, difficulty and test type selection."
-    />
-    <meta name="theme-color" content="#0b1226" />
-    <title>CBSE Paper Creator | Study Vault</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <style>
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      :root {
-        --bg: #070b16;
-        --surface: rgba(255, 255, 255, 0.04);
-        --surface-hover: rgba(255, 255, 255, 0.06);
-        --border: rgba(255, 255, 255, 0.12);
-        --text: #ffffff;
-        --text-dim: #a1a1aa;
-        --accent: #22c55e;
-        --accent-glow: rgba(34, 197, 94, 0.35);
-        --gold: #f6c866;
-        --gold-glow: rgba(246, 200, 102, 0.25);
-        --zinc-800: #27272a;
-        --zinc-900: #18181b;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="CBSE question paper creator with step-by-step subject, difficulty and test type selection." />
+  <meta name="theme-color" content="#0b1226" />
+  <title>CBSE Paper Creator | Study Vault</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        background:
-          radial-gradient(
-            circle at 18% 10%,
-            rgba(255, 255, 255, 0.08),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at 84% 18%,
-            rgba(255, 255, 255, 0.06),
-            transparent 36%
-          ),
-          linear-gradient(180deg, #252d3e 0%, #151c2c 100%);
-        color: var(--text);
-        min-height: 100vh;
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
+    :root {
+      --bg: #070b16;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-hover: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --text-dim: #a1a1aa;
+      --accent: #22c55e;
+      --accent-glow: rgba(34, 197, 94, 0.35);
+      --gold: #f6c866;
+      --gold-glow: rgba(246, 200, 102, 0.25);
+      --zinc-800: #27272a;
+      --zinc-900: #18181b;
+    }
 
-      .aurora {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        background: radial-gradient(
-          circle at 50% -20%,
+    body {
+      font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+      background:
+        radial-gradient(circle at 18% 10%,
+          rgba(255, 255, 255, 0.08),
+          transparent 38%),
+        radial-gradient(circle at 84% 18%,
+          rgba(255, 255, 255, 0.06),
+          transparent 36%),
+        linear-gradient(180deg, #252d3e 0%, #151c2c 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .aurora {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% -20%,
           rgba(255, 255, 255, 0.07),
-          transparent 70%
-        );
+          transparent 70%);
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    #selection-view {
+      min-height: calc((100vh - 48px) / 1.2);
+      width: 100%;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 18px;
+      zoom: 1.2;
+    }
+
+    @supports not (zoom: 1.2) {
+      #selection-view {
+        transform: scale(1.2);
+        transform-origin: center top;
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 16px;
+      text-align: center;
+      text-shadow: 0 0 26px rgba(246, 200, 102, 0.14);
+    }
+
+    .hero-sub {
+      color: var(--text-dim);
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 20px;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .flow-hint {
+      text-align: center;
+      color: #f6d693;
+      font-size: 0.82rem;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .direction-title {
+      text-align: center;
+      color: #f7deaa;
+      font-family: "Noto Serif", "Inter", serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    .direction-box {
+      max-width: 640px;
+      margin: 0 auto 26px;
+      min-height: 16px;
+      padding: 8px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(246, 200, 102, 0.36);
+      background: rgba(52, 40, 14, 0.22);
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .direction-box::before,
+    .direction-box::after {
+      content: "◆";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.56rem;
+      color: rgba(246, 200, 102, 0.8);
+      pointer-events: none;
+    }
+
+    .direction-box::before {
+      left: 10px;
+    }
+
+    .direction-box::after {
+      right: 10px;
+    }
+
+    .direction-box-inner {
+      position: absolute;
+      inset: -7px;
+      border: 1px solid rgba(246, 200, 102, 0.2);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .form-card {
+      background:
+        radial-gradient(circle at 10% 10%,
+          rgba(246, 200, 102, 0.12),
+          transparent 28%),
+        radial-gradient(circle at 92% 86%,
+          rgba(246, 200, 102, 0.08),
+          transparent 30%),
+        linear-gradient(180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0.05) 50%,
+          rgba(255, 255, 255, 0.03) 100%),
+        rgba(16, 20, 30, 0.35);
+      border: 1px solid rgba(246, 200, 102, 0.24);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 32px;
+      padding: 48px;
+      width: min(720px, 100%);
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      overflow: visible;
+      box-shadow:
+        0 26px 50px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(246, 200, 102, 0.08);
+    }
+
+    .form-card::before,
+    .form-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 36px;
+      pointer-events: none;
+    }
+
+    .form-card::before {
+      inset: -10px;
+      border: 1px solid rgba(246, 200, 102, 0.34);
+    }
+
+    .form-card::after {
+      inset: -18px;
+      border: 1px solid rgba(246, 200, 102, 0.14);
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #f2d08a;
+      margin-bottom: 20px;
+      display: block;
+      text-align: center;
+    }
+
+    .step-state {
+      margin: 8px 0 28px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(246, 200, 102, 0.22);
+      background: rgba(40, 30, 10, 0.22);
+      color: #f8e5b6;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    .selection-stage {
+      display: none;
+      animation: stage-in 0.28s ease;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .selection-stage.active {
+      display: block;
+    }
+
+    .stage-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 8px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stage-actions .create-btn {
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    .ghost-btn {
+      border-radius: 100px;
+      border: 1px solid rgba(246, 200, 102, 0.26);
+      background: rgba(20, 16, 8, 0.35);
+      color: #f6d693;
+      padding: 14px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      width: 100%;
+      min-width: 0;
+      text-align: center;
+      justify-self: stretch;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .subject-btn {
+      min-height: 74px;
+      padding: 18px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--zinc-900);
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .subject-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: var(--zinc-800);
+      color: #fff;
+    }
+
+    .subject-btn.active {
+      background: rgba(20, 47, 31, 0.94);
+      border-color: var(--accent);
+      color: #d1fae5;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .difficulty-selector {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 26px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .test-type-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 500px;
+    }
+
+    .diff-btn {
+      min-height: 52px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--zinc-900);
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .diff-btn:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .diff-btn.active {
+      background: var(--zinc-800);
+      border-color: var(--accent);
+      color: #bbf7d0;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .diff-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .create-btn {
+      width: 100%;
+      padding: 20px;
+      border-radius: 100px;
+      border: 1px solid #22c55e;
+      background: linear-gradient(120deg, #166534, #22c55e);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .create-btn:hover:not(:disabled) {
+      border-color: #86efac;
+      box-shadow: 0 0 25px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .create-btn:disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+
+    @keyframes stage-in {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
       }
 
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #paper-view {
+      display: none;
+    }
+
+    .paper-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .action-btn {
+      padding: 12px 28px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--zinc-900);
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .action-btn:hover {
+      border-color: #fff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .stats-bar span {
+      background: var(--surface);
+      padding: 6px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+    }
+
+    /* PDF Fix - Strict White Theme for Examination Paper */
+    .paper {
+      background: #ffffff !important;
+      color: #000000 !important;
+      padding: 40px 60px;
+      font-family: "Noto Serif", "Inter", serif !important;
+      line-height: 1.6;
+      max-width: 850px;
+      margin: 0 auto;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      /* border-gray-200 */
+      box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      /* shadow-xl */
+    }
+
+    .paper-header {
+      text-align: center;
+      margin-bottom: 32px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 24px;
+    }
+
+    .paper-header .school-line {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: #444;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .paper-header .exam-line {
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0;
+      color: #000;
+      margin-bottom: 4px;
+    }
+
+    .paper-header .subject-line {
+      font-size: 1.1rem;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .paper-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 0;
+      padding: 12px 0;
+      font-size: 0.85rem;
+      color: #000;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .paper-instructions {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 24px;
+      border-radius: 0;
+      margin-bottom: 40px;
+      font-size: 0.85rem;
+      color: #333;
+    }
+
+    .paper-instructions strong {
+      color: #000;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-header {
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: #eee;
+      padding: 8px 16px;
+      margin: 40px 0 24px;
+      color: #000;
+      border-left: 5px solid #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-header .q-range {
+      font-weight: 600;
+      color: #555;
+      font-size: 0.8rem;
+    }
+
+    .question {
+      margin-bottom: 24px;
+      display: flex;
+      gap: 16px;
+      page-break-inside: avoid;
+    }
+
+    .q-num {
+      font-weight: 700;
+      color: #000;
+      width: 32px;
+      flex-shrink: 0;
+      font-size: 0.95rem;
+    }
+
+    .q-body {
+      flex: 1;
+      font-size: 0.95rem;
+      color: #111;
+    }
+
+    .q-marks {
+      color: #000;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      display: block;
+      white-space: nowrap;
+    }
+
+    .mcq-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .mcq-opt {
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      background: #fff;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .passage-box {
+      background: #f8f8f8;
+      padding: 16px 20px;
+      border-radius: 0;
+      margin: 16px 0;
+      border-left: 3px solid #ccc;
+      font-size: 0.9rem;
+      color: #222;
+      font-style: italic;
+    }
+
+    .sub-part {
+      padding-left: 20px;
+      border-left: 1px solid #ccc;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: #222;
+    }
+
+    .sub-part::before {
+      display: none;
+    }
+
+    .assertion-block .ar-label {
+      font-weight: 700;
+      color: #000;
+    }
+
+    .ak-item {
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .answer-key h3 {
+      color: #000;
+      border-bottom: 2px solid #000;
+      padding-bottom: 8px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
       .app {
-        position: relative;
-        z-index: 1;
-        max-width: 1000px;
-        margin: 0 auto;
         min-height: 100vh;
-        padding: 24px;
+        padding: 20px 16px;
       }
 
       #selection-view {
-        min-height: calc((100vh - 48px) / 1.2);
-        width: 100%;
-        display: grid;
-        align-content: center;
-        justify-items: center;
-        gap: 18px;
-        zoom: 1.2;
-      }
-
-      @supports not (zoom: 1.2) {
-        #selection-view {
-          transform: scale(1.2);
-          transform-origin: center top;
-        }
-      }
-
-      .hero-title {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        font-weight: 800;
-        letter-spacing: -0.04em;
-        color: #fff;
-        line-height: 1;
-        margin-bottom: 16px;
-        text-align: center;
-        text-shadow: 0 0 26px rgba(246, 200, 102, 0.14);
-      }
-
-      .hero-sub {
-        color: var(--text-dim);
-        text-align: center;
-        max-width: 680px;
-        margin: 0 auto 20px;
-        font-size: 1.1rem;
-        font-weight: 400;
-        letter-spacing: -0.01em;
-      }
-
-      .flow-hint {
-        text-align: center;
-        color: #f6d693;
-        font-size: 0.82rem;
-        margin: 0;
-        letter-spacing: 0.02em;
-      }
-
-      .direction-title {
-        text-align: center;
-        color: #f7deaa;
-        font-family: "Noto Serif", "Inter", serif;
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        margin: 0;
-      }
-
-      .direction-box {
-        max-width: 640px;
-        margin: 0 auto 26px;
-        min-height: 16px;
-        padding: 8px 16px;
-        border-radius: 14px;
-        border: 1px solid rgba(246, 200, 102, 0.36);
-        background: rgba(52, 40, 14, 0.22);
-        position: relative;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      .direction-box::before,
-      .direction-box::after {
-        content: "◆";
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.56rem;
-        color: rgba(246, 200, 102, 0.8);
-        pointer-events: none;
-      }
-
-      .direction-box::before {
-        left: 10px;
-      }
-
-      .direction-box::after {
-        right: 10px;
-      }
-
-      .direction-box-inner {
-        position: absolute;
-        inset: -7px;
-        border: 1px solid rgba(246, 200, 102, 0.2);
-        border-radius: 18px;
-        pointer-events: none;
+        min-height: calc((100vh - 40px) / 1.2);
       }
 
       .form-card {
-        background:
-          radial-gradient(
-            circle at 10% 10%,
-            rgba(246, 200, 102, 0.12),
-            transparent 28%
-          ),
-          radial-gradient(
-            circle at 92% 86%,
-            rgba(246, 200, 102, 0.08),
-            transparent 30%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.12) 0%,
-            rgba(255, 255, 255, 0.05) 50%,
-            rgba(255, 255, 255, 0.03) 100%
-          ),
-          rgba(16, 20, 30, 0.35);
-        border: 1px solid rgba(246, 200, 102, 0.24);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 32px;
-        padding: 48px;
-        width: min(720px, 100%);
-        max-width: 720px;
-        margin: 0 auto;
-        position: relative;
-        overflow: visible;
-        box-shadow:
-          0 26px 50px rgba(0, 0, 0, 0.45),
-          inset 0 0 0 1px rgba(246, 200, 102, 0.08);
-      }
-
-      .form-card::before,
-      .form-card::after {
-        content: "";
-        position: absolute;
-        border-radius: 36px;
-        pointer-events: none;
-      }
-
-      .form-card::before {
-        inset: -10px;
-        border: 1px solid rgba(246, 200, 102, 0.34);
-      }
-
-      .form-card::after {
-        inset: -18px;
-        border: 1px solid rgba(246, 200, 102, 0.14);
-      }
-
-      .form-label {
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: #f2d08a;
-        margin-bottom: 20px;
-        display: block;
-        text-align: center;
-      }
-
-      .step-state {
-        margin: 8px 0 28px;
-        padding: 10px 14px;
-        border-radius: 12px;
-        border: 1px solid rgba(246, 200, 102, 0.22);
-        background: rgba(40, 30, 10, 0.22);
-        color: #f8e5b6;
-        font-size: 0.82rem;
-        text-align: center;
-      }
-
-      .selection-stage {
-        display: none;
-        animation: stage-in 0.28s ease;
-        max-width: 640px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .selection-stage.active {
-        display: block;
-      }
-
-      .stage-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin-top: 8px;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .stage-actions .create-btn {
-        margin-top: 2px;
-        width: 100%;
-      }
-
-      .ghost-btn {
-        border-radius: 100px;
-        border: 1px solid rgba(246, 200, 102, 0.26);
-        background: rgba(20, 16, 8, 0.35);
-        color: #f6d693;
-        padding: 14px 20px;
-        font-weight: 600;
-        cursor: pointer;
-        white-space: nowrap;
-        width: 100%;
-        min-width: 0;
-        text-align: center;
-        justify-self: stretch;
+        padding: 32px 24px;
       }
 
       .subject-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin-bottom: 28px;
-        max-width: 620px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .subject-btn {
-        min-height: 74px;
-        padding: 18px 14px;
-        border-radius: 20px;
-        border: 1px solid var(--border);
-        background: var(--zinc-900);
-        color: var(--text-dim);
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-size: 0.9rem;
-        font-weight: 500;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 8px;
-      }
-
-      .subject-btn:hover {
-        border-color: rgba(255, 255, 255, 0.3);
-        background: var(--zinc-800);
-        color: #fff;
-      }
-
-      .subject-btn.active {
-        background: rgba(20, 47, 31, 0.94);
-        border-color: var(--accent);
-        color: #d1fae5;
-        box-shadow: 0 0 20px var(--accent-glow);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .difficulty-selector {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
-        margin-bottom: 26px;
-        max-width: 620px;
-        margin-left: auto;
-        margin-right: auto;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .test-type-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 500px;
+        max-width: 100%;
       }
 
-      .diff-btn {
-        min-height: 52px;
-        padding: 12px 14px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: var(--zinc-900);
-        color: var(--text-dim);
-        cursor: pointer;
-        transition: 0.2s;
-        font-size: 0.8rem;
-        font-weight: 500;
-        text-align: center;
+      .hero-title {
+        font-size: 2.5rem;
       }
 
-      .diff-btn:hover {
-        border-color: rgba(255, 255, 255, 0.2);
-        color: #fff;
+      .stage-actions {
+        max-width: 100%;
       }
 
-      .diff-btn.active {
-        background: var(--zinc-800);
-        border-color: var(--accent);
-        color: #bbf7d0;
-        box-shadow: 0 0 15px var(--accent-glow);
-      }
-
-      .diff-btn:disabled {
-        opacity: 0.45;
-        cursor: not-allowed;
-      }
-
-      .create-btn {
+      .ghost-btn {
         width: 100%;
-        padding: 20px;
-        border-radius: 100px;
-        border: 1px solid #22c55e;
-        background: linear-gradient(120deg, #166534, #22c55e);
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        margin-top: 10px;
-      }
-
-      .create-btn:hover:not(:disabled) {
-        border-color: #86efac;
-        box-shadow: 0 0 25px var(--accent-glow);
-        transform: translateY(-2px);
-      }
-
-      .create-btn:disabled {
-        opacity: 0.2;
-        cursor: not-allowed;
-      }
-
-      @keyframes stage-in {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      #paper-view {
-        display: none;
-      }
-
-      .paper-actions {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        margin-bottom: 40px;
-      }
-
-      .action-btn {
-        padding: 12px 28px;
-        border-radius: 100px;
-        border: 1px solid var(--border);
-        background: var(--zinc-900);
-        color: #fff;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: 0.2s;
-      }
-
-      .action-btn:hover {
-        border-color: #fff;
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-      }
-
-      .stats-bar {
-        display: flex;
-        gap: 16px;
-        justify-content: center;
-        margin-bottom: 24px;
-        font-size: 0.8rem;
-        color: var(--text-dim);
-      }
-
-      .stats-bar span {
-        background: var(--surface);
-        padding: 6px 16px;
-        border-radius: 100px;
-        border: 1px solid var(--border);
-      }
-
-      /* PDF Fix - Strict White Theme for Examination Paper */
-      .paper {
-        background: #ffffff !important;
-        color: #000000 !important;
-        padding: 40px 60px;
-        font-family: "Noto Serif", "Inter", serif !important;
-        line-height: 1.6;
-        max-width: 850px;
-        margin: 0 auto;
-        border-radius: 8px;
-        border: 1px solid #e5e7eb;
-        /* border-gray-200 */
-        box-shadow:
-          0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        /* shadow-xl */
-      }
-
-      .paper-header {
-        text-align: center;
-        margin-bottom: 32px;
-        border-bottom: 2px solid #000;
-        padding-bottom: 24px;
-      }
-
-      .paper-header .school-line {
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        color: #444;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-
-      .paper-header .exam-line {
-        font-weight: 700;
-        font-size: 1.4rem;
-        letter-spacing: 0;
-        color: #000;
-        margin-bottom: 4px;
-      }
-
-      .paper-header .subject-line {
-        font-size: 1.1rem;
-        color: #222;
-        font-weight: 600;
-      }
-
-      .paper-meta {
-        display: flex;
-        justify-content: space-between;
-        gap: 0;
-        padding: 12px 0;
-        font-size: 0.85rem;
-        color: #000;
-        border-bottom: 1px solid #ccc;
-        margin-bottom: 24px;
-        font-weight: 600;
-      }
-
-      .paper-instructions {
-        background: #f9f9f9;
-        border: 1px solid #ddd;
-        padding: 24px;
-        border-radius: 0;
-        margin-bottom: 40px;
-        font-size: 0.85rem;
-        color: #333;
-      }
-
-      .paper-instructions strong {
-        color: #000;
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      .section-header {
-        font-weight: 700;
-        font-size: 1.1rem;
-        background: #eee;
-        padding: 8px 16px;
-        margin: 40px 0 24px;
-        color: #000;
-        border-left: 5px solid #000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .section-header .q-range {
-        font-weight: 600;
-        color: #555;
-        font-size: 0.8rem;
-      }
-
-      .question {
-        margin-bottom: 24px;
-        display: flex;
-        gap: 16px;
-        page-break-inside: avoid;
-      }
-
-      .q-num {
-        font-weight: 700;
-        color: #000;
-        width: 32px;
-        flex-shrink: 0;
-        font-size: 0.95rem;
-      }
-
-      .q-body {
-        flex: 1;
-        font-size: 0.95rem;
-        color: #111;
-      }
-
-      .q-marks {
-        color: #000;
-        font-weight: 700;
-        font-size: 0.8rem;
-        margin-top: 4px;
-        display: block;
-        white-space: nowrap;
+        justify-self: stretch;
       }
 
       .mcq-options {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        margin-top: 12px;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 400px) {
+      #selection-view {
+        min-height: auto;
       }
 
-      .mcq-opt {
-        padding: 8px 12px;
-        border-radius: 4px;
-        border: 1px solid #eee;
-        background: #fff;
-        font-size: 0.9rem;
-        color: #333;
+      .subject-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .passage-box {
-        background: #f8f8f8;
-        padding: 16px 20px;
-        border-radius: 0;
-        margin: 16px 0;
-        border-left: 3px solid #ccc;
-        font-size: 0.9rem;
-        color: #222;
-        font-style: italic;
+      .test-type-grid {
+        grid-template-columns: 1fr;
       }
 
-      .sub-part {
-        padding-left: 20px;
-        border-left: 1px solid #ccc;
-        margin-bottom: 12px;
-        font-size: 0.9rem;
-        color: #222;
+      .paper {
+        padding: 12px 10px;
+        font-size: 0.78rem;
       }
+    }
+  </style>
+</head>
 
-      .sub-part::before {
-        display: none;
-      }
-
-      .assertion-block .ar-label {
-        font-weight: 700;
-        color: #000;
-      }
-
-      .ak-item {
-        background: #f0f0f0;
-        border: 1px solid #ccc;
-        color: #000;
-        font-weight: 600;
-      }
-
-      .answer-key h3 {
-        color: #000;
-        border-bottom: 2px solid #000;
-        padding-bottom: 8px;
-      }
-
-      /* Mobile */
-      @media (max-width: 768px) {
-        .app {
-          min-height: 100vh;
-          padding: 20px 16px;
-        }
-
-        #selection-view {
-          min-height: calc((100vh - 40px) / 1.2);
-        }
-
-        .form-card {
-          padding: 32px 24px;
-        }
-
-        .subject-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .difficulty-selector {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .test-type-grid {
-          max-width: 100%;
-        }
-
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .stage-actions {
-          max-width: 100%;
-        }
-
-        .ghost-btn {
-          width: 100%;
-          justify-self: stretch;
-        }
-
-        .mcq-options {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 400px) {
-        #selection-view {
-          min-height: auto;
-        }
-
-        .subject-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .test-type-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .paper {
-          padding: 12px 10px;
-          font-size: 0.78rem;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="aurora">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="app">
-      <div id="selection-view">
-        <h1 class="hero-title">CBSE Paper Creator</h1>
-        <p class="hero-sub">
-          Exact 2025-26 Pattern | Official Blueprint Compliant | Diagrams &
-          Internal Choice
-        </p>
-        <div class="form-card">
-          <div class="direction-box">
-            <span class="direction-box-inner" aria-hidden="true"></span>
-            <p class="direction-title" id="mini-title">Select Subject</p>
+<body>
+  <div class="aurora">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="app">
+    <div id="selection-view">
+      <h1 class="hero-title">CBSE Paper Creator</h1>
+      <p class="hero-sub">
+        Exact 2025-26 Pattern | Official Blueprint Compliant | Diagrams &
+        Internal Choice
+      </p>
+      <div class="form-card">
+        <div class="direction-box">
+          <span class="direction-box-inner" aria-hidden="true"></span>
+          <p class="direction-title" id="mini-title">Select Subject</p>
+        </div>
+        <div class="selection-stage active" id="stage-subject">
+          <div class="subject-grid">
+            <button class="subject-btn" onclick="setSubject(this, 'Maths')">
+              Maths
+            </button>
+            <button class="subject-btn" onclick="setSubject(this, 'Science')">
+              Science
+            </button>
+            <button class="subject-btn" onclick="setSubject(this, 'Social Science')">
+              Social Science
+            </button>
+            <button class="subject-btn" onclick="setSubject(this, 'English')">
+              English
+            </button>
+            <button class="subject-btn" onclick="setSubject(this, 'Hindi')">
+              Hindi
+            </button>
+            <button class="subject-btn" onclick="setSubject(this, 'Sanskrit')">
+              Sanskrit
+            </button>
           </div>
-          <div class="selection-stage active" id="stage-subject">
-            <div class="subject-grid">
-              <button class="subject-btn" onclick="setSubject(this, 'Maths')">
-                Maths
-              </button>
-              <button class="subject-btn" onclick="setSubject(this, 'Science')">
-                Science
-              </button>
-              <button
-                class="subject-btn"
-                onclick="setSubject(this, 'Social Science')"
-              >
-                Social Science
-              </button>
-              <button class="subject-btn" onclick="setSubject(this, 'English')">
-                English
-              </button>
-              <button class="subject-btn" onclick="setSubject(this, 'Hindi')">
-                Hindi
-              </button>
-              <button
-                class="subject-btn"
-                onclick="setSubject(this, 'Sanskrit')"
-              >
-                Sanskrit
-              </button>
-            </div>
+        </div>
+
+        <div class="selection-stage" id="stage-settings">
+          <label class="form-label">Difficulty Level</label>
+          <div class="difficulty-selector">
+            <button class="diff-btn diff-level-btn" onclick="setDiff(this, 'Mixed')">
+              Mixed
+            </button>
+            <button class="diff-btn diff-level-btn" onclick="setDiff(this, 'Easy')">
+              Easy
+            </button>
+            <button class="diff-btn diff-level-btn" onclick="setDiff(this, 'Medium')">
+              Medium
+            </button>
+            <button class="diff-btn diff-level-btn" onclick="setDiff(this, 'Hard')">
+              Hard
+            </button>
           </div>
 
-          <div class="selection-stage" id="stage-settings">
-            <label class="form-label">Difficulty Level</label>
-            <div class="difficulty-selector">
-              <button
-                class="diff-btn diff-level-btn"
-                onclick="setDiff(this, 'Mixed')"
-              >
-                Mixed
-              </button>
-              <button
-                class="diff-btn diff-level-btn"
-                onclick="setDiff(this, 'Easy')"
-              >
-                Easy
-              </button>
-              <button
-                class="diff-btn diff-level-btn"
-                onclick="setDiff(this, 'Medium')"
-              >
-                Medium
-              </button>
-              <button
-                class="diff-btn diff-level-btn"
-                onclick="setDiff(this, 'Hard')"
-              >
-                Hard
-              </button>
-            </div>
-
-            <label class="form-label">Type of Test</label>
-            <div class="difficulty-selector test-type-grid">
-              <button
-                class="diff-btn mode-btn"
-                id="mode-annual"
-                onclick="setMode(this, 'Annual')"
-              >
-                Annual (80m)
-              </button>
-              <button
-                class="diff-btn mode-btn"
-                id="mode-ut"
-                onclick="setMode(this, 'UT')"
-              >
-                Unit Test (40m)
-              </button>
-            </div>
-
-            <div class="step-state" id="step-state">Now choose difficulty.</div>
-
-            <div class="stage-actions">
-              <button
-                class="ghost-btn"
-                type="button"
-                onclick="goToSubjectStage()"
-              >
-                Back to Subject
-              </button>
-              <button
-                class="create-btn"
-                id="create-btn"
-                onclick="createPaper()"
-                disabled
-              >
-                Generate Question Paper
-              </button>
-            </div>
+          <label class="form-label">Type of Test</label>
+          <div class="difficulty-selector test-type-grid">
+            <button class="diff-btn mode-btn" id="mode-annual" onclick="setMode(this, 'Annual')">
+              Annual (80m)
+            </button>
+            <button class="diff-btn mode-btn" id="mode-ut" onclick="setMode(this, 'UT')">
+              Unit Test (40m)
+            </button>
           </div>
-          <div
-            id="error-msg"
-            style="
+
+          <div class="step-state" id="step-state">Now choose difficulty.</div>
+
+          <div class="stage-actions">
+            <button class="ghost-btn" type="button" onclick="goToSubjectStage()">
+              Back to Subject
+            </button>
+            <button class="create-btn" id="create-btn" onclick="createPaper()" disabled>
+              Generate Question Paper
+            </button>
+          </div>
+        </div>
+        <div id="error-msg" style="
               color: #f87171;
               margin-top: 10px;
               font-size: 0.8rem;
               display: none;
-            "
-          ></div>
-        </div>
-      </div>
-      <div id="paper-view">
-        <div class="paper-actions">
-          <button class="action-btn" onclick="location.reload()">
-            â† New Paper
-          </button>
-          <button class="action-btn" onclick="toggleAnswers()" id="ans-btn">
-            Show Answer Key
-          </button>
-          <button
-            class="action-btn"
-            onclick="window.print()"
-            style="background: var(--accent); color: white; border: none"
-          >
-            ðŸ–¨ Print / PDF
-          </button>
-        </div>
-        <div class="stats-bar" id="stats-bar"></div>
-        <div id="paper-content"></div>
+            "></div>
       </div>
     </div>
+    <div id="paper-view">
+      <div class="paper-actions">
+        <button class="action-btn" onclick="location.reload()">
+          â† New Paper
+        </button>
+        <button class="action-btn" onclick="toggleAnswers()" id="ans-btn">
+          Show Answer Key
+        </button>
+        <button class="action-btn" onclick="window.print()"
+          style="background: var(--accent); color: white; border: none">
+          ðŸ–¨ Print / PDF
+        </button>
+      </div>
+      <div class="stats-bar" id="stats-bar"></div>
+      <div id="paper-content"></div>
+    </div>
+  </div>
 
-    <script>
-      const db = window.supabase.createClient(
-        "https://wfegooasrtbhpursgcvh.supabase.co",
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s",
-      );
-      let selectedGrade = 9,
-        selectedSubject = null,
-        selectedDiff = null,
-        selectedMode = null,
-        setupStage = "subject",
-        paperCount = 0,
-        currentAnswers = [];
+  <script>
+    const db = window.supabase.createClient(
+      "https://wfegooasrtbhpursgcvh.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmZWdvb2FzcnRiaHB1cnNnY3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzOTA2NzAsImV4cCI6MjA4Njk2NjY3MH0.vV3vHZR2wqDI8WJ1zgcgJtY0J_eL21SbuE6WqciRN7s",
+    );
+    let selectedGrade = 9,
+      selectedSubject = null,
+      selectedDiff = null,
+      selectedMode = null,
+      setupStage = "subject",
+      paperCount = 0,
+      currentAnswers = [];
 
-      // ============ EXACT CBSE 2025-26 BLUEPRINTS ============
-      const BLUEPRINTS = {
-        Mathematics: {
-          code: "041",
-          fullName: "Mathematics (Standard)",
-          time: "3 Hours",
-          maxMarks: 80,
-          totalQ: 38,
-          sections: [
-            {
-              id: "A",
-              title: "Section A",
-              desc: "Multiple Choice Questions",
-              perQ: 1,
-              count: 20,
-              qType: "mcq",
-              hasAR: true,
-              arStart: 19,
-            },
-            {
-              id: "B",
-              title: "Section B",
-              desc: "Very Short Answer (SA-I)",
-              perQ: 2,
-              count: 5,
-              internalChoice: true,
-            },
-            {
-              id: "C",
-              title: "Section C",
-              desc: "Short Answer (SA-II)",
-              perQ: 3,
-              count: 6,
-              internalChoice: true,
-            },
-            {
-              id: "D",
-              title: "Section D",
-              desc: "Long Answer",
-              perQ: 5,
-              count: 4,
-              internalChoice: true,
-            },
-            {
-              id: "E",
-              title: "Section E",
-              desc: "Case Study Based",
-              perQ: 4,
-              count: 3,
-              qType: "case",
-              caseSubParts: [1, 1, 2],
-            },
-          ],
-          inst: [
-            "This question paper contains 38 questions. All questions are compulsory.",
-            "This question paper is divided into FIVE Sections â€” A, B, C, D and E.",
-            "In Section A, Questions no. 1 to 18 are Multiple Choice Questions (MCQs) and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.",
-            "In Section B, Questions no. 21 to 25 are Very Short Answer (SA-I) type questions, carrying 2 marks each.",
-            "In Section C, Questions no. 26 to 31 are Short Answer (SA-II) type questions, carrying 3 marks each.",
-            "In Section D, Questions no. 32 to 35 are Long Answer (LA) type questions, carrying 5 marks each.",
-            "In Section E, Questions no. 36 to 38 are Case Study Based questions, carrying 4 marks each.",
-            "There is no overall choice. However, an internal choice has been provided in 2 questions in Section B, 2 questions in Section C, 2 questions in Section D, and 3 questions in Section E.",
-            "Draw neat figures wherever required. Take Ï€ = 22/7 wherever required, if not stated.",
-            "Use of calculators is NOT allowed.",
-          ],
-        },
-        Science: {
-          code: "086",
-          fullName: "Science",
-          time: "3 Hours",
-          maxMarks: 80,
-          totalQ: 39,
-          sections: [
-            {
-              id: "A",
-              title: "Section A",
-              desc: "Multiple Choice Questions",
-              perQ: 1,
-              count: 20,
-              qType: "mcq",
-              hasAR: true,
-              arStart: 19,
-            },
-            {
-              id: "B",
-              title: "Section B",
-              desc: "Very Short Answer",
-              perQ: 2,
-              count: 6,
-              internalChoice: true,
-            },
-            {
-              id: "C",
-              title: "Section C",
-              desc: "Short Answer",
-              perQ: 3,
-              count: 7,
-              internalChoice: true,
-            },
-            {
-              id: "D",
-              title: "Section D",
-              desc: "Long Answer",
-              perQ: 5,
-              count: 3,
-              internalChoice: true,
-            },
-            {
-              id: "E",
-              title: "Section E",
-              desc: "Case Study Based",
-              perQ: 4,
-              count: 3,
-              qType: "case",
-              caseSubParts: [1, 1, 2],
-            },
-          ],
-          inst: [
-            "This question paper contains 39 questions. All questions are compulsory.",
-            "This question paper is divided into FIVE Sections â€” A, B, C, D and E.",
-            "In Section A, Questions no. 1 to 18 are MCQs and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.",
-            "In Section B, Questions no. 21 to 26 are Very Short Answer type questions, carrying 2 marks each. Answer in 30â€“50 words.",
-            "In Section C, Questions no. 27 to 33 are Short Answer type questions, carrying 3 marks each. Answer in 50â€“80 words.",
-            "In Section D, Questions no. 34 to 36 are Long Answer type questions, carrying 5 marks each. Answer in 80â€“120 words.",
-            "In Section E, Questions no. 37 to 39 are Case Study Based questions, carrying 4 marks each.",
-            "There is no overall choice. However, an internal choice has been provided in some questions.",
-            "Draw neat and labelled diagrams wherever necessary.",
-          ],
-        },
-        English: {
-          code: "184",
-          fullName: "English Language & Literature",
-          time: "3 Hours",
-          maxMarks: 80,
-          totalQ: 11,
-          sections: [
-            {
-              id: "A",
-              title: "Section A: Reading Skills",
-              desc: "Discursive & Case-based Passages",
-              perQ: 1,
-              count: 20,
-              qType: "mcq",
-              passageBased: true,
-            },
-            {
-              id: "B",
-              title: "Section B: Writing Skills & Grammar",
-              perQ: 0,
-              count: 0,
-              fixed: 20,
-              fixedSections: [
-                {
-                  label: "Grammar (Gap filling, Editing, Transformation)",
-                  marks: 10,
-                  count: 10,
-                  perQ: 1,
-                  qType: "mcq",
-                },
-                {
-                  label:
-                    "Writing Skills â€” Descriptive Paragraph / Story (Analytical Cue)",
-                  marks: 10,
-                  count: 1,
-                  perQ: 10,
-                  forceDataCue: true,
-                },
-              ],
-            },
-            {
-              id: "C",
-              title: "Section C: Language Through Literature",
-              perQ: 0,
-              count: 0,
-              fixed: 40,
-              fixedSections: [
-                {
-                  label: "Reference to Context (Prose/Poetry extracts)",
-                  marks: 10,
-                  count: 2,
-                  perQ: 5,
-                  qType: "mcq",
-                },
-                {
-                  label: "Short Answer Questions from Beehive (40-50 words)",
-                  marks: 12,
-                  count: 4,
-                  perQ: 3,
-                },
-                {
-                  label: "Long Answer from Beehive (100-120 words)",
-                  marks: 6,
-                  count: 1,
-                  perQ: 6,
-                  internalChoice: true,
-                  diagramRequired: true,
-                },
-                {
-                  label: "Short Answer Questions from Moments (40-50 words)",
-                  marks: 6,
-                  count: 2,
-                  perQ: 3,
-                },
-                {
-                  label: "Long Answer from Moments (100-120 words)",
-                  marks: 6,
-                  count: 1,
-                  perQ: 6,
-                  internalChoice: true,
-                },
-              ],
-            },
-          ],
-          inst: [
-            "Section A â€” Reading Skills â€” 20 Marks (Two Passages).",
-            "Section B â€” Writing Skills & Grammar â€” 20 Marks.",
-            "Section C â€” Language Through Literature â€” 40 Marks.",
-            "The Analytical Paragraph requires data interpretation from the provided visual cue.",
-          ],
-        },
-        Hindi: {
-          code: '002', fullName: 'हिन्दी (कोर्स ए)', time: '3 Hours', maxMarks: 80, lang: 'hi',
-          sections: [
-            { id: 'अ', title: 'खण्ड अ — अपठित बोध', desc: 'Unseen Comprehension', perQ: 1, count: 14, qType: 'mcq' },
-            { id: 'ब', title: 'खण्ड ब — व्याकरण', desc: 'Applied Grammar', perQ: 1, count: 16, qType: 'mcq' },
-            {
-              id: 'स', title: 'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक', desc: 'Literature', perQ: 0, count: 0, fixed: 30,
-              fixedSections: [
-                { label: 'पठित गद्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
-                { label: 'पठित काव्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
-                { label: 'गद्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 8, count: 2, perQ: 4 },
-                { label: 'काव्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 6, count: 2, perQ: 3 },
-                { label: 'पूरक पुस्तक (कृतिका)', marks: 6, count: 2, perQ: 3 }
-              ]
-            },
-            {
-              id: 'द', title: 'खण्ड द — रचनात्मक लेखन', desc: 'Creative Writing', perQ: 0, count: 0, fixed: 20,
-              fixedSections: [
-                { label: 'अनुच्छेद लेखन (120 शब्द)', marks: 6, count: 1, perQ: 6 },
-                { label: 'औपचारिक/अनौपचारिक पत्र', marks: 5, count: 1, perQ: 5 },
-                { label: 'संवाद लेखन / ईमेल / कहानी', marks: 5, count: 1, perQ: 5 },
-                { label: 'विज्ञापन / सूचना लेखन', marks: 4, count: 1, perQ: 4 }
-              ]
-            }
-          ],
-          inst: [
-            'इस प्रश्न-पत्र में कुल चार खण्ड हैं — अ, ब, स, द।',
-            'सभी प्रश्न अनिवार्य हैं।',
-            'खण्ड अ — अपठित बोध — 14 अंक।',
-            'खण्ड ब — व्याकरण — 16 अंक।',
-            'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक — 30 अंक।',
-            'खण्ड द — रचनात्मक लेखन — 20 अंक।',
-            'उत्तर सुन्दर एवं स्वच्छ लिखावट में लिखें।'
-          ]
-        },
-        "Social Science": {
-          code: "087",
-          fullName: "Social Science",
-          time: "3 Hours",
-          maxMarks: 80,
-          totalQ: 37,
-          sections: [
-            {
-              id: "A",
-              title: "Section A: MCQs",
-              desc: "20 MCQs (History, Geography, Civics, Economics)",
-              perQ: 1,
-              count: 20,
-              qType: "mcq",
-              hasAR: true,
-              arStart: 19,
-            },
-            {
-              id: "B",
-              title: "Section B: Very Short Answer",
-              desc: "4 Qs x 2 Marks (40 words)",
-              perQ: 2,
-              count: 4,
-              internalChoice: true,
-            },
-            {
-              id: "C",
-              title: "Section C: Short Answer",
-              desc: "5 Qs x 3 Marks (60 words)",
-              perQ: 3,
-              count: 5,
-              internalChoice: true,
-            },
-            {
-              id: "D",
-              title: "Section D: Long Answer",
-              desc: "4 Qs x 5 Marks (120 words)",
-              perQ: 5,
-              count: 4,
-              internalChoice: true,
-            },
-            {
-              id: "E",
-              title: "Section E: Case Study Based",
-              desc: "3 Qs x 4 Marks (Competency)",
-              perQ: 4,
-              count: 3,
-              qType: "case",
-              caseSubParts: [1, 1, 2],
-            },
-            {
-              id: "F",
-              title: "Section F: Map Based",
-              desc: "1 Q (History 2m + Geography 3m)",
-              perQ: 5,
-              count: 1,
-              qType: "map",
-              forceMap: true,
-            },
-          ],
-          inst: [
-            "Paper contains 37 questions. Section A (1-20), Section B (21-24), Section C (25-29), Section D (30-33), Section E (34-36), Section F (37).",
-            "Section F Map must be labeled exactly on the India Political Map.",
-            "Word limits: Sec B (40 words), Sec C (60 words), Sec D (120 words).",
-          ],
-        },
-        Sanskrit: {
-          code: "122",
-          fullName: "संस्कृतम्",
-          time: "3 Hours",
-          maxMarks: 80,
-          lang: "sa",
-          totalQ: 46,
-          sections: [
-            {
-              id: "क",
-              title: "खण्डः क — अपठित-अवबोधनम्",
-              desc: "Unseen Comprehension",
-              perQ: 1,
-              count: 10,
-              qType: "mcq",
-            },
-            {
-              id: "ख",
-              title: "खण्डः ख — रचनात्मक-कार्यम्",
-              desc: "Creative Writing (पत्र, चित्रवर्णन, अनुवाद)",
-              perQ: 0,
-              count: 0,
-              fixed: 15,
-              fixedSections: [
-                {
-                  label: "पत्र-लेखनम्",
-                  marks: 5,
-                  count: 1,
-                  perQ: 5,
-                },
-                {
-                  label: "चित्र-वर्णनम् अथवा अनुच्छेद-लेखनम्",
-                  marks: 5,
-                  count: 1,
-                  perQ: 5,
-                  internalChoice: true,
-                },
-                {
-                  label: "हिन्दी-संस्कृत-अनुवादः",
-                  marks: 5,
-                  count: 1,
-                  perQ: 5,
-                },
-              ],
-            },
-            {
-              id: "ग",
-              title: "खण्डः ग — अनुप्रयुक्त-व्याकरणम्",
-              desc: "Applied Grammar (सन्धि, शब्दरूप, धातुरूप, कारक)",
-              perQ: 1,
-              count: 25,
-              qType: "mcq",
-            },
-            {
-              id: "घ",
-              title: "खण्डः घ — पठित-अवबोधनम्",
-              desc: "Literature Comprehension (शेमुषी)",
-              perQ: 0,
-              count: 0,
-              fixed: 30,
-              fixedSections: [
-                {
-                  label: "पठित-गद्यांशम् — MCQ",
-                  marks: 6,
-                  count: 6,
-                  perQ: 1,
-                  qType: "mcq",
-                },
-                {
-                  label: "पठित-पद्यांशम् — MCQ",
-                  marks: 4,
-                  count: 4,
-                  perQ: 1,
-                  qType: "mcq",
-                },
-                {
-                  label: "लघु-उत्तरीय प्रश्नाः (शेमुषी)",
-                  marks: 10,
-                  count: 5,
-                  perQ: 2,
-                },
-                {
-                  label: "दीर्घ-उत्तरीय प्रश्नाः",
-                  marks: 10,
-                  count: 2,
-                  perQ: 5,
-                  internalChoice: true,
-                },
-              ],
-            },
-          ],
-          inst: [
-            "अस्मिन् प्रश्नपत्रे चत्वारः खण्डाः सन्ति — क, ख, ग, घ।",
-            "सर्वे प्रश्नाः अनिवार्याः।",
-            "खण्डः क — अपठित-अवबोधनम् — 10 अंकाः।",
-            "खण्डः ख — रचनात्मक-कार्यम् — 15 अंकाः।",
-            "खण्डः ग — अनुप्रयुक्त-व्याकरणम् — 25 अंकाः।",
-            "खण्डः घ — पठित-अवबोधनम् — 30 अंकाः।",
-            "स्वच्छाक्षरैः उत्तरं लिखत।",
-          ],
-        },
-      };
-
-      const BLUEPRINTS_UT = {
-        Science: {
-          code: "086",
-          fullName: "Science (Periodic Test)",
-          time: "1.5 Hours",
-          maxMarks: 40,
-          sections: [
-            {
-              id: "A",
-              title: "Section A",
-              desc: "MCQs",
-              perQ: 1,
-              count: 10,
-              qType: "mcq",
-              hasAR: true,
-              arStart: 9,
-            },
-            { id: "B", title: "Section B", desc: "VSA", perQ: 2, count: 4 },
-            { id: "C", title: "Section C", desc: "SA", perQ: 3, count: 3 },
-            {
-              id: "D",
-              title: "Section D",
-              desc: "Long Answer",
-              perQ: 5,
-              count: 1,
-              forceDiagram: true,
-            },
-            {
-              id: "E",
-              title: "Section E",
-              desc: "Case Study",
-              perQ: 4,
-              count: 2,
-              qType: "case",
-              caseSubParts: [1, 1, 2],
-            },
-          ],
-          inst: [
-            "Paper contains 20 questions.",
-            "Section A has 10 MCQs (2 A-R).",
-            "Section D requires diagram.",
-          ],
-        },
-        Mathematics: {
-          code: "041",
-          fullName: "Mathematics (Periodic Test)",
-          time: "1.5 Hours",
-          maxMarks: 40,
-          sections: [
-            {
-              id: "A",
-              title: "Section A",
-              desc: "MCQs",
-              perQ: 1,
-              count: 10,
-              qType: "mcq",
-            },
-            { id: "B", title: "Section B", desc: "VSA", perQ: 2, count: 4 },
-            { id: "C", title: "Section C", desc: "SA", perQ: 3, count: 3 },
-            {
-              id: "D",
-              title: "Section D",
-              desc: "Long Answer",
-              perQ: 5,
-              count: 1,
-              forceDiagram: true,
-            },
-            {
-              id: "E",
-              title: "Section E",
-              desc: "Case Study",
-              perQ: 4,
-              count: 2,
-              qType: "case",
-            },
-          ],
-          inst: [
-            "Paper contains 20 questions.",
-            "Section D focuses on Geometry/Graphs.",
-          ],
-        },
-        "Social Science": {
-          code: "087",
-          fullName: "Social Science (Periodic Test)",
-          time: "1.5 Hours",
-          maxMarks: 40,
-          sections: [
-            {
-              id: "A",
-              title: "Section A",
-              desc: "MCQs",
-              perQ: 1,
-              count: 10,
-              qType: "mcq",
-            },
-            { id: "B", title: "Section B", desc: "VSA", perQ: 2, count: 3 },
-            { id: "C", title: "Section C", desc: "SA", perQ: 3, count: 3 },
-            {
-              id: "D",
-              title: "Section D",
-              desc: "Long Answer",
-              perQ: 5,
-              count: 1,
-            },
-            {
-              id: "E",
-              title: "Section E",
-              desc: "Case Study",
-              perQ: 4,
-              count: 2,
-              qType: "case",
-            },
-            {
-              id: "F",
-              title: "Section F",
-              desc: "Map Pointing",
-              perQ: 2,
-              count: 1,
-              qType: "map",
-            },
-          ],
-          inst: ["Paper contains 20 questions."],
-        },
-        English: {
-          code: "184",
-          fullName: "English (Periodic Test)",
-          time: "1.5 Hours",
-          maxMarks: 40,
-          sections: [
-            {
-              id: "A",
-              title: "Section A",
-              desc: "Reading Skills",
-              perQ: 1,
-              count: 10,
-              qType: "mcq",
-            },
-            {
-              id: "B",
-              title: "Section B",
-              desc: "Writing Skills & Grammar",
-              fixed: 10,
-              fixedSections: [
-                { label: "Grammar", marks: 5, count: 5, perQ: 1, qType: "mcq" },
-                {
-                  label: "Writing",
-                  marks: 5,
-                  fixedNote: "Descriptive Paragraph or Diary Entry",
-                },
-              ],
-            },
-            {
-              id: "C",
-              title: "Section C",
-              desc: "Literature",
-              fixed: 20,
-              fixedSections: [
-                {
-                  label: "Extract (RTC)",
-                  marks: 5,
-                  count: 5,
-                  perQ: 1,
-                  qType: "mcq",
-                },
-                { label: "Short Answer", marks: 9, count: 3, perQ: 3 },
-                { label: "Long Answer", marks: 6, count: 1, perQ: 6 },
-              ],
-            },
-          ],
-          inst: [
-            "Section A: 10 Marks",
-            "Section B: 10 Marks",
-            "Section C: 20 Marks",
-          ],
-        },
-        Hindi: {
-          code: '002', fullName: 'हिन्दी (Periodic Test)', time: '1.5 Hours', maxMarks: 40, lang: 'hi',
-          sections: [
-            { id: 'अ', title: 'खण्ड अ', desc: 'अपठित एवं व्याकरण', perQ: 1, count: 10, qType: 'mcq' },
-            { id: 'ब', title: 'खण्ड ब', desc: 'पाठ्यपुस्तक (क्षितिज)', perQ: 2, count: 5 },
-            { id: 'स', title: 'खण्ड स', desc: 'पूरक पुस्तक एवं लेखन', perQ: 4, count: 5 }
-          ],
-          inst: ['कुल 20 प्रश्न।', 'सभी प्रश्न अनिवार्य हैं।']
-        },
-        Sanskrit: {
-          code: '122', fullName: 'संस्कृतम् (Periodic Test)', time: '1.5 Hours', maxMarks: 40, lang: 'sa',
-          sections: [
-            { id: 'क', title: 'खण्डः क', desc: 'व्याकरणम्', perQ: 1, count: 10, qType: 'mcq' },
-            { id: 'ख', title: 'खण्डः ख', desc: 'पठित-अवबोधनम्', perQ: 2, count: 5 },
-            { id: 'ग', title: 'खण्डः ग', desc: 'रचनात्मक-कार्यम्', perQ: 5, count: 2 }
-          ],
-          inst: ['सर्वे प्रश्नाः अनिवार्याः।']
-        },
-      };
-
-      function setSetupStage(stage) {
-        setupStage = stage;
-        const subjectStage = document.getElementById("stage-subject");
-        const settingsStage = document.getElementById("stage-settings");
-        const miniTitle = document.getElementById("mini-title");
-        const err = document.getElementById("error-msg");
-
-        subjectStage.classList.toggle("active", stage === "subject");
-        settingsStage.classList.toggle("active", stage === "settings");
-
-        if (miniTitle) {
-          if (stage === "subject") {
-            miniTitle.textContent = "Select Subject";
-          } else {
-            const subjectForTitle = selectedSubject || "Paper";
-            miniTitle.textContent = `${subjectForTitle} Blueprint Setup`;
+    // ============ EXACT CBSE 2025-26 BLUEPRINTS ============
+    const BLUEPRINTS = {
+      Mathematics: {
+        code: "041",
+        fullName: "Mathematics (Standard)",
+        time: "3 Hours",
+        maxMarks: 80,
+        totalQ: 38,
+        sections: [
+          {
+            id: "A",
+            title: "Section A",
+            desc: "Multiple Choice Questions",
+            perQ: 1,
+            count: 20,
+            qType: "mcq",
+            hasAR: true,
+            arStart: 19,
+          },
+          {
+            id: "B",
+            title: "Section B",
+            desc: "Very Short Answer (SA-I)",
+            perQ: 2,
+            count: 5,
+            internalChoice: true,
+          },
+          {
+            id: "C",
+            title: "Section C",
+            desc: "Short Answer (SA-II)",
+            perQ: 3,
+            count: 6,
+            internalChoice: true,
+          },
+          {
+            id: "D",
+            title: "Section D",
+            desc: "Long Answer",
+            perQ: 5,
+            count: 4,
+            internalChoice: true,
+          },
+          {
+            id: "E",
+            title: "Section E",
+            desc: "Case Study Based",
+            perQ: 4,
+            count: 3,
+            qType: "case",
+            caseSubParts: [1, 1, 2],
+          },
+        ],
+        inst: [
+          "This question paper contains 38 questions. All questions are compulsory.",
+          "This question paper is divided into FIVE Sections â€” A, B, C, D and E.",
+          "In Section A, Questions no. 1 to 18 are Multiple Choice Questions (MCQs) and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.",
+          "In Section B, Questions no. 21 to 25 are Very Short Answer (SA-I) type questions, carrying 2 marks each.",
+          "In Section C, Questions no. 26 to 31 are Short Answer (SA-II) type questions, carrying 3 marks each.",
+          "In Section D, Questions no. 32 to 35 are Long Answer (LA) type questions, carrying 5 marks each.",
+          "In Section E, Questions no. 36 to 38 are Case Study Based questions, carrying 4 marks each.",
+          "There is no overall choice. However, an internal choice has been provided in 2 questions in Section B, 2 questions in Section C, 2 questions in Section D, and 3 questions in Section E.",
+          "Draw neat figures wherever required. Take Ï€ = 22/7 wherever required, if not stated.",
+          "Use of calculators is NOT allowed.",
+        ],
+      },
+      Science: {
+        code: "086",
+        fullName: "Science",
+        time: "3 Hours",
+        maxMarks: 80,
+        totalQ: 39,
+        sections: [
+          {
+            id: "A",
+            title: "Section A",
+            desc: "Multiple Choice Questions",
+            perQ: 1,
+            count: 20,
+            qType: "mcq",
+            hasAR: true,
+            arStart: 19,
+          },
+          {
+            id: "B",
+            title: "Section B",
+            desc: "Very Short Answer",
+            perQ: 2,
+            count: 6,
+            internalChoice: true,
+          },
+          {
+            id: "C",
+            title: "Section C",
+            desc: "Short Answer",
+            perQ: 3,
+            count: 7,
+            internalChoice: true,
+          },
+          {
+            id: "D",
+            title: "Section D",
+            desc: "Long Answer",
+            perQ: 5,
+            count: 3,
+            internalChoice: true,
+          },
+          {
+            id: "E",
+            title: "Section E",
+            desc: "Case Study Based",
+            perQ: 4,
+            count: 3,
+            qType: "case",
+            caseSubParts: [1, 1, 2],
+          },
+        ],
+        inst: [
+          "This question paper contains 39 questions. All questions are compulsory.",
+          "This question paper is divided into FIVE Sections â€” A, B, C, D and E.",
+          "In Section A, Questions no. 1 to 18 are MCQs and Questions no. 19 & 20 are Assertion-Reason based questions of 1 mark each.",
+          "In Section B, Questions no. 21 to 26 are Very Short Answer type questions, carrying 2 marks each. Answer in 30â€“50 words.",
+          "In Section C, Questions no. 27 to 33 are Short Answer type questions, carrying 3 marks each. Answer in 50â€“80 words.",
+          "In Section D, Questions no. 34 to 36 are Long Answer type questions, carrying 5 marks each. Answer in 80â€“120 words.",
+          "In Section E, Questions no. 37 to 39 are Case Study Based questions, carrying 4 marks each.",
+          "There is no overall choice. However, an internal choice has been provided in some questions.",
+          "Draw neat and labelled diagrams wherever necessary.",
+        ],
+      },
+      English: {
+        code: "184",
+        fullName: "English Language & Literature",
+        time: "3 Hours",
+        maxMarks: 80,
+        totalQ: 11,
+        sections: [
+          {
+            id: "A",
+            title: "Section A: Reading Skills",
+            desc: "Discursive & Case-based Passages",
+            perQ: 1,
+            count: 20,
+            qType: "mcq",
+            passageBased: true,
+          },
+          {
+            id: "B",
+            title: "Section B: Writing Skills & Grammar",
+            perQ: 0,
+            count: 0,
+            fixed: 20,
+            fixedSections: [
+              {
+                label: "Grammar (Gap filling, Editing, Transformation)",
+                marks: 10,
+                count: 10,
+                perQ: 1,
+                qType: "mcq",
+              },
+              {
+                label:
+                  "Writing Skills â€” Descriptive Paragraph / Story (Analytical Cue)",
+                marks: 10,
+                count: 1,
+                perQ: 10,
+                forceDataCue: true,
+              },
+            ],
+          },
+          {
+            id: "C",
+            title: "Section C: Language Through Literature",
+            perQ: 0,
+            count: 0,
+            fixed: 40,
+            fixedSections: [
+              {
+                label: "Reference to Context (Prose/Poetry extracts)",
+                marks: 10,
+                count: 2,
+                perQ: 5,
+                qType: "mcq",
+              },
+              {
+                label: "Short Answer Questions from Beehive (40-50 words)",
+                marks: 12,
+                count: 4,
+                perQ: 3,
+              },
+              {
+                label: "Long Answer from Beehive (100-120 words)",
+                marks: 6,
+                count: 1,
+                perQ: 6,
+                internalChoice: true,
+                diagramRequired: true,
+              },
+              {
+                label: "Short Answer Questions from Moments (40-50 words)",
+                marks: 6,
+                count: 2,
+                perQ: 3,
+              },
+              {
+                label: "Long Answer from Moments (100-120 words)",
+                marks: 6,
+                count: 1,
+                perQ: 6,
+                internalChoice: true,
+              },
+            ],
+          },
+        ],
+        inst: [
+          "Section A â€” Reading Skills â€” 20 Marks (Two Passages).",
+          "Section B â€” Writing Skills & Grammar â€” 20 Marks.",
+          "Section C â€” Language Through Literature â€” 40 Marks.",
+          "The Analytical Paragraph requires data interpretation from the provided visual cue.",
+        ],
+      },
+      Hindi: {
+        code: '002', fullName: 'हिन्दी (कोर्स ए)', time: '3 Hours', maxMarks: 80, lang: 'hi',
+        sections: [
+          { id: 'अ', title: 'खण्ड अ — अपठित बोध', desc: 'Unseen Comprehension', perQ: 1, count: 14, qType: 'mcq' },
+          { id: 'ब', title: 'खण्ड ब — व्याकरण', desc: 'Applied Grammar', perQ: 1, count: 16, qType: 'mcq' },
+          {
+            id: 'स', title: 'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक', desc: 'Literature', perQ: 0, count: 0, fixed: 30,
+            fixedSections: [
+              { label: 'पठित गद्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+              { label: 'पठित काव्यांश (MCQ)', marks: 5, count: 5, perQ: 1, qType: 'mcq' },
+              { label: 'गद्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 8, count: 2, perQ: 4 },
+              { label: 'काव्य खण्ड — लघु/दीर्घ उत्तरीय प्रश्न', marks: 6, count: 2, perQ: 3 },
+              { label: 'पूरक पुस्तक (कृतिका)', marks: 6, count: 2, perQ: 3 }
+            ]
+          },
+          {
+            id: 'द', title: 'खण्ड द — रचनात्मक लेखन', desc: 'Creative Writing', perQ: 0, count: 0, fixed: 20,
+            fixedSections: [
+              { label: 'अनुच्छेद लेखन (120 शब्द)', marks: 6, count: 1, perQ: 6 },
+              { label: 'औपचारिक/अनौपचारिक पत्र', marks: 5, count: 1, perQ: 5 },
+              { label: 'संवाद लेखन / ईमेल / कहानी', marks: 5, count: 1, perQ: 5 },
+              { label: 'विज्ञापन / सूचना लेखन', marks: 4, count: 1, perQ: 4 }
+            ]
           }
-        }
-        if (err) err.style.display = "none";
-      }
+        ],
+        inst: [
+          'इस प्रश्न-पत्र में कुल चार खण्ड हैं — अ, ब, स, द।',
+          'सभी प्रश्न अनिवार्य हैं।',
+          'खण्ड अ — अपठित बोध — 14 अंक।',
+          'खण्ड ब — व्याकरण — 16 अंक।',
+          'खण्ड स — पाठ्यपुस्तक एवं पूरक पुस्तक — 30 अंक।',
+          'खण्ड द — रचनात्मक लेखन — 20 अंक।',
+          'उत्तर सुन्दर एवं स्वच्छ लिखावट में लिखें।'
+        ]
+      },
+      "Social Science": {
+        code: "087",
+        fullName: "Social Science",
+        time: "3 Hours",
+        maxMarks: 80,
+        totalQ: 37,
+        sections: [
+          {
+            id: "A",
+            title: "Section A: MCQs",
+            desc: "20 MCQs (History, Geography, Civics, Economics)",
+            perQ: 1,
+            count: 20,
+            qType: "mcq",
+            hasAR: true,
+            arStart: 19,
+          },
+          {
+            id: "B",
+            title: "Section B: Very Short Answer",
+            desc: "4 Qs x 2 Marks (40 words)",
+            perQ: 2,
+            count: 4,
+            internalChoice: true,
+          },
+          {
+            id: "C",
+            title: "Section C: Short Answer",
+            desc: "5 Qs x 3 Marks (60 words)",
+            perQ: 3,
+            count: 5,
+            internalChoice: true,
+          },
+          {
+            id: "D",
+            title: "Section D: Long Answer",
+            desc: "4 Qs x 5 Marks (120 words)",
+            perQ: 5,
+            count: 4,
+            internalChoice: true,
+          },
+          {
+            id: "E",
+            title: "Section E: Case Study Based",
+            desc: "3 Qs x 4 Marks (Competency)",
+            perQ: 4,
+            count: 3,
+            qType: "case",
+            caseSubParts: [1, 1, 2],
+          },
+          {
+            id: "F",
+            title: "Section F: Map Based",
+            desc: "1 Q (History 2m + Geography 3m)",
+            perQ: 5,
+            count: 1,
+            qType: "map",
+            forceMap: true,
+          },
+        ],
+        inst: [
+          "Paper contains 37 questions. Section A (1-20), Section B (21-24), Section C (25-29), Section D (30-33), Section E (34-36), Section F (37).",
+          "Section F Map must be labeled exactly on the India Political Map.",
+          "Word limits: Sec B (40 words), Sec C (60 words), Sec D (120 words).",
+        ],
+      },
+      Sanskrit: {
+        code: "122",
+        fullName: "संस्कृतम्",
+        time: "3 Hours",
+        maxMarks: 80,
+        lang: "sa",
+        totalQ: 46,
+        sections: [
+          {
+            id: "क",
+            title: "खण्डः क — अपठित-अवबोधनम्",
+            desc: "Unseen Comprehension",
+            perQ: 1,
+            count: 10,
+            qType: "mcq",
+          },
+          {
+            id: "ख",
+            title: "खण्डः ख — रचनात्मक-कार्यम्",
+            desc: "Creative Writing (पत्र, चित्रवर्णन, अनुवाद)",
+            perQ: 0,
+            count: 0,
+            fixed: 15,
+            fixedSections: [
+              {
+                label: "पत्र-लेखनम्",
+                marks: 5,
+                count: 1,
+                perQ: 5,
+              },
+              {
+                label: "चित्र-वर्णनम् अथवा अनुच्छेद-लेखनम्",
+                marks: 5,
+                count: 1,
+                perQ: 5,
+                internalChoice: true,
+              },
+              {
+                label: "हिन्दी-संस्कृत-अनुवादः",
+                marks: 5,
+                count: 1,
+                perQ: 5,
+              },
+            ],
+          },
+          {
+            id: "ग",
+            title: "खण्डः ग — अनुप्रयुक्त-व्याकरणम्",
+            desc: "Applied Grammar (सन्धि, शब्दरूप, धातुरूप, कारक)",
+            perQ: 1,
+            count: 25,
+            qType: "mcq",
+          },
+          {
+            id: "घ",
+            title: "खण्डः घ — पठित-अवबोधनम्",
+            desc: "Literature Comprehension (शेमुषी)",
+            perQ: 0,
+            count: 0,
+            fixed: 30,
+            fixedSections: [
+              {
+                label: "पठित-गद्यांशम् — MCQ",
+                marks: 6,
+                count: 6,
+                perQ: 1,
+                qType: "mcq",
+              },
+              {
+                label: "पठित-पद्यांशम् — MCQ",
+                marks: 4,
+                count: 4,
+                perQ: 1,
+                qType: "mcq",
+              },
+              {
+                label: "लघु-उत्तरीय प्रश्नाः (शेमुषी)",
+                marks: 10,
+                count: 5,
+                perQ: 2,
+              },
+              {
+                label: "दीर्घ-उत्तरीय प्रश्नाः",
+                marks: 10,
+                count: 2,
+                perQ: 5,
+                internalChoice: true,
+              },
+            ],
+          },
+        ],
+        inst: [
+          "अस्मिन् प्रश्नपत्रे चत्वारः खण्डाः सन्ति — क, ख, ग, घ।",
+          "सर्वे प्रश्नाः अनिवार्याः।",
+          "खण्डः क — अपठित-अवबोधनम् — 10 अंकाः।",
+          "खण्डः ख — रचनात्मक-कार्यम् — 15 अंकाः।",
+          "खण्डः ग — अनुप्रयुक्त-व्याकरणम् — 25 अंकाः।",
+          "खण्डः घ — पठित-अवबोधनम् — 30 अंकाः।",
+          "स्वच्छाक्षरैः उत्तरं लिखत।",
+        ],
+      },
+    };
 
-      function goToSubjectStage() {
-        setSetupStage("subject");
-      }
+    const BLUEPRINTS_UT = {
+      Science: {
+        code: "086",
+        fullName: "Science (Periodic Test)",
+        time: "1.5 Hours",
+        maxMarks: 40,
+        sections: [
+          {
+            id: "A",
+            title: "Section A",
+            desc: "MCQs",
+            perQ: 1,
+            count: 10,
+            qType: "mcq",
+            hasAR: true,
+            arStart: 9,
+          },
+          { id: "B", title: "Section B", desc: "VSA", perQ: 2, count: 4 },
+          { id: "C", title: "Section C", desc: "SA", perQ: 3, count: 3 },
+          {
+            id: "D",
+            title: "Section D",
+            desc: "Long Answer",
+            perQ: 5,
+            count: 1,
+            forceDiagram: true,
+          },
+          {
+            id: "E",
+            title: "Section E",
+            desc: "Case Study",
+            perQ: 4,
+            count: 2,
+            qType: "case",
+            caseSubParts: [1, 1, 2],
+          },
+        ],
+        inst: [
+          "Paper contains 20 questions.",
+          "Section A has 10 MCQs (2 A-R).",
+          "Section D requires diagram.",
+        ],
+      },
+      Mathematics: {
+        code: "041",
+        fullName: "Mathematics (Periodic Test)",
+        time: "1.5 Hours",
+        maxMarks: 40,
+        sections: [
+          {
+            id: "A",
+            title: "Section A",
+            desc: "MCQs",
+            perQ: 1,
+            count: 10,
+            qType: "mcq",
+          },
+          { id: "B", title: "Section B", desc: "VSA", perQ: 2, count: 4 },
+          { id: "C", title: "Section C", desc: "SA", perQ: 3, count: 3 },
+          {
+            id: "D",
+            title: "Section D",
+            desc: "Long Answer",
+            perQ: 5,
+            count: 1,
+            forceDiagram: true,
+          },
+          {
+            id: "E",
+            title: "Section E",
+            desc: "Case Study",
+            perQ: 4,
+            count: 2,
+            qType: "case",
+          },
+        ],
+        inst: [
+          "Paper contains 20 questions.",
+          "Section D focuses on Geometry/Graphs.",
+        ],
+      },
+      "Social Science": {
+        code: "087",
+        fullName: "Social Science (Periodic Test)",
+        time: "1.5 Hours",
+        maxMarks: 40,
+        sections: [
+          {
+            id: "A",
+            title: "Section A",
+            desc: "MCQs",
+            perQ: 1,
+            count: 10,
+            qType: "mcq",
+          },
+          { id: "B", title: "Section B", desc: "VSA", perQ: 2, count: 3 },
+          { id: "C", title: "Section C", desc: "SA", perQ: 3, count: 3 },
+          {
+            id: "D",
+            title: "Section D",
+            desc: "Long Answer",
+            perQ: 5,
+            count: 1,
+          },
+          {
+            id: "E",
+            title: "Section E",
+            desc: "Case Study",
+            perQ: 4,
+            count: 2,
+            qType: "case",
+          },
+          {
+            id: "F",
+            title: "Section F",
+            desc: "Map Pointing",
+            perQ: 2,
+            count: 1,
+            qType: "map",
+          },
+        ],
+        inst: ["Paper contains 20 questions."],
+      },
+      English: {
+        code: "184",
+        fullName: "English (Periodic Test)",
+        time: "1.5 Hours",
+        maxMarks: 40,
+        sections: [
+          {
+            id: "A",
+            title: "Section A",
+            desc: "Reading Skills",
+            perQ: 1,
+            count: 10,
+            qType: "mcq",
+          },
+          {
+            id: "B",
+            title: "Section B",
+            desc: "Writing Skills & Grammar",
+            fixed: 10,
+            fixedSections: [
+              { label: "Grammar", marks: 5, count: 5, perQ: 1, qType: "mcq" },
+              {
+                label: "Writing",
+                marks: 5,
+                fixedNote: "Descriptive Paragraph or Diary Entry",
+              },
+            ],
+          },
+          {
+            id: "C",
+            title: "Section C",
+            desc: "Literature",
+            fixed: 20,
+            fixedSections: [
+              {
+                label: "Extract (RTC)",
+                marks: 5,
+                count: 5,
+                perQ: 1,
+                qType: "mcq",
+              },
+              { label: "Short Answer", marks: 9, count: 3, perQ: 3 },
+              { label: "Long Answer", marks: 6, count: 1, perQ: 6 },
+            ],
+          },
+        ],
+        inst: [
+          "Section A: 10 Marks",
+          "Section B: 10 Marks",
+          "Section C: 20 Marks",
+        ],
+      },
+      Hindi: {
+        code: '002', fullName: 'हिन्दी (Periodic Test)', time: '1.5 Hours', maxMarks: 40, lang: 'hi',
+        sections: [
+          { id: 'अ', title: 'खण्ड अ', desc: 'अपठित एवं व्याकरण', perQ: 1, count: 10, qType: 'mcq' },
+          { id: 'ब', title: 'खण्ड ब', desc: 'पाठ्यपुस्तक (क्षितिज)', perQ: 2, count: 5 },
+          { id: 'स', title: 'खण्ड स', desc: 'पूरक पुस्तक एवं लेखन', perQ: 4, count: 5 }
+        ],
+        inst: ['कुल 20 प्रश्न।', 'सभी प्रश्न अनिवार्य हैं।']
+      },
+      Sanskrit: {
+        code: '122', fullName: 'संस्कृतम् (Periodic Test)', time: '1.5 Hours', maxMarks: 40, lang: 'sa',
+        sections: [
+          { id: 'क', title: 'खण्डः क', desc: 'व्याकरणम्', perQ: 1, count: 10, qType: 'mcq' },
+          { id: 'ख', title: 'खण्डः ख', desc: 'पठित-अवबोधनम्', perQ: 2, count: 5 },
+          { id: 'ग', title: 'खण्डः ग', desc: 'रचनात्मक-कार्यम्', perQ: 5, count: 2 }
+        ],
+        inst: ['सर्वे प्रश्नाः अनिवार्याः।']
+      },
+    };
 
-      function goToSettingsStage() {
-        if (!selectedSubject) return;
-        setSetupStage("settings");
-      }
+    function setSetupStage(stage) {
+      setupStage = stage;
+      const subjectStage = document.getElementById("stage-subject");
+      const settingsStage = document.getElementById("stage-settings");
+      const miniTitle = document.getElementById("mini-title");
+      const err = document.getElementById("error-msg");
 
-      function updateStepStateUI() {
-        const hasSubject = Boolean(selectedSubject);
-        const hasDiff = Boolean(selectedDiff);
-        const hasMode = Boolean(selectedMode);
-        const createBtn = document.getElementById("create-btn");
-        const step = document.getElementById("step-state");
+      subjectStage.classList.toggle("active", stage === "subject");
+      settingsStage.classList.toggle("active", stage === "settings");
 
-        document.querySelectorAll(".diff-level-btn").forEach((b) => {
-          b.disabled = !hasSubject;
-        });
-        document.querySelectorAll(".mode-btn").forEach((b) => {
-          b.disabled = !hasDiff;
-        });
-
-        createBtn.disabled = !(hasSubject && hasDiff && hasMode);
-
-        if (step) {
-          if (!hasSubject) {
-            step.textContent = "Choose subject first.";
-          } else if (!hasDiff) {
-            step.textContent = "Now choose difficulty.";
-          } else if (!hasMode) {
-            step.textContent = "Now choose type of test.";
-          } else {
-            step.textContent = `Ready: ${selectedSubject} | ${selectedDiff} | ${selectedMode}`;
-          }
+      if (miniTitle) {
+        if (stage === "subject") {
+          miniTitle.textContent = "Select Subject";
+        } else {
+          const subjectForTitle = selectedSubject || "Paper";
+          miniTitle.textContent = `${subjectForTitle} Blueprint Setup`;
         }
       }
+      if (err) err.style.display = "none";
+    }
 
-      function setSubject(btn, s) {
-        document
-          .querySelectorAll(".subject-btn")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        selectedSubject = s === "Maths" ? "Mathematics" : s;
+    function goToSubjectStage() {
+      setSetupStage("subject");
+    }
 
-        selectedDiff = null;
-        selectedMode = null;
-        document
-          .querySelectorAll(".diff-level-btn, .mode-btn")
-          .forEach((b) => b.classList.remove("active"));
-        updateStepStateUI();
-        goToSettingsStage();
-      }
+    function goToSettingsStage() {
+      if (!selectedSubject) return;
+      setSetupStage("settings");
+    }
 
-      function setDiff(btn, d) {
-        if (!selectedSubject) return;
-        document
-          .querySelectorAll(".diff-level-btn")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        selectedDiff = d;
+    function updateStepStateUI() {
+      const hasSubject = Boolean(selectedSubject);
+      const hasDiff = Boolean(selectedDiff);
+      const hasMode = Boolean(selectedMode);
+      const createBtn = document.getElementById("create-btn");
+      const step = document.getElementById("step-state");
 
-        selectedMode = null;
-        document
-          .querySelectorAll(".mode-btn")
-          .forEach((b) => b.classList.remove("active"));
-        updateStepStateUI();
-      }
+      document.querySelectorAll(".diff-level-btn").forEach((b) => {
+        b.disabled = !hasSubject;
+      });
+      document.querySelectorAll(".mode-btn").forEach((b) => {
+        b.disabled = !hasDiff;
+      });
 
-      function setMode(btn, m) {
-        if (!selectedDiff) return;
-        document
-          .querySelectorAll(".mode-btn")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        selectedMode = m;
-        updateStepStateUI();
-      }
+      createBtn.disabled = !(hasSubject && hasDiff && hasMode);
 
-      function parseFig(text) {
-        const imgM = text.match(/\[Image:\s*([^\]]+)\]/i);
-        const figM = text.match(/\[Figure:\s*([^\]]+)\]/i);
-        const diagM = text.match(/\[Diagram:\s*([^\]]+)\]/i);
-        const m = imgM || figM || diagM;
-        if (m)
-          return { url: m[1].trim(), clean: text.replace(m[0], "").trim() };
-        return { url: null, clean: text };
-      }
-
-      // Verix Engine v3.1 (Atlantis Recovery Build)
-      async function createPaper() {
-        const btn = document.getElementById("create-btn");
-        const err = document.getElementById("error-msg");
-        if (!selectedSubject || !selectedDiff || !selectedMode) {
-          err.textContent = "Complete Subject, Difficulty and Test Type first.";
-          err.style.display = "block";
-          updateStepStateUI();
-          return;
+      if (step) {
+        if (!hasSubject) {
+          step.textContent = "Choose subject first.";
+        } else if (!hasDiff) {
+          step.textContent = "Now choose difficulty.";
+        } else if (!hasMode) {
+          step.textContent = "Now choose type of test.";
+        } else {
+          step.textContent = `Ready: ${selectedSubject} | ${selectedDiff} | ${selectedMode}`;
         }
-        btn.disabled = true;
-        btn.textContent = "Generating...";
-        err.style.display = "none";
-        try {
-          const blueprints = selectedMode === "UT" ? BLUEPRINTS_UT : BLUEPRINTS;
-          let bp = blueprints[selectedSubject];
+      }
+    }
 
-          if (!bp) {
-            bp = {
-              fullName: selectedSubject,
-              code: "000",
-              time: "3 Hours",
-              maxMarks: 80,
-              inst: [
-                "All questions are compulsory.",
-                "Attempt all questions in sequence.",
-              ],
-              sections: [
-                {
-                  id: "A",
-                  title: "General Section",
-                  desc: "Mixed Pattern Review",
-                  perQ: 1,
-                  count: 30,
-                },
-              ],
-            };
-          }
+    function setSubject(btn, s) {
+      document
+        .querySelectorAll(".subject-btn")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedSubject = s === "Maths" ? "Mathematics" : s;
 
-          // V3.4: Randomized Retrieval Engine (RPC)
-          const fetchRandom = async (sub, marks, lim = 25) => {
-            const { data, error } = await db.rpc("get_random_questions", {
-              sub: sub,
-              m: marks,
-              lim: lim,
-              diff: selectedDiff !== "Mixed" ? selectedDiff : null
-            });
+      selectedDiff = null;
+      selectedMode = null;
+      document
+        .querySelectorAll(".diff-level-btn, .mode-btn")
+        .forEach((b) => b.classList.remove("active"));
+      updateStepStateUI();
+      goToSettingsStage();
+    }
 
-            if (error) {
-              let query = db
-                .from("class9_question_bank")
-                .select("*")
-                .eq("subject", sub)
-                .eq("marks", marks);
+    function setDiff(btn, d) {
+      if (!selectedSubject) return;
+      document
+        .querySelectorAll(".diff-level-btn")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedDiff = d;
 
-              if (selectedDiff !== "Mixed") {
-                query = query.eq("difficulty", selectedDiff);
-              }
+      selectedMode = null;
+      document
+        .querySelectorAll(".mode-btn")
+        .forEach((b) => b.classList.remove("active"));
+      updateStepStateUI();
+    }
 
-              const { data: fbData } = await query.limit(lim);
-              return (fbData || []).sort(() => Math.random() - 0.5);
-            }
-            return data || [];
+    function setMode(btn, m) {
+      if (!selectedDiff) return;
+      document
+        .querySelectorAll(".mode-btn")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedMode = m;
+      updateStepStateUI();
+    }
+
+    function parseFig(text) {
+      const imgM = text.match(/\[Image:\s*([^\]]+)\]/i);
+      const figM = text.match(/\[Figure:\s*([^\]]+)\]/i);
+      const diagM = text.match(/\[Diagram:\s*([^\]]+)\]/i);
+      const m = imgM || figM || diagM;
+      if (m)
+        return { url: m[1].trim(), clean: text.replace(m[0], "").trim() };
+      return { url: null, clean: text };
+    }
+
+    // Verix Engine v3.1 (Atlantis Recovery Build)
+    async function createPaper() {
+      const btn = document.getElementById("create-btn");
+      const err = document.getElementById("error-msg");
+      if (!selectedSubject || !selectedDiff || !selectedMode) {
+        err.textContent = "Complete Subject, Difficulty and Test Type first.";
+        err.style.display = "block";
+        updateStepStateUI();
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "Generating...";
+      err.style.display = "none";
+      try {
+        const blueprints = selectedMode === "UT" ? BLUEPRINTS_UT : BLUEPRINTS;
+        let bp = blueprints[selectedSubject];
+
+        if (!bp) {
+          bp = {
+            fullName: selectedSubject,
+            code: "000",
+            time: "3 Hours",
+            maxMarks: 80,
+            inst: [
+              "All questions are compulsory.",
+              "Attempt all questions in sequence.",
+            ],
+            sections: [
+              {
+                id: "A",
+                title: "General Section",
+                desc: "Mixed Pattern Review",
+                perQ: 1,
+                count: 30,
+              },
+            ],
           };
+        }
 
-          // Dynamic Pool Harvester V3.6
-          const neededMarks = new Set([1]); // Always need 1-mark for fallback
-          bp.sections.forEach((sec) => {
-            if (sec.perQ) neededMarks.add(sec.perQ);
-            if (sec.fixedSections)
-              sec.fixedSections.forEach((fs) => {
-                if (fs.perQ) neededMarks.add(fs.perQ);
-              });
-          });
+        // V5.0: Master View Engine — strictly fetches from pre-aggregated SQL Views
+        const usedIds = [];
 
-          const fetchResults = await Promise.all(
-            Array.from(neededMarks).map(async (m) => {
-              const questions = await fetchRandom(selectedSubject, m, 30);
-              return [m, questions];
-            }),
-          );
+        const getViewName = (sub, marks, qType) => {
+          const s = sub.toLowerCase();
+          if (s.includes("science") && !s.includes("social")) {
+            if (marks === 1) return "view_science_1_markers";
+            if (marks === 2) return "view_science_2_markers";
+            if (marks === 3) return "view_science_3_markers";
+            if (marks === 5) return "view_science_5_markers";
+            if (qType === "case") return "view_science_case_studies";
+          } else if (s.includes("math")) {
+            if (marks === 1) return "view_math_1_markers";
+            if (marks === 2) return "view_math_2_markers";
+            if (marks === 3) return "view_math_3_markers";
+            if (marks === 5) return "view_math_5_markers";
+            if (qType === "case") return "view_math_case_studies";
+          } else if (s.includes("social")) {
+            if (marks === 1) return "view_sst_1_markers";
+            if (marks === 3) return "view_sst_3_markers";
+            if (marks === 5) return "view_sst_5_markers";
+            if (qType === "case") return "view_sst_case_studies";
+            if (qType === "map") return "view_sst_map_questions";
+          } else if (s.includes("english")) {
+            if (qType === "reading") return "view_english_reading";
+            if (qType === "writing") return "view_english_writing";
+            if (qType === "grammar") return "view_english_grammar";
+            return "view_english_literature"; // default literature fallback
+          }
+          return null;
+        };
 
-          // Add 'all' pool for general fallback
-          const vAll = await fetchRandom(selectedSubject, 1, 50);
-          const POOLS = Object.fromEntries(fetchResults);
-          POOLS["all"] = vAll;
+        const fetchByView = async (sub, marks, qType = null, lim = 35) => {
+          const viewName = getViewName(sub, marks, qType);
 
-          paperCount++;
-          currentAnswers = [];
-          let gNum = 0,
-            used = new Set();
-          let html = renderPaperCore(bp, selectedMode);
+          let query = viewName
+            ? db.from(viewName).select("*")
+            : db.from("class9_question_bank").select("*").ilike("subject", `%${sub}%`).eq("marks", marks);
 
-          bp.sections.forEach((sec) => {
-            let marks =
-              sec.perQ ||
-              (sec.qType === "case" ? 4 : sec.qType === "map" ? 5 : 1);
-            let pool = [...(POOLS[marks] || [])].filter((q) => !used.has(q.id));
-            let startQ = gNum + 1;
-            let secCount = 0;
-            let tempHtml = "";
+          // Filter out used IDs globally across sections
+          if (usedIds.length > 0) {
+            query = query.not("id", "in", `(${usedIds.join(",")})`);
+          }
 
-            // COORDINATOR: Handle Empty Pools - NO MCQ BLEED (V3.4)
-            if (pool.length < sec.count && sec.count > 0) {
-              // Only fallback to 'all' if the question type matches or it's a general section
-              const fallbackPool = [...POOLS["all"]].filter((q) => {
-                if (used.has(q.id)) return false;
-                if (marks >= 3 && q.marks < 3) return false; // Strict Subjective Shield
-                return true;
-              });
-              pool = [...pool, ...fallbackPool];
-            }
+          // Only apply difficulty if not Mixed and if fetching from base table (views don't inherently filter difficulty)
+          if (selectedDiff !== "Mixed") {
+            query = query.eq("difficulty", selectedDiff);
+          }
+          // Add qType filter if we fell back to the base table
+          if (!viewName && qType) {
+            query = query.ilike("question_type", `%${qType}%`);
+          }
 
-            if (sec.count > 0) {
-              for (let i = 0; i < sec.count; i++) {
-                let q = pool.find((p) => !used.has(p.id));
+          const { data, error } = await query.limit(lim);
+          if (error) console.error("Supabase View Error:", error);
 
-                if (!q) {
-                  gNum++;
-                  secCount++;
-                  tempHtml += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">
+          return (data || []).sort(() => Math.random() - 0.5);
+        };
+
+        // Build pools for each section's required marks + question type
+        const POOLS = {};
+        const poolKeys = [];
+
+        bp.sections.forEach((sec) => {
+          if (sec.perQ) poolKeys.push({ marks: sec.perQ, qType: sec.qType || null });
+          if (sec.fixedSections)
+            sec.fixedSections.forEach((fs) => {
+              if (fs.perQ) poolKeys.push({ marks: fs.perQ, qType: fs.qType || null });
+            });
+        });
+
+        // Deduplicate pool keys
+        const uniqueKeys = [];
+        const seen = new Set();
+        poolKeys.forEach((k) => {
+          const key = `${k.marks}|${k.qType}`;
+          if (!seen.has(key)) { seen.add(key); uniqueKeys.push(k); }
+        });
+
+        await Promise.all(uniqueKeys.map(async ({ marks, qType }) => {
+          const key = `${marks}|${qType}`;
+          POOLS[key] = await fetchByView(selectedSubject, marks, qType, 40);
+        }));
+
+        // MCQ general fallback pool (1-mark, no type restriction)
+        POOLS["1|null"] = POOLS["1|null"] || await fetchByView(selectedSubject, 1, null, 50);
+        POOLS["all"] = POOLS["1|null"];
+
+        const getPool = (marks, qType) => POOLS[`${marks}|${qType}`] || POOLS[`${marks}|null`] || POOLS["all"] || [];
+
+        paperCount++;
+        currentAnswers = [];
+        let gNum = 0;
+        let used = new Set(); // tracks used question IDs
+        let html = renderPaperCore(bp, selectedMode);
+
+        bp.sections.forEach((sec) => {
+          const marks = sec.perQ || (sec.qType === "case" ? 4 : sec.qType === "map" ? 5 : 1);
+          const qType = sec.qType || null;
+
+          // Pull from the strictly typed pool first
+          let pool = getPool(marks, qType).filter((q) => !used.has(q.id));
+
+          // Graceful top-up: fill shortage only with same-marks questions (no MCQ bleed into subjective)
+          if (pool.length < sec.count && sec.count > 0 && marks >= 2) {
+            const topUp = (POOLS[`${marks}|null`] || []).filter((q) => {
+              if (used.has(q.id)) return false;
+              if (marks >= 2 && q.marks !== marks) return false; // strict same-marks
+              return true;
+            });
+            pool = [...pool, ...topUp];
+          }
+
+          let startQ = gNum + 1;
+          let secCount = 0;
+          let tempHtml = "";
+
+
+          if (sec.count > 0) {
+            for (let i = 0; i < sec.count; i++) {
+              let q = pool.find((p) => !used.has(p.id));
+
+              if (!q) {
+                gNum++;
+                secCount++;
+                tempHtml += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">
                                     <div style="background:#fefce8;border:1px dashed #eab308;padding:16px;border-radius:4px;color:#854d0e;font-size:0.85rem">
                                         <strong>Question Pending</strong> — Verix Harvester v2.1 is currently scraping additional ${marks}-mark questions for ${selectedSubject}.
                                     </div>
                                 </div><span class="q-marks">[${marks}]</span></div>`;
-                  continue;
-                }
-
-                gNum++;
-                secCount++;
-                used.add(q.id);
-
-                // V3.5 Diagram/Map/Data Cues
-                if (
-                  sec.forceMap ||
-                  (sec.qType === "map" && selectedSubject === "Social Science")
-                ) {
-                  q.diagram_url =
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/India_map_political.svg/800px-India_map_political.svg.png";
-                  q.question_text = `**Map Pointing (Section F):** (a) Two Historical locations identified. (b) Three Geographical features identified. \n\n ${q.question_text}`;
-                }
-                if (
-                   sec.forceDiagram ||
-                   (sec.qType === "diagram")
-                ) {
-                   q.diagram_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Anatomy_of_the_Human_Ear.svg/600px-Anatomy_of_the_Human_Ear.svg.png";
-                   q.question_text = `**Diagram Based Question:** Observe the diagram below and answer the following questions. \n\n ${q.question_text || ""}`;
-                }
-                if (
-                  sec.forceDataCue ||
-                  (sec.id === "B" &&
-                    selectedSubject === "English" &&
-                    i === sec.count - 1)
-                ) {
-                  q.diagram_url =
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simple_bar_graph.svg/600px-Simple_bar_graph.svg.png";
-                  q.question_text = `**Analytical Writing:** Based on the visual data provided below, write an analytical paragraph... \n\n ${q.question_text || ""}`;
-                }
-
-                const isAR =
-                  (sec.hasAR || q.question_type?.includes("Assertion")) &&
-                  gNum >= (sec.arStart || 999);
-
-                if (sec.qType === "case" || q.question_type?.includes("Case")) {
-                  tempHtml += renderCase(q, gNum, sec);
-                } else {
-                  tempHtml += renderQ(q, gNum, marks || q.marks, { isAR });
-                }
-                if (q.correct_answer)
-                  currentAnswers.push({ num: gNum, ans: q.correct_answer });
+                continue;
               }
-            }
 
-            if (sec.fixed && sec.fixedSections) {
-              sec.fixedSections.forEach((fs) => {
-                tempHtml += `<div style="font-weight:700;font-size:1rem;margin:24px 0 16px;color:#000;border-bottom:1px solid #eee">${fs.label}</div>`;
-                if (fs.count > 0) {
-                  let fsPool = [...(POOLS[fs.perQ] || POOLS[1])].filter(
-                    (q) => !used.has(q.id),
-                  );
-                  for (let i = 0; i < fs.count; i++) {
-                    let q = fsPool.find((p) => !used.has(p.id));
-                    if (q) {
-                      gNum++;
-                      used.add(q.id);
-                      tempHtml += renderQ(q, gNum, fs.perQ);
-                    }
+              gNum++;
+              secCount++;
+              used.add(q.id);
+              usedIds.push(q.id); // global dedup for RPC calls
+
+              // V3.5 Diagram/Map/Data Cues
+              if (
+                sec.forceMap ||
+                (sec.qType === "map" && selectedSubject === "Social Science")
+              ) {
+                q.diagram_url =
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/India_map_political.svg/800px-India_map_political.svg.png";
+                q.question_text = `**Map Pointing (Section F):** (a) Two Historical locations identified. (b) Three Geographical features identified. \n\n ${q.question_text}`;
+              }
+              if (
+                sec.forceDiagram ||
+                (sec.qType === "diagram")
+              ) {
+                q.diagram_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Anatomy_of_the_Human_Ear.svg/600px-Anatomy_of_the_Human_Ear.svg.png";
+                q.question_text = `**Diagram Based Question:** Observe the diagram below and answer the following questions. \n\n ${q.question_text || ""}`;
+              }
+              if (
+                sec.forceDataCue ||
+                (sec.id === "B" &&
+                  selectedSubject === "English" &&
+                  i === sec.count - 1)
+              ) {
+                q.diagram_url =
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simple_bar_graph.svg/600px-Simple_bar_graph.svg.png";
+                q.question_text = `**Analytical Writing:** Based on the visual data provided below, write an analytical paragraph... \n\n ${q.question_text || ""}`;
+              }
+
+              const isAR =
+                (sec.hasAR || q.question_type?.includes("Assertion")) &&
+                gNum >= (sec.arStart || 999);
+
+              if (sec.qType === "case" || q.question_type?.includes("Case")) {
+                tempHtml += renderCase(q, gNum, sec);
+              } else {
+                tempHtml += renderQ(q, gNum, marks || q.marks, { isAR });
+              }
+              if (q.correct_answer)
+                currentAnswers.push({ num: gNum, ans: q.correct_answer });
+            }
+          }
+
+          if (sec.fixed && sec.fixedSections) {
+            sec.fixedSections.forEach((fs) => {
+              tempHtml += `<div style="font-weight:700;font-size:1rem;margin:24px 0 16px;color:#000;border-bottom:1px solid #eee">${fs.label}</div>`;
+              if (fs.count > 0 && fs.perQ) {
+                let fsPool = getPool(fs.perQ, fs.qType || null).filter((q) => !used.has(q.id));
+                for (let i = 0; i < fs.count; i++) {
+                  let q = fsPool.find((p) => !used.has(p.id));
+                  if (q) {
+                    gNum++;
+                    used.add(q.id);
+                    usedIds.push(q.id);
+                    tempHtml += renderQ(q, gNum, fs.perQ);
+                  } else {
+                    gNum++;
+                    tempHtml += `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body"><div style="background:#fefce8;border:1px dashed #eab308;padding:16px;border-radius:4px;color:#854d0e;font-size:0.85rem"><strong>Question Pending</strong> — Run the PDF Shredder to add more ${fs.perQ}-mark ${fs.label} questions.</div></div><span class="q-marks">[${fs.perQ}]</span></div>`;
                   }
-                } else if (fs.fixedNote) {
-                  tempHtml += `<div class="passage-box">${fs.fixedNote}</div>`;
                 }
-              });
-            }
+              } else if (fs.fixedNote) {
+                tempHtml += `<div class="passage-box">${fs.fixedNote}</div>`;
+              }
+            });
+          }
 
-            if (tempHtml) {
-              html += `<div class="section-header">${sec.title} — ${sec.desc} <span class="q-range">Q.${startQ} to Q.${gNum}</span></div>`;
-              html += tempHtml;
-            }
-          });
+          if (tempHtml) {
+            html += `<div class="section-header">${sec.title} — ${sec.desc} <span class="q-range">Q.${startQ} to Q.${gNum}</span></div>`;
+            html += tempHtml;
+          }
+        });
 
-          html += `<div style="text-align:center;margin-top:100px;font-size:0.8rem;color:var(--text-dim);padding-top:40px">— End of Question Paper —</div></div>`;
-          document.getElementById("paper-content").innerHTML = html;
-          document.getElementById("selection-view").style.display = "none";
-          document.getElementById("paper-view").style.display = "block";
-          updateStatsBar(gNum);
-        } catch (e) {
-          err.textContent = e.message;
-          err.style.display = "block";
-        } finally {
-          btn.disabled = !(selectedSubject && selectedDiff && selectedMode);
-          btn.textContent = "Generate Question Paper";
-        }
+        html += `<div style="text-align:center;margin-top:100px;font-size:0.8rem;color:var(--text-dim);padding-top:40px">— End of Question Paper —</div></div>`;
+        document.getElementById("paper-content").innerHTML = html;
+        document.getElementById("selection-view").style.display = "none";
+        document.getElementById("paper-view").style.display = "block";
+        updateStatsBar(gNum);
+      } catch (e) {
+        err.textContent = e.message;
+        err.style.display = "block";
+      } finally {
+        btn.disabled = !(selectedSubject && selectedDiff && selectedMode);
+        btn.textContent = "Generate Question Paper";
       }
+    }
 
-      function renderPaperCore(bp, mode) {
-        return `<div class="paper ${bp.lang || ""}">
+    function renderPaperCore(bp, mode) {
+      return `<div class="paper ${bp.lang || ""}">
                 <div class="paper-header">
                     <div class="school-line">Central Board of Secondary Education</div>
                     <div class="exam-line">${mode === "UT" ? "PERIODIC TEST" : "ANNUAL EXAMINATION"} (2025-26)</div>
@@ -1828,31 +1821,31 @@
                     <strong>General Instructions:</strong>
                     <ol>${bp.inst.map((i) => `<li>${i}</li>`).join("")}</ol>
                 </div>`;
-      }
+    }
 
-      function validateUrl(url) {
-        if (!url) return false;
-        return (
-          url.startsWith("http") ||
-          url.startsWith("https") ||
-          url.startsWith("data:image")
-        );
-      }
+    function validateUrl(url) {
+      if (!url) return false;
+      return (
+        url.startsWith("http") ||
+        url.startsWith("https") ||
+        url.startsWith("data:image")
+      );
+    }
 
-      function renderQ(q, num, marks, opts = {}) {
-        const raw = q.question_text || "";
-        const fig = parseFig(raw);
-        let url = validateUrl(q.diagram_url || fig.url)
-          ? q.diagram_url || fig.url
-          : null;
-        let text = fig.clean;
-        let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
+    function renderQ(q, num, marks, opts = {}) {
+      const raw = q.question_text || "";
+      const fig = parseFig(raw);
+      let url = validateUrl(q.diagram_url || fig.url)
+        ? q.diagram_url || fig.url
+        : null;
+      let text = fig.clean;
+      let html = `<div class="question"><span class="q-num">${num}.</span><div class="q-body">`;
 
-        if (url)
-          html += `<div class="figure-box"><img src="${url}" class="q-image" referrerpolicy="no-referrer" onerror="this.style.display='none';"></div>`;
+      if (url)
+        html += `<div class="figure-box"><img src="${url}" class="q-image" referrerpolicy="no-referrer" onerror="this.style.display='none';"></div>`;
 
-        if (opts.isAR) {
-          html += `<div class="assertion-block">
+      if (opts.isAR) {
+        html += `<div class="assertion-block">
                     <p><span class="ar-label">Assertion (A):</span> ${text}</p>
                     <p><span class="ar-label">Reason (R):</span> ${q.correct_answer_explanation || "The reason provided explains the assertion."}</p>
                     <div class="mcq-options single-col">
@@ -1862,86 +1855,98 @@
                         <div class="mcq-opt">(d) A is false but R is true.</div>
                     </div>
                 </div>`;
-        } else if (q.option_a) {
-          const singleCol =
-            text.length > 100 || (q.option_a && q.option_a.length > 40);
-          html += `<p>${text}</p><div class="mcq-options ${singleCol ? "single-col" : ""}">
+      } else if (q.options && typeof q.options === "object" && Object.keys(q.options).length > 0) {
+        // Read from JSONB options column (keys: A/B/C/D or a/b/c/d)
+        const opts = q.options;
+        const keys = Object.keys(opts);
+        const firstVal = opts[keys[0]] || "";
+        const singleCol = text.length > 100 || firstVal.length > 40;
+        html += `<p>${text}</p><div class="mcq-options ${singleCol ? "single-col" : ""}">`;
+        keys.forEach((k) => {
+          html += `<div class="mcq-opt">(${k.toLowerCase()}) ${opts[k]}</div>`;
+        });
+        html += `</div>`;
+      } else if (q.option_a) {
+        // Legacy fallback: separate column format
+        const singleCol = text.length > 100 || q.option_a.length > 40;
+        html += `<p>${text}</p><div class="mcq-options ${singleCol ? "single-col" : ""}">
                     <div class="mcq-opt">(a) ${q.option_a}</div>
                     <div class="mcq-opt">(b) ${q.option_b}</div>
                     <div class="mcq-opt">(c) ${q.option_c}</div>
                     <div class="mcq-opt">(d) ${q.option_d}</div>
                 </div>`;
-        } else {
-          html += `<p>${text}</p>`;
-        }
-
-        html += `</div><span class="q-marks">[${marks}]</span></div>`;
-        return html;
+      } else {
+        html += `<p>${text}</p>`;
       }
 
-      function renderCase(q, gNum, sec) {
-        const fig = parseFig(q.question_text || "");
-        let url = validateUrl(q.diagram_url || fig.url)
-          ? q.diagram_url || fig.url
-          : null;
-        let html = `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">`;
-        if (url)
-          html += `<div class="figure-box"><img src="${url}" class="q-image" referrerpolicy="no-referrer" onerror="this.style.display='none';"></div>`;
-        const caseText = fig.clean;
-        const subMatch = caseText.match(/\((i|a)\)/);
-        if (subMatch) {
-          const passage = caseText.substring(0, subMatch.index).trim();
-          const subText = caseText.substring(subMatch.index);
-          html += `<div class="passage-box">${passage}</div>`;
-          const subs = subText.match(/\((?:i|ii|iii|iv|a|b|c|d)\)[^(]*/g);
-          if (subs) {
-            html += `<div class="sub-parts">`;
-            subs.forEach((s, idx) => {
-              const m =
-                sec.caseSubParts && sec.caseSubParts[idx]
-                  ? sec.caseSubParts[idx]
-                  : 1;
-              html += `<div class="sub-part">${s.trim()} <span class="q-marks">[${m}]</span></div>`;
-            });
-            html += `</div>`;
-          }
-        } else {
-          html += `<div class="passage-box">${caseText}</div>`;
-        }
-        html += `</div><span class="q-marks">[${sec.perQ}]</span></div>`;
-        return html;
-      }
+      html += `</div><span class="q-marks">[${marks}]</span></div>`;
+      return html;
+    }
 
-      function toggleAnswers() {
-        const btn = document.getElementById("ans-btn");
-        const existing = document.getElementById("answer-key-section");
-        if (existing) {
-          existing.remove();
-          btn.textContent = "Show Answer Key";
-        } else {
-          let html = `<div id="answer-key-section" class="answer-key"><h3>Answer Key / Marking Scheme</h3><div class="ak-grid">`;
-          currentAnswers.forEach((a) => {
-            html += `<div class="ak-item">Q.${a.num}: <strong>${a.ans}</strong></div>`;
+    function renderCase(q, gNum, sec) {
+      const fig = parseFig(q.question_text || "");
+      let url = validateUrl(q.diagram_url || fig.url)
+        ? q.diagram_url || fig.url
+        : null;
+      let html = `<div class="question"><span class="q-num">${gNum}.</span><div class="q-body">`;
+      if (url)
+        html += `<div class="figure-box"><img src="${url}" class="q-image" referrerpolicy="no-referrer" onerror="this.style.display='none';"></div>`;
+      const caseText = fig.clean;
+      const subMatch = caseText.match(/\((i|a)\)/);
+      if (subMatch) {
+        const passage = caseText.substring(0, subMatch.index).trim();
+        const subText = caseText.substring(subMatch.index);
+        html += `<div class="passage-box">${passage}</div>`;
+        const subs = subText.match(/\((?:i|ii|iii|iv|a|b|c|d)\)[^(]*/g);
+        if (subs) {
+          html += `<div class="sub-parts">`;
+          subs.forEach((s, idx) => {
+            const m =
+              sec.caseSubParts && sec.caseSubParts[idx]
+                ? sec.caseSubParts[idx]
+                : 1;
+            html += `<div class="sub-part">${s.trim()} <span class="q-marks">[${m}]</span></div>`;
           });
-          html += `</div></div>`;
-          document
-            .getElementById("paper-content")
-            .insertAdjacentHTML("beforeend", html);
-          btn.textContent = "Hide Answer Key";
-          window.scrollTo(0, document.body.scrollHeight);
+          html += `</div>`;
         }
+      } else {
+        html += `<div class="passage-box">${caseText}</div>`;
       }
+      html += `</div><span class="q-marks">[${sec.perQ}]</span></div>`;
+      return html;
+    }
 
-      function updateStatsBar(gCount) {
-        document.getElementById("stats-bar").innerHTML = `
+    function toggleAnswers() {
+      const btn = document.getElementById("ans-btn");
+      const existing = document.getElementById("answer-key-section");
+      if (existing) {
+        existing.remove();
+        btn.textContent = "Show Answer Key";
+      } else {
+        let html = `<div id="answer-key-section" class="answer-key"><h3>Answer Key / Marking Scheme</h3><div class="ak-grid">`;
+        currentAnswers.forEach((a) => {
+          html += `<div class="ak-item">Q.${a.num}: <strong>${a.ans}</strong></div>`;
+        });
+        html += `</div></div>`;
+        document
+          .getElementById("paper-content")
+          .insertAdjacentHTML("beforeend", html);
+        btn.textContent = "Hide Answer Key";
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    }
+
+    function updateStatsBar(gCount) {
+      document.getElementById("stats-bar").innerHTML = `
                 <span>📄 ${selectedMode} • #${paperCount}</span>
                 <span>✅ ${gCount} Questions Generated</span>
-                <span>✨ Wispr Flow Engine V2.8</span>
+                <span>✨ Verix Engine V4.0 — CBSE Strict Blueprint</span>
             `;
-      }
+    }
 
-      setSetupStage("subject");
-      updateStepStateUI();
-    </script>
-  </body>
+    setSetupStage("subject");
+    updateStepStateUI();
+  </script>
+</body>
+
 </html>

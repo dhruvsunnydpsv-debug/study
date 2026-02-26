@@ -2,3 +2,6 @@ supabase
 httpx
 requests
 beautifulsoup4
+pymupdf
+google-generativeai
+Pillow
